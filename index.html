@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║          BENJAMIN COACHING — Site Web v2.0                   ║
-║          Deploy-Ready · Vercel / hébergement statique        ║
+║  BENJAMIN COACHING v5.0                                      ║
+║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
-║  STRUCTURE DE FICHIERS REQUISE :                             ║
-║                                                              ║
-║  benjamin-coaching/                                          ║
-║  ├── index.html              ← renommer ce fichier           ║
-║  └── assets/                                                 ║
-║      ├── benjamin-hero.png   ← photo PNG (fond noir)         ║
-║      ├── benjamin-gym.jpg    ← photo salle miroir            ║
-║      ├── reel-1.jpg  ← screenshot du post ben_fitparis/reel/DVRV-9bCLpF ║
-║      ├── reel-2.jpg  ← screenshot du post ben_fitparis/p/C2XzRn2sdHe   ║
-║      ├── reel-3.jpg  ← screenshot du post ben_fitparis/p/DAEoEuWOfzz   ║
-║      └── reel-4.jpg  ← screenshot du post quaisauvage/p/DL71AglIv4e    ║
+║  FICHIERS assets/ :                                          ║
+║  ├── benjamin-hero.png   photo PNG fond noir                 ║
+║  ├── benjamin-gym.jpg    photo salle / Hyrox                 ║
+║  ├── reel-1.webm / reel-1.mp4  + reel-1.jpg (poster)        ║
+║  ├── reel-2.webm / reel-2.mp4  + reel-2.jpg                 ║
+║  ├── reel-3.webm / reel-3.mp4  + reel-3.jpg                 ║
+║  └── reel-4.webm / reel-4.mp4  + reel-4.jpg                 ║
 ╠══════════════════════════════════════════════════════════════╣
-║  FORMSPREE (formulaire contact → email) :                    ║
-║  1. Créer compte sur formspree.io (gratuit)                  ║
-║  2. "New Form" → copier l'ID (ex: xrgvkpzb)                  ║
-║  3. Chercher "VOTRE_ID_FORMSPREE" dans ce fichier            ║
-║     et remplacer par votre ID                                ║
-╠══════════════════════════════════════════════════════════════╣
-║  TÉMOIGNAGES — Modifier le tableau TESTIMONIALS              ║
-║  dans la section <script> en bas du fichier.                 ║
-║  Le dernier élément du tableau s'affiche EN PREMIER.         ║
+║  FORMSPREE  → remplacer VOTRE_ID_FORMSPREE                   ║
+║  TÉMOIGNAGES → tableau TESTIMONIALS dans <script>            ║
 ╚══════════════════════════════════════════════════════════════╝
 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Benjamin Coaching · Coach sportif Paris 11 &amp; Online — Hyrox Prep</title>
-<meta name="description" content="Coaching sportif personnalisé à Paris 11 et en ligne. Transformation, force, conditioning, préparation Hyrox et bootcamps outdoor à Bercy."/>
-<meta name="author" content="Benjamin Coaching"/>
-<meta property="og:title" content="Benjamin Coaching — Paris 11 · Online · Hyrox"/>
-<meta property="og:description" content="Coach sportif certifié à Paris 11. Transformation, force et préparation Hyrox. Approche progressive, réaliste et humaine."/>
+<title>Benjamin Coaching · Coach sportif Paris &amp; Online — Hyrox Prep</title>
+<meta name="description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation, force, conditioning et préparation Hyrox."/>
+<meta property="og:title" content="Benjamin Coaching — Paris · Online · Hyrox"/>
 <meta property="og:type" content="website"/>
 <meta name="theme-color" content="#0A0A0B"/>
-
-<!-- Favicon inline — pas besoin de fichier séparé -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
-
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -51,94 +35,122 @@
    VARIABLES & RESET
 ══════════════════════════════════════════ */
 :root {
-  --bg:       #0A0A0B;
-  --surface:  #131314;
-  --border:   rgba(255,255,255,.10);
-  --lime:     #C8FF00;
-  --fg:       #FAFAFA;
-  --muted:    rgba(250,250,250,.55);
-  --muted2:   rgba(250,250,250,.72);
-  --radius:   0;
+  --bg:      #0A0A0B;
+  --surface: #111113;
+  --s2:      #161618;
+  --border:  rgba(255,255,255,.08);
+  --lime:    #C8FF00;
+  --fg:      #F4F4F4;
+  --muted:   rgba(244,244,244,.50);
+  --muted2:  rgba(244,244,244,.72);
+  --sp:      clamp(56px,7vw,96px);
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
 html { scroll-behavior:smooth }
 body {
-  background:var(--bg);
-  color:var(--fg);
-  font-family:'Inter',sans-serif;
-  font-size:14px;
-  line-height:1.6;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
+  background:var(--bg); color:var(--fg);
+  font-family:'Inter',sans-serif; font-size:15px; line-height:1.65;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
 }
 a { text-decoration:none; color:inherit }
 img { display:block; max-width:100% }
 button,input,select,textarea { font-family:inherit }
 
 /* ══════════════════════════════════════════
-   ANIMATIONS
+   ANIMATIONS GLOBALES
 ══════════════════════════════════════════ */
 .reveal {
-  opacity:0;
-  transform:translateY(22px);
-  transition:opacity .6s ease, transform .6s ease;
+  opacity:0; transform:translateY(18px);
+  transition:opacity .6s cubic-bezier(.2,.6,.3,1), transform .6s cubic-bezier(.2,.6,.3,1);
 }
-.reveal.visible { opacity:1; transform:translateY(0) }
+.reveal.visible { opacity:1; transform:none }
 
-@keyframes fadeSlideUp {
-  from { opacity:0; transform:translateY(18px) }
-  to   { opacity:1; transform:translateY(0) }
+@keyframes fadeUp    { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+@keyframes glowPulse { 0%,100%{opacity:.2} 50%{opacity:.32} }
+@keyframes shimmer   { from{background-position:200% center} to{background-position:-200% center} }
+@keyframes hyroxDrift {
+  0%  { transform:scale(1)    translate(0,0) }
+  33% { transform:scale(1.04) translate(-1%,-.5%) }
+  66% { transform:scale(1.03) translate(.8%,.4%) }
+  100%{ transform:scale(1)    translate(0,0) }
 }
-@keyframes pulse-glow {
-  0%,100% { opacity:.28 }
-  50%      { opacity:.38 }
+
+/* ── Icon animations (services spotlight) ── */
+/* déclenchées via .active sur la carte parente */
+
+/* Transformation — montée de flamme */
+@keyframes iconFlame {
+  0%   { transform:scale(1)    translateY(0) }
+  35%  { transform:scale(1.2)  translateY(-4px) }
+  65%  { transform:scale(1.06) translateY(-2px) }
+  100% { transform:scale(1)    translateY(0) }
+}
+/* Force — choc latéral → élargissement */
+@keyframes iconForce {
+  0%   { transform:scaleX(1) }
+  20%  { transform:scaleX(1.18) }
+  45%  { transform:scaleX(.93) }
+  70%  { transform:scaleX(1.09) }
+  100% { transform:scaleX(1) }
+}
+/* Conditioning — battement cardiaque */
+@keyframes iconPulse {
+  0%,100% { transform:scale(1) }
+  14%     { transform:scale(1.24) }
+  28%     { transform:scale(.95) }
+  42%     { transform:scale(1.16) }
+  70%     { transform:scale(.98) }
+}
+/* HYROX — pop dynamique */
+@keyframes iconPop {
+  0%   { transform:scale(1)    rotate(0deg) }
+  18%  { transform:scale(1.28) rotate(-8deg) }
+  38%  { transform:scale(.9)   rotate(5deg) }
+  62%  { transform:scale(1.12) rotate(-2deg) }
+  100% { transform:scale(1)    rotate(0deg) }
+}
+/* Nutrition — balancement doux */
+@keyframes iconSway {
+  0%   { transform:rotate(0deg) }
+  25%  { transform:rotate(-10deg) }
+  55%  { transform:rotate(6deg) }
+  80%  { transform:rotate(-3deg) }
+  100% { transform:rotate(0deg) }
+}
+/* Reprise — croissance depuis le bas */
+@keyframes iconGrow {
+  0%   { transform:scale(.7)  translateY(5px); opacity:.45 }
+  60%  { transform:scale(1.1) translateY(-1px); opacity:1 }
+  100% { transform:scale(1)   translateY(0);   opacity:1 }
 }
 
 /* ══════════════════════════════════════════
    NAVIGATION
+   Desktop : CTA "Prendre contact" visible
+   Mobile  : CTA masqué → floating button
 ══════════════════════════════════════════ */
 .nav {
-  position:fixed;
-  top:0; left:0; right:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
   padding:18px 40px;
-  background:rgba(10,10,11,.88);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transition:padding .3s;
+  background:rgba(10,10,11,.88); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:padding .3s, background .3s;
 }
-.nav.scrolled { padding:14px 40px }
-.nav-logo {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:20px;
-  letter-spacing:.14em;
-}
+.nav.scrolled { padding:13px 40px; background:rgba(10,10,11,.97) }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.15em }
 .nav-logo .dot { color:var(--lime) }
-.nav-right { display:flex; align-items:center; gap:32px }
+.nav-links { display:flex; align-items:center; gap:28px }
 .nav-link {
-  font-size:11px;
-  font-weight:500;
-  text-transform:uppercase;
-  letter-spacing:.22em;
-  color:rgba(250,250,250,.7);
-  transition:color .2s;
+  font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.22em;
+  color:rgba(244,244,244,.6); transition:color .2s;
 }
 .nav-link:hover { color:var(--lime) }
 .nav-cta {
-  display:inline-flex;
-  align-items:center;
-  height:36px;
-  padding:0 18px;
-  background:var(--lime);
-  color:#0A0A0B;
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.2em;
+  display:inline-flex; align-items:center; gap:7px;
+  height:34px; padding:0 16px;
+  background:var(--lime); color:#0A0A0B;
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.18em;
   transition:opacity .2s;
 }
 .nav-cta:hover { opacity:.88 }
@@ -147,875 +159,637 @@ button,input,select,textarea { font-family:inherit }
    HERO
 ══════════════════════════════════════════ */
 .hero {
-  position:relative;
-  isolation:isolate;
-  min-height:100svh;
-  display:flex;
-  align-items:flex-end;
-  overflow:hidden;
-  background:var(--bg);
+  position:relative; isolation:isolate;
+  min-height:100svh; display:flex; align-items:flex-end;
+  overflow:hidden; background:var(--bg);
 }
-/* Grain texture */
 .hero-noise {
-  position:absolute; inset:0; z-index:-3;
-  opacity:.06; mix-blend-mode:overlay;
+  position:absolute; inset:0; z-index:-3; opacity:.055; mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
-/* Vert lime halo */
 .hero-glow {
-  position:absolute; z-index:-2;
-  right:0; top:5%;
-  width:50%; height:80%;
-  border-radius:50%;
-  background:radial-gradient(circle at center, rgba(200,255,0,.26), transparent 68%);
-  filter:blur(80px);
-  pointer-events:none;
-  animation:pulse-glow 6s ease-in-out infinite;
+  position:absolute; z-index:-2; right:-2%; top:2%;
+  width:54%; height:84%; border-radius:50%;
+  background:radial-gradient(circle at center,rgba(200,255,0,.2),transparent 66%);
+  filter:blur(90px); pointer-events:none;
+  animation:glowPulse 7s ease-in-out infinite;
 }
-/* Photo desktop */
 .hero-photo-d {
-  position:absolute;
-  bottom:0; right:9%;
-  z-index:-2;
-  height:92%; width:auto;
-  object-fit:contain; object-position:bottom;
-  filter:contrast(1.08) brightness(.94) saturate(.96);
-  -webkit-mask-image:linear-gradient(to bottom,black 55%,transparent 100%);
-  mask-image:linear-gradient(to bottom,black 55%,transparent 100%);
+  position:absolute; bottom:0; right:8%; z-index:-2;
+  height:94%; width:auto; object-fit:contain; object-position:bottom;
+  filter:contrast(1.06) brightness(.95) saturate(.95);
+  -webkit-mask-image:linear-gradient(to bottom,black 52%,transparent 100%);
+  mask-image:linear-gradient(to bottom,black 52%,transparent 100%);
 }
-/* Photo mobile (recadrage haut) */
 .hero-photo-m {
-  position:absolute;
-  top:8%; right:-18%;
-  z-index:-2;
-  height:62%; width:auto;
-  object-fit:contain; object-position:top;
-  opacity:.88;
-  filter:contrast(1.04) brightness(.88) saturate(.95);
-  -webkit-mask-image:linear-gradient(to bottom,black 58%,transparent 100%);
-  mask-image:linear-gradient(to bottom,black 58%,transparent 100%);
+  position:absolute; top:0; left:50%; transform:translateX(-38%);
+  z-index:-2; height:80%; width:auto; object-fit:contain; object-position:top center;
+  opacity:.9; filter:contrast(1.04) brightness(.9) saturate(.94);
+  -webkit-mask-image:linear-gradient(to bottom,black 55%,transparent 94%);
+  mask-image:linear-gradient(to bottom,black 55%,transparent 94%);
   display:none;
 }
-/* Gradients de fondu */
 .hero-glr {
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to right,
-    var(--bg) 0%,
-    rgba(10,10,11,.94) 30%,
-    rgba(10,10,11,.28) 68%,
-    var(--bg) 100%);
+  background:linear-gradient(to right,var(--bg) 0%,rgba(10,10,11,.92) 28%,rgba(10,10,11,.2) 65%,var(--bg) 100%);
 }
 .hero-gtb {
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to bottom,
-    rgba(10,10,11,.35) 0%,
-    transparent 45%,
-    var(--bg) 100%);
+  background:linear-gradient(to bottom,rgba(10,10,11,.22) 0%,transparent 42%,var(--bg) 100%);
 }
-.hero-content {
-  position:relative;
-  width:100%;
-  padding:calc(72px + 40px) 40px 100px;
-}
+.hero-content { position:relative; width:100%; padding:calc(72px + 44px) 40px 84px }
 .hero-badge {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(10,10,11,.5);
-  backdrop-filter:blur(10px);
-  padding:7px 16px;
-  border-radius:9999px;
-  font-size:10px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.22em;
-  color:rgba(250,250,250,.75);
-  margin-bottom:22px;
-  animation:fadeSlideUp .7s .1s both;
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(255,255,255,.15); background:rgba(10,10,11,.45); backdrop-filter:blur(10px);
+  padding:6px 14px; border-radius:9999px;
+  font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.22em;
+  color:rgba(244,244,244,.7); margin-bottom:20px;
+  animation:fadeUp .65s .08s both;
 }
 .hero-badge svg { color:var(--lime) }
 .hero h1 {
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(68px,13.5vw,130px);
-  line-height:.86;
-  text-transform:uppercase;
-  max-width:820px;
-  animation:fadeSlideUp .7s .2s both;
+  font-size:clamp(62px,13vw,130px); line-height:.86; text-transform:uppercase; max-width:760px;
+  animation:fadeUp .65s .18s both;
 }
 .hero h1 .lime { color:var(--lime) }
 .hero-sub {
-  margin-top:26px;
-  font-size:16px;
-  color:rgba(250,250,250,.78);
-  max-width:460px;
-  line-height:1.65;
-  animation:fadeSlideUp .7s .35s both;
+  margin-top:22px; max-width:430px; font-size:15px;
+  color:rgba(244,244,244,.74); line-height:1.65;
+  animation:fadeUp .65s .3s both;
 }
-.hero-ctas {
-  margin-top:36px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  animation:fadeSlideUp .7s .48s both;
-}
+.hero-ctas { margin-top:30px; display:flex; flex-wrap:wrap; gap:11px; animation:fadeUp .65s .42s both }
 
 /* ══════════════════════════════════════════
-   BOUTONS GLOBAUX
+   BUTTONS
 ══════════════════════════════════════════ */
 .btn-lime {
   display:inline-flex; align-items:center; gap:8px;
-  height:48px; padding:0 28px;
+  height:48px; padding:0 26px;
   background:var(--lime); color:#0A0A0B;
-  font-size:12px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.22em;
-  border:none; cursor:pointer; border-radius:0;
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;
+  border:none; cursor:pointer; white-space:nowrap;
   transition:opacity .2s, transform .15s;
-  white-space:nowrap;
 }
 .btn-lime:hover { opacity:.88; transform:translateY(-1px) }
-.btn-lime:active { transform:translateY(0) }
+.btn-lime:active { transform:none }
 .btn-ghost {
   display:inline-flex; align-items:center; gap:8px;
-  height:48px; padding:0 28px;
-  border:1px solid rgba(250,250,250,.28);
-  background:transparent; color:var(--fg);
-  font-size:12px; font-weight:600;
-  text-transform:uppercase; letter-spacing:.22em;
-  cursor:pointer; border-radius:0;
+  height:48px; padding:0 26px;
+  border:1px solid rgba(244,244,244,.24); background:transparent; color:var(--fg);
+  font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.2em;
+  cursor:pointer; white-space:nowrap;
   transition:background .2s, border-color .2s;
-  white-space:nowrap;
 }
-.btn-ghost:hover {
-  background:rgba(250,250,250,.08);
-  border-color:rgba(250,250,250,.45);
-}
+.btn-ghost:hover { background:rgba(244,244,244,.07); border-color:rgba(244,244,244,.38) }
 
 /* ══════════════════════════════════════════
-   BADGES STRIP
-══════════════════════════════════════════ */
-.badges {
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  background:rgba(16,16,17,.5);
-}
-.badges-in {
-  max-width:1200px; margin:0 auto;
-  padding:40px 40px;
-}
-.badges-ul {
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:20px 12px;
-  list-style:none;
-}
-.badge-li {
-  display:flex; align-items:center; gap:12px;
-  font-size:11px; font-weight:600;
-  text-transform:uppercase; letter-spacing:.16em;
-  color:rgba(250,250,250,.82); line-height:1.3;
-}
-.badge-ic {
-  flex-shrink:0;
-  width:44px; height:44px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(200,255,0,.45);
-  background:rgba(200,255,0,.05);
-  color:var(--lime);
-  transition:background .25s;
-}
-.badge-li:hover .badge-ic { background:rgba(200,255,0,.10) }
-.badges-desc {
-  margin-top:36px;
-  max-width:600px;
-  font-size:15px; color:var(--muted); line-height:1.75;
-}
-.badges-desc strong { color:var(--fg); font-weight:400 }
-
-/* ══════════════════════════════════════════
-   SECTION HEADER PATTERN
+   SECTION LABEL
 ══════════════════════════════════════════ */
 .s-label {
-  display:flex; align-items:center; gap:12px;
-  font-size:10px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.25em;
-  color:var(--lime); margin-bottom:16px;
+  display:flex; align-items:center; gap:10px;
+  font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.26em;
+  color:var(--lime); margin-bottom:14px;
 }
-.s-label::before {
-  content:''; display:block;
-  width:28px; height:1px; background:var(--lime);
-}
+.s-label::before { content:''; display:block; width:22px; height:1px; background:var(--lime) }
 .s-h2 {
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(38px,5.2vw,68px);
-  line-height:.95; text-transform:uppercase;
+  font-size:clamp(34px,4.8vw,62px); line-height:.95; text-transform:uppercase;
 }
 .s-h2 .lime { color:var(--lime) }
 
 /* ══════════════════════════════════════════
-   TÉMOIGNAGES — Section remontée
+   LE COACH
 ══════════════════════════════════════════ */
-.testi-section {
-  background:var(--surface);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:88px 0;
-  overflow:hidden;
+.coach-section { background:var(--surface); border-bottom:1px solid var(--border); overflow:hidden }
+.coach-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr }
+.coach-img-wrap { position:relative; overflow:hidden; min-height:560px }
+.coach-img-wrap img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:top center;
+  filter:brightness(.86) contrast(1.1) saturate(.9);
+  transition:transform .9s ease;
 }
-.testi-inner {
-  max-width:1280px; margin:0 auto;
-  padding:0 40px;
+.coach-img-wrap:hover img { transform:scale(1.03) }
+.coach-img-wrap::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to right,transparent 55%,var(--surface) 100%);
 }
-.testi-header {
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:24px;
-  margin-bottom:52px;
-  flex-wrap:wrap;
-}
-.testi-header-left {}
-.testi-header-right { display:flex; gap:12px; align-items:center }
-/* Compteur et navigation */
-.testi-counter {
-  font-size:12px; font-weight:500;
-  letter-spacing:.1em;
-  color:var(--muted);
-}
-.testi-nav {
-  display:flex; gap:8px;
-}
-.testi-btn {
-  width:44px; height:44px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.2);
-  background:transparent; color:var(--fg);
-  cursor:pointer;
-  transition:border-color .2s, color .2s, background .2s;
-}
-.testi-btn:hover {
-  border-color:var(--lime); color:var(--lime);
-}
-.testi-btn:disabled {
-  opacity:.3; cursor:default;
-  border-color:rgba(255,255,255,.1); color:var(--muted);
-}
-
-/* Track de défilement */
-.testi-viewport {
-  overflow:hidden;
-  position:relative;
-}
-.testi-track {
-  display:flex;
-  align-items:stretch; /* ← toutes les cartes à la même hauteur */
-  gap:20px;
-  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
-  will-change:transform;
-}
-/* Wrapper pour égaliser la hauteur des cartes */
-.testi-card-wrap {
-  display:flex;
-  align-items:stretch;
-}
-.testi-card-wrap .testi-card {
-  flex:1;
-}
-
-/* Carte témoignage */
-.testi-card {
-  flex:0 0 calc(33.33% - 14px);
-  display:flex; flex-direction:column;
-  border:1px solid rgba(255,255,255,.12);
-  background:var(--bg);
-  padding:32px 28px;
-  transition:border-color .3s, transform .3s;
-  position:relative;
-  overflow:hidden;
-}
-.testi-card::before {
-  content:'';
-  position:absolute; top:0; left:0;
-  width:100%; height:2px;
-  background:linear-gradient(to right, var(--lime), transparent);
-  opacity:0;
-  transition:opacity .3s;
-}
-.testi-card:hover { border-color:rgba(200,255,0,.3); transform:translateY(-3px) }
-.testi-card:hover::before { opacity:1 }
-
-.testi-quote {
+.coach-text { padding:68px 48px 68px 44px; display:flex; flex-direction:column; justify-content:center }
+.coach-name {
   font-family:'Bebas Neue',sans-serif;
-  font-size:44px; line-height:.8;
-  color:var(--lime); opacity:.5;
-  margin-bottom:10px;
-  letter-spacing:-.02em;
+  font-size:clamp(48px,5vw,76px); line-height:.9; text-transform:uppercase; margin-bottom:24px;
 }
-.testi-text {
-  flex:1;
-  font-size:14px;
-  color:rgba(250,250,250,.88);
-  line-height:1.8;
-  /* pas d'italique — texte normal */
+.coach-bio { font-size:14px; color:var(--muted2); line-height:1.82; max-width:390px }
+.coach-bio p + p { margin-top:13px }
+.coach-trust { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:36px }
+.trust-badge {
+  display:flex; align-items:center; gap:11px; padding:13px 15px;
+  border:1px solid rgba(200,255,0,.14); background:rgba(200,255,0,.03);
+  transition:background .25s, border-color .25s;
 }
-.testi-footer {
-  margin-top:24px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.08);
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-/* Icône genre — base */
-.testi-gender-icon {
-  width:38px; height:38px; flex-shrink:0;
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-}
-/* Homme — teinte bleue */
-.testi-gender-icon.male {
-  background:rgba(96,165,250,.10);
-  border:1px solid rgba(96,165,250,.35);
-  color:#60a5fa;
-}
-/* Femme — teinte rose */
-.testi-gender-icon.female {
-  background:rgba(251,113,133,.10);
-  border:1px solid rgba(251,113,133,.35);
-  color:#fb7185;
-}
-.testi-name {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:17px; text-transform:uppercase; letter-spacing:.08em;
-  color:var(--fg);
-}
-.testi-role {
-  font-size:10px; font-weight:600;
-  text-transform:uppercase; letter-spacing:.18em;
-  color:var(--lime); margin-top:2px;
-}
-
-/* Dots pagination */
-.testi-dots {
-  display:flex; justify-content:center; gap:8px;
-  margin-top:36px;
-}
-.testi-dot {
-  width:6px; height:6px; border-radius:50%;
-  background:rgba(255,255,255,.2);
-  cursor:pointer;
-  transition:background .25s, transform .25s;
-  border:none;
-}
-.testi-dot.active {
-  background:var(--lime);
-  transform:scale(1.3);
-}
-
-/* Mobile scroll natif */
-.testi-mobile {
-  display:none;
-  overflow-x:auto;
-  gap:16px;
-  padding:0 0 20px;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
-.testi-mobile::-webkit-scrollbar { display:none }
-.testi-mobile-item {
-  flex:0 0 84vw;
-  scroll-snap-align:start;
-}
+.trust-badge:hover { background:rgba(200,255,0,.06); border-color:rgba(200,255,0,.28) }
+.trust-badge svg { color:var(--lime); flex-shrink:0 }
+.tb-main { display:block; font-size:13px; font-weight:600; color:var(--lime); line-height:1.2 }
+.tb-sub  { display:block; font-size:10px; color:var(--muted); margin-top:2px; letter-spacing:.04em }
 
 /* ══════════════════════════════════════════
-   SERVICES — "Pour qui ?"
+   TÉMOIGNAGES
 ══════════════════════════════════════════ */
-.services { background:var(--bg); padding:88px 0 100px }
+.testi-section { background:var(--bg); padding:var(--sp) 0; overflow:hidden }
+.testi-inner { max-width:1280px; margin:0 auto; padding:0 40px }
+.testi-header {
+  display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
+  margin-bottom:44px; flex-wrap:wrap;
+}
+.testi-nav-wrap { display:flex; align-items:center; gap:10px }
+.testi-counter { font-size:11px; color:var(--muted); letter-spacing:.08em }
+.testi-btn {
+  width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(255,255,255,.16); background:transparent; color:var(--fg);
+  cursor:pointer; transition:border-color .2s, color .2s;
+}
+.testi-btn:hover { border-color:var(--lime); color:var(--lime) }
+.testi-btn:disabled { opacity:.25; cursor:default; border-color:var(--border); pointer-events:none }
+.testi-viewport { overflow:hidden }
+.testi-track {
+  display:flex; align-items:stretch; gap:16px;
+  transition:transform .48s cubic-bezier(.25,.46,.45,.94); will-change:transform;
+}
+.testi-card-wrap { display:flex }
+.testi-card-wrap .testi-card { flex:1 }
+.testi-card {
+  display:flex; flex-direction:column; position:relative; overflow:hidden;
+  border:1px solid rgba(255,255,255,.09); background:var(--surface); padding:26px 24px;
+  transition:border-color .3s, transform .3s;
+}
+.testi-card::after {
+  content:''; position:absolute; top:0; left:0; height:2px;
+  width:36px; background:var(--lime); transition:width .4s ease; pointer-events:none;
+}
+.testi-card:hover { border-color:rgba(200,255,0,.22); transform:translateY(-2px) }
+.testi-card:hover::after { width:100% }
+.testi-open-quote {
+  font-family:'Bebas Neue',sans-serif; font-size:38px; line-height:.8;
+  color:var(--lime); opacity:.42; margin-bottom:10px;
+}
+.testi-text { flex:1; font-size:14px; color:rgba(244,244,244,.85); line-height:1.82 }
+.testi-footer {
+  margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,.07);
+  display:flex; align-items:center; gap:11px;
+}
+.testi-avatar {
+  width:34px; height:34px; border-radius:50%; flex-shrink:0;
+  background:rgba(200,255,0,.06); border:1px solid rgba(200,255,0,.2);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Bebas Neue',sans-serif; font-size:15px; color:var(--lime); letter-spacing:.04em;
+}
+.testi-name { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.07em }
+.testi-role { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--lime); margin-top:2px }
+.testi-dots { display:flex; justify-content:center; gap:7px; margin-top:28px }
+.testi-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:rgba(255,255,255,.18); cursor:pointer; border:none;
+  transition:background .25s, transform .25s;
+}
+.testi-dot.active { background:var(--lime); transform:scale(1.35) }
+.testi-mobile {
+  display:none; overflow-x:auto; gap:12px; padding-bottom:16px;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.testi-mobile::-webkit-scrollbar { display:none }
+.testi-mobile-item { flex:0 0 84vw; scroll-snap-align:start }
+
+/* ══════════════════════════════════════════
+   SERVICES — Spotlight animé
+   ─────────────────────────────────────────
+   Desktop : grille 3×2 avec carte active surlignée
+   Mobile  : carrousel horizontal snappable
+══════════════════════════════════════════ */
+.services { background:var(--surface); border-top:1px solid var(--border); padding:var(--sp) 0 }
 .svc-in { max-width:1280px; margin:0 auto; padding:0 40px }
-.svc-hdr { max-width:720px; margin-bottom:56px }
-.svc-hdr p { margin-top:18px; font-size:15px; color:var(--muted); line-height:1.75 }
+.svc-hdr { max-width:680px; margin-bottom:44px }
+.svc-hdr p { margin-top:14px; font-size:14px; color:var(--muted); line-height:1.72 }
+
+/* Grille desktop */
 .svc-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.08);
-  overflow:hidden;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--border);
+  /* Pas d'overflow:hidden — les cartes ont besoin de z-index libre */
 }
-.svc-card { background:var(--bg); padding:36px; transition:background .25s }
-.svc-card:hover { background:var(--surface) }
-.svc-icon { color:var(--lime); margin-bottom:14px }
-.svc-title {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:26px; text-transform:uppercase;
-  letter-spacing:.04em; margin-top:4px; margin-bottom:10px;
+.svc-card {
+  background:var(--bg); padding:28px 24px;
+  display:flex; flex-direction:column; gap:10px;
+  cursor:default;
+  /* Transition douce pour l'état actif */
+  transition:background .45s ease, box-shadow .45s ease, filter .35s ease;
+  position:relative;
 }
-.svc-desc { font-size:13px; color:var(--muted); line-height:1.75 }
+/* État actif — mise en lumière progressive */
+.svc-card.active {
+  background:#0c0f05; /* très légère teinte lime */
+  box-shadow:inset 0 2px 0 0 rgba(200,255,0,.65); /* bordure lime en haut */
+  filter:brightness(1.08);
+  z-index:1;
+}
+/* Animation de l'icône selon le type de carte */
+.svc-card.active .svc-icon svg { animation-duration:.95s; animation-fill-mode:both; animation-timing-function:ease }
+.svc-card[data-type="transformation"].active .svc-icon svg { animation-name:iconFlame }
+.svc-card[data-type="force"].active         .svc-icon svg { animation-name:iconForce }
+.svc-card[data-type="conditioning"].active  .svc-icon svg { animation-name:iconPulse }
+.svc-card[data-type="hyrox"].active         .svc-icon svg { animation-name:iconPop }
+.svc-card[data-type="nutrition"].active     .svc-icon svg { animation-name:iconSway }
+.svc-card[data-type="reprise"].active       .svc-icon svg { animation-name:iconGrow }
+
+/* Hover desktop : prend le focus immédiatement */
+.svc-card:hover { cursor:pointer }
+
+.svc-icon { color:var(--lime); transition:color .2s }
+.svc-title { font-family:'Bebas Neue',sans-serif; font-size:22px; text-transform:uppercase; letter-spacing:.03em }
+.svc-desc { font-size:13px; color:var(--muted); line-height:1.7 }
+
+/* Indicateur de progression sous la grille */
+.svc-progress {
+  display:flex; gap:4px; margin-top:20px; justify-content:center;
+}
+.svc-pip {
+  height:2px; flex:1; max-width:40px; border-radius:9999px;
+  background:rgba(255,255,255,.12); transition:background .3s;
+}
+.svc-pip.active { background:var(--lime) }
 
 /* ══════════════════════════════════════════
    FORMATS / COACHINGS
 ══════════════════════════════════════════ */
-.formats { background:rgba(16,16,17,.5); padding:88px 0 100px }
+.formats { background:var(--bg); border-top:1px solid var(--border); padding:var(--sp) 0 }
 .fmt-in { max-width:1280px; margin:0 auto; padding:0 40px }
-.fmt-hdr { max-width:720px; margin-bottom:56px }
-.fmt-hdr p { margin-top:18px; font-size:15px; color:var(--muted); line-height:1.75 }
-.fmt-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px }
+.fmt-hdr { max-width:680px; margin-bottom:44px }
+.fmt-hdr p { margin-top:14px; font-size:14px; color:var(--muted); line-height:1.72 }
+.fmt-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
 .fmt-card {
   display:flex; flex-direction:column;
-  border:1px solid rgba(255,255,255,.12);
-  background:var(--bg);
-  padding:36px;
+  border:1px solid rgba(255,255,255,.09); background:var(--surface); padding:30px;
   transition:border-color .3s, transform .2s;
 }
-.fmt-card:hover { border-color:rgba(200,255,0,.55); transform:translateY(-2px) }
-.fmt-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px }
-.fmt-num { font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--lime) }
+.fmt-card:hover { border-color:rgba(200,255,0,.4); transform:translateY(-2px) }
+.fmt-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px }
+.fmt-num { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--lime) }
 .fmt-arr {
-  width:38px; height:38px; flex-shrink:0;
+  width:34px; height:34px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.18);
-  color:rgba(250,250,250,.7);
-  transition:border-color .25s,color .25s;
+  border:1px solid rgba(255,255,255,.14); color:rgba(244,244,244,.6);
+  transition:border-color .25s, color .25s;
 }
 .fmt-card:hover .fmt-arr { border-color:var(--lime); color:var(--lime) }
 .fmt-title {
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(26px,2.8vw,38px);
-  text-transform:uppercase; margin-top:22px;
+  font-size:clamp(22px,2.4vw,34px); text-transform:uppercase; margin-top:18px;
 }
-.fmt-sub {
-  font-size:10px; font-weight:600;
-  text-transform:uppercase; letter-spacing:.2em;
-  color:var(--muted); margin-top:5px;
-}
-.fmt-desc { margin-top:18px; font-size:13px; color:var(--muted); line-height:1.75 }
-.fmt-list {
-  list-style:none; margin-top:22px;
-  display:flex; flex-direction:column; gap:8px;
-}
-.fmt-list li {
-  display:flex; align-items:center; gap:10px;
-  font-size:13px; color:rgba(250,250,250,.82);
-}
-.fmt-list li::before {
-  content:''; display:inline-block;
-  width:14px; height:1px;
-  background:var(--lime); flex-shrink:0;
-}
+.fmt-sub { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:4px }
+.fmt-desc { margin-top:14px; font-size:13px; color:var(--muted); line-height:1.7 }
+.fmt-list { list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:7px }
+.fmt-list li { display:flex; align-items:center; gap:9px; font-size:13px; color:rgba(244,244,244,.8) }
+.fmt-list li::before { content:''; display:inline-block; width:12px; height:1px; background:var(--lime); flex-shrink:0 }
 .fmt-link {
-  display:inline-flex; align-items:center; gap:8px;
-  margin-top:28px;
-  font-size:11px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.22em;
-  color:var(--lime);
+  display:inline-flex; align-items:center; gap:7px; margin-top:22px;
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--lime);
   transition:gap .2s;
 }
-.fmt-link:hover { gap:14px }
-
+.fmt-link:hover { gap:12px }
 /* Accordion mobile */
 .fmt-acc { display:none }
-.acc-item { border-bottom:1px solid rgba(255,255,255,.08) }
+.acc-item { border-bottom:1px solid rgba(255,255,255,.07) }
 .acc-item:last-child { border-bottom:none }
 .acc-btn {
-  width:100%; display:flex; align-items:center;
-  justify-content:space-between;
-  padding:20px; background:none; border:none;
-  cursor:pointer; color:var(--fg); text-align:left; gap:16px;
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:17px 20px; background:none; border:none; cursor:pointer; color:var(--fg); gap:14px; text-align:left;
 }
-.acc-btn[data-open="true"] { background:rgba(200,255,0,.04) }
-.acc-left { display:flex; align-items:baseline; gap:14px }
-.acc-num { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--lime) }
-.acc-title { font-family:'Bebas Neue',sans-serif; font-size:19px; text-transform:uppercase; line-height:1.1 }
-.acc-sub { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:3px }
-.acc-chev { flex-shrink:0; transition:transform .3s cubic-bezier(.25,.46,.45,.94) }
+.acc-btn[data-open="true"] { background:rgba(200,255,0,.03) }
+.acc-left { display:flex; align-items:baseline; gap:12px }
+.acc-num { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--lime) }
+.acc-title { font-family:'Bebas Neue',sans-serif; font-size:17px; text-transform:uppercase }
+.acc-sub { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:3px }
+.acc-chev { flex-shrink:0; transition:transform .3s ease }
 .acc-btn[data-open="true"] .acc-chev { transform:rotate(180deg) }
-.acc-body { display:none; padding:0 20px 24px }
+.acc-body { display:none; padding:0 20px 20px }
 .acc-body.open { display:block }
 
 /* ══════════════════════════════════════════
-   HYROX SECTION
+   HYROX — Full-bleed + drift + compteurs
 ══════════════════════════════════════════ */
 .hyrox { position:relative; isolation:isolate; overflow:hidden }
 .hyrox-bg {
-  position:absolute; inset:0; z-index:-2;
-  width:100%; height:100%;
-  object-fit:cover; object-position:center 30%;
-  filter:brightness(.72) contrast(1.25) saturate(.88);
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 14%,black 86%,transparent 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,black 14%,black 86%,transparent 100%);
+  position:absolute; inset:-4%; z-index:-2;
+  width:108%; height:108%; object-fit:cover; object-position:center 30%;
+  filter:brightness(.56) contrast(1.38) saturate(.75);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 11%,black 89%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,black 11%,black 89%,transparent 100%);
+  animation:hyroxDrift 16s ease-in-out infinite;
 }
-.hyrox-gtb {
+.hyrox-vignette {
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to bottom,var(--bg),rgba(10,10,11,.35),var(--bg));
+  background:
+    linear-gradient(to bottom,var(--bg),rgba(10,10,11,.24),var(--bg)),
+    linear-gradient(to right,rgba(10,10,11,.92) 0%,rgba(10,10,11,.28) 60%,rgba(10,10,11,.68) 100%);
 }
-.hyrox-glr {
-  position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to right,rgba(10,10,11,.90) 0%,rgba(10,10,11,.38) 55%,rgba(10,10,11,.72) 100%);
+.hyrox-c { max-width:1280px; margin:0 auto; padding:var(--sp) 40px }
+.hyrox-label {
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:14px;
+  font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.28em;
+  background:linear-gradient(90deg,var(--lime),#fff 50%,var(--lime));
+  background-size:200% auto;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  animation:shimmer 3.5s linear infinite;
 }
-.hyrox-c { max-width:1280px; margin:0 auto; padding:100px 40px }
+.hyrox-label::before { content:''; display:block; width:22px; height:1px; background:var(--lime); flex-shrink:0 }
 .hyrox-c h2 {
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(50px,8vw,122px);
-  line-height:.88; text-transform:uppercase;
-  max-width:860px; margin-top:18px;
+  font-size:clamp(46px,8vw,116px); line-height:.88; text-transform:uppercase; max-width:800px;
 }
 .hyrox-c h2 .lime { color:var(--lime) }
-.hyrox-desc { margin-top:22px; max-width:460px; font-size:15px; color:rgba(250,250,250,.82); line-height:1.65 }
-.hyrox-stats {
-  display:flex; gap:56px; flex-wrap:wrap;
-  margin-top:60px;
+.hyrox-desc { margin-top:18px; max-width:420px; font-size:15px; color:rgba(244,244,244,.8); line-height:1.65 }
+
+/* Stats Hyrox — pas de boîte, shimmer sur les chiffres */
+.hyrox-stats { display:flex; gap:48px; flex-wrap:wrap; margin-top:52px }
+.stat-n {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,70px); line-height:1;
+  background:linear-gradient(90deg,var(--lime) 40%,#e8ff70 60%,var(--lime));
+  background-size:200% auto;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  animation:shimmer 4s linear infinite;
 }
-.stat-item {}
-.stat-n { font-family:'Bebas Neue',sans-serif; font-size:clamp(48px,6vw,76px); color:var(--lime); line-height:1 }
-.stat-l { margin-top:6px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.22em; color:var(--muted) }
+.stat-l { margin-top:5px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.22em; color:var(--muted) }
 
 /* ══════════════════════════════════════════
-   INSTAGRAM REELS
+   INSTAGRAM — après Hyrox
+   Vidéos MP4/WebM autoplay, muted, loop
+   Clic → redirige vers le Reel Instagram
 ══════════════════════════════════════════ */
-.ig-section { background:var(--bg); padding:0 0 100px }
+.ig-section {
+  background:var(--bg);
+  border-top:1px solid var(--border);
+  padding:var(--sp) 0;
+}
 .ig-inner { max-width:1280px; margin:0 auto; padding:0 40px }
 .ig-header {
-  display:flex; align-items:flex-end;
-  justify-content:space-between; gap:24px;
-  padding:72px 0 28px;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:24px;
 }
-.ig-title-text {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(22px,2.5vw,32px);
-  text-transform:uppercase; letter-spacing:.06em;
-}
+.ig-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,2.5vw,32px); text-transform:uppercase }
 .ig-follow {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:11px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.22em;
-  color:var(--lime);
+  display:inline-flex; align-items:center; gap:7px;
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--lime);
   transition:opacity .2s;
 }
-.ig-follow:hover { opacity:.75 }
-.ig-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-}
+.ig-follow:hover { opacity:.7 }
+.ig-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px }
 .ig-item {
-  position:relative; aspect-ratio:9/12;
-  overflow:hidden; background:var(--surface);
-  cursor:pointer;
+  position:relative; aspect-ratio:9/12; overflow:hidden; background:var(--s2);
+  display:block; /* c'est un <a> */
 }
+.ig-item video,
 .ig-item img {
-  width:100%; height:100%;
-  object-fit:cover;
-  transition:transform .7s ease, filter .4s;
-  filter:brightness(.85) saturate(.9);
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:brightness(.82) saturate(.86);
+  transition:filter .4s;
 }
-.ig-item:hover img { transform:scale(1.07); filter:brightness(.95) saturate(1.05) }
-.ig-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to top,rgba(10,10,11,.78) 0%,transparent 55%);
+.ig-item:hover video,
+.ig-item:hover img { filter:brightness(.95) saturate(1.02) }
+.ig-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,10,11,.72) 0%,transparent 50%); pointer-events:none }
+/* Label en bas à gauche */
+.ig-lbl {
+  position:absolute; bottom:10px; left:11px;
+  font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;
+  color:rgba(244,244,244,.62); pointer-events:none;
 }
-.ig-play-btn {
+/* Icône play discrète (top right) */
+.ig-play-ic {
   position:absolute; top:10px; right:10px;
-  color:rgba(250,250,250,.75);
-  transition:color .2s;
+  color:rgba(244,244,244,.65); transition:color .2s; pointer-events:none;
 }
-.ig-item:hover .ig-play-btn { color:var(--lime) }
-.ig-type-lbl {
-  position:absolute; bottom:10px; left:12px;
-  font-size:9px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.22em;
-  color:rgba(250,250,250,.7);
-}
+.ig-item:hover .ig-play-ic { color:var(--lime) }
 
 /* ══════════════════════════════════════════
    CONTACT
 ══════════════════════════════════════════ */
-.contact { background:rgba(16,16,17,.5); padding:88px 0 100px }
+.contact { background:var(--surface); border-top:1px solid var(--border); padding:var(--sp) 0 }
 .ct-in {
-  max-width:1280px; margin:0 auto; padding:0 40px;
-  display:grid; grid-template-columns:1fr 1fr; gap:72px;
+  max-width:1200px; margin:0 auto; padding:0 40px;
+  display:grid; grid-template-columns:1fr 1.2fr; gap:60px;
 }
-.ct-l h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(38px,5vw,68px); line-height:.95; text-transform:uppercase }
+.ct-l h2 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(34px,4.2vw,60px); line-height:.95; text-transform:uppercase;
+}
 .ct-l h2 .lime { color:var(--lime) }
-.ct-l p { margin-top:18px; font-size:15px; color:var(--muted); line-height:1.75 }
-.ct-info { margin-top:36px; display:flex; flex-direction:column; gap:14px }
-.ct-lbl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.22em; color:rgba(250,250,250,.55) }
-.ct-val { margin-top:3px; font-size:14px; color:var(--fg) }
-.ct-ig-btn {
-  display:inline-flex; align-items:center; gap:12px;
-  margin-top:36px;
-  border:1px solid rgba(255,255,255,.14);
-  background:var(--bg);
-  padding:14px 22px;
-  font-size:12px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.2em;
+.ct-intro { margin-top:14px; font-size:15px; color:var(--muted); line-height:1.72; max-width:340px }
+.ct-ig {
+  display:inline-flex; align-items:center; gap:10px; margin-top:28px;
+  padding:12px 18px; border:1px solid rgba(255,255,255,.11); background:var(--bg);
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.18em;
   transition:border-color .2s, color .2s;
 }
-.ct-ig-btn:hover { border-color:var(--lime); color:var(--lime) }
-
-/* Formulaire */
-.ct-form {
-  border:1px solid rgba(255,255,255,.12);
-  background:var(--bg);
-  padding:36px;
+.ct-ig:hover { border-color:var(--lime); color:var(--lime) }
+.ct-form { background:var(--bg); border:1px solid rgba(255,255,255,.08); padding:30px }
+.f-4grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:end }
+.f-grp { display:flex; flex-direction:column; gap:6px }
+.f-4grid + .f-grp { margin-top:16px }
+label {
+  font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.14em;
+  color:rgba(244,244,244,.44);
 }
-/* Grille 2×2 pour les 4 champs courts — align-items:end garantit l'alignement
-   même si les labels ont des hauteurs différentes */
-.f-4grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  align-items:end;
-}
-.f-row { display:grid; grid-template-columns:1fr 1fr; gap:20px }
-.f-grp { display:flex; flex-direction:column; gap:7px }
-.f-grp + .f-grp,
-.f-row + .f-grp,
-.f-grp + .f-row,
-.f-4grid + .f-grp { margin-top:20px }
-label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:rgba(250,250,250,.65) }
-label span { color:var(--muted); font-weight:400; text-transform:none; letter-spacing:0 }
+label span { font-size:10px; color:var(--muted); text-transform:none; font-weight:400; letter-spacing:0 }
 input[type=text],input[type=email],input[type=tel],select,textarea {
-  width:100%; height:40px; padding:0 14px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.15);
-  color:var(--fg); font-size:14px;
-  border-radius:0; outline:none;
-  transition:border-color .2s, background .2s;
-  -webkit-appearance:none; appearance:none;
+  width:100%; height:38px; padding:0 12px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.11);
+  color:var(--fg); font-size:14px; border-radius:0; outline:none;
+  transition:border-color .2s, background .2s; -webkit-appearance:none; appearance:none;
 }
-input::placeholder,textarea::placeholder { color:rgba(250,250,250,.3) }
-input:focus,select:focus,textarea:focus {
-  border-color:var(--lime);
-  background:rgba(200,255,0,.03);
-}
+input::placeholder,textarea::placeholder { color:rgba(244,244,244,.22) }
+input:focus,select:focus,textarea:focus { border-color:var(--lime); background:rgba(200,255,0,.03) }
 select option { background:#1a1a1b }
-textarea {
-  height:auto; min-height:120px;
-  padding:12px 14px; resize:vertical;
-}
-.f-note { margin-top:14px; font-size:11px; color:rgba(250,250,250,.35); line-height:1.5 }
+textarea { height:auto; min-height:108px; padding:10px 12px; resize:vertical }
+.f-note { margin-top:11px; font-size:10px; color:rgba(244,244,244,.28); line-height:1.55 }
 .btn-submit {
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  height:50px; padding:0 36px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  height:48px; width:100%; margin-top:20px;
   background:var(--lime); color:#0A0A0B;
-  font-size:12px; font-weight:700;
-  text-transform:uppercase; letter-spacing:.22em;
-  border:none; cursor:pointer; border-radius:0;
-  margin-top:24px; width:100%;
-  transition:opacity .2s, transform .15s;
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;
+  border:none; cursor:pointer; transition:opacity .2s, transform .15s;
 }
 .btn-submit:hover { opacity:.88; transform:translateY(-1px) }
 
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
-footer {
-  border-top:1px solid rgba(255,255,255,.08);
-  background:var(--bg);
-}
-.ft-in {
-  max-width:1280px; margin:0 auto;
-  padding:52px 40px;
-}
+footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
+.ft-in { max-width:1280px; margin:0 auto; padding:44px 40px }
 .ft-top {
-  display:flex; align-items:flex-start;
-  justify-content:space-between; gap:32px; flex-wrap:wrap;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.06);
 }
-.ft-logo-wrap {}
-.ft-logo {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:26px; letter-spacing:.14em;
-}
+.ft-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.14em }
 .ft-logo span { color:var(--lime) }
-.ft-tagline { margin-top:10px; font-size:12px; color:var(--muted); max-width:300px; line-height:1.6 }
+.ft-tagline { margin-top:8px; font-size:12px; color:var(--muted); max-width:260px; line-height:1.6 }
 .ft-links {
-  display:flex; flex-wrap:wrap;
-  align-items:flex-start;
-  gap:14px 32px;
-  font-size:11px; text-transform:uppercase;
-  letter-spacing:.18em; color:var(--muted);
+  display:flex; flex-wrap:wrap; gap:8px 26px;
+  font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--muted);
 }
 .ft-links a { transition:color .2s }
 .ft-links a:hover { color:var(--lime) }
-.ft-links .ig-link {
-  display:inline-flex; align-items:center; gap:7px;
-  color:rgba(250,250,250,.75);
-}
+.ft-links .ig-lnk { display:inline-flex; align-items:center; gap:6px; color:rgba(244,244,244,.68) }
 .ft-bot {
-  display:flex; flex-wrap:wrap;
-  justify-content:space-between; align-items:center;
-  gap:12px; padding-top:24px;
-  font-size:11px; color:rgba(250,250,250,.3);
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding-top:22px;
+  font-size:11px; color:rgba(244,244,244,.26);
 }
-.ft-bot a { color:rgba(250,250,250,.4); transition:color .2s }
+.ft-bot a { color:rgba(244,244,244,.36); transition:color .2s }
 .ft-bot a:hover { color:var(--lime) }
+
+/* ══════════════════════════════════════════
+   FLOATING CTA — Mobile uniquement
+══════════════════════════════════════════ */
+.float-cta {
+  display:none;
+  position:fixed; bottom:20px; right:16px; z-index:150;
+  align-items:center; gap:8px; height:46px; padding:0 20px;
+  background:var(--lime); color:#0A0A0B;
+  font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
+  box-shadow:0 4px 22px rgba(200,255,0,.28), 0 2px 8px rgba(0,0,0,.45);
+  opacity:0; transform:translateY(10px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.float-cta.show { opacity:1; transform:none }
 
 /* ══════════════════════════════════════════
    MODAL MENTIONS LÉGALES
 ══════════════════════════════════════════ */
-.legal-modal {
-  position:fixed; inset:0; z-index:500;
-  display:none; align-items:flex-end;
-  justify-content:center;
-}
+.legal-modal { position:fixed; inset:0; z-index:500; display:none; align-items:flex-end; justify-content:center }
 .legal-modal.open { display:flex }
-.legal-overlay {
-  position:absolute; inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(6px);
-  cursor:pointer;
-}
+.legal-overlay { position:absolute; inset:0; background:rgba(0,0,0,.78); backdrop-filter:blur(8px); cursor:pointer }
 .legal-panel {
-  position:relative; z-index:1;
-  width:100%; max-width:760px;
-  max-height:80vh; overflow-y:auto;
-  background:#111112;
-  border:1px solid rgba(255,255,255,.12);
-  border-bottom:none;
-  padding:48px 40px;
-  animation:slideUp .3s ease;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(255,255,255,.15) transparent;
-}
-@keyframes slideUp {
-  from { transform:translateY(40px); opacity:0 }
-  to   { transform:translateY(0); opacity:1 }
+  position:relative; z-index:1; width:100%; max-width:700px; max-height:82vh; overflow-y:auto;
+  background:#111113; border:1px solid rgba(255,255,255,.1); border-bottom:none; padding:42px 38px;
+  animation:fadeUp .3s ease; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.1) transparent;
 }
 .legal-close {
-  position:absolute; top:20px; right:20px;
-  width:36px; height:36px;
+  position:absolute; top:16px; right:16px; width:32px; height:32px;
   display:flex; align-items:center; justify-content:center;
-  background:none; border:1px solid rgba(255,255,255,.15);
-  color:var(--fg); cursor:pointer;
+  background:none; border:1px solid rgba(255,255,255,.1); color:var(--fg); cursor:pointer;
   transition:border-color .2s, color .2s;
 }
 .legal-close:hover { border-color:var(--lime); color:var(--lime) }
-.legal-panel h2 {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:32px; text-transform:uppercase;
-  margin-bottom:32px; color:var(--fg);
-}
-.legal-panel h3 {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18px; text-transform:uppercase;
-  letter-spacing:.08em; color:var(--lime);
-  margin-top:28px; margin-bottom:12px;
-}
-.legal-panel p,
-.legal-panel li {
-  font-size:13px; color:var(--muted); line-height:1.8;
-}
-.legal-panel ul { padding-left:20px; margin-top:8px }
+.legal-panel h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; text-transform:uppercase; margin-bottom:24px }
+.legal-panel h3 { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--lime); margin-top:22px; margin-bottom:9px }
+.legal-panel p,.legal-panel li { font-size:13px; color:var(--muted); line-height:1.78 }
+.legal-panel ul { padding-left:16px; margin-top:6px }
 .legal-panel a { color:var(--lime) }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE — MOBILE FIRST
+   RESPONSIVE
 ══════════════════════════════════════════ */
 @media (max-width:1100px) {
-  .badges-ul { grid-template-columns:repeat(3,1fr) }
-  .testi-card { flex:0 0 calc(50% - 10px) }
+  .coach-inner { grid-template-columns:1fr }
+  .coach-img-wrap { min-height:400px }
+  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 55%,var(--surface) 100%) }
+  .coach-text { padding:48px 40px }
   .ig-grid { grid-template-columns:repeat(2,1fr) }
 }
 
 @media (max-width:768px) {
+  :root { --sp:52px }
   /* Nav */
-  .nav { padding:16px 20px }
-  .nav.scrolled { padding:13px 20px }
-  .nav-right .nav-link { display:none }
-  .nav-cta { display:none }
-
+  .nav { padding:14px 20px }
+  .nav.scrolled { padding:12px 20px }
+  .nav-links .nav-link { display:none }
+  .nav-cta { display:none } /* mobile → floating button uniquement */
+  /* Floating */
+  .float-cta { display:inline-flex }
   /* Hero */
   .hero-photo-d { display:none }
   .hero-photo-m { display:block }
-  .hero-glr {
-    background:linear-gradient(to bottom,
-      var(--bg) 0%,
-      rgba(10,10,11,.75) 30%,
-      rgba(10,10,11,.2) 70%,
-      var(--bg) 100%);
-  }
-  .hero-content { padding:calc(68px + 16px) 20px 80px }
-  .hero h1 { font-size:clamp(62px,18vw,88px) }
-  .hero-sub { font-size:15px; max-width:100% }
-
-  /* Badges */
-  .badges-in { padding:32px 20px }
-  .badges-ul { grid-template-columns:1fr 1fr; gap:16px }
-
-  /* Testimonials */
-  .testi-section { padding:64px 0 }
-  .testi-inner { padding:0 20px }
-  .testi-header { margin-bottom:32px }
-  .testi-header-right { display:none } /* cacher nav arrows mobile */
-  .testi-viewport { display:none }
-  .testi-dots { display:none }
-  .testi-mobile {
-    display:flex;
-    margin:0 -20px;
-    padding:0 20px 20px;
-  }
-  .testi-card { flex:none } /* reset desktop sizing */
-
-  /* Services */
+  .hero-glr { background:linear-gradient(to bottom,rgba(10,10,11,.15) 0%,rgba(10,10,11,.52) 44%,var(--bg) 100%) }
+  .hero-gtb { background:linear-gradient(to bottom,transparent 0%,rgba(10,10,11,.6) 68%,var(--bg) 100%) }
+  .hero-content { padding:calc(66px + 14px) 20px 52px }
+  .hero h1 { font-size:clamp(56px,17vw,82px) }
+  .hero-sub { font-size:14px; max-width:100% }
+  .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
+  /* Coach */
+  .coach-inner { grid-template-columns:1fr }
+  .coach-img-wrap { min-height:58vw; max-height:340px }
+  .coach-img-wrap img { object-position:top center }
+  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 35%,var(--surface) 100%) }
+  .coach-text { padding:28px 20px 40px }
+  .coach-name { font-size:clamp(42px,13vw,60px) }
+  .coach-bio { font-size:14px; max-width:100% }
+  .coach-trust { grid-template-columns:1fr 1fr; gap:8px; margin-top:24px }
+  .trust-badge { padding:10px 12px }
+  /* Sections padding */
   .svc-in,.fmt-in,.hyrox-c,.ig-inner,.ct-in,.ft-in { padding-left:20px; padding-right:20px }
-  .svc-grid { grid-template-columns:1fr }
-  .services,.formats { padding:64px 0 72px }
-
+  .testi-inner { padding:0 20px }
+  /* Services → carrousel mobile */
+  .svc-grid {
+    display:flex; gap:0; background:transparent;
+    overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    margin:0 -20px; padding:0 20px 18px;
+    gap:10px;
+  }
+  .svc-grid::-webkit-scrollbar { display:none }
+  .svc-card {
+    flex:0 0 76vw; scroll-snap-align:start;
+    border:1px solid rgba(255,255,255,.09); background:var(--bg);
+    box-shadow:none;
+  }
+  /* Active visible même sur mobile */
+  .svc-card.active {
+    border-color:rgba(200,255,0,.45);
+    background:#0c0f05;
+    box-shadow:inset 0 2px 0 0 rgba(200,255,0,.65);
+  }
+  .svc-progress { display:none } /* remplacé par scroll natif */
   /* Formats */
   .fmt-grid { display:none }
-  .fmt-acc {
-    display:block;
-    border:1px solid rgba(255,255,255,.08);
-    background:var(--bg);
-  }
-
+  .fmt-acc { display:block; border:1px solid rgba(255,255,255,.08); background:var(--surface) }
+  /* Témoignages */
+  .testi-nav-wrap { display:none }
+  .testi-viewport,.testi-dots { display:none }
+  .testi-mobile { display:flex; margin:0 -20px; padding:0 20px 16px }
   /* Hyrox */
-  .hyrox-c { padding:72px 20px }
-  .hyrox-stats { gap:32px }
-  .stat-n { font-size:clamp(44px,12vw,62px) }
-
-  /* Instagram */
+  .hyrox-stats { gap:28px }
+  /* Instagram mobile */
   .ig-inner { padding:0 20px }
-  .ig-header { padding:48px 0 20px }
-  .ig-grid {
-    grid-template-columns:repeat(2,1fr);
-    gap:5px;
-  }
-
+  .ig-grid { grid-template-columns:repeat(2,1fr); gap:4px }
   /* Contact */
-  .ct-in { grid-template-columns:1fr; gap:44px }
+  .ct-in { grid-template-columns:1fr; gap:36px }
   .f-4grid { grid-template-columns:1fr }
-  .f-row { grid-template-columns:1fr }
-  .btn-submit { width:100% }
-
+  .contact { padding-bottom:calc(var(--sp) + 64px) }
   /* Footer */
-  .ft-in { padding:40px 20px }
-  .ft-top { flex-direction:column; gap:28px }
-
-  /* Legal modal */
-  .legal-panel { padding:32px 20px 40px; max-height:88vh }
-
-  /* Animations */
-  .testi-mobile-item .testi-card { flex:0 0 100% }
+  .ft-in { padding:32px 20px }
+  .ft-top { flex-direction:column; gap:22px }
+  .ft-bot { flex-direction:column; gap:7px }
+  /* Legal */
+  .legal-panel { padding:26px 18px 34px; max-height:90vh }
 }
 
 @media (max-width:480px) {
-  .hero h1 { font-size:clamp(56px,17vw,80px) }
-  .badges-ul { grid-template-columns:1fr }
+  .hero h1 { font-size:clamp(50px,15.5vw,72px) }
+  .coach-trust { grid-template-columns:1fr }
+  .svc-card { flex:0 0 84vw }
+  .ig-grid { grid-template-columns:repeat(2,1fr) }
 }
 </style>
 </head>
 <body>
 
-<!-- ══ NAVIGATION ══ -->
+<!-- ══ NAV ══ -->
 <nav class="nav" id="mainNav">
   <a href="#" class="nav-logo">BENJAMIN<span class="dot">.</span>COACHING</a>
-  <div class="nav-right">
+  <div class="nav-links">
     <a href="#coachings" class="nav-link">Coachings</a>
-    <a href="#contact" class="nav-cta">Prendre contact <svg style="display:inline-block;vertical-align:middle;margin-left:4px" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    <a href="#contact" class="nav-cta">
+      Prendre contact
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
   </div>
 </nav>
 
@@ -1024,45 +798,21 @@ footer {
 <section class="hero">
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
-
-  <!--
-    IMAGES HÉRO — Placez vos fichiers dans assets/ :
-    • benjamin-hero.png  → la photo PNG sur fond noir (628193886...)
-    • Renommez simplement le fichier et placez-le dans assets/
-  -->
-  <img
-    src="assets/benjamin-hero.png"
-    alt=""
-    class="hero-photo-d"
-    loading="eager"
-    fetchpriority="high"
-  />
-  <img
-    src="assets/benjamin-hero.png"
-    alt=""
-    class="hero-photo-m"
-    loading="eager"
-  />
-
+  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-d" loading="eager" fetchpriority="high"/>
+  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-m" loading="eager"/>
   <div class="hero-glr"></div>
   <div class="hero-gtb"></div>
-
   <div class="hero-content">
     <div class="hero-badge">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-      Paris 11 · Coaching personnalisé
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+      Paris · Coaching personnalisé
     </div>
-    <h1>
-      Construis le corps.<br/>
-      <span class="lime">Construis le moteur.</span>
-    </h1>
-    <p class="hero-sub">
-      Un accompagnement structuré pour transformer ton physique, gagner en force et préparer l'Hyrox.
-    </p>
+    <h1>Construis le corps.<br/><span class="lime">Construis le moteur.</span></h1>
+    <p class="hero-sub">Un accompagnement structuré pour transformer ton physique, gagner en force et préparer l'Hyrox.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-lime">
         Réserver un appel
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <a href="#coachings" class="btn-ghost">Voir les coachings</a>
     </div>
@@ -1070,125 +820,164 @@ footer {
 </section>
 
 
-<!-- ══ BADGES STRIP ══ -->
-<section class="badges">
-  <div class="badges-in">
-    <ul class="badges-ul reveal">
-      <li class="badge-li">
-        <span class="badge-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-        </span>
-        Coach sportif diplômé
-      </li>
-      <li class="badge-li">
-        <span class="badge-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
-        </span>
-        6 ans d'expérience
-      </li>
-      <li class="badge-li">
-        <span class="badge-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg>
-        </span>
-        Hyrox Prep
-      </li>
-      <li class="badge-li">
-        <span class="badge-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
-        </span>
-        Accompagnement sur mesure
-      </li>
-      <li class="badge-li">
-        <span class="badge-ic">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-        </span>
-        Paris 11
-      </li>
-    </ul>
-    <p class="badges-desc reveal" style="transition-delay:.1s">
-      Une approche <strong>progressive, réaliste et humaine</strong>. Un cadre clair, un plan structuré et une attention particulière portée à la récupération, à la mobilité et à la prévention des blessures.
-    </p>
+<!-- ══ LE COACH ══ -->
+<section class="coach-section">
+  <div class="coach-inner">
+    <div class="coach-img-wrap reveal">
+      <img src="assets/benjamin-hero.png" alt="Benjamin, coach sportif Paris" loading="lazy"/>
+    </div>
+    <div class="coach-text">
+      <div class="s-label">Le coach</div>
+      <h2 class="coach-name reveal" style="transition-delay:.07s">Benjamin.</h2>
+      <div class="coach-bio reveal" style="transition-delay:.14s">
+        <p>Coach sportif diplômé basé à Paris.</p>
+        <p>Passionné de musculation depuis l'adolescence, j'ai choisi d'en faire mon métier il y a plus de six ans. J'accompagne des profils très différents : perte de poids, remise en forme, développement musculaire et préparation HYROX.</p>
+        <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
+      </div>
+      <div class="coach-trust reveal" style="transition-delay:.22s">
+        <div class="trust-badge">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><span class="tb-main">Coach diplômé</span><span class="tb-sub">BPJEPS</span></div>
+        </div>
+        <div class="trust-badge">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          <div><span class="tb-main">6 ans</span><span class="tb-sub">D'expérience</span></div>
+        </div>
+        <div class="trust-badge">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <div><span class="tb-main">Online</span><span class="tb-sub">Partout en France</span></div>
+        </div>
+        <div class="trust-badge">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><span class="tb-main">Paris</span><span class="tb-sub">Coaching en salle</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 
-<!-- ══ TÉMOIGNAGES — Remontés avant "Pour qui ?" ══ -->
+<!-- ══ TÉMOIGNAGES ══ -->
 <section class="testi-section" id="temoignages">
   <div class="testi-inner">
-
     <div class="testi-header reveal">
-      <div class="testi-header-left">
+      <div>
         <div class="s-label">Résultats</div>
         <h2 class="s-h2">La preuve<br/><span class="lime">par les faits.</span></h2>
       </div>
-      <div class="testi-header-right">
+      <div class="testi-nav-wrap">
         <span class="testi-counter" id="testiCounter">1 / 3</span>
-        <div class="testi-nav">
-          <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" aria-label="Précédent" disabled>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+        <div style="display:flex;gap:8px">
+          <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
           </button>
           <button class="testi-btn" id="testiNext" onclick="testiMove(1)" aria-label="Suivant">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
         </div>
       </div>
     </div>
-
-    <!-- Desktop carousel -->
     <div class="testi-viewport reveal" style="transition-delay:.1s">
       <div class="testi-track" id="testiTrack"></div>
     </div>
-
-    <!-- Dots pagination desktop -->
     <div class="testi-dots" id="testiDots"></div>
-
-    <!-- Mobile scroll natif -->
     <div class="testi-mobile" id="testiMobile"></div>
-
   </div>
 </section>
 
 
-<!-- ══ SERVICES — "Pour qui ?" ══ -->
-<section class="services">
+<!-- ══ SERVICES — Spotlight animé ══ -->
+<section class="services" id="services">
   <div class="svc-in">
     <div class="svc-hdr reveal">
       <div class="s-label">Pour qui ?</div>
       <h2 class="s-h2">Un coaching <span class="lime">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
-      <p>Hommes, femmes, débutants ou intermédiaires.<br/>Le programme s'adapte à ton point de départ et à là où tu veux aller.</p>
+      <p>Hommes, femmes, débutants ou intermédiaires. Le programme s'adapte à ton point de départ et à là où tu veux aller.</p>
     </div>
-    <div class="svc-grid reveal">
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></svg></div>
+
+    <!-- data-type = clé pour l'animation CSS de l'icône -->
+    <div class="svc-grid" id="svcGrid">
+
+      <div class="svc-card" data-type="transformation">
+        <div class="svc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3q1 4 4 6.5t3 5.5a7 7 0 0 1-14 0 5 5 0 0 1 1-3c1 0 2 .5 3.5.5S12 11 12 9c0-1.5-1-3-1-5q0-2 1-1Z"/>
+          </svg>
+        </div>
         <div class="svc-title">Transformation</div>
         <p class="svc-desc">Perdre du gras, redessiner ta silhouette et installer des habitudes durables.</p>
       </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 6.5h11M6.5 17.5h11M4 12h16"/></svg></div>
+
+      <div class="svc-card" data-type="force">
+        <div class="svc-icon">
+          <!-- Barres de force ascendantes -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2"  y="15" width="5" height="7" rx=".5"/>
+            <rect x="9"  y="10" width="5" height="12" rx=".5"/>
+            <rect x="16" y="5"  width="5" height="17" rx=".5"/>
+          </svg>
+        </div>
         <div class="svc-title">Force</div>
         <p class="svc-desc">Devenir plus fort sur les mouvements clés. Squat, soulevé, tractions, pompes.</p>
       </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></div>
+
+      <div class="svc-card" data-type="conditioning">
+        <div class="svc-icon">
+          <!-- Ligne de pulsation / ECG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polyline points="2,12 5,12 7,6 10,18 13,9 15,14 17,12 22,12"/>
+          </svg>
+        </div>
         <div class="svc-title">Conditioning</div>
         <p class="svc-desc">Cardio, endurance, capacité de travail. Un moteur qui ne lâche pas.</p>
       </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/><path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/><path d="M18 9h1.5a1 1 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/><path d="M6 9H4.5a1 1 0 0 1 0-5H6"/></svg></div>
+
+      <div class="svc-card" data-type="hyrox">
+        <div class="svc-icon">
+          <!-- Trophée / performance -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"/>
+            <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"/>
+            <path d="M18 9h1.5a1 1 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"/>
+            <path d="M6 9H4.5a1 1 0 0 1 0-5H6"/>
+          </svg>
+        </div>
         <div class="svc-title">Hyrox</div>
         <p class="svc-desc">Préparation spécifique aux 8 stations + course. Plan structuré et tests réguliers.</p>
       </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/></svg></div>
+
+      <div class="svc-card" data-type="reprise">
+        <div class="svc-icon">
+          <!-- Pousse / reprise -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/>
+            <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/>
+            <path d="M5 21h14"/>
+          </svg>
+        </div>
         <div class="svc-title">Reprise &amp; intermédiaires</div>
         <p class="svc-desc">Tu redémarres ou tu plafonnes ? On reconstruit une base solide et propre.</p>
       </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 6.528V3a1 1 0 0 1 1-1"/><path d="M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21"/></svg></div>
+
+      <div class="svc-card" data-type="nutrition">
+        <div class="svc-icon">
+          <!-- Feuille / nutrition -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 6.528V3a1 1 0 0 1 1-1"/>
+            <path d="M18.237 21A15 15 0 0 0 22 11a6 6 0 0 0-10-4.472A6 6 0 0 0 2 11a15.1 15.1 0 0 0 3.763 10 3 3 0 0 0 3.648.648 5.5 5.5 0 0 1 5.178 0A3 3 0 0 0 18.237 21"/>
+          </svg>
+        </div>
         <div class="svc-title">Nutrition</div>
-        <p class="svc-desc">Construire des habitudes simples, réalistes et durables pour soutenir les performances et la transformation physique.</p>
+        <p class="svc-desc">Habitudes simples et durables pour soutenir les performances et la transformation.</p>
       </div>
-    </div>
+
+    </div><!-- /svc-grid -->
+
+    <!-- Indicateur de progression (desktop) -->
+    <div class="svc-progress" id="svcProgress"></div>
+
   </div>
 </section>
 
@@ -1201,107 +990,81 @@ footer {
       <h2 class="s-h2">Quatre formats.<br/><span class="lime">Un seul objectif.</span></h2>
       <p>Choisis le format qui colle à ta vie. Chaque coaching est construit autour de ton objectif et de ton niveau.</p>
     </div>
-
-    <!-- Desktop grid 2×2 -->
+    <!-- Desktop 2×2 -->
     <div class="fmt-grid reveal">
       <div class="fmt-card">
-        <div class="fmt-top">
-          <span class="fmt-num">01</span>
-          <a href="#contact" class="fmt-arr" aria-label="En savoir plus">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
-        </div>
-        <div class="fmt-title">Personal Training</div>
-        <div class="fmt-sub">Paris 11 — en salle</div>
+        <div class="fmt-top"><span class="fmt-num">01</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="fmt-title">Personal Training</div><div class="fmt-sub">Paris — en salle</div>
         <p class="fmt-desc">Séances individuelles, cadre exigeant, exécution propre. Plan adapté à ton emploi du temps.</p>
         <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
-        <div class="fmt-top">
-          <span class="fmt-num">02</span>
-          <a href="#contact" class="fmt-arr" aria-label="En savoir plus">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
-        </div>
-        <div class="fmt-title">Coaching en ligne</div>
-        <div class="fmt-sub">Partout — 100% online</div>
+        <div class="fmt-top"><span class="fmt-num">02</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="fmt-title">Coaching en ligne</div><div class="fmt-sub">Partout — 100% online</div>
         <p class="fmt-desc">Programme personnalisé, vidéos d'exécution, ajustements hebdo. La structure d'un coach, où que tu sois.</p>
-        <ul class="fmt-list"><li>App dédiée</li><li>Feedback vidéo</li><li>Échanges réguliers</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
-        <div class="fmt-top">
-          <span class="fmt-num">03</span>
-          <a href="#contact" class="fmt-arr" aria-label="En savoir plus">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
-        </div>
-        <div class="fmt-title">Préparation Hyrox</div>
-        <div class="fmt-sub">Paris &amp; online</div>
+        <div class="fmt-top"><span class="fmt-num">03</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="fmt-title">Préparation Hyrox</div><div class="fmt-sub">Paris &amp; online</div>
         <p class="fmt-desc">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing. Pour finir — ou performer.</p>
         <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
-        <div class="fmt-top">
-          <span class="fmt-num">04</span>
-          <a href="#contact" class="fmt-arr" aria-label="En savoir plus">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
-        </div>
-        <div class="fmt-title">Bootcamps</div>
-        <div class="fmt-sub">Quai Sauvage · Bercy</div>
+        <div class="fmt-top"><span class="fmt-num">04</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="fmt-title">Bootcamps</div><div class="fmt-sub">Quai Sauvage · Bercy</div>
         <p class="fmt-desc">Sessions outdoor en petit groupe. Force, conditioning, ambiance. Une vraie communauté d'entraînement.</p>
         <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
     </div>
-
     <!-- Mobile accordion -->
     <div class="fmt-acc" id="fmtAcc">
       <div class="acc-item">
         <button class="acc-btn" data-open="true" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">01</span><div><div class="acc-title">Personal Training</div><div class="acc-sub">Paris 11 — en salle</div></div></div>
-          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="acc-left"><span class="acc-num">01</span><div><div class="acc-title">Personal Training</div><div class="acc-sub">Paris — en salle</div></div></div>
+          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body open">
-          <p style="font-size:13px;color:var(--muted);line-height:1.75">Séances individuelles, cadre exigeant, exécution propre. Plan adapté à ton emploi du temps.</p>
-          <ul class="fmt-list" style="margin-top:14px"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:18px;font-size:11px">En parler →</a>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Séances individuelles, cadre exigeant, exécution propre.</p>
+          <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
+          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching en ligne</div><div class="acc-sub">Partout — 100% online</div></div></div>
-          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching en ligne</div><div class="acc-sub">100% online</div></div></div>
+          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.75">Programme personnalisé, vidéos d'exécution, ajustements hebdo.</p>
-          <ul class="fmt-list" style="margin-top:14px"><li>App dédiée</li><li>Feedback vidéo</li><li>Échanges réguliers</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:18px;font-size:11px">En parler →</a>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Programme personnalisé, vidéos d'exécution, ajustements hebdo.</p>
+          <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
           <div class="acc-left"><span class="acc-num">03</span><div><div class="acc-title">Préparation Hyrox</div><div class="acc-sub">Paris &amp; online</div></div></div>
-          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.75">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing.</p>
-          <ul class="fmt-list" style="margin-top:14px"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:18px;font-size:11px">En parler →</a>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing.</p>
+          <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
+          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
           <div class="acc-left"><span class="acc-num">04</span><div><div class="acc-title">Bootcamps</div><div class="acc-sub">Quai Sauvage · Bercy</div></div></div>
-          <svg class="acc-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.75">Sessions outdoor en petit groupe. Force, conditioning, ambiance.</p>
-          <ul class="fmt-list" style="margin-top:14px"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:18px;font-size:11px">En parler →</a>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Sessions outdoor en petit groupe. Force, conditioning, ambiance.</p>
+          <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
+          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
     </div>
@@ -1310,16 +1073,11 @@ footer {
 
 
 <!-- ══ HYROX ══ -->
-<section class="hyrox">
-  <!--
-    IMAGE GYM — Renommez votre photo de salle (625078188...) en "benjamin-gym.jpg"
-    et placez-la dans le dossier assets/
-  -->
+<section class="hyrox" id="hyrox">
   <img src="assets/benjamin-gym.jpg" alt="" class="hyrox-bg" loading="lazy"/>
-  <div class="hyrox-gtb"></div>
-  <div class="hyrox-glr"></div>
+  <div class="hyrox-vignette"></div>
   <div class="hyrox-c">
-    <div class="s-label reveal">Hyrox Focus</div>
+    <div class="hyrox-label reveal">Hyrox Focus</div>
     <h2 class="reveal" style="transition-delay:.08s">
       Prépare la course.<br/><span class="lime">Construis le moteur.</span>
     </h2>
@@ -1327,86 +1085,95 @@ footer {
       Une programmation pensée pour les exigences réelles d'une Hyrox : force fonctionnelle, capacité aérobie, pacing, transitions.
     </p>
     <div class="hyrox-stats">
-      <div class="stat-item reveal" style="transition-delay:.2s">
-        <div class="stat-n">8</div>
+      <div class="reveal" style="transition-delay:.22s">
+        <div class="stat-n" data-target="8" data-suffix="">8</div>
         <div class="stat-l">Stations</div>
       </div>
-      <div class="stat-item reveal" style="transition-delay:.3s">
-        <div class="stat-n">8 km</div>
+      <div class="reveal" style="transition-delay:.32s">
+        <div class="stat-n" data-target="8" data-suffix=" km">8 km</div>
         <div class="stat-l">Course totale</div>
       </div>
-      <div class="stat-item reveal" style="transition-delay:.4s">
-        <div class="stat-n">12+</div>
+      <div class="reveal" style="transition-delay:.42s">
+        <div class="stat-n" data-target="12" data-suffix="+">12+</div>
         <div class="stat-l">Semaines de prépa</div>
       </div>
     </div>
-    <div class="reveal" style="transition-delay:.48s; margin-top:52px">
+    <div class="reveal" style="transition-delay:.5s;margin-top:44px">
       <a href="#contact" class="btn-lime">
         Lancer ma prépa
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
 
-<!-- ══ INSTAGRAM REELS ══ -->
+<!-- ══ INSTAGRAM — après Hyrox, vidéos MP4/WebM ══ -->
 <section class="ig-section">
   <div class="ig-inner">
     <div class="ig-header reveal">
-      <div>
-        <div class="s-label">Instagram</div>
-        <h3 class="ig-title-text">@ben_fitparis</h3>
-      </div>
+      <h3 class="ig-title">@ben_fitparis</h3>
       <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ig-follow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
         Suivre
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
 
     <!--
-      ══════════════════════════════════════════
-      INSTAGRAM — Mise à jour manuelle (4 posts)
-      ══════════════════════════════════════════
-      Pour chaque item :
-      1. Faites un screenshot du post Instagram (format portrait idéal)
-      2. Renommez : reel-1.jpg, reel-2.jpg, reel-3.jpg, reel-4.jpg
-      3. Placez les fichiers dans le dossier assets/
-      Les liens href pointent déjà vers les vrais posts.
+      VIDÉOS INSTAGRAM — Instructions :
+      ─────────────────────────────────
+      1. Exporter chaque Reel en MP4 (< 5 Mo recommandé, 720p max)
+      2. Convertir en WebM pour meilleure compression : ffmpeg -i reel-1.mp4 -c:v libvpx-vp9 -b:v 0 -crf 33 reel-1.webm
+      3. Placer dans assets/ : reel-1.webm, reel-1.mp4, reel-1.jpg (poster = 1ère frame)
+      4. Les liens href pointent déjà vers les bons posts Instagram
+
+      Si la vidéo n'existe pas encore → l'image poster s'affiche en fallback.
     -->
-    <div class="ig-grid reveal">
+    <div class="ig-grid reveal" style="transition-delay:.06s">
 
-      <!-- Post 1 — @ben_fitparis/reel/DVRV-9bCLpF -->
+      <!-- Reel 1 -->
       <a href="https://www.instagram.com/reel/DVRV-9bCLpF/" target="_blank" rel="noreferrer" class="ig-item">
-        <img src="assets/reel-1.jpg" alt="Reel Instagram @ben_fitparis" loading="lazy"/>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-1.jpg">
+          <source src="assets/reel-1.webm" type="video/webm"/>
+          <source src="assets/reel-1.mp4"  type="video/mp4"/>
+        </video>
         <div class="ig-overlay"></div>
-        <svg class="ig-play-btn" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
-        <div class="ig-type-lbl">Reel</div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-lbl">Reel</div>
       </a>
 
-      <!-- Post 2 — @ben_fitparis/p/C2XzRn2sdHe -->
+      <!-- Post 2 -->
       <a href="https://www.instagram.com/p/C2XzRn2sdHe/" target="_blank" rel="noreferrer" class="ig-item">
-        <img src="assets/reel-2.jpg" alt="Post Instagram @ben_fitparis" loading="lazy"/>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-2.jpg">
+          <source src="assets/reel-2.webm" type="video/webm"/>
+          <source src="assets/reel-2.mp4"  type="video/mp4"/>
+        </video>
         <div class="ig-overlay"></div>
-        <svg class="ig-play-btn" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
-        <div class="ig-type-lbl">Post</div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-lbl">Post</div>
       </a>
 
-      <!-- Post 3 — @ben_fitparis/p/DAEoEuWOfzz -->
+      <!-- Post 3 -->
       <a href="https://www.instagram.com/p/DAEoEuWOfzz/" target="_blank" rel="noreferrer" class="ig-item">
-        <img src="assets/reel-3.jpg" alt="Post Instagram @ben_fitparis" loading="lazy"/>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-3.jpg">
+          <source src="assets/reel-3.webm" type="video/webm"/>
+          <source src="assets/reel-3.mp4"  type="video/mp4"/>
+        </video>
         <div class="ig-overlay"></div>
-        <svg class="ig-play-btn" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
-        <div class="ig-type-lbl">Post</div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-lbl">Post</div>
       </a>
 
-      <!-- Post 4 — @quaisauvage/p/DL71AglIv4e (bootcamps Bercy) -->
+      <!-- Post 4 -->
       <a href="https://www.instagram.com/p/DL71AglIv4e/" target="_blank" rel="noreferrer" class="ig-item">
-        <img src="assets/reel-4.jpg" alt="Bootcamp Quai Sauvage Bercy" loading="lazy"/>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-4.jpg">
+          <source src="assets/reel-4.webm" type="video/webm"/>
+          <source src="assets/reel-4.mp4"  type="video/mp4"/>
+        </video>
         <div class="ig-overlay"></div>
-        <svg class="ig-play-btn" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
-        <div class="ig-type-lbl">Post</div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-lbl">Post</div>
       </a>
 
     </div>
@@ -1419,78 +1186,40 @@ footer {
   <div class="ct-in">
     <div class="ct-l reveal">
       <div class="s-label">Contact</div>
-      <h2>Parlons de ton <span class="lime">objectif</span>.</h2>
-      <p>Un message court, une réponse rapide. On définit ensemble le format d'accompagnement le plus adapté à ta situation.</p>
-      <div class="ct-info">
-        <div><div class="ct-lbl">Salle</div><div class="ct-val">Paris 11</div></div>
-        <div><div class="ct-lbl">Bootcamps</div><div class="ct-val">Quai Sauvage · Bercy</div></div>
-        <div><div class="ct-lbl">Online</div><div class="ct-val">Partout en France &amp; à l'international</div></div>
-      </div>
-      <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ct-ig-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      <h2>Parlons de<br/>ton <span class="lime">objectif.</span></h2>
+      <p class="ct-intro">Un message court, une réponse rapide. On définit ensemble l'accompagnement le plus adapté à ta situation.</p>
+      <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ct-ig">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
         @ben_fitparis
       </a>
     </div>
-
-    <div class="reveal" style="transition-delay:.12s">
-      <!--
-        FORMSPREE — Pour recevoir les messages par email :
-        1. Créez un compte sur formspree.io
-        2. Créez un nouveau formulaire
-        3. Remplacez VOTRE_ID_FORMSPREE par votre ID
-           Exemple : action="https://formspree.io/f/xrgvkpzb"
-      -->
-      <form
-        class="ct-form"
-        id="contactForm"
+    <div class="reveal" style="transition-delay:.1s">
+      <form class="ct-form" id="contactForm"
         action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
-        method="POST"
-      >
-        <!-- Anti-spam honeypot (invisible) -->
+        method="POST">
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
-        <!-- Redirection après envoi (optionnel) -->
-        <input type="hidden" name="_next" value="https://benjamincoaching.fr/?merci=1"/>
-
-        <!-- Grille unifiée 2×2 — align-items:end garantit que les inputs
-             sont toujours au même niveau même si les labels diffèrent -->
         <div class="f-4grid">
-          <div class="f-grp">
-            <label for="fn">Prénom</label>
-            <input type="text" id="fn" name="firstName" maxlength="80" required placeholder="Ton prénom"/>
-          </div>
-          <div class="f-grp">
-            <label for="em">Email</label>
-            <input type="email" id="em" name="email" maxlength="200" required placeholder="ton@email.com"/>
-          </div>
-          <div class="f-grp">
-            <label for="ph">Téléphone <span>(optionnel)</span></label>
-            <input type="tel" id="ph" name="phone" maxlength="40" placeholder="+33 6 00 00 00 00"/>
-          </div>
+          <div class="f-grp"><label for="fn">Prénom</label><input type="text" id="fn" name="firstName" maxlength="80" required placeholder="Ton prénom"/></div>
+          <div class="f-grp"><label for="em">Email</label><input type="email" id="em" name="email" maxlength="200" required placeholder="ton@email.com"/></div>
+          <div class="f-grp"><label for="ph">Téléphone <span>(optionnel)</span></label><input type="tel" id="ph" name="phone" maxlength="40" placeholder="+33 6 00 00 00 00"/></div>
           <div class="f-grp">
             <label for="gl">Objectif</label>
             <select id="gl" name="goal">
               <option value="" disabled selected>Choisir…</option>
-              <option value="Transformation">Transformation</option>
-              <option value="Force">Force</option>
-              <option value="Hyrox">Hyrox</option>
-              <option value="Remise en forme">Remise en forme</option>
-              <option value="Autre">Autre</option>
+              <option>Transformation</option><option>Force</option>
+              <option>Hyrox</option><option>Remise en forme</option><option>Autre</option>
             </select>
           </div>
         </div>
-        <div class="f-grp" style="margin-top:20px">
+        <div class="f-grp" style="margin-top:16px">
           <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="5" maxlength="1500" required placeholder="Parle-moi de ton point de départ, ton objectif et ton timing."></textarea>
+          <textarea id="msg" name="message" rows="4" maxlength="1500" required placeholder="Parle-moi de ton point de départ, ton objectif et ton timing."></textarea>
         </div>
         <button type="submit" class="btn-submit" id="submitBtn">
           <span id="submitText">Envoyer ma demande</span>
-          <svg id="submitArrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <svg id="submitArrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
         </button>
-        <p class="f-note">
-          En envoyant ce formulaire, tu acceptes d'être recontacté par Benjamin Coaching par email.
-          Tes données ne seront jamais transmises à des tiers. Conformément au RGPD, tu peux
-          demander la suppression de tes données à tout moment.
-        </p>
+        <p class="f-note">En envoyant ce formulaire, tu acceptes d'être recontacté. Données non transmises à des tiers.</p>
       </form>
     </div>
   </div>
@@ -1501,15 +1230,14 @@ footer {
 <footer>
   <div class="ft-in">
     <div class="ft-top">
-      <div class="ft-logo-wrap">
+      <div>
         <div class="ft-logo">BENJAMIN<span>.</span>COACHING</div>
-        <p class="ft-tagline">Coaching sportif à Paris 11, en ligne et bootcamps à Bercy.<br/>Transformation · Force · Hyrox.</p>
+        <p class="ft-tagline">Coach sportif à Paris et en ligne. Transformation · Force · Hyrox.</p>
       </div>
       <div class="ft-links">
-        <span>Paris 11</span>
-        <span>Quai Sauvage · Bercy</span>
-        <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ig-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        <span>Paris</span><span>Bercy</span>
+        <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ig-lnk">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           Instagram
         </a>
         <a href="#coachings">Coachings</a>
@@ -1518,326 +1246,361 @@ footer {
     </div>
     <div class="ft-bot">
       <span>© 2025 Benjamin Coaching. Tous droits réservés.</span>
-      <div style="display:flex;gap:20px">
+      <div style="display:flex;gap:16px">
         <a href="#" onclick="openLegal(event)">Mentions légales</a>
-        <a href="#" onclick="openLegal(event)">Politique de confidentialité</a>
+        <a href="#" onclick="openLegal(event)">Confidentialité</a>
       </div>
     </div>
   </div>
 </footer>
 
 
-<!-- ══ MODAL MENTIONS LÉGALES ══ -->
+<!-- Floating CTA — Mobile uniquement -->
+<a href="#contact" class="float-cta" id="floatCta" aria-label="Prendre contact">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span>Parlons-en</span>
+</a>
+
+<!-- Modal mentions légales -->
 <div class="legal-modal" id="legalModal">
   <div class="legal-overlay" onclick="closeLegal()"></div>
   <div class="legal-panel">
-    <button class="legal-close" onclick="closeLegal()" aria-label="Fermer">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-
-    <h2>Mentions légales &amp; Politique de confidentialité</h2>
-
-    <h3>Éditeur du site</h3>
-    <p>
-      <strong>Benjamin [Nom de famille]</strong><br/>
-      Activité : Coach sportif indépendant<br/>
-      <!--
-        À COMPLÉTER :
-        Si vous êtes en auto-entrepreneur, ajoutez :
-        N° SIRET : XXX XXX XXX XXXXX
-        Code APE : 9311Z (Activités de clubs de sport)
-      -->
-      Adresse : Paris 11e, France<br/>
-      Email : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a><br/>
-      Instagram : <a href="https://www.instagram.com/ben_fitparis" target="_blank">@ben_fitparis</a>
-    </p>
-
+    <button class="legal-close" onclick="closeLegal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h2>Mentions légales &amp; Confidentialité</h2>
+    <h3>Éditeur</h3>
+    <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris<br/>Email : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
     <h3>Hébergement</h3>
-    <p>
-      Ce site est hébergé par :<br/>
-      <strong>Vercel Inc.</strong><br/>
-      340 Pine Street, Suite 701, San Francisco, CA 94104, USA<br/>
-      <a href="https://vercel.com" target="_blank">vercel.com</a>
-    </p>
-
+    <p><strong>Vercel Inc.</strong> — San Francisco, CA · <a href="https://vercel.com" target="_blank">vercel.com</a></p>
     <h3>Propriété intellectuelle</h3>
-    <p>
-      L'ensemble des contenus de ce site (textes, images, visuels) est la propriété exclusive de Benjamin Coaching, sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.
-    </p>
-
+    <p>Tous les contenus sont la propriété de Benjamin Coaching. Reproduction interdite sans autorisation.</p>
     <h3>Données personnelles &amp; RGPD</h3>
-    <p>
-      Ce site collecte des données personnelles uniquement via le formulaire de contact (prénom, email, téléphone optionnel, message). Ces données sont utilisées exclusivement pour répondre à vos demandes de coaching et ne sont jamais transmises à des tiers.
-    </p>
-    <ul>
-      <li><strong>Responsable du traitement :</strong> Benjamin [Nom de famille], Paris 11e</li>
-      <li><strong>Finalité :</strong> Réponse aux demandes de coaching</li>
-      <li><strong>Durée de conservation :</strong> 12 mois maximum</li>
-      <li><strong>Vos droits :</strong> accès, rectification, suppression, opposition</li>
-      <li><strong>Exercer vos droits :</strong> <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></li>
-    </ul>
-    <p style="margin-top:12px">
-      Le formulaire de contact utilise le service <a href="https://formspree.io" target="_blank">Formspree</a> (USA) — soumis à des garanties adéquates en matière de transfert de données.
-    </p>
-
+    <p>Données collectées via le formulaire (prénom, email, message) uniquement pour répondre aux demandes. Conservation : 12 mois max. Droits : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
     <h3>Cookies</h3>
-    <p>
-      Ce site n'utilise aucun cookie de traçage ou de publicité. Aucun outil d'analyse n'est installé.
-    </p>
-
-    <h3>Responsabilité</h3>
-    <p>
-      Benjamin Coaching ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation de ce site ou de l'impossibilité d'y accéder.
-    </p>
+    <p>Aucun cookie de traçage ou publicitaire.</p>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════════════════════
+<!-- ═══════════════════════════════════════════
      JAVASCRIPT
-══════════════════════════════════════════════════════ -->
+═══════════════════════════════════════════ -->
 <script>
 'use strict';
 
-/* ─────────────────────────────────────────
+/* ─────────────────────────────────────────────────
    TÉMOIGNAGES — Modifier ce tableau
-   Le dernier élément s'affiche EN PREMIER
-   gender: "m" = homme  |  "f" = femme
-───────────────────────────────────────── */
+   Le dernier élément s'affiche EN PREMIER.
+───────────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    name: "Aude",
-    gender: "f",
-    role: "Transformation",
-    text: "Très bonnes séances de coaching avec Ben ! Coach très pro qui s'adapte à votre objectif et avec qui il est agréable de travailler. Très sympa par ailleurs ce qui permet de passer une bonne séance tout en vous poussant au max !"
+    name: "Aude", role: "Transformation",
+    text: "Très bonnes séances de coaching avec Ben ! Coach très pro qui s'adapte à votre objectif et avec qui il est agréable de travailler. Très sympa par ailleurs, ce qui permet de passer une bonne séance tout en vous poussant au max !"
   },
   {
-    name: "Thomas",
-    gender: "m",
-    role: "Hyrox Prep",
+    name: "Thomas", role: "Hyrox Prep",
     text: "Plan structuré, tests précis, pacing maîtrisé le jour J. Aucun doute sur la méthode."
   },
   {
-    name: "Gwen",
-    gender: "f",
-    role: "Coaching personnalisé",
+    name: "Gwen", role: "Coaching personnalisé",
     text: "Excellent coaching de Benjamin qui a créé un programme adapté à mes besoins et objectifs en alliant motivation et bienveillance. Je recommande 😊"
   }
-  /* ── Ajouter un témoignage : copier le bloc ci-dessous ──
-  ,{
-    name: "Prénom",
-    gender: "m",   // "m" ou "f"
-    role: "Type de coaching",
-    text: "Le témoignage ici..."
-  }
-  ─────────────────────────────────────────────────────── */
+  /* Ajouter un avis : ,{ name:"Prénom", role:"Type", text:"Témoignage." } */
 ];
 
-/* Icônes genre SVG — homme vs femme clairement distincts */
-const GENDER_ICONS = {
-  /* Homme : silhouette tête + épaules larges + symbole ♂ */
-  m: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-    <circle cx="12" cy="6.5" r="3.5"/>
-    <path d="M5 21c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke-linecap="round"/>
-    <path d="M17.5 4.5 21 1m0 0h-3m3 0v3" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`,
-  /* Femme : silhouette tête + robe/jupe + symbole ♀ */
-  f: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-    <circle cx="12" cy="6.5" r="3.5"/>
-    <path d="M8 13.5c0 0-1 1.5-1 4h10c0-2.5-1-4-1-4" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M9.5 13.5 8 21m6.5-7.5L16 21" stroke-linecap="round"/>
-    <line x1="12" y1="21" x2="12" y2="18"/>
-  </svg>`
-};
-
-/* ── Construire une carte HTML ── */
 function buildCard(t) {
-  const genderClass = t.gender === 'f' ? 'female' : 'male';
-  const genderLabel = t.gender === 'f' ? 'Femme' : 'Homme';
-  return `
-    <div class="testi-card">
-      <div class="testi-quote">"</div>
-      <p class="testi-text">${t.text}</p>
-      <div class="testi-footer">
-        <span class="testi-gender-icon ${genderClass}" title="${genderLabel}" aria-label="${genderLabel}">${GENDER_ICONS[t.gender] || GENDER_ICONS.m}</span>
-        <div>
-          <div class="testi-name">${t.name}</div>
-          <div class="testi-role">${t.role}</div>
-        </div>
-      </div>
-    </div>`;
+  return `<div class="testi-card">
+    <div class="testi-open-quote">"</div>
+    <p class="testi-text">${t.text}</p>
+    <div class="testi-footer">
+      <span class="testi-avatar" aria-hidden="true">${t.name.charAt(0)}</span>
+      <div><div class="testi-name">${t.name}</div><div class="testi-role">${t.role}</div></div>
+    </div>
+  </div>`;
 }
 
-/* ── Inverser pour afficher le plus récent en 1er ── */
 const ordered = [...TESTIMONIALS].reverse();
-const VISIBLE = 3; /* cartes visibles en même temps sur desktop */
-let currentSlide = 0;
+const VISIBLE  = 3;
+let   slide    = 0;
 const maxSlide = Math.max(0, ordered.length - VISIBLE);
 
-/* ── Remplir desktop track ── */
 const track = document.getElementById('testiTrack');
 if (track) {
   track.innerHTML = ordered.map(t => `<div class="testi-card-wrap">${buildCard(t)}</div>`).join('');
-  /* Appliquer la taille flex correcte */
   track.querySelectorAll('.testi-card-wrap').forEach(el => {
-    el.style.flex = `0 0 calc(${100/VISIBLE}% - ${(VISIBLE-1)*20/VISIBLE}px)`;
+    el.style.flex = `0 0 calc(${100/VISIBLE}% - ${(VISIBLE-1)*16/VISIBLE}px)`;
   });
 }
+const mobileEl = document.getElementById('testiMobile');
+if (mobileEl) mobileEl.innerHTML = ordered.map(t => `<div class="testi-mobile-item">${buildCard(t)}</div>`).join('');
 
-/* ── Remplir mobile scroll ── */
-const mobile = document.getElementById('testiMobile');
-if (mobile) {
-  mobile.innerHTML = ordered.map(t => `<div class="testi-mobile-item">${buildCard(t)}</div>`).join('');
-}
-
-/* ── Dots ── */
 const dotsEl = document.getElementById('testiDots');
 function buildDots() {
   if (!dotsEl) return;
-  const count = maxSlide + 1;
-  dotsEl.innerHTML = Array.from({length:count}, (_,i) =>
-    `<button class="testi-dot ${i===0?'active':''}" onclick="goToSlide(${i})" aria-label="Slide ${i+1}"></button>`
+  dotsEl.innerHTML = Array.from({length: maxSlide+1}, (_,i) =>
+    `<button class="testi-dot${i===0?' active':''}" onclick="goSlide(${i})" aria-label="Slide ${i+1}"></button>`
   ).join('');
 }
 buildDots();
 
-/* ── Navigation ── */
 function updateNav() {
   const prev = document.getElementById('testiPrev');
   const next = document.getElementById('testiNext');
-  const counter = document.getElementById('testiCounter');
-  if (prev) prev.disabled = currentSlide === 0;
-  if (next) next.disabled = currentSlide >= maxSlide;
-  if (counter) counter.textContent = `${currentSlide + 1} / ${maxSlide + 1}`;
-  if (dotsEl) {
-    dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
-  }
+  const ctr  = document.getElementById('testiCounter');
+  if (prev) prev.disabled = slide === 0;
+  if (next) next.disabled = slide >= maxSlide;
+  if (ctr)  ctr.textContent = `${slide+1} / ${maxSlide+1}`;
+  if (dotsEl) dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
 }
-
-function goToSlide(idx) {
-  currentSlide = Math.max(0, Math.min(idx, maxSlide));
+function goSlide(idx) {
+  slide = Math.max(0, Math.min(idx, maxSlide));
   if (track) {
-    const cardW = track.querySelector('.testi-card-wrap');
-    if (cardW) {
-      const offset = currentSlide * (cardW.offsetWidth + 20);
-      track.style.transform = `translateX(-${offset}px)`;
-    }
+    const w = track.querySelector('.testi-card-wrap');
+    if (w) track.style.transform = `translateX(-${slide * (w.offsetWidth + 16)}px)`;
   }
   updateNav();
 }
-
-window.testiMove = function(dir) { goToSlide(currentSlide + dir) };
+window.testiMove = dir => goSlide(slide + dir);
 updateNav();
 
-/* ── Scroll reveal ── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObs.unobserve(e.target);
+/* ─────────────────────────────────────────────────
+   SERVICES — Spotlight auto-cyclique
+   ─────────────────────────────────────────────────
+   • Toutes les 3.5s une carte devient "active"
+   • L'animation CSS de son icône se déclenche
+   • IntersectionObserver démarre/arrête la rotation
+   • Hover/touch suspend la rotation 4s
+───────────────────────────────────────────────── */
+const svcCards   = [...document.querySelectorAll('.svc-card')];
+const svcGrid    = document.getElementById('svcGrid');
+const svcProgEl  = document.getElementById('svcProgress');
+
+let svcIdx       = 0;
+let svcTimer     = null;
+let svcPause     = null;
+let svcVisible   = false;
+const SVC_DELAY  = 3500; /* ms entre chaque carte */
+
+/* Construire les pips de progression */
+if (svcProgEl && svcCards.length) {
+  svcProgEl.innerHTML = svcCards.map((_,i) =>
+    `<div class="svc-pip${i===0?' active':''}"></div>`
+  ).join('');
+}
+
+function svcSetActive(idx) {
+  svcIdx = idx;
+  svcCards.forEach((c, i) => {
+    const wasActive = c.classList.contains('active');
+    c.classList.toggle('active', i === idx);
+    /* Relancer l'animation de l'icône à chaque activation */
+    if (i === idx && !wasActive) {
+      const svg = c.querySelector('.svc-icon svg');
+      if (svg) {
+        svg.style.animation = 'none';
+        void svg.offsetWidth; /* reflow pour reset */
+        svg.style.animation  = '';
+      }
     }
   });
-}, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  /* Pips */
+  if (svcProgEl) {
+    svcProgEl.querySelectorAll('.svc-pip').forEach((p,i) => p.classList.toggle('active', i===idx));
+  }
+  /* Mobile : scroll actif en vue */
+  if (svcGrid && window.innerWidth <= 768) {
+    const card = svcCards[idx];
+    if (card) {
+      const scrollLeft = card.offsetLeft - svcGrid.offsetLeft - 20;
+      svcGrid.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
+  }
+}
 
-/* ── Nav scroll effect ── */
-const nav = document.getElementById('mainNav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-  /* Parallaxe légère hero */
-  const y = window.scrollY * 0.032;
-  document.querySelectorAll('.hero-photo-d,.hero-photo-m').forEach(img => {
-    img.style.transform = `translateY(${y}px)`;
+function svcStart() {
+  if (svcTimer || !svcVisible) return;
+  svcTimer = setInterval(() => {
+    svcSetActive((svcIdx + 1) % svcCards.length);
+  }, SVC_DELAY);
+}
+
+function svcStop() {
+  clearInterval(svcTimer);
+  svcTimer = null;
+}
+
+function svcUserInteract(idx) {
+  svcStop();
+  clearTimeout(svcPause);
+  svcSetActive(idx);
+  svcPause = setTimeout(() => { if (svcVisible) svcStart() }, 4000);
+}
+
+/* Interactions hover (desktop) et touch (mobile) */
+svcCards.forEach((card, i) => {
+  card.addEventListener('mouseenter', () => svcUserInteract(i));
+  card.addEventListener('focus',      () => svcUserInteract(i));
+  card.addEventListener('touchstart', () => svcUserInteract(i), { passive: true });
+});
+
+/* Démarrer uniquement quand visible */
+const svcObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    svcVisible = true;
+    svcSetActive(0);
+    svcStart();
+  } else {
+    svcVisible = false;
+    svcStop();
+  }
+}, { threshold: 0.15 });
+
+if (svcGrid) svcObs.observe(svcGrid);
+
+/* ─────────────────────────────────────────────────
+   HYROX — Compteurs animés
+   Déclenchés par IntersectionObserver sur la section
+   Fonctionne mobile ET desktop
+───────────────────────────────────────────────── */
+function countUp(el, target, suffix, duration) {
+  /* Réinitialiser la valeur affichée */
+  el.textContent = '0' + suffix;
+  const start = performance.now();
+  const tick  = now => {
+    const t    = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3); /* cubic ease-out */
+    el.textContent = Math.round(ease * target) + suffix;
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+const hyroxSection = document.getElementById('hyrox');
+const statEls      = document.querySelectorAll('.stat-n[data-target]');
+let   statsRan     = false;
+
+if (hyroxSection && statEls.length) {
+  const statObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !statsRan) {
+      statsRan = true;
+      statEls.forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        countUp(el, target, suffix, 1500);
+      });
+    }
+  }, {
+    threshold:   0.12, /* se déclenche tôt → mobile ok */
+    rootMargin: '0px 0px -10px 0px'
   });
+  statObs.observe(hyroxSection);
+}
+
+/* ─────────────────────────────────────────────────
+   SCROLL REVEAL
+───────────────────────────────────────────────── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target) }
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -22px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ─────────────────────────────────────────────────
+   NAV SCROLL + PARALLAX HERO + FLOATING CTA
+───────────────────────────────────────────────── */
+const nav      = document.getElementById('mainNav');
+const floatBtn = document.getElementById('floatCta');
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 40);
+  /* Parallax léger sur les photos hero */
+  const py = y * 0.026;
+  document.querySelectorAll('.hero-photo-d').forEach(img => {
+    img.style.transform = `translateY(${py}px)`;
+  });
+  document.querySelectorAll('.hero-photo-m').forEach(img => {
+    img.style.transform = `translateX(-38%) translateY(${py}px)`;
+  });
+  /* Floating CTA : apparaît après le hero */
+  if (floatBtn) floatBtn.classList.toggle('show', y > window.innerHeight * 0.75);
 }, { passive: true });
 
-/* ── Accordion formats ── */
+/* ─────────────────────────────────────────────────
+   ACCORDION FORMATS
+───────────────────────────────────────────────── */
 window.accTog = function(btn) {
-  const isOpen = btn.getAttribute('data-open') === 'true';
+  const open = btn.getAttribute('data-open') === 'true';
   document.querySelectorAll('.acc-btn').forEach(b => {
     b.setAttribute('data-open','false');
     b.parentElement.querySelector('.acc-body').classList.remove('open');
   });
-  if (!isOpen) {
+  if (!open) {
     btn.setAttribute('data-open','true');
     btn.parentElement.querySelector('.acc-body').classList.add('open');
   }
 };
 
-/* ── Formulaire Formspree (AJAX — pas de rechargement de page) ── */
+/* ─────────────────────────────────────────────────
+   FORMSPREE AJAX
+───────────────────────────────────────────────── */
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', async function(e) {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
     const txt = document.getElementById('submitText');
     const arr = document.getElementById('submitArrow');
-
-    /* Vérifier si Formspree est configuré */
     if (form.action.includes('VOTRE_ID_FORMSPREE')) {
       txt.textContent = '⚠ Configurez Formspree d\'abord';
       btn.style.background = '#f59e0b';
-      setTimeout(() => { txt.textContent = 'Envoyer ma demande'; btn.style.background = ''; }, 3000);
+      setTimeout(() => { txt.textContent = 'Envoyer ma demande'; btn.style.background = '' }, 3200);
       return;
     }
-
-    btn.disabled = true;
-    txt.textContent = 'Envoi en cours…';
+    btn.disabled = true; txt.textContent = 'Envoi…';
     if (arr) arr.style.display = 'none';
-
     try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) {
         txt.textContent = 'Message envoyé ✓';
-        btn.style.background = '#4ade80';
-        btn.style.color = '#0a0a0b';
+        btn.style.background = '#4ade80'; btn.style.color = '#0a0a0b';
         form.reset();
-        setTimeout(() => {
-          txt.textContent = 'Envoyer ma demande';
-          if (arr) arr.style.display = '';
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.disabled = false;
-        }, 4000);
-      } else {
-        throw new Error('Erreur serveur');
-      }
+        setTimeout(() => { txt.textContent='Envoyer ma demande'; if(arr)arr.style.display=''; btn.style.background=''; btn.style.color=''; btn.disabled=false }, 4000);
+      } else throw new Error();
     } catch {
-      txt.textContent = 'Erreur — réessaie';
-      btn.style.background = '#ef4444';
-      btn.disabled = false;
+      txt.textContent = 'Erreur — réessaie'; btn.style.background = '#ef4444'; btn.disabled = false;
       if (arr) arr.style.display = '';
-      setTimeout(() => { txt.textContent = 'Envoyer ma demande'; btn.style.background = ''; }, 3500);
+      setTimeout(() => { txt.textContent='Envoyer ma demande'; btn.style.background='' }, 3200);
     }
   });
 }
 
-/* ── Modal mentions légales ── */
-window.openLegal = function(e) {
-  e.preventDefault();
-  document.getElementById('legalModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
-window.closeLegal = function() {
-  document.getElementById('legalModal').classList.remove('open');
-  document.body.style.overflow = '';
-};
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLegal();
-});
 
-/* ── Message de confirmation dans l'URL ── */
-if (window.location.search.includes('merci=1')) {
-  setTimeout(() => {
-    const el = document.getElementById('submitText');
-    if (el) { el.textContent = 'Message envoyé ✓'; }
-  }, 300);
+/* ─────────────────────────────────────────────────
+   INSTAGRAM — lecture uniquement quand visible
+───────────────────────────────────────────────── */
+const igVideos = document.querySelectorAll('.ig-item video');
+if (igVideos.length) {
+  const igObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  igVideos.forEach(video => igObserver.observe(video));
 }
+
+/* ─────────────────────────────────────────────────
+   MENTIONS LÉGALES
+───────────────────────────────────────────────── */
+window.openLegal  = e => { e.preventDefault(); document.getElementById('legalModal').classList.add('open'); document.body.style.overflow='hidden' };
+window.closeLegal = ()  => { document.getElementById('legalModal').classList.remove('open'); document.body.style.overflow='' };
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLegal() });
 </script>
 </body>
 </html>
