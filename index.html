@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v5.0                                      ║
+║  BENJAMIN COACHING v6.0                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -20,9 +20,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Benjamin Coaching · Coach sportif Paris &amp; Online — Hyrox Prep</title>
-<meta name="description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation, force, conditioning et préparation Hyrox."/>
-<meta property="og:title" content="Benjamin Coaching — Paris · Online · Hyrox"/>
+<title>Benjamin Coaching · Coach sportif Paris &amp; Online — Personal Training &amp; Hyrox</title>
+<meta name="description" content="Coach sportif diplômé BPJEPS à Paris. Personal training en salle, coaching online et préparation Hyrox. Suivi personnalisé, programmation sur mesure."/>
+<meta property="og:title" content="Benjamin Coaching — Personal Training Paris · Online · Hyrox"/>
 <meta property="og:type" content="website"/>
 <meta name="theme-color" content="#0A0A0B"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
@@ -437,7 +437,7 @@ button,input,select,textarea { font-family:inherit }
 .fmt-in { max-width:1280px; margin:0 auto; padding:0 40px }
 .fmt-hdr { max-width:680px; margin-bottom:44px }
 .fmt-hdr p { margin-top:14px; font-size:14px; color:var(--muted); line-height:1.72 }
-.fmt-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
+.fmt-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
 .fmt-card {
   display:flex; flex-direction:column;
   border:1px solid rgba(255,255,255,.09); background:var(--surface); padding:30px;
@@ -673,8 +673,25 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 .float-cta.show { opacity:1; transform:none }
 
 /* ══════════════════════════════════════════
-   MODAL MENTIONS LÉGALES
+   BACK TO TOP — Mobile uniquement
 ══════════════════════════════════════════ */
+.back-top {
+  display:none;
+  position:fixed; bottom:76px; right:16px; z-index:149;
+  width:42px; height:42px;
+  align-items:center; justify-content:center;
+  background:rgba(10,10,11,.82); color:var(--lime);
+  border:1px solid rgba(200,255,0,.28);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 2px 12px rgba(0,0,0,.38);
+  opacity:0; transform:translateY(10px);
+  transition:opacity .35s ease, transform .35s ease, border-color .2s, background .2s;
+  cursor:pointer;
+}
+.back-top.show { opacity:1; transform:none }
+.back-top:hover { border-color:rgba(200,255,0,.6); background:rgba(10,10,11,.95) }
+
+
 .legal-modal { position:fixed; inset:0; z-index:500; display:none; align-items:flex-end; justify-content:center }
 .legal-modal.open { display:flex }
 .legal-overlay { position:absolute; inset:0; background:rgba(0,0,0,.78); backdrop-filter:blur(8px); cursor:pointer }
@@ -705,6 +722,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 55%,var(--surface) 100%) }
   .coach-text { padding:48px 40px }
   .ig-grid { grid-template-columns:repeat(2,1fr) }
+  .fmt-grid { grid-template-columns:1fr } /* 3-col → 1-col sur tablette étroite */
 }
 
 @media (max-width:768px) {
@@ -716,6 +734,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-cta { display:none } /* mobile → floating button uniquement */
   /* Floating */
   .float-cta { display:inline-flex }
+  .back-top  { display:inline-flex }
   /* Hero */
   .hero-photo-d { display:none }
   .hero-photo-m { display:block }
@@ -857,7 +876,7 @@ Accède à la meilleure version de toi-même
       <div class="coach-trust reveal" style="transition-delay:.22s">
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div><span class="tb-main">Coach diplômé</span><span class="tb-sub">BPJEPS</span></div>
+          <div><span class="tb-main">Coach diplômé</span><span class="tb-sub">BPJEPS Haltéro-Muscu · CQP ALS</span></div>
         </div>
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
@@ -1007,37 +1026,43 @@ Accède à la meilleure version de toi-même
   <div class="fmt-in">
     <div class="fmt-hdr reveal">
       <div class="s-label">Coachings</div>
-      <h2 class="s-h2">Quatre formats.<br/><span class="lime">Un seul objectif.</span></h2>
+      <h2 class="s-h2">Trois formats.<br/><span class="lime">Un seul objectif.</span></h2>
       <p>Choisis le format qui colle à ta vie. Chaque coaching est construit autour de ton objectif et de ton niveau.</p>
     </div>
-    <!-- Desktop 2×2 -->
+    <!-- Desktop 3 colonnes -->
     <div class="fmt-grid reveal">
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">01</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
         <div class="fmt-title">Personal Training</div><div class="fmt-sub">Paris — en salle</div>
-        <p class="fmt-desc">Séances individuelles, cadre exigeant, exécution propre. Plan adapté à ton emploi du temps.</p>
-        <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
+        <p class="fmt-desc">Séances individuelles : explication et réalisation de la séance, travail de la technique, conseils et tips.</p>
+        <ul class="fmt-list">
+          <li>Bilan et définition des objectifs en visio</li>
+          <li>Programmation sur 8 semaines</li>
+          <li>Suivi 7j/7 ou hebdomadaire</li>
+          <li>Suivi nutritionnel simple</li>
+        </ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">02</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-        <div class="fmt-title">Coaching en ligne</div><div class="fmt-sub">Partout — 100% online</div>
-        <p class="fmt-desc">Programme personnalisé, vidéos d'exécution, ajustements hebdo. La structure d'un coach, où que tu sois.</p>
-        <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+        <div class="fmt-title">Coaching Online</div><div class="fmt-sub">Partout en France</div>
+        <p class="fmt-desc">Programme personnalisé, vidéos d'exécution et ajustements hebdomadaires.</p>
+        <ul class="fmt-list">
+          <li>Programmation sur mesure</li>
+          <li>Échanges 7j/7 ou hebdomadaires</li>
+          <li>Suivi nutritionnel simple</li>
+        </ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">03</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
         <div class="fmt-title">Préparation Hyrox</div><div class="fmt-sub">Paris &amp; online</div>
-        <p class="fmt-desc">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing. Pour finir — ou performer.</p>
-        <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-      </div>
-      <div class="fmt-card">
-        <div class="fmt-top"><span class="fmt-num">04</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-        <div class="fmt-title">Bootcamps</div><div class="fmt-sub">Quai Sauvage · Bercy</div>
-        <p class="fmt-desc">Sessions outdoor en petit groupe. Force, conditioning, ambiance. Une vraie communauté d'entraînement.</p>
-        <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
+        <p class="fmt-desc">Développement du cardio, travail des stations, renforcement spécifique et préparation mentale.</p>
+        <ul class="fmt-list">
+          <li>Tests réguliers</li>
+          <li>Programmation spécifique et progressive</li>
+          <li>Feedback régulier</li>
+        </ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
     </div>
@@ -1049,19 +1074,19 @@ Accède à la meilleure version de toi-même
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body open">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Séances individuelles, cadre exigeant, exécution propre.</p>
-          <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Séances individuelles : explication et réalisation de la séance, travail de la technique, conseils et tips.</p>
+          <ul class="fmt-list"><li>Bilan et définition des objectifs en visio</li><li>Programmation sur 8 semaines</li><li>Suivi 7j/7 ou hebdomadaire</li><li>Suivi nutritionnel simple</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching en ligne</div><div class="acc-sub">100% online</div></div></div>
+          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching Online</div><div class="acc-sub">Partout en France</div></div></div>
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Programme personnalisé, vidéos d'exécution, ajustements hebdo.</p>
-          <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Programme personnalisé, vidéos d'exécution et ajustements hebdomadaires.</p>
+          <ul class="fmt-list"><li>Programmation sur mesure</li><li>Échanges 7j/7 ou hebdomadaires</li><li>Suivi nutritionnel simple</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
@@ -1071,19 +1096,8 @@ Accède à la meilleure version de toi-même
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing.</p>
-          <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
-        </div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">04</span><div><div class="acc-title">Bootcamps</div><div class="acc-sub">Quai Sauvage · Bercy</div></div></div>
-          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Sessions outdoor en petit groupe. Force, conditioning, ambiance.</p>
-          <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Développement du cardio, travail des stations, renforcement spécifique et préparation mentale.</p>
+          <ul class="fmt-list"><li>Tests réguliers</li><li>Programmation spécifique et progressive</li><li>Feedback régulier</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
@@ -1255,7 +1269,7 @@ Accède à la meilleure version de toi-même
         <p class="ft-tagline">Coach sportif à Paris et en ligne. Transformation · Force · Hyrox.</p>
       </div>
       <div class="ft-links">
-        <span>Paris</span><span>Bercy</span>
+        <span>Paris</span>
         <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ig-lnk">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           Instagram
@@ -1280,6 +1294,11 @@ Accède à la meilleure version de toi-même
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   <span>Parlons-en</span>
 </a>
+
+<!-- Back to top — Mobile uniquement -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut de la page">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
 
 <!-- Modal mentions légales -->
 <div class="legal-modal" id="legalModal">
@@ -1543,6 +1562,7 @@ document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 ───────────────────────────────────────────────── */
 const nav      = document.getElementById('mainNav');
 const floatBtn = document.getElementById('floatCta');
+const backTop  = document.getElementById('backTop');
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -1557,6 +1577,8 @@ window.addEventListener('scroll', () => {
   });
   /* Floating CTA : apparaît après le hero */
   if (floatBtn) floatBtn.classList.toggle('show', y > window.innerHeight * 0.75);
+  /* Back to top : apparaît après le hero */
+  if (backTop) backTop.classList.toggle('show', y > window.innerHeight * 0.75);
 }, { passive: true });
 
 /* ─────────────────────────────────────────────────
