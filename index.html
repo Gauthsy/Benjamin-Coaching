@@ -646,19 +646,39 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 .ft-bot a:hover { color:var(--lime) }
 
 /* ══════════════════════════════════════════
-   FLOATING CTA — Mobile uniquement
+   FLOATING STACK — Groupe bas-droit
+   .float-group : conteneur vertical
+   .float-cta   : "Parlons-en" (mobile only)
+   .float-top   : back-to-top (desktop + mobile)
 ══════════════════════════════════════════ */
-.float-cta {
-  display:none;
+.float-group {
   position:fixed; bottom:20px; right:16px; z-index:150;
+  display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+  /* invisible par défaut — chaque enfant gère sa propre visibilité */
+  pointer-events:none;
+}
+.float-cta {
+  display:none; /* mobile uniquement — activé via @media */
   align-items:center; gap:8px; height:46px; padding:0 20px;
   background:var(--lime); color:#0A0A0B;
   font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
   box-shadow:0 4px 22px rgba(200,255,0,.28), 0 2px 8px rgba(0,0,0,.45);
-  opacity:0; transform:translateY(10px);
+  opacity:0; transform:translateY(10px); pointer-events:none;
   transition:opacity .35s ease, transform .35s ease;
 }
-.float-cta.show { opacity:1; transform:none }
+.float-cta.show { opacity:1; transform:none; pointer-events:auto }
+.float-top {
+  display:flex; align-items:center; justify-content:center;
+  width:40px; height:40px;
+  background:rgba(17,17,19,.92); border:1px solid rgba(255,255,255,.14);
+  color:var(--fg); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 2px 14px rgba(0,0,0,.45);
+  opacity:0; transform:translateY(10px); pointer-events:none;
+  transition:opacity .35s ease, transform .35s ease, border-color .2s, color .2s;
+  cursor:pointer; flex-shrink:0;
+}
+.float-top:hover { border-color:var(--lime); color:var(--lime) }
+.float-top.show { opacity:1; transform:none; pointer-events:auto }
 
 /* ══════════════════════════════════════════
    MODAL MENTIONS LÉGALES
@@ -728,11 +748,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .testi-inner { padding:0 20px }
   /* Services → carrousel mobile */
   .svc-grid {
-    display:flex; gap:0; background:transparent;
+    display:flex; gap:10px; background:transparent;
     overflow-x:auto; scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch; scrollbar-width:none;
     margin:0 -20px; padding:0 20px 18px;
-    gap:10px;
   }
   .svc-grid::-webkit-scrollbar { display:none }
   .svc-card {
@@ -1255,11 +1274,18 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 </footer>
 
 
-<!-- Floating CTA — Mobile uniquement -->
-<a href="#contact" class="float-cta" id="floatCta" aria-label="Prendre contact">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  <span>Parlons-en</span>
-</a>
+<!-- Floating group — bas-droit -->
+<div class="float-group" id="floatGroup">
+  <!-- Back to top — desktop + mobile -->
+  <button class="float-top" id="floatTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
+  <!-- CTA Parlons-en — mobile uniquement -->
+  <a href="#contact" class="float-cta" id="floatCta" aria-label="Prendre contact">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span>Parlons-en</span>
+  </a>
+</div>
 
 <!-- Modal mentions légales -->
 <div class="legal-modal" id="legalModal">
@@ -1510,6 +1536,7 @@ document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 ───────────────────────────────────────────────── */
 const nav      = document.getElementById('mainNav');
 const floatBtn = document.getElementById('floatCta');
+const floatTop = document.getElementById('floatTop');
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -1522,8 +1549,11 @@ window.addEventListener('scroll', () => {
   document.querySelectorAll('.hero-photo-m').forEach(img => {
     img.style.transform = `translateX(-38%) translateY(${py}px)`;
   });
-  /* Floating CTA : apparaît après le hero */
-  if (floatBtn) floatBtn.classList.toggle('show', y > window.innerHeight * 0.75);
+  const pastHero = y > window.innerHeight * 0.75;
+  /* Floating CTA "Parlons-en" : mobile only, apparaît après le hero */
+  if (floatBtn) floatBtn.classList.toggle('show', pastHero);
+  /* Back-to-top : desktop + mobile, apparaît après le hero */
+  if (floatTop) floatTop.classList.toggle('show', pastHero);
 }, { passive: true });
 
 /* ─────────────────────────────────────────────────
