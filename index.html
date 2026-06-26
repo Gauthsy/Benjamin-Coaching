@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v5.0                                      ║
+║  BENJAMIN COACHING v7.0                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -20,9 +20,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Benjamin Coaching · Coach sportif Paris &amp; Online — Hyrox Prep</title>
-<meta name="description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation, force, conditioning et préparation Hyrox."/>
-<meta property="og:title" content="Benjamin Coaching — Paris · Online · Hyrox"/>
+<title>Coach Sportif Paris | Transformation, HYROX &amp; Coaching Personnalisé | Benjamin Coaching</title>
+<meta name="description" content="Coach sportif diplômé à Paris. Coaching personnalisé, transformation physique, préparation HYROX, force et endurance. Accompagnement sur mesure en salle ou à distance."/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Benjamin Coaching — Coach sportif à Paris &amp; Online"/>
+<meta property="og:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
+<meta property="og:site_name" content="Benjamin Coaching"/>
 <meta property="og:type" content="website"/>
 <meta name="theme-color" content="#0A0A0B"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
@@ -213,6 +216,16 @@ button,input,select,textarea { font-family:inherit }
   animation:fadeUp .65s .18s both;
 }
 .hero h1 .lime { color:var(--lime) }
+.hero-tagline {
+  margin-top:14px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,2.4vw,34px);
+  line-height:1;
+  text-transform:uppercase;
+  color:rgba(244,244,244,.9);
+  letter-spacing:.03em;
+  animation:fadeUp .65s .26s both;
+}
 .hero-sub {
   margin-top:22px; max-width:430px; font-size:15px;
   color:rgba(244,244,244,.74); line-height:1.65;
@@ -291,8 +304,14 @@ button,input,select,textarea { font-family:inherit }
 .trust-badge:hover { background:rgba(200,255,0,.06); border-color:rgba(200,255,0,.28) }
 .trust-badge svg { color:var(--lime); flex-shrink:0 }
 .tb-main { display:block; font-size:13px; font-weight:600; color:var(--lime); line-height:1.2 }
-.tb-sub  { display:block; font-size:10px; color:var(--muted); margin-top:2px; letter-spacing:.04em }
-
+.tb-sub  {
+  display:block;
+  font-size:11px;
+  color:rgba(244,244,244,.66);
+  margin-top:4px;
+  letter-spacing:.035em;
+  line-height:1.35;
+}
 /* ══════════════════════════════════════════
    TÉMOIGNAGES
 ══════════════════════════════════════════ */
@@ -425,10 +444,19 @@ button,input,select,textarea { font-family:inherit }
 .fmt-in { max-width:1280px; margin:0 auto; padding:0 40px }
 .fmt-hdr { max-width:680px; margin-bottom:44px }
 .fmt-hdr p { margin-top:14px; font-size:14px; color:var(--muted); line-height:1.72 }
-.fmt-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px }
+.fmt-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  align-items:stretch;
+}
 .fmt-card {
-  display:flex; flex-direction:column;
-  border:1px solid rgba(255,255,255,.09); background:var(--surface); padding:30px;
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  border:1px solid rgba(255,255,255,.09);
+  background:var(--surface);
+  padding:30px;
   transition:border-color .3s, transform .2s;
 }
 .fmt-card:hover { border-color:rgba(200,255,0,.4); transform:translateY(-2px) }
@@ -447,12 +475,27 @@ button,input,select,textarea { font-family:inherit }
 }
 .fmt-sub { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:4px }
 .fmt-desc { margin-top:14px; font-size:13px; color:var(--muted); line-height:1.7 }
-.fmt-list { list-style:none; margin-top:16px; display:flex; flex-direction:column; gap:7px }
+.fmt-list {
+  list-style:none;
+  margin-top:16px;
+  margin-bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
 .fmt-list li { display:flex; align-items:center; gap:9px; font-size:13px; color:rgba(244,244,244,.8) }
 .fmt-list li::before { content:''; display:inline-block; width:12px; height:1px; background:var(--lime); flex-shrink:0 }
 .fmt-link {
-  display:inline-flex; align-items:center; gap:7px; margin-top:22px;
-  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--lime);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:auto;
+  padding-top:22px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--lime);
   transition:gap .2s;
 }
 .fmt-link:hover { gap:12px }
@@ -707,6 +750,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
+@media (max-width:980px) {
+  .fmt-grid { grid-template-columns:1fr }
+}
+
 @media (max-width:1100px) {
   .coach-inner { grid-template-columns:1fr }
   .coach-img-wrap { min-height:400px }
@@ -732,6 +779,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero-content { padding:calc(66px + 14px) 20px 52px }
   .hero h1 { font-size:clamp(56px,17vw,82px) }
   .hero-sub { font-size:14px; max-width:100% }
+  .hero-tagline { font-size:20px }
   .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
   .coach-inner { grid-template-columns:1fr }
@@ -791,6 +839,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 }
 
 @media (max-width:480px) {
+  .coach-trust .tb-sub { font-size:10.5px }
   .hero h1 { font-size:clamp(50px,15.5vw,72px) }
   .coach-trust { grid-template-columns:1fr }
   .svc-card { flex:0 0 84vw }
@@ -826,8 +875,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
       Coaching personnalisé Paris · Online
     </div>
-    <h1>Construis le corps.<br/><span class="lime">Construis le moteur.</span></h1>
-    <p class="hero-sub">Un accompagnement structuré pour transformer ton physique, gagner en force et préparer l'Hyrox.</p>
+    <h1>
+      Construis ton corps.<br/>
+      <span class="lime">Développe ton mental.</span>
+    </h1>
+    <p class="hero-tagline">Accède à la meilleure version de toi-même.</p>
+    <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-lime">
         Réserver un appel
@@ -849,18 +902,18 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="s-label">Le coach</div>
       <h2 class="coach-name reveal" style="transition-delay:.07s">Benjamin.</h2>
       <div class="coach-bio reveal" style="transition-delay:.14s">
-        <p>Coach sportif diplômé basé à Paris.</p>
-        <p>Passionné de musculation depuis l'adolescence, j'ai choisi d'en faire mon métier il y a plus de six ans. J'accompagne des profils très différents : perte de poids, remise en forme, développement musculaire et préparation HYROX.</p>
+        <p>Coach sportif diplômé d'État basé à Paris.</p>
+        <p>Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</p>
         <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
       </div>
       <div class="coach-trust reveal" style="transition-delay:.22s">
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div><span class="tb-main">Coach diplômé</span><span class="tb-sub">BPJEPS</span></div>
+          <div><span class="tb-main">Coach diplômé</span><span class="tb-sub">BPJEPS Haltéro-Musculation<br/>CQP ALS option AGEE</span></div>
         </div>
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
-          <div><span class="tb-main">6 ans</span><span class="tb-sub">D'expérience</span></div>
+          <div><span class="tb-main">4 ans</span><span class="tb-sub">D'expérience</span></div>
         </div>
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
@@ -885,7 +938,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <h2 class="s-h2">La preuve<br/><span class="lime">par les faits.</span></h2>
       </div>
       <div class="testi-nav-wrap">
-        <span class="testi-counter" id="testiCounter">1 / 3</span>
+        <span class="testi-counter" id="testiCounter"></span>
         <div style="display:flex;gap:8px">
           <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
@@ -924,7 +977,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </svg>
         </div>
         <div class="svc-title">Transformation</div>
-        <p class="svc-desc">Perdre du gras, redessiner ta silhouette et installer des habitudes durables.</p>
+        <p class="svc-desc">Perte de gras, prise de muscle ou silhouette affinée, à travers des méthodes de travail adaptées et l'installation d'habitudes durables.</p>
       </div>
 
       <div class="svc-card" data-type="force">
@@ -937,7 +990,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </svg>
         </div>
         <div class="svc-title">Force</div>
-        <p class="svc-desc">Devenir plus fort sur les mouvements clés. Squat, soulevé, tractions, pompes.</p>
+        <p class="svc-desc">Développe ta force à travers une programmation méthodique et adaptée à ton rythme de vie.</p>
       </div>
 
       <div class="svc-card" data-type="conditioning">
@@ -948,7 +1001,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </svg>
         </div>
         <div class="svc-title">Conditioning</div>
-        <p class="svc-desc">Cardio, endurance, capacité de travail. Un moteur qui ne lâche pas.</p>
+        <p class="svc-desc">Développe ton endurance et ta VO₂ max. Que ce soit pour une compétition ou pour ta santé, construis un moteur qui ne lâchera pas.</p>
       </div>
 
       <div class="svc-card" data-type="hyrox">
@@ -964,7 +1017,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </svg>
         </div>
         <div class="svc-title">Hyrox</div>
-        <p class="svc-desc">Préparation spécifique aux 8 stations + course. Plan structuré et tests réguliers.</p>
+        <p class="svc-desc">Préparation spécifique aux 8 stations, développement de tes capacités physiques et mentales pour la compétition, à travers une programmation faite sur mesure en fonction de ton planning.</p>
       </div>
 
       <div class="svc-card" data-type="reprise">
@@ -1006,40 +1059,33 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="fmt-in">
     <div class="fmt-hdr reveal">
       <div class="s-label">Coachings</div>
-      <h2 class="s-h2">Quatre formats.<br/><span class="lime">Un seul objectif.</span></h2>
-      <p>Choisis le format qui colle à ta vie. Chaque coaching est construit autour de ton objectif et de ton niveau.</p>
+      <h2 class="s-h2">Trois formats.<br/><span class="lime">Un seul objectif.</span></h2>
+      <p>Choisis l’accompagnement qui colle à ta vie. Chaque coaching est construit autour de ton objectif, de ton niveau et de ton rythme.</p>
     </div>
     <!-- Desktop 2×2 -->
     <div class="fmt-grid reveal">
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">01</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
         <div class="fmt-title">Personal Training</div><div class="fmt-sub">Paris — en salle</div>
-        <p class="fmt-desc">Séances individuelles, cadre exigeant, exécution propre. Plan adapté à ton emploi du temps.</p>
-        <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
+        <p class="fmt-desc">Séances individuelles : explication et réalisation de la séance, travail de la technique, conseils et tips.</p>
+        <ul class="fmt-list"><li>Bilan + objectif en visio</li><li>Programmation sur 8 semaines</li><li>Suivi 7/7 ou hebdomadaire</li><li>Suivi nutrition simple</li></ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">02</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-        <div class="fmt-title">Coaching en ligne</div><div class="fmt-sub">Partout — 100% online</div>
-        <p class="fmt-desc">Programme personnalisé, vidéos d'exécution, ajustements hebdo. La structure d'un coach, où que tu sois.</p>
-        <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+        <div class="fmt-title">Coaching en ligne</div><div class="fmt-sub">Online — à distance</div>
+        <p class="fmt-desc">Programme personnalisé, vidéos d'exécution et ajustements hebdomadaires.</p>
+        <ul class="fmt-list"><li>Programmation sur mesure</li><li>Échanges 7/7 ou hebdomadaires</li><li>Suivi nutrition simple</li></ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <div class="fmt-card">
         <div class="fmt-top"><span class="fmt-num">03</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-        <div class="fmt-title">Préparation Hyrox</div><div class="fmt-sub">Paris &amp; online</div>
-        <p class="fmt-desc">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing. Pour finir — ou performer.</p>
-        <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
+        <div class="fmt-title">Préparation Hyrox</div><div class="fmt-sub">Paris ou online</div>
+        <p class="fmt-desc">Développement du cardio, travail des stations, renforcement spécifique et préparation mentale.</p>
+        <ul class="fmt-list"><li>Tests réguliers</li><li>Programmation spécifique et progressive</li><li>Feedbacks réguliers</li></ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
-      <div class="fmt-card">
-        <div class="fmt-top"><span class="fmt-num">04</span><a href="#contact" class="fmt-arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
-        <div class="fmt-title">Bootcamps</div><div class="fmt-sub">Quai Sauvage · Bercy</div>
-        <p class="fmt-desc">Sessions outdoor en petit groupe. Force, conditioning, ambiance. Une vraie communauté d'entraînement.</p>
-        <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
-        <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
-      </div>
-    </div>
+</div>
     <!-- Mobile accordion -->
     <div class="fmt-acc" id="fmtAcc">
       <div class="acc-item">
@@ -1048,45 +1094,34 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body open">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Séances individuelles, cadre exigeant, exécution propre.</p>
-          <ul class="fmt-list"><li>Bilan + objectifs</li><li>Programmation continue</li><li>Suivi nutrition simple</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Séances individuelles : explication et réalisation de la séance, travail de la technique, conseils et tips.</p>
+          <ul class="fmt-list"><li>Bilan + objectif en visio</li><li>Programmation sur 8 semaines</li><li>Suivi 7/7 ou hebdomadaire</li><li>Suivi nutrition simple</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching en ligne</div><div class="acc-sub">100% online</div></div></div>
+          <div class="acc-left"><span class="acc-num">02</span><div><div class="acc-title">Coaching en ligne</div><div class="acc-sub">Online — à distance</div></div></div>
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Programme personnalisé, vidéos d'exécution, ajustements hebdo.</p>
-          <ul class="fmt-list"><li>Feedback vidéo régulier</li><li>Échanges hebdomadaires</li><li>Programme sur mesure</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Programme personnalisé, vidéos d'exécution et ajustements hebdomadaires.</p>
+          <ul class="fmt-list"><li>Programmation sur mesure</li><li>Échanges 7/7 ou hebdomadaires</li><li>Suivi nutrition simple</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
       <div class="acc-item">
         <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">03</span><div><div class="acc-title">Préparation Hyrox</div><div class="acc-sub">Paris &amp; online</div></div></div>
+          <div class="acc-left"><span class="acc-num">03</span><div><div class="acc-title">Préparation Hyrox</div><div class="acc-sub">Paris ou online</div></div></div>
           <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Plan spécifique stations + course. Tests, blocs de force, intervalles, pacing.</p>
-          <ul class="fmt-list"><li>Programmation race-ready</li><li>Travail de pacing</li><li>Tests étalonnés</li></ul>
+          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Développement du cardio, travail des stations, renforcement spécifique et préparation mentale.</p>
+          <ul class="fmt-list"><li>Tests réguliers</li><li>Programmation spécifique et progressive</li><li>Feedbacks réguliers</li></ul>
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
-      <div class="acc-item">
-        <button class="acc-btn" data-open="false" onclick="accTog(this)">
-          <div class="acc-left"><span class="acc-num">04</span><div><div class="acc-title">Bootcamps</div><div class="acc-sub">Quai Sauvage · Bercy</div></div></div>
-          <svg class="acc-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div class="acc-body">
-          <p style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:12px">Sessions outdoor en petit groupe. Force, conditioning, ambiance.</p>
-          <ul class="fmt-list"><li>Petit groupe</li><li>Outdoor toute l'année</li><li>Tous niveaux</li></ul>
-          <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
-        </div>
-      </div>
-    </div>
+</div>
   </div>
 </section>
 
@@ -1254,7 +1289,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <p class="ft-tagline">Coach sportif à Paris et en ligne. Transformation · Force · Hyrox.</p>
       </div>
       <div class="ft-links">
-        <span>Paris</span><span>Bercy</span>
+        <span>Paris</span>
         <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noreferrer" class="ig-lnk">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           Instagram
@@ -1264,7 +1299,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
     <div class="ft-bot">
-      <span>© 2025 Benjamin Coaching. Tous droits réservés.</span>
+      <span>© 2026 Benjamin Coaching. Tous droits réservés.</span>
       <div style="display:flex;gap:16px">
         <a href="#" onclick="openLegal(event)">Mentions légales</a>
         <a href="#" onclick="openLegal(event)">Confidentialité</a>
@@ -1293,6 +1328,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="legal-panel">
     <button class="legal-close" onclick="closeLegal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <h2>Mentions légales &amp; Confidentialité</h2>
+    <p>Dernière mise à jour : Juin 2026</p>
     <h3>Éditeur</h3>
     <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris<br/>Email : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
     <h3>Hébergement</h3>
@@ -1315,22 +1351,34 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 /* ─────────────────────────────────────────────────
    TÉMOIGNAGES — Modifier ce tableau
-   Le dernier élément s'affiche EN PREMIER.
+   Les avis s'affichent dans l'ordre du tableau.
 ───────────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    name: "Aude", role: "Transformation",
-    text: "Très bonnes séances de coaching avec Ben ! Coach très pro qui s'adapte à votre objectif et avec qui il est agréable de travailler. Très sympa par ailleurs, ce qui permet de passer une bonne séance tout en vous poussant au max !"
+    name: "Sandra",
+    role: "Préparation HYROX",
+    text: "Merci au meilleur coach @ben_fitparis, qui me suit depuis 3 ans, et depuis 6 mois sur cette prépa HYROX 🤝 Plan d'entraînement personnalisé, gros focus run entre endurance fondamentale et fractionné, ateliers spécifiques HYROX, renforcement ciblé et soutien mental quand j'étais au bout de ma life. Je souhaite à tout le monde d'avoir un coach comme lui 🦍"
   },
   {
-    name: "Thomas", role: "Hyrox Prep",
-    text: "Plan structuré, tests précis, pacing maîtrisé le jour J. Aucun doute sur la méthode."
+    name: "Fanny",
+    role: "Transformation",
+    text: "Tu as vraiment changé mon quotidien. Pas seulement en transformant mon physique, mais aussi en m'apportant un bien-être mental, un mode de vie plus sain, une vraie fierté personnelle et une discipline que je ne me connaissais pas. Merci pour ton écoute, ton adaptation permanente, ta bienveillance et cette belle première année d'accompagnement 🚀❤️"
   },
   {
-    name: "Gwen", role: "Coaching personnalisé",
-    text: "Excellent coaching de Benjamin qui a créé un programme adapté à mes besoins et objectifs en alliant motivation et bienveillance. Je recommande 😊"
+    name: "Enza",
+    role: "Transformation",
+    text: "Peu importe le cours ou le moment, tu prends toujours le temps pour chacun : conseiller, corriger les mouvements, motiver. Grâce à toi, j'ai énormément progressé physiquement et mentalement. Tes séances sont toujours dans la bonne humeur, avec énergie, patience et professionnalisme. C'était un vrai plaisir d'être coachée par toi 🥹"
+  },
+  {
+    name: "Laura",
+    role: "Préparation diplôme coach",
+    text: "Merci infiniment pour ton soutien et tes conseils ! Grâce à ton accompagnement, j'ai réussi à passer le TEP. Je suis vraiment reconnaissante pour ton implication et ton énergie, ça m'a beaucoup aidée 🙏💪 T'es le meilleur coach ever, change rien 🤝🫶🙂"
+  },
+  {
+    name: "Aude",
+    role: "Transformation",
+    text: "Très bonnes séances de coaching avec Ben ! Coach très pro, qui s'adapte à votre objectif et avec qui il est agréable de travailler. Très sympa par ailleurs, ce qui permet de passer une bonne séance tout en vous poussant au max !"
   }
-  /* Ajouter un avis : ,{ name:"Prénom", role:"Type", text:"Témoignage." } */
 ];
 
 function buildCard(t) {
@@ -1344,7 +1392,7 @@ function buildCard(t) {
   </div>`;
 }
 
-const ordered = [...TESTIMONIALS].reverse();
+const ordered = [...TESTIMONIALS];
 const VISIBLE  = 3;
 let   slide    = 0;
 const maxSlide = Math.max(0, ordered.length - VISIBLE);
