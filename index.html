@@ -5,7 +5,8 @@
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
-║  ├── benjamin-hero.png   photo PNG fond noir                 ║
+║  ├── benjamin-hero.png   photo PNG fond noir (hero)          ║
+║  ├── benjamin-coach.jpg  photo coach (section Le Coach)      ║
 ║  ├── benjamin-gym.jpg    photo salle / Hyrox                 ║
 ║  ├── reel-1.webm / reel-1.mp4  + reel-1.jpg (poster)        ║
 ║  ├── reel-2.webm / reel-2.mp4  + reel-2.jpg                 ║
@@ -34,6 +35,8 @@
 <meta name="twitter:title" content="Benjamin Coaching — Coach sportif à Paris & Online"/>
 <meta name="twitter:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
 <meta name="twitter:image" content="/assets/benjamin-hero.png"/>
+<meta property="og:url" content="https://www.benjamincoaching.fr/"/>
+<link rel="canonical" href="https://www.benjamincoaching.fr/"/>
 <meta name="theme-color" content="#0A0A0B"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -60,10 +63,10 @@ html { scroll-behavior:smooth }
 body {
   background:var(--bg); color:var(--fg);
   font-family:'Inter',sans-serif; font-size:15px; line-height:1.65;
-  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 a { text-decoration:none; color:inherit }
-img { display:block; max-width:100% }
+img { display:block; max-width:100%; height:auto }
 button,input,select,textarea { font-family:inherit }
 
 /* ══════════════════════════════════════════
@@ -383,10 +386,41 @@ button,input,select,textarea { font-family:inherit }
 .testi-dot.active { background:var(--lime); transform:scale(1.35) }
 .testi-mobile {
   display:none; overflow-x:auto; gap:12px; padding-bottom:16px;
-  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  scroll-snap-type:x mandatory; scrollbar-width:none;
 }
 .testi-mobile::-webkit-scrollbar { display:none }
 .testi-mobile-item { flex:0 0 84vw; scroll-snap-align:start }
+
+/* ── Marquee témoignages — défilement CSS infini (mobile uniquement)
+   Technique : track = 2× les cards. translateX(-50%) = exactement 1 set.
+   GPU-only (transform), pause au survol/focus, réduit si prefers-reduced-motion. */
+@keyframes marquee {
+  from { transform:translateX(0) }
+  to   { transform:translateX(-50%) }
+}
+.testi-marquee {
+  display:none; /* activé via @media 768px */
+  overflow:hidden;
+  margin:0 -20px;
+  /* Fondu sur les bords pour un effet professionnel */
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
+  mask-image:        linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
+}
+.testi-marquee-track {
+  display:flex; gap:12px;
+  width:max-content;
+  animation:marquee 34s linear infinite;
+  will-change:transform;
+}
+/* Pause au survol et au focus (accessibilité) */
+.testi-marquee:hover .testi-marquee-track,
+.testi-marquee:focus-within .testi-marquee-track { animation-play-state:paused }
+.testi-marquee-card { width:76vw; max-width:300px; flex-shrink:0 }
+/* Réduit les mouvements si préféré */
+@media (prefers-reduced-motion:reduce) {
+  .testi-marquee-track { animation:none }
+  .testi-marquee { overflow-x:auto }
+}
 
 /* ══════════════════════════════════════════
    SERVICES — Spotlight animé
@@ -578,6 +612,22 @@ button,input,select,textarea { font-family:inherit }
   animation:shimmer 4s linear infinite;
 }
 .stat-l { margin-top:5px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.22em; color:var(--muted) }
+
+/* ── Reveal compteurs : blur→focus masque la saccade des petits entiers ──
+   L'animation est sur le conteneur .hyrox-stat (pas sur .stat-n directement)
+   pour éviter les conflits avec background-clip:text sur le gradient.      */
+@keyframes statReveal {
+  0%   { filter:blur(10px) brightness(1.5); opacity:.18; transform:scale(.86) translateY(14px) }
+  42%  { filter:blur(2px)  brightness(1.08);opacity:1;   transform:scale(1.05) translateY(-4px) }
+  70%  { filter:blur(.4px) brightness(1);                transform:scale(.99) translateY(1px) }
+  100% { filter:blur(0)    brightness(1);   opacity:1;   transform:scale(1) translateY(0) }
+}
+.hyrox-stat.stat-revealing {
+  animation:statReveal 1s cubic-bezier(.22,.6,.36,1) both;
+}
+/* Geler les transitions enfants pendant le reveal — évite les combats CSS */
+.hyrox-stat.stat-revealing .stat-n,
+.hyrox-stat.stat-revealing .stat-l { transition:none }
 
 /* ══════════════════════════════════════════
    INSTAGRAM — après Hyrox
@@ -791,7 +841,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero-tagline { font-size:20px }
   .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
-  .coach-inner { grid-template-columns:1fr }
   .coach-img-wrap { min-height:58vw; max-height:340px }
   .coach-img-wrap img { object-position:top center }
   .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 35%,var(--surface) 100%) }
@@ -810,7 +859,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .svc-grid {
     display:flex; gap:10px; background:transparent;
     overflow-x:auto; scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    scrollbar-width:none;
     margin:0 -20px; padding:0 20px 18px;
   }
   .svc-grid::-webkit-scrollbar { display:none }
@@ -819,12 +868,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     border:1px solid rgba(255,255,255,.09); background:var(--bg);
     box-shadow:none;
   }
-  /* Active visible même sur mobile */
-  .svc-card.active {
-    border-color:rgba(200,255,0,.45);
-    background:#0c0f05;
-    box-shadow:inset 0 2px 0 0 rgba(200,255,0,.65);
-  }
+  /* Active visible même sur mobile — background/shadow hérités du desktop (.svc-card.active) */
+  .svc-card.active { border-color:rgba(200,255,0,.45) }
   .svc-progress { display:none } /* remplacé par scroll natif */
   /* Formats */
   .fmt-grid { display:none }
@@ -832,12 +877,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Témoignages */
   .testi-nav-wrap { display:none }
   .testi-viewport,.testi-dots { display:none }
-  .testi-mobile { display:flex; margin:0 -20px; padding:0 20px 16px }
+  .testi-mobile  { display:none }           /* remplacé par le marquee */
+  .testi-marquee { display:block }          /* marquee CSS infini */
   /* Hyrox */
   .hyrox-stats { gap:28px }
-  /* Instagram mobile */
-  .ig-inner { padding:0 20px }
-  .ig-grid { grid-template-columns:repeat(2,1fr); gap:4px }
+  /* Instagram mobile — colonnes déjà définies @1100px, on réduit juste le gap */
+  .ig-grid { gap:4px }
   /* Contact */
   .ct-in { grid-template-columns:1fr; gap:36px }
   .f-4grid { grid-template-columns:1fr }
@@ -855,7 +900,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero h1 { font-size:clamp(50px,15.5vw,72px) }
   .coach-trust { grid-template-columns:1fr }
   .svc-card { flex:0 0 84vw }
-  .ig-grid { grid-template-columns:repeat(2,1fr) }
 }
 </style>
 </head>
@@ -879,7 +923,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
   <img src="assets/benjamin-hero.png" alt="" class="hero-photo-d" loading="eager" fetchpriority="high"/>
-  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-m" loading="eager"/>
+  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-m" loading="eager" fetchpriority="high"/>
   <div class="hero-glr"></div>
   <div class="hero-gtb"></div>
   <div class="hero-content">
@@ -966,6 +1010,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </div>
     <div class="testi-dots" id="testiDots"></div>
     <div class="testi-mobile" id="testiMobile"></div>
+    <!-- Marquee mobile — remplissage via JS (cards × 2 pour boucle seamless) -->
+    <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients en défilement">
+      <div class="testi-marquee-track" id="testiMarqueeTrack"></div>
+    </div>
   </div>
 </section>
 
@@ -976,7 +1024,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="svc-hdr reveal">
       <div class="s-label">Pour qui ?</div>
       <h2 class="s-h2">Un coaching <span class="lime">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
-      <p>Hommes, femmes, débutants ou intermédiaires. Le programme s'adapte à ton point de départ et à là où tu veux aller.</p>
+      <p>Hommes, femmes, débutants ou intermédiaires. Le programme s'adapte à ton point de départ et là où tu veux aller.</p>
     </div>
 
     <!-- data-type = clé pour l'animation CSS de l'icône -->
@@ -1097,7 +1145,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <ul class="fmt-list"><li>Tests réguliers</li><li>Programmation spécifique et progressive</li><li>Feedbacks réguliers</li></ul>
         <a href="#contact" class="fmt-link">En parler <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
-</div>
+    </div><!-- /fmt-grid -->
     <!-- Mobile accordion -->
     <div class="fmt-acc" id="fmtAcc">
       <div class="acc-item">
@@ -1133,7 +1181,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <a href="#contact" class="fmt-link" style="margin-top:14px;font-size:11px">En parler →</a>
         </div>
       </div>
-</div>
+    </div><!-- /fmt-acc -->
   </div>
 </section>
 
@@ -1273,7 +1321,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             </select>
           </div>
         </div>
-        <div class="f-grp" style="margin-top:16px">
+        <div class="f-grp">
           <label for="msg">Message</label>
           <textarea id="msg" name="message" rows="4" maxlength="1500" required placeholder="Parle-moi de ton point de départ, ton objectif et ton timing."></textarea>
         </div>
@@ -1331,11 +1379,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 </div>
 
 <!-- Modal mentions légales -->
-<div class="legal-modal" id="legalModal">
+<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
   <div class="legal-overlay" onclick="closeLegal()"></div>
   <div class="legal-panel">
     <button class="legal-close" onclick="closeLegal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <h2>Mentions légales &amp; Confidentialité</h2>
+    <h2 id="legalTitle">Mentions légales &amp; Confidentialité</h2>
     <p>Dernière mise à jour : Juin 2026</p>
     <h3>Éditeur</h3>
     <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris<br/>Email : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
@@ -1420,6 +1468,14 @@ if (track) {
 const mobileEl = document.getElementById('testiMobile');
 if (mobileEl) mobileEl.innerHTML = ordered.map(t => `<div class="testi-mobile-item">${buildCard(t)}</div>`).join('');
 
+/* Marquee mobile — les cards sont dupliquées (×2) pour la boucle seamless :
+   animation translateX(-50%) = exactement 1 set → retour au début sans saut */
+const marqueeTrack = document.getElementById('testiMarqueeTrack');
+if (marqueeTrack) {
+  const cards = ordered.map(t => `<div class="testi-marquee-card">${buildCard(t)}</div>`).join('');
+  marqueeTrack.innerHTML = cards + cards;
+}
+
 const dotsEl = document.getElementById('testiDots');
 function buildDots() {
   if (!dotsEl) return;
@@ -1447,6 +1503,7 @@ function goSlide(idx) {
   updateNav();
 }
 window.testiMove = dir => goSlide(slide + dir);
+window.goSlide   = goSlide;
 updateNav();
 
 /* ─────────────────────────────────────────────────
@@ -1575,6 +1632,14 @@ function animateHyroxStat(index) {
   if (!item) return;
 
   hyroxStatItems.forEach((stat, i) => stat.classList.toggle('active', i === index));
+
+  /* Reveal blur→focus : masque la saccade des entiers courts (0→1→…→8) */
+  if (!reduceMotion) {
+    item.classList.remove('stat-revealing');
+    void item.offsetWidth; /* reflow pour reset de l'animation */
+    item.classList.add('stat-revealing');
+    item.addEventListener('animationend', () => item.classList.remove('stat-revealing'), { once:true });
+  }
 
   const number = item.querySelector('.stat-n[data-target]');
   if (!number) return;
