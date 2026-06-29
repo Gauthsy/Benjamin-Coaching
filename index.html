@@ -393,7 +393,7 @@ button,input,select,textarea { font-family:inherit }
 
 /* ── Marquee témoignages — défilement CSS infini (mobile uniquement)
    Technique : track = 2× les cards. translateX(-50%) = exactement 1 set.
-   GPU-only (transform), pause au survol/focus, réduit si prefers-reduced-motion. */
+   GPU-only (transform), pause via .paused (JS tap) ou focus-within (a11y). */
 @keyframes marquee {
   from { transform:translateX(0) }
   to   { transform:translateX(-50%) }
@@ -405,18 +405,22 @@ button,input,select,textarea { font-family:inherit }
   /* Fondu sur les bords pour un effet professionnel */
   -webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
   mask-image:        linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
+  /* Force une couche GPU : corrige le masque + overflow sur Safari iOS */
+  -webkit-transform:translateZ(0); transform:translateZ(0);
 }
 .testi-marquee-track {
   display:flex; gap:12px;
   width:max-content;
   animation:marquee 34s linear infinite;
   will-change:transform;
+  /* Évite les artefacts de rendu sur iOS lors du défilement */
+  -webkit-backface-visibility:hidden; backface-visibility:hidden;
 }
-/* Pause au survol et au focus (accessibilité) */
-.testi-marquee:hover .testi-marquee-track,
+/* Pause : classe .paused (JS tap/clic) et focus-within (accessibilité clavier) */
+.testi-marquee.paused .testi-marquee-track,
 .testi-marquee:focus-within .testi-marquee-track { animation-play-state:paused }
 .testi-marquee-card { width:76vw; max-width:300px; flex-shrink:0 }
-/* Réduit les mouvements si préféré */
+/* Mouvements réduits : défilement désactivé, scroll horizontal natif */
 @media (prefers-reduced-motion:reduce) {
   .testi-marquee-track { animation:none }
   .testi-marquee { overflow-x:auto }
@@ -877,10 +881,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Témoignages */
   .testi-nav-wrap { display:none }
   .testi-viewport,.testi-dots { display:none }
-  .testi-mobile  { display:none }           /* remplacé par le marquee */
-  .testi-marquee { display:block }          /* marquee CSS infini */
-  /* Hyrox */
-  .hyrox-stats { gap:28px }
+  .testi-marquee { display:block }          /* marquee CSS infini — remplace le scroll horizontal */
+  /* Hyrox — 3 chiffres alignés sur une seule ligne */
+  .hyrox-stats { flex-wrap:nowrap; justify-content:space-between; gap:0; margin-top:36px; padding-top:20px; border-top:1px solid rgba(255,255,255,.10) }
+  .hyrox-stat { flex:1; min-width:0; text-align:center; padding:0 4px }
+  .hyrox-stat .stat-n { font-size:clamp(24px,8vw,38px) }
+  .hyrox-stat .stat-l { font-size:8.5px; letter-spacing:.14em; line-height:1.4 }
   /* Instagram mobile — colonnes déjà définies @1100px, on réduit juste le gap */
   .ig-grid { gap:4px }
   /* Contact */
@@ -932,8 +938,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       Coaching personnalisé Paris · Online
     </div>
     <h1>
-      Construis ton corps.<br/>
-      <span class="lime">Développe ton mental.</span>
+      Réveille ton corps.<br/>
+      <span class="lime">Révèle ton potentiel.</span>
     </h1>
     <p class="hero-tagline">Accède à la meilleure version de toi-même.</p>
     <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
@@ -1474,6 +1480,32 @@ const marqueeTrack = document.getElementById('testiMarqueeTrack');
 if (marqueeTrack) {
   const cards = ordered.map(t => `<div class="testi-marquee-card">${buildCard(t)}</div>`).join('');
   marqueeTrack.innerHTML = cards + cards;
+}
+
+/* ─────────────────────────────────────────────────
+   MARQUEE — Pause au tap (mobile)
+   • 1er tap → pause  |  2e tap → reprise
+   • N'interfère pas avec le scroll vertical natif
+   • Inactif si prefers-reduced-motion (animation déjà désactivée par CSS)
+───────────────────────────────────────────────── */
+const marqueeEl = document.getElementById('testiMarquee');
+if (marqueeEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let touchStartY = 0;
+  let touchMoved  = false;
+
+  marqueeEl.addEventListener('touchstart', e => {
+    touchStartY = e.changedTouches[0].clientY;
+    touchMoved  = false;
+  }, { passive:true });
+
+  marqueeEl.addEventListener('touchmove', e => {
+    if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 8) touchMoved = true;
+  }, { passive:true });
+
+  /* Tap validé (pas de scroll vertical détecté) → bascule pause */
+  marqueeEl.addEventListener('touchend', () => {
+    if (!touchMoved) marqueeEl.classList.toggle('paused');
+  }, { passive:true });
 }
 
 const dotsEl = document.getElementById('testiDots');
