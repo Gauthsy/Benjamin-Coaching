@@ -13,7 +13,7 @@
 ║  ├── reel-3.webm / reel-3.mp4  + reel-3.jpg                 ║
 ║  └── reel-4.webm / reel-4.mp4  + reel-4.jpg                 ║
 ╠══════════════════════════════════════════════════════════════╣
-║  FORMSPREE  → remplacer VOTRE_ID_FORMSPREE                   ║
+║  FORMSPREE  → endpoint xbdvabjk intégré                       ║
 ║  TÉMOIGNAGES → tableau TESTIMONIALS dans <script>            ║
 ╚══════════════════════════════════════════════════════════════╝
 -->
@@ -724,6 +724,15 @@ textarea { height:auto; min-height:108px; padding:10px 12px; resize:vertical }
   border:none; cursor:pointer; transition:opacity .2s, transform .15s;
 }
 .btn-submit:hover { opacity:.88; transform:translateY(-1px) }
+.btn-submit:disabled { opacity:.72; cursor:not-allowed; transform:none }
+.form-hp { display:none !important }
+.form-status {
+  min-height:18px; margin-top:12px;
+  font-size:12px; line-height:1.45;
+  color:rgba(244,244,244,.48);
+}
+.form-status.success { color:var(--lime) }
+.form-status.error { color:#ff6b6b }
 
 /* ══════════════════════════════════════════
    FOOTER
@@ -941,7 +950,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       Éveille ton corps,<br/>
       <span class="lime">éveille ton potentiel.</span>
     </h1>
-    <p class="hero-tagline">Accède à la meilleure version de toi-même.</p>
     <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-lime">
@@ -1311,16 +1319,16 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </div>
     <div class="reveal" style="transition-delay:.1s">
       <form class="ct-form" id="contactForm"
-        action="https://formspree.io/f/VOTRE_ID_FORMSPREE"
+        action="https://formspree.io/f/xbdvabjk"
         method="POST">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+        <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <div class="f-4grid">
-          <div class="f-grp"><label for="fn">Prénom</label><input type="text" id="fn" name="firstName" maxlength="80" required placeholder="Ton prénom"/></div>
+          <div class="f-grp"><label for="fn">Prénom</label><input type="text" id="fn" name="prenom" maxlength="80" required placeholder="Ton prénom"/></div>
           <div class="f-grp"><label for="em">Email</label><input type="email" id="em" name="email" maxlength="200" required placeholder="ton@email.com"/></div>
-          <div class="f-grp"><label for="ph">Téléphone <span>(optionnel)</span></label><input type="tel" id="ph" name="phone" maxlength="40" placeholder="+33 6 00 00 00 00"/></div>
+          <div class="f-grp"><label for="ph">Téléphone <span>(optionnel)</span></label><input type="tel" id="ph" name="telephone" maxlength="40" placeholder="+33 6 00 00 00 00"/></div>
           <div class="f-grp">
             <label for="gl">Objectif</label>
-            <select id="gl" name="goal">
+            <select id="gl" name="objectif" required>
               <option value="" disabled selected>Choisir…</option>
               <option>Transformation</option><option>Force</option>
               <option>Hyrox</option><option>Remise en forme</option><option>Autre</option>
@@ -1335,6 +1343,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <span id="submitText">Envoyer ma demande</span>
           <svg id="submitArrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
         </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         <p class="f-note">En envoyant ce formulaire, tu acceptes d'être recontacté. Données non transmises à des tiers.</p>
       </form>
     </div>
@@ -1768,31 +1777,67 @@ window.accTog = function(btn) {
 ───────────────────────────────────────────────── */
 const form = document.getElementById('contactForm');
 if (form) {
+  const btn = document.getElementById('submitBtn');
+  const txt = document.getElementById('submitText');
+  const arr = document.getElementById('submitArrow');
+  const status = document.getElementById('formStatus');
+  const defaultText = txt ? txt.textContent : 'Envoyer ma demande';
+
+  function setFormStatus(message, type) {
+    if (!status) return;
+    status.textContent = message || '';
+    status.classList.remove('success', 'error');
+    if (type) status.classList.add(type);
+  }
+
+  function resetSubmitButton() {
+    if (!btn || !txt) return;
+    btn.disabled = false;
+    txt.textContent = defaultText;
+    if (arr) arr.style.display = '';
+  }
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const txt = document.getElementById('submitText');
-    const arr = document.getElementById('submitArrow');
-    if (form.action.includes('VOTRE_ID_FORMSPREE')) {
-      txt.textContent = '⚠ Configurez Formspree d\'abord';
-      btn.style.background = '#f59e0b';
-      setTimeout(() => { txt.textContent = 'Envoyer ma demande'; btn.style.background = '' }, 3200);
+
+    if (!btn || !txt) return;
+
+    const formData = new FormData(form);
+
+    if (formData.get('_gotcha')) {
+      form.reset();
       return;
     }
-    btn.disabled = true; txt.textContent = 'Envoi…';
+
+    btn.disabled = true;
+    txt.textContent = 'Envoi en cours…';
     if (arr) arr.style.display = 'none';
+    setFormStatus('', '');
+
     try {
-      const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-      if (res.ok) {
-        txt.textContent = 'Message envoyé ✓';
-        btn.style.background = '#4ade80'; btn.style.color = '#0a0a0b';
-        form.reset();
-        setTimeout(() => { txt.textContent='Envoyer ma demande'; if(arr)arr.style.display=''; btn.style.background=''; btn.style.color=''; btn.disabled=false }, 4000);
-      } else throw new Error();
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!res.ok) throw new Error('Formspree error');
+
+      form.reset();
+      txt.textContent = 'Message envoyé ✓';
+      setFormStatus('Merci, ta demande a bien été envoyée. Benjamin te répondra rapidement.', 'success');
+
+      setTimeout(() => {
+        resetSubmitButton();
+        setFormStatus('', '');
+      }, 5000);
     } catch {
-      txt.textContent = 'Erreur — réessaie'; btn.style.background = '#ef4444'; btn.disabled = false;
-      if (arr) arr.style.display = '';
-      setTimeout(() => { txt.textContent='Envoyer ma demande'; btn.style.background='' }, 3200);
+      txt.textContent = 'Erreur — réessaie';
+      setFormStatus('Une erreur est survenue. Réessaie dans quelques instants.', 'error');
+
+      setTimeout(() => {
+        resetSubmitButton();
+      }, 3200);
     }
   });
 }
