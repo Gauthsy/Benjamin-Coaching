@@ -450,13 +450,6 @@ button,input,select,textarea { font-family:inherit }
   transition:background .25s, transform .25s;
 }
 .testi-dot.active { background:var(--lime); transform:scale(1.35) }
-.testi-mobile {
-  display:none; overflow-x:auto; gap:12px; padding-bottom:16px;
-  scroll-snap-type:x mandatory; scrollbar-width:none;
-}
-.testi-mobile::-webkit-scrollbar { display:none }
-.testi-mobile-item { flex:0 0 84vw; scroll-snap-align:start }
-
 /* ── Marquee témoignages — défilement CSS infini (mobile uniquement)
    Technique : track = 2× les cards. translateX(-50%) = exactement 1 set.
    GPU-only (transform), pause via .paused (JS tap) ou focus-within (a11y). */
@@ -1931,7 +1924,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="testi-track" id="testiTrack"></div>
     </div>
     <div class="testi-dots" id="testiDots"></div>
-    <div class="testi-mobile" id="testiMobile"></div>
     <!-- Marquee mobile — remplissage via JS (cards × 2 pour boucle seamless) -->
     <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients en défilement">
       <div class="testi-marquee-track" id="testiMarqueeTrack"></div>
@@ -2903,9 +2895,6 @@ if (track) {
     el.style.flex = `0 0 calc(${100/VISIBLE}% - ${(VISIBLE-1)*16/VISIBLE}px)`;
   });
 }
-const mobileEl = document.getElementById('testiMobile');
-if (mobileEl) mobileEl.innerHTML = ordered.map(t => `<div class="testi-mobile-item">${buildCard(t)}</div>`).join('');
-
 /* Marquee mobile — les cards sont dupliquées (×2) pour la boucle seamless :
    animation translateX(-50%) = exactement 1 set → retour au début sans saut */
 const marqueeTrack = document.getElementById('testiMarqueeTrack');
