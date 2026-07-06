@@ -201,6 +201,22 @@ button,input,select,textarea { font-family:inherit }
   color:var(--lime);
   opacity:1;
 }
+.nav-logo-menu-text {
+  display:inline-block;
+  margin-left:4px;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:500;
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  color:rgba(244,244,244,.6);
+  transition:color .2s;
+}
+.nav-logo:hover .nav-logo-menu-text,
+.nav-logo[aria-expanded="true"] .nav-logo-menu-text {
+  color:var(--lime);
+}
 .nav-menu {
   position:absolute;
   top:calc(100% + 8px);
@@ -1281,6 +1297,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-logo { font-size:19px; gap:6px }
   .nav-logo-word { letter-spacing:.08em }
   .nav-logo-chev { width:16px; height:16px; margin-left:1px }
+  .nav-logo-menu-text { font-size:10px; letter-spacing:.18em; margin-left:2px }
   .nav-menu { left:20px; right:20px; width:auto; top:calc(100% + 6px) }
   .nav-menu a { padding:12px 10px }
   .nav-links .nav-link { display:none }
@@ -1386,6 +1403,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 @media (max-width:480px) {
   .nav-logo { font-size:18px }
   .nav-logo-chev { width:15px; height:15px }
+  .nav-logo-menu-text { font-size:9.5px; letter-spacing:.16em }
   .coach-trust .tb-sub { font-size:10.5px; line-height:1.25 }
   .hero h1 { font-size:clamp(50px,15.5vw,72px) }
   .coach-trust { grid-template-columns:1fr }
@@ -1850,6 +1868,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <button class="nav-logo" id="navLogoMenuBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="navLogoMenu">
     <span class="nav-logo-word">BENJAMIN<span class="dot">.</span>COACHING</span>
     <svg class="nav-logo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    <span class="nav-logo-menu-text">Menu</span>
   </button>
 
   <div class="nav-menu" id="navLogoMenu" aria-hidden="true">
@@ -2312,7 +2331,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
                 <div class="pm-row featured"><span>Pack complet 8 semaines</span><strong>350 €</strong></div>
               </div>
-              <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec Benjamin.</p>
+              <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta">Demander ce coaching →</a>
             </div>
           </details>
@@ -2333,7 +2352,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
                 <div class="pm-row featured"><span>Pack complet 8 semaines</span><strong>450 €</strong></div>
               </div>
-              <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec Benjamin.</p>
+              <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta">Lancer ma prépa →</a>
             </div>
           </details>
@@ -2359,7 +2378,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             </div>
           </details>
 
-          <p class="pm-note">Les packs complets présentiel incluent 3 séances avec Benjamin. Les packs 3 et 4 restent disponibles pour commencer plus progressivement.</p>
+          <p class="pm-note">Les packs complets présentiel incluent 3 séances avec le coach. Les packs 3 et 4 restent disponibles pour commencer plus progressivement.</p>
         </div>
         <div class="price-cards">
           <article class="price-card">
@@ -2431,7 +2450,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             <a href="#contact" class="fmt-link price-link">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
         </div>
-        <p class="pricing-note">Tarifs applicables à partir de septembre. Les packs en présentiel incluent 3 séances de coaching avec Benjamin dans le cadre du pack 8 semaines.</p>
+        <p class="pricing-note">Tarifs applicables à partir de septembre. Les packs en présentiel incluent 3 séances de coaching avec le coach dans le cadre du pack 8 semaines.</p>
       </div>
 
       <div class="pricing-panel" data-price-panel="online" role="tabpanel">
@@ -2585,7 +2604,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <div class="pack-item"><strong>Bilan initial</strong><span>Objectif, niveau, passé sportif, contraintes et disponibilités.</span></div>
         <div class="pack-item"><strong>Programmation</strong><span>Programme personnalisé sur 8 semaines, adapté à ta progression.</span></div>
         <div class="pack-item"><strong>Fiches & supports</strong><span>Consignes, exercices et supports pour gagner en autonomie.</span></div>
-        <div class="pack-item"><strong>Présentiel</strong><span>3 séances avec le coach incluses dans les packs en présentiel.</span></div>
+        <div class="pack-item"><strong id="packFormatTitle">Séances incluses</strong><span id="packFormatText">3 séances avec le coach incluses dans les packs en présentiel.</span></div>
         <div class="pack-item"><strong>Tests physiques</strong><span>Selon l'objectif : test VMA, repères de course, stations Hyrox.</span></div>
         <div class="pack-item"><strong>Suivi</strong><span>Le suivi hebdomadaire s'ajoute en option selon le besoin.</span></div>
       </div>
@@ -2623,7 +2642,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             <li>Bilan initial et objectif.</li>
             <li>Programmation personnalisée sur 8 semaines.</li>
             <li>Fiches et supports explicatifs.</li>
-            <li>3 séances avec Benjamin pour les packs en présentiel.</li>
+            <li id="mobilePackFormatLine">3 séances avec le coach pour les packs en présentiel.</li>
             <li>Tests physiques selon l'objectif.</li>
             <li>Suivi hebdomadaire disponible en option.</li>
           </ul>
@@ -3184,6 +3203,22 @@ const priceTabs = [...document.querySelectorAll('[data-price-tab]')];
 const pricePanels = [...document.querySelectorAll('[data-price-panel]')];
 const priceDetailBtns = [...document.querySelectorAll('.price-details-toggle')];
 
+function setPackDetailsMode(mode) {
+  const packFormatTitle = document.getElementById('packFormatTitle');
+  const packFormatText = document.getElementById('packFormatText');
+  const mobilePackFormatLine = document.getElementById('mobilePackFormatLine');
+
+  if (mode === 'online') {
+    if (packFormatTitle) packFormatTitle.textContent = 'Vidéos explicatives';
+    if (packFormatText) packFormatText.textContent = 'Vidéos explicatives pour les mouvements complexes, en complément des fiches et supports.';
+    if (mobilePackFormatLine) mobilePackFormatLine.textContent = 'Vidéos explicatives pour les mouvements complexes.';
+  } else {
+    if (packFormatTitle) packFormatTitle.textContent = 'Séances incluses';
+    if (packFormatText) packFormatText.textContent = '3 séances avec le coach incluses dans les packs en présentiel.';
+    if (mobilePackFormatLine) mobilePackFormatLine.textContent = '3 séances avec le coach pour les packs en présentiel.';
+  }
+}
+
 function resetPriceDetails() {
   document.querySelectorAll('.price-card.expanded').forEach(card => {
     card.classList.remove('expanded');
@@ -3207,9 +3242,12 @@ priceTabs.forEach(tab => {
     pricePanels.forEach(panel => {
       panel.classList.toggle('active', panel.dataset.pricePanel === target);
     });
+    setPackDetailsMode(target);
     resetPriceDetails();
   });
 });
+
+setPackDetailsMode('presentiel');
 
 priceDetailBtns.forEach(btn => {
   btn.addEventListener('click', () => {
