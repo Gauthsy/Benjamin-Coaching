@@ -167,19 +167,39 @@ button,input,select,textarea { font-family:inherit }
 .nav-cta:hover { opacity:.88 }
 .nav-logo {
   background:none; border:0; color:var(--fg); cursor:pointer;
-  display:inline-flex; align-items:center; gap:8px;
-  font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.15em;
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  line-height:1;
+  letter-spacing:0;
 }
 .nav-logo:focus-visible { outline:1px solid var(--lime); outline-offset:6px }
-.nav-logo .dot { color:var(--lime) }
+.nav-logo-word {
+  display:inline-block;
+  letter-spacing:.095em;
+  white-space:nowrap;
+}
+.nav-logo .dot {
+  color:var(--lime);
+  margin:0 .08em;
+}
 .nav-logo-chev {
-  width:10px; height:10px;
-  color:rgba(244,244,244,.52);
-  transition:transform .24s ease, color .2s ease;
+  width:15px;
+  height:15px;
+  margin-left:2px;
+  color:rgba(244,244,244,.78);
+  opacity:.95;
+  flex-shrink:0;
+  transition:transform .24s ease, color .2s ease, opacity .2s ease;
+}
+.nav-logo:hover .nav-logo-chev {
+  color:var(--lime);
+  opacity:1;
 }
 .nav-logo[aria-expanded="true"] .nav-logo-chev {
   transform:rotate(180deg);
   color:var(--lime);
+  opacity:1;
 }
 .nav-menu {
   position:absolute;
@@ -799,6 +819,22 @@ button,input,select,textarea { font-family:inherit }
 }
 .pricing-cta p { font-size:12px; color:var(--muted); line-height:1.55; max-width:520px }
 
+@media (min-width:769px) {
+  .price-card .price-details {
+    margin-top:auto;
+  }
+  .options-title {
+    display:grid;
+    grid-template-columns:minmax(260px,.8fr) 1.2fr;
+    gap:22px;
+    align-items:end;
+  }
+  .options-title p {
+    justify-self:start;
+    max-width:560px;
+  }
+}
+
 /* ══════════════════════════════════════════
    HYROX — Full-bleed + drift + compteurs
 ══════════════════════════════════════════ */
@@ -1242,6 +1278,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Nav */
   .nav { padding:14px 20px }
   .nav.scrolled { padding:12px 20px }
+  .nav-logo { font-size:19px; gap:6px }
+  .nav-logo-word { letter-spacing:.08em }
+  .nav-logo-chev { width:16px; height:16px; margin-left:1px }
   .nav-menu { left:20px; right:20px; width:auto; top:calc(100% + 6px) }
   .nav-menu a { padding:12px 10px }
   .nav-links .nav-link { display:none }
@@ -1329,7 +1368,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .pack-value { grid-template-columns:1fr; margin-top:28px }
   .pack-copy { padding:20px 18px }
   .pack-grid { grid-template-columns:1fr }
-  .options-title { flex-direction:column; align-items:flex-start }
+  .options-title { display:flex; flex-direction:column; align-items:flex-start }
   .options-grid { grid-template-columns:1fr }
   .pricing-cta { flex-direction:column; align-items:flex-start }
   /* Contact */
@@ -1345,6 +1384,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 }
 
 @media (max-width:480px) {
+  .nav-logo { font-size:18px }
+  .nav-logo-chev { width:15px; height:15px }
   .coach-trust .tb-sub { font-size:10.5px; line-height:1.25 }
   .hero h1 { font-size:clamp(50px,15.5vw,72px) }
   .coach-trust { grid-template-columns:1fr }
@@ -1807,8 +1848,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 <!-- ══ NAV ══ -->
 <nav class="nav" id="mainNav">
   <button class="nav-logo" id="navLogoMenuBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="navLogoMenu">
-    BENJAMIN<span class="dot">.</span>COACHING
-    <svg class="nav-logo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    <span class="nav-logo-word">BENJAMIN<span class="dot">.</span>COACHING</span>
+    <svg class="nav-logo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
   </button>
 
   <div class="nav-menu" id="navLogoMenu" aria-hidden="true">
