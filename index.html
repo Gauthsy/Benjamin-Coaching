@@ -328,16 +328,6 @@ button,input,select,textarea { font-family:inherit }
   animation:fadeUp .65s .18s both;
 }
 .hero h1 .lime { color:var(--lime) }
-.hero-tagline {
-  margin-top:14px;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(22px,2.4vw,34px);
-  line-height:1;
-  text-transform:uppercase;
-  color:rgba(244,244,244,.9);
-  letter-spacing:.03em;
-  animation:fadeUp .65s .26s both;
-}
 .hero-sub {
   margin-top:22px; max-width:430px; font-size:15px;
   color:rgba(244,244,244,.74); line-height:1.65;
@@ -1073,13 +1063,6 @@ button,input,select,textarea { font-family:inherit }
   color:var(--lime);
 }
 .hyrox-proof-link:hover { opacity:.78 }
-.hyrox-proof-meta {
-  margin-top:10px;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:34px;
-  line-height:.94;
-  text-transform:uppercase;
-}
 @media (max-width:1100px) {
   .hyrox-method-top { grid-template-columns:1fr }
   .hyrox-proof { grid-template-columns:1fr }
@@ -1309,7 +1292,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero-content { padding:calc(66px + 14px) 20px 52px }
   .hero h1 { font-size:clamp(56px,17vw,82px) }
   .hero-sub { font-size:14px; max-width:100% }
-  .hero-tagline { font-size:20px }
   .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
   .coach-img-wrap { min-height:58vw; max-height:340px }
@@ -1494,102 +1476,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     color:var(--lime);
     line-height:1.35;
   }
-  .price-cards { grid-template-columns:1fr; gap:10px }
-  .price-card {
-    padding:16px;
-    min-height:0;
-  }
-  .price-card:hover { transform:none }
-  .price-kicker { font-size:9px; letter-spacing:.18em }
-  .price-title {
-    margin-top:7px;
-    font-size:22px;
-    line-height:1.02;
-  }
-  .price-desc { display:none }
-  .price-overview {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:8px;
-    margin-top:13px;
-  }
-  .price-overview div {
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.025);
-    padding:10px 9px;
-    min-width:0;
-  }
-  .price-overview span {
-    display:block;
-    font-size:9px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.13em;
-    color:rgba(244,244,244,.42);
-    line-height:1.25;
-  }
-  .price-overview strong {
-    display:block;
-    margin-top:6px;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:27px;
-    line-height:1;
-    color:var(--fg);
-    font-weight:400;
-    white-space:nowrap;
-  }
-  .price-overview div:last-child {
-    border-color:rgba(200,255,0,.17);
-    background:rgba(200,255,0,.035);
-  }
-  .price-overview div:last-child strong { color:var(--lime) }
-  .price-details-toggle {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    width:100%;
-    margin-top:10px;
-    padding:11px 0 0;
-    border:0;
-    border-top:1px solid rgba(255,255,255,.07);
-    background:transparent;
-    color:var(--lime);
-    cursor:pointer;
-    font-size:10px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.18em;
-  }
-  .price-details-toggle .toggle-icon {
-    transition:transform .25s ease;
-  }
-  .price-card.expanded .price-details-toggle .toggle-icon {
-    transform:rotate(180deg);
-  }
-  .price-details { display:none }
-  .price-card.expanded .price-details { display:block }
-  .price-rows {
-    margin-top:12px;
-    gap:5px;
-  }
-  .price-row {
-    min-height:34px;
-    padding:7px 0;
-    gap:10px;
-  }
-  .price-row span { font-size:11px }
-  .price-row strong { font-size:21px }
-  .price-row.featured {
-    margin-top:4px;
-    padding:10px;
-  }
-  .price-row.featured strong { font-size:26px }
-  .price-link { display:none }
-  .price-card.expanded .price-link { display:inline-flex }
-  .pricing-note {
-    margin-top:10px;
-    font-size:10.5px;
-  }
+  /* NB : .price-cards (cartes desktop) est masqué sur mobile par la règle
+     ".pricing-panel .price-cards{display:none}" du bloc "TARIFS V4" plus bas
+     (remplacé par .price-mobile-list). Les anciennes règles mobiles qui
+     stylaient .price-card/.price-overview/.price-details-toggle ont donc
+     été retirées ici : elles ne s'appliquaient plus jamais. */
   .pack-value,
   .options-block { display:none }
   .pricing-mobile-more {
@@ -2698,7 +2589,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
       <!-- Reel 1 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-1.jpg">
+        <video muted loop playsinline preload="metadata" poster="assets/reel-1.jpg">
           <source src="assets/reel-1.webm" type="video/webm"/>
           <source src="assets/reel-1.mp4"  type="video/mp4"/>
         </video>
@@ -2708,7 +2599,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
       <!-- Reel 2 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-2.jpg">
+        <video muted loop playsinline preload="metadata" poster="assets/reel-2.jpg">
           <source src="assets/reel-2.webm" type="video/webm"/>
           <source src="assets/reel-2.mp4"  type="video/mp4"/>
         </video>
@@ -2718,7 +2609,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
       <!-- Reel 3 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-3.jpg">
+        <video muted loop playsinline preload="metadata" poster="assets/reel-3.jpg">
           <source src="assets/reel-3.webm" type="video/webm"/>
           <source src="assets/reel-3.mp4"  type="video/mp4"/>
         </video>
@@ -2728,7 +2619,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
       <!-- Reel 4 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/reel-4.jpg">
+        <video muted loop playsinline preload="metadata" poster="assets/reel-4.jpg">
           <source src="assets/reel-4.webm" type="video/webm"/>
           <source src="assets/reel-4.mp4"  type="video/mp4"/>
         </video>
@@ -3425,7 +3316,10 @@ const nav      = document.getElementById('mainNav');
 const floatBtn = document.getElementById('floatCta');
 const floatTop = document.getElementById('floatTop');
 
-window.addEventListener('scroll', () => {
+/* rAF-throttlé : évite de recalculer le style à chaque event de scroll (perf) */
+let scrollTicking = false;
+function onScrollFrame() {
+  scrollTicking = false;
   const y = window.scrollY;
   nav.classList.toggle('scrolled', y > 40);
   /* Parallax léger sur les photos hero */
@@ -3441,6 +3335,12 @@ window.addEventListener('scroll', () => {
   if (floatBtn) floatBtn.classList.toggle('show', pastHero);
   /* Back-to-top : desktop + mobile, apparaît après le hero */
   if (floatTop) floatTop.classList.toggle('show', pastHero);
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+  }
 }, { passive: true });
 
 /* ─────────────────────────────────────────────────
