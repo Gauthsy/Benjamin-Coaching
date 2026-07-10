@@ -486,39 +486,36 @@ button,input,select,textarea { font-family:inherit }
   transition:background .25s, transform .25s;
 }
 .testi-dot.active { background:var(--lime); transform:scale(1.35) }
-/* ── Marquee témoignages — défilement CSS infini (mobile uniquement)
-   Technique : track = 2× les cards. translateX(-50%) = exactement 1 set.
-   GPU-only (transform), pause via .paused (JS tap) ou focus-within (a11y). */
-@keyframes marquee {
-  from { transform:translateX(0) }
-  to   { transform:translateX(-50%) }
-}
+/* ── Carrousel témoignages mobile — swipe natif + autoscroll piloté en JS ── */
 .testi-marquee {
   display:none; /* activé via @media 768px */
-  overflow:hidden;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y;
   margin:0 -20px;
-  /* Fondu sur les bords pour un effet professionnel */
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
-  mask-image:        linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);
-  /* Force une couche GPU : corrige le masque + overflow sur Safari iOS */
-  -webkit-transform:translateZ(0); transform:translateZ(0);
+  padding:0 20px 10px;
 }
+.testi-marquee::-webkit-scrollbar { display:none }
 .testi-marquee-track {
-  display:flex; gap:12px;
+  display:flex;
+  align-items:stretch;
+  gap:12px;
   width:max-content;
-  animation:marquee 34s linear infinite;
-  will-change:transform;
-  /* Évite les artefacts de rendu sur iOS lors du défilement */
-  -webkit-backface-visibility:hidden; backface-visibility:hidden;
 }
-/* Pause : classe .paused (JS tap/clic) et focus-within (accessibilité clavier) */
-.testi-marquee.paused .testi-marquee-track,
-.testi-marquee:focus-within .testi-marquee-track { animation-play-state:paused }
-.testi-marquee-card { width:76vw; max-width:300px; flex-shrink:0 }
-/* Mouvements réduits : défilement désactivé, scroll horizontal natif */
+.testi-marquee-card {
+  width:min(82vw,320px);
+  flex-shrink:0;
+  display:flex;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+}
+.testi-marquee-card .testi-card { flex:1 }
 @media (prefers-reduced-motion:reduce) {
-  .testi-marquee-track { animation:none }
-  .testi-marquee { overflow-x:auto }
+  .testi-marquee { scroll-behavior:auto }
 }
 
 /* ══════════════════════════════════════════
@@ -673,10 +670,10 @@ button,input,select,textarea { font-family:inherit }
   padding:17px 20px; background:none; border:none; cursor:pointer; color:var(--fg); gap:14px; text-align:left;
 }
 .acc-btn[data-open="true"] { background:rgba(200,255,0,.03) }
-.acc-left { display:flex; align-items:baseline; gap:12px }
-.acc-num { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--lime) }
-.acc-title { font-family:'Bebas Neue',sans-serif; font-size:17px; text-transform:uppercase }
-.acc-sub { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:3px }
+.acc-left { display:flex; align-items:flex-start; gap:11px }
+.acc-num { font-family:'Bebas Neue',sans-serif; font-size:24px; line-height:1; color:var(--lime) }
+.acc-title { font-family:'Bebas Neue',sans-serif; font-size:20px; line-height:1.05; text-transform:uppercase }
+.acc-sub { font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.17em; color:var(--muted); margin-top:5px; line-height:1.35 }
 .acc-chev { flex-shrink:0; transition:transform .3s ease }
 .acc-btn[data-open="true"] .acc-chev { transform:rotate(180deg) }
 .acc-body { display:none; padding:0 20px 20px }
@@ -856,12 +853,12 @@ button,input,select,textarea { font-family:inherit }
 ══════════════════════════════════════════ */
 .hyrox { position:relative; isolation:isolate; overflow:hidden }
 .hyrox-bg {
-  position:absolute; inset:-4%; z-index:-2;
-  width:108%; height:108%; object-fit:cover; object-position:center 30%;
+  position:absolute; inset:0; z-index:-2;
+  width:100%; height:100%; object-fit:cover; object-position:center 30%;
   filter:brightness(.56) contrast(1.38) saturate(.75);
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 11%,black 89%,transparent 100%);
   mask-image:linear-gradient(to bottom,transparent 0%,black 11%,black 89%,transparent 100%);
-  animation:hyroxDrift 16s ease-in-out infinite;
+  animation:none;
 }
 .hyrox-vignette {
   position:absolute; inset:0; z-index:-1;
@@ -1984,8 +1981,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="testi-track" id="testiTrack"></div>
     </div>
     <div class="testi-dots" id="testiDots"></div>
-    <!-- Marquee mobile — remplissage via JS (cards × 2 pour boucle seamless) -->
-    <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients en défilement">
+    <!-- Carrousel mobile — swipe manuel + autoscroll déclenché à l'arrivée dans la section -->
+    <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients" tabindex="0">
       <div class="testi-marquee-track" id="testiMarqueeTrack"></div>
     </div>
   </div>
@@ -1998,7 +1995,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="svc-hdr reveal">
       <div class="s-label">Pour qui ?</div>
       <h2 class="s-h2">Un coaching <span class="lime">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
-      <p>Hommes, femmes, débutants ou intermédiaires. Le programme s'adapte à ton point de départ et là où tu veux aller.</p>
+      <p>Hommes, femmes, débutants ou intermédiaires.<br/>Le programme s'adapte à ton point de départ et là où tu veux aller.</p>
     </div>
 
     <!-- data-type = clé pour l'animation CSS de l'icône -->
@@ -2841,7 +2838,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <h2 id="legalTitle">Mentions légales &amp; Confidentialité</h2>
     <p>Dernière mise à jour : Juin 2026</p>
     <h3>Éditeur</h3>
-    <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris<br/>Email : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
+    <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris</p>
     <h3>Carte professionnelle</h3>
     <p>Carte professionnelle d’éducateur sportif n°07523ED0040 — Préfecture de Paris — valable jusqu’au 22/01/2028.</p>
     <h3>Hébergement</h3>
@@ -2849,7 +2846,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <h3>Propriété intellectuelle</h3>
     <p>Tous les contenus sont la propriété de Benjamin Coaching. Reproduction interdite sans autorisation.</p>
     <h3>Données personnelles &amp; RGPD</h3>
-    <p>Données collectées via le formulaire (prénom, email, message) uniquement pour répondre aux demandes. Conservation : 12 mois max. Droits : <a href="mailto:contact@benjamincoaching.fr">contact@benjamincoaching.fr</a></p>
+    <p>Données collectées via le formulaire (prénom, email, message) uniquement pour répondre aux demandes. Conservation : 12 mois max. Pour exercer tes droits, utilise le formulaire de contact du site.</p>
     <h3>Cookies</h3>
     <p>Aucun cookie de traçage ou publicitaire.</p>
   </div>
@@ -2903,6 +2900,11 @@ const TESTIMONIALS_URL = "https://www.instagram.com/stories/highlights/179460646
 
 const TESTIMONIALS = [
   {
+    name: "Roxane",
+    role: "Transformation",
+    text: "Tu m'as redonné le goût du sport et confiance en moi. Chaque séance était personnalisée, avec un vrai suivi, de la bienveillance et jamais de jugement. Je n'ai jamais retrouvé un coaching aussi qualitatif. Mille mercis ! ✨"
+  },
+  {
     name: "Sandra",
     role: "Préparation HYROX",
     text: "Merci au meilleur coach @ben_fitparis, qui me suit depuis 3 ans, dont 6 mois sur ma prépa HYROX 🤝 Plan personnalisé, gros focus run, ateliers spécifiques, renforcement ciblé et soutien mental quand j'étais au bout. Je souhaite à tout le monde d'avoir un coach comme lui 🦍"
@@ -2955,37 +2957,118 @@ if (track) {
     el.style.flex = `0 0 calc(${100/VISIBLE}% - ${(VISIBLE-1)*16/VISIBLE}px)`;
   });
 }
-/* Marquee mobile — les cards sont dupliquées (×2) pour la boucle seamless :
-   animation translateX(-50%) = exactement 1 set → retour au début sans saut */
+/* Carrousel mobile — un seul jeu de cartes, scroll horizontal natif */
 const marqueeTrack = document.getElementById('testiMarqueeTrack');
 if (marqueeTrack) {
-  const cards = ordered.map(t => `<div class="testi-marquee-card">${buildCard(t)}</div>`).join('');
-  marqueeTrack.innerHTML = cards + cards;
+  marqueeTrack.innerHTML = ordered.map(t => `<div class="testi-marquee-card">${buildCard(t)}</div>`).join('');
 }
 
 /* ─────────────────────────────────────────────────
-   MARQUEE — Pause au tap (mobile)
-   • 1er tap → pause  |  2e tap → reprise
-   • N'interfère pas avec le scroll vertical natif
-   • Inactif si prefers-reduced-motion (animation déjà désactivée par CSS)
+   TÉMOIGNAGES MOBILE — autoscroll à l'entrée dans la section
+   • Ne démarre qu'une fois la section visible
+   • Le swipe manuel interrompt l'autoscroll
+   • Reprise automatique quelques secondes après l'interaction
 ───────────────────────────────────────────────── */
 const marqueeEl = document.getElementById('testiMarquee');
-if (marqueeEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  let touchStartY = 0;
-  let touchMoved  = false;
+const testimonialSection = document.getElementById('temoignages');
+const mobileTestimonialCards = marqueeTrack ? [...marqueeTrack.querySelectorAll('.testi-marquee-card')] : [];
+let mobileTestimonialIndex = 0;
+let mobileTestimonialTimer = null;
+let mobileTestimonialResumeTimer = null;
+let mobileTestimonialsVisible = false;
+const MOBILE_TESTIMONIAL_DELAY = 4800;
+const MOBILE_TESTIMONIAL_RESUME_DELAY = 4200;
 
-  marqueeEl.addEventListener('touchstart', e => {
-    touchStartY = e.changedTouches[0].clientY;
-    touchMoved  = false;
+function scrollToMobileTestimonial(index, behavior = 'smooth') {
+  if (!marqueeEl || !mobileTestimonialCards.length) return;
+  mobileTestimonialIndex = (index + mobileTestimonialCards.length) % mobileTestimonialCards.length;
+  const card = mobileTestimonialCards[mobileTestimonialIndex];
+  const cardLeft = card.offsetLeft - marqueeTrack.offsetLeft;
+  marqueeEl.scrollTo({
+    left: Math.max(0, cardLeft),
+    behavior
+  });
+}
+
+function stopMobileTestimonials() {
+  clearInterval(mobileTestimonialTimer);
+  mobileTestimonialTimer = null;
+}
+
+function startMobileTestimonials() {
+  if (
+    mobileTestimonialTimer ||
+    !mobileTestimonialsVisible ||
+    window.innerWidth > 768 ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    mobileTestimonialCards.length < 2
+  ) return;
+  mobileTestimonialTimer = setInterval(() => {
+    scrollToMobileTestimonial(mobileTestimonialIndex + 1);
+  }, MOBILE_TESTIMONIAL_DELAY);
+}
+
+function resumeMobileTestimonialsSoon() {
+  clearTimeout(mobileTestimonialResumeTimer);
+  mobileTestimonialResumeTimer = setTimeout(() => {
+    if (mobileTestimonialsVisible) startMobileTestimonials();
+  }, MOBILE_TESTIMONIAL_RESUME_DELAY);
+}
+
+function syncMobileTestimonialIndex() {
+  if (!marqueeEl || !mobileTestimonialCards.length) return;
+  const target = marqueeEl.scrollLeft;
+  let nearestIndex = 0;
+  let nearestDistance = Infinity;
+  mobileTestimonialCards.forEach((card, index) => {
+    const cardLeft = card.offsetLeft - marqueeTrack.offsetLeft;
+    const distance = Math.abs(cardLeft - target);
+    if (distance < nearestDistance) {
+      nearestDistance = distance;
+      nearestIndex = index;
+    }
+  });
+  mobileTestimonialIndex = nearestIndex;
+}
+
+if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
+  const pauseForInteraction = () => {
+    stopMobileTestimonials();
+    clearTimeout(mobileTestimonialResumeTimer);
+  };
+
+  marqueeEl.addEventListener('pointerdown', pauseForInteraction, { passive:true });
+  marqueeEl.addEventListener('pointerup', resumeMobileTestimonialsSoon, { passive:true });
+  marqueeEl.addEventListener('pointercancel', resumeMobileTestimonialsSoon, { passive:true });
+  marqueeEl.addEventListener('wheel', () => {
+    pauseForInteraction();
+    resumeMobileTestimonialsSoon();
   }, { passive:true });
+  marqueeEl.addEventListener('scroll', syncMobileTestimonialIndex, { passive:true });
 
-  marqueeEl.addEventListener('touchmove', e => {
-    if (Math.abs(e.changedTouches[0].clientY - touchStartY) > 8) touchMoved = true;
-  }, { passive:true });
+  const mobileTestimonialObserver = new IntersectionObserver(entries => {
+    const entry = entries[0];
+    mobileTestimonialsVisible = entry.isIntersecting;
+    if (entry.isIntersecting) {
+      if (window.innerWidth <= 768 && marqueeEl.scrollLeft < 2) {
+        scrollToMobileTestimonial(0, 'auto');
+      }
+      startMobileTestimonials();
+    } else {
+      stopMobileTestimonials();
+      clearTimeout(mobileTestimonialResumeTimer);
+    }
+  }, { threshold:0.28 });
 
-  /* Tap validé (pas de scroll vertical détecté) → bascule pause */
-  marqueeEl.addEventListener('touchend', () => {
-    if (!touchMoved) marqueeEl.classList.toggle('paused');
+  mobileTestimonialObserver.observe(testimonialSection);
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      stopMobileTestimonials();
+    } else if (mobileTestimonialsVisible) {
+      syncMobileTestimonialIndex();
+      startMobileTestimonials();
+    }
   }, { passive:true });
 }
 
