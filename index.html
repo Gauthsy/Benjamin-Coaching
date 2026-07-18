@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.2                                      ║
+║  BENJAMIN COACHING v7.3                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -326,6 +326,7 @@ button,input,select,textarea { font-family:inherit }
   animation:fadeUp .65s .08s both;
 }
 .hero-badge svg { color:var(--lime) }
+.hero-badge-mobile { display:none }
 .hero h1 {
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(62px,13vw,130px); line-height:.86; text-transform:uppercase; max-width:760px;
@@ -1370,13 +1371,31 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Floating */
   .float-cta { display:inline-flex }
   /* Hero */
-  .hero-media img { object-position:center top; transform:none; will-change:auto }
-  .hero-glow { width:92%; height:54%; right:-38%; top:7%; opacity:.42 }
-  .hero-glr { background:linear-gradient(to bottom,rgba(10,10,11,.04) 0%,rgba(10,10,11,.08) 42%,rgba(10,10,11,.74) 68%,var(--bg) 100%) }
-  .hero-gtb { background:linear-gradient(to right,rgba(10,10,11,.16),transparent 58%,rgba(10,10,11,.1)) }
-  .hero-content { padding:calc(66px + 24px) 20px 44px }
-  .hero h1 { font-size:clamp(50px,15.4vw,68px); max-width:100% }
-  .hero-sub { font-size:14px; max-width:100% }
+  .hero-media { background:#160607 }
+  .hero-media img {
+    object-position:left top;
+    filter:contrast(1.04) brightness(.96) saturate(.94);
+    transform:scale(1.035); transform-origin:left top; will-change:auto;
+  }
+  .hero-glow { width:78%; height:50%; right:-27%; top:8%; opacity:.34 }
+  .hero-glr {
+    background:
+      radial-gradient(circle at 61% 27%,rgba(10,10,11,0) 0%,rgba(10,10,11,.03) 20%,rgba(10,10,11,.12) 50%),
+      linear-gradient(to right,rgba(10,10,11,.9) 0%,rgba(10,10,11,.62) 28%,rgba(10,10,11,.16) 62%,rgba(10,10,11,.03) 100%);
+  }
+  .hero-gtb {
+    background:linear-gradient(to bottom,rgba(10,10,11,.06) 0%,rgba(10,10,11,.02) 34%,rgba(10,10,11,.18) 53%,rgba(10,10,11,.72) 76%,var(--bg) 100%);
+  }
+  .hero-content { padding:calc(66px + 24px) 20px 38px }
+  .hero-badge {
+    gap:7px; margin-bottom:16px; padding:5px 11px;
+    background:rgba(10,10,11,.62); font-size:9px; letter-spacing:.2em;
+  }
+  .hero-badge-full { display:none }
+  .hero-badge-mobile { display:inline }
+  .hero h1 { font-size:clamp(53px,10vw,66px); line-height:.88; max-width:min(82vw,620px) }
+  .hero-sub { margin-top:17px; font-size:14px; line-height:1.55; max-width:min(88%,430px) }
+  .hero-ctas { margin-top:22px; gap:9px }
   .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
   .coach-mobile-heading {
@@ -1477,7 +1496,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-logo-chev { width:15px; height:15px }
   .nav-logo-menu-text { font-size:9.5px; letter-spacing:.16em }
   .coach-trust .tb-sub { font-size:10.5px; line-height:1.25 }
-  .hero h1 { font-size:clamp(46px,14.8vw,60px) }
+  .hero h1 { font-size:clamp(44px,12.35vw,53px); max-width:88vw }
   .coach-trust { grid-template-columns:1fr }
   .svc-card { flex:0 0 84vw }
   .hyrox-pillars { grid-template-columns:1fr }
@@ -1888,7 +1907,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="hero-content">
     <div class="hero-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-      Coaching personnalisé Paris · Online
+      <span class="hero-badge-full">Coaching personnalisé Paris · Online</span>
+      <span class="hero-badge-mobile">Paris · Online</span>
     </div>
     <h1>
       Éveille ton corps,<br/>
