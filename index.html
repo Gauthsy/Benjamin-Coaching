@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.0                                      ║
+║  BENJAMIN COACHING v7.2                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
-║  ├── benjamin-hero.png   photo PNG fond noir (hero)          ║
-║  ├── benjamin-coach.jpg  photo coach (section Le Coach)      ║
+║  ├── hero-bench-desktop.webp  hero desktop                   ║
+║  ├── hero-bench-mobile.webp   hero mobile                    ║
+║  ├── coach-about-transparent.webp  portrait détouré          ║
+║  ├── og-benjamin-coaching.webp  vignette de partage          ║
 ║  ├── benjamin-gym.jpg    photo salle / Hyrox                 ║
 ║  ├── reel-1.webm / reel-1.mp4  + reel-1.jpg (poster)        ║
 ║  ├── reel-2.webm / reel-2.mp4  + reel-2.jpg                 ║
@@ -29,14 +31,19 @@
 <meta property="og:site_name" content="Benjamin Coaching"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="fr_FR"/>
-<meta property="og:image" content="/assets/benjamin-hero.png"/>
-<meta property="og:image:alt" content="Benjamin Coaching, coach sportif à Paris"/>
+<meta property="og:image" content="/assets/og-benjamin-coaching.webp"/>
+<meta property="og:image:type" content="image/webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Benjamin accompagne une cliente pendant une séance de développé couché"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Benjamin Coaching — Coach sportif à Paris & Online"/>
 <meta name="twitter:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
-<meta name="twitter:image" content="/assets/benjamin-hero.png"/>
+<meta name="twitter:image" content="/assets/og-benjamin-coaching.webp"/>
 <meta property="og:url" content="https://www.benjamincoaching.fr/"/>
 <link rel="canonical" href="https://www.benjamincoaching.fr/"/>
+<link rel="preload" as="image" href="assets/hero-bench-desktop.webp" type="image/webp" media="(min-width:769px)"/>
+<link rel="preload" as="image" href="assets/hero-bench-mobile.webp" type="image/webp" media="(max-width:768px)"/>
 <meta name="theme-color" content="#0A0A0B"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -278,8 +285,17 @@ button,input,select,textarea { font-family:inherit }
   min-height:100svh; display:flex; align-items:flex-end;
   overflow:hidden; background:var(--bg);
 }
+.hero-media {
+  position:absolute; inset:0; z-index:-4; display:block; overflow:hidden;
+}
+.hero-media img {
+  width:100%; height:100%; object-fit:cover; object-position:center center;
+  filter:contrast(1.04) brightness(.9) saturate(.94);
+  transform:scale(1.015); transform-origin:center;
+  will-change:transform;
+}
 .hero-noise {
-  position:absolute; inset:0; z-index:-3; opacity:.055; mix-blend-mode:overlay;
+  position:absolute; inset:0; z-index:-2; opacity:.05; mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 .hero-glow {
@@ -289,30 +305,18 @@ button,input,select,textarea { font-family:inherit }
   filter:blur(90px); pointer-events:none;
   animation:glowPulse 7s ease-in-out infinite;
 }
-.hero-photo-d {
-  position:absolute; bottom:0; right:8%; z-index:-2;
-  height:94%; width:auto; object-fit:contain; object-position:bottom;
-  filter:contrast(1.06) brightness(.95) saturate(.95);
-  -webkit-mask-image:linear-gradient(to bottom,black 52%,transparent 100%);
-  mask-image:linear-gradient(to bottom,black 52%,transparent 100%);
-}
-.hero-photo-m {
-  position:absolute; top:0; left:50%; transform:translateX(-38%);
-  z-index:-2; height:80%; width:auto; object-fit:contain; object-position:top center;
-  opacity:.9; filter:contrast(1.04) brightness(.9) saturate(.94);
-  -webkit-mask-image:linear-gradient(to bottom,black 55%,transparent 94%);
-  mask-image:linear-gradient(to bottom,black 55%,transparent 94%);
-  display:none;
-}
 .hero-glr {
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to right,var(--bg) 0%,rgba(10,10,11,.92) 28%,rgba(10,10,11,.2) 65%,var(--bg) 100%);
+  background:linear-gradient(to right,rgba(10,10,11,.97) 0%,rgba(10,10,11,.9) 30%,rgba(10,10,11,.38) 58%,rgba(10,10,11,.05) 78%);
 }
 .hero-gtb {
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(to bottom,rgba(10,10,11,.22) 0%,transparent 42%,var(--bg) 100%);
+  background:linear-gradient(to bottom,rgba(10,10,11,.2) 0%,transparent 42%,rgba(10,10,11,.36) 72%,var(--bg) 100%);
 }
-.hero-content { position:relative; width:100%; padding:calc(72px + 44px) 40px 84px }
+.hero-content {
+  position:relative; width:100%; max-width:1440px; margin:0 auto;
+  padding:calc(72px + 44px) 40px 84px;
+}
 .hero-badge {
   display:inline-flex; align-items:center; gap:8px;
   border:1px solid rgba(255,255,255,.15); background:rgba(10,10,11,.45); backdrop-filter:blur(10px);
@@ -325,12 +329,14 @@ button,input,select,textarea { font-family:inherit }
 .hero h1 {
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(62px,13vw,130px); line-height:.86; text-transform:uppercase; max-width:760px;
+  text-shadow:0 4px 28px rgba(0,0,0,.34);
   animation:fadeUp .65s .18s both;
 }
 .hero h1 .lime { color:var(--lime) }
 .hero-sub {
   margin-top:22px; max-width:430px; font-size:15px;
   color:rgba(244,244,244,.74); line-height:1.65;
+  text-shadow:0 2px 18px rgba(0,0,0,.62);
   animation:fadeUp .65s .3s both;
 }
 .hero-ctas { margin-top:30px; display:flex; flex-wrap:wrap; gap:11px; animation:fadeUp .65s .42s both }
@@ -377,20 +383,40 @@ button,input,select,textarea { font-family:inherit }
    LE COACH
 ══════════════════════════════════════════ */
 .coach-section { background:var(--surface); border-bottom:1px solid var(--border); overflow:hidden }
-.coach-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr }
-.coach-img-wrap { position:relative; overflow:hidden; min-height:560px }
+.coach-mobile-heading { display:none }
+.coach-mobile-name {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(52px,16vw,66px); line-height:.86;
+  text-transform:uppercase; letter-spacing:.005em;
+}
+.coach-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr) }
+.coach-img-wrap {
+  position:relative; isolation:isolate; overflow:hidden; min-height:620px;
+  background:
+    linear-gradient(145deg,rgba(200,255,0,.055),transparent 44%),
+    linear-gradient(to bottom,#141416,var(--surface));
+}
+.coach-img-wrap::before {
+  content:''; position:absolute; z-index:-1; left:50%; top:49%;
+  width:min(76%,460px); aspect-ratio:1; transform:translate(-50%,-50%);
+  border:1px solid rgba(200,255,0,.12); border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.075) 0%,rgba(200,255,0,.025) 48%,transparent 70%);
+  box-shadow:0 0 90px rgba(200,255,0,.055);
+}
 .coach-img-wrap img {
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; object-position:top center;
-  filter:brightness(.86) contrast(1.1) saturate(.9);
+  position:absolute; z-index:1; inset:18px 0 0; width:100%; height:calc(100% - 18px);
+  object-fit:contain; object-position:center bottom;
+  filter:drop-shadow(0 24px 34px rgba(0,0,0,.36)) contrast(1.025) saturate(.96);
   transition:transform .9s ease;
 }
-.coach-img-wrap:hover img { transform:scale(1.03) }
+.coach-img-wrap:hover img { transform:scale(1.018) }
 .coach-img-wrap::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(to right,transparent 55%,var(--surface) 100%);
+  content:''; position:absolute; z-index:2; inset:0; pointer-events:none;
+  background:
+    linear-gradient(to right,transparent 62%,var(--surface) 100%),
+    linear-gradient(to top,var(--surface) 0%,transparent 17%);
 }
-.coach-text { padding:68px 48px 68px 44px; display:flex; flex-direction:column; justify-content:center }
+.coach-text { padding:72px 54px 72px 38px; display:flex; flex-direction:column; justify-content:center }
 .coach-name {
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(48px,5vw,76px); line-height:.9; text-transform:uppercase; margin-bottom:24px;
@@ -1321,8 +1347,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 ══════════════════════════════════════════ */
 @media (max-width:1100px) {
   .coach-inner { grid-template-columns:1fr }
-  .coach-img-wrap { min-height:400px }
-  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 55%,var(--surface) 100%) }
+  .coach-img-wrap { min-height:520px }
+  .coach-img-wrap::before { width:min(54vw,440px) }
+  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 68%,var(--surface) 100%) }
   .coach-text { padding:48px 40px }
   .ig-grid { grid-template-columns:repeat(2,1fr) }
 }
@@ -1343,20 +1370,33 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Floating */
   .float-cta { display:inline-flex }
   /* Hero */
-  .hero-photo-d { display:none }
-  .hero-photo-m { display:block }
-  .hero-glr { background:linear-gradient(to bottom,rgba(10,10,11,.15) 0%,rgba(10,10,11,.52) 44%,var(--bg) 100%) }
-  .hero-gtb { background:linear-gradient(to bottom,transparent 0%,rgba(10,10,11,.6) 68%,var(--bg) 100%) }
-  .hero-content { padding:calc(66px + 14px) 20px 52px }
-  .hero h1 { font-size:clamp(56px,17vw,82px) }
+  .hero-media img { object-position:center top; transform:none; will-change:auto }
+  .hero-glow { width:92%; height:54%; right:-38%; top:7%; opacity:.42 }
+  .hero-glr { background:linear-gradient(to bottom,rgba(10,10,11,.04) 0%,rgba(10,10,11,.08) 42%,rgba(10,10,11,.74) 68%,var(--bg) 100%) }
+  .hero-gtb { background:linear-gradient(to right,rgba(10,10,11,.16),transparent 58%,rgba(10,10,11,.1)) }
+  .hero-content { padding:calc(66px + 24px) 20px 44px }
+  .hero h1 { font-size:clamp(50px,15.4vw,68px); max-width:100% }
   .hero-sub { font-size:14px; max-width:100% }
   .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
-  .coach-img-wrap { min-height:58vw; max-height:340px }
-  .coach-img-wrap img { object-position:top center }
-  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 35%,var(--surface) 100%) }
-  .coach-text { padding:28px 20px 40px }
-  .coach-name { font-size:clamp(42px,13vw,60px) }
+  .coach-mobile-heading {
+    display:block; position:relative; z-index:3;
+    padding:36px 20px 0;
+    background:linear-gradient(to bottom,var(--surface),#141416);
+  }
+  .coach-mobile-heading .s-label { margin-bottom:12px }
+  .coach-img-wrap.reveal { transition-delay:.08s }
+  .coach-img-wrap { min-height:0; height:clamp(360px,104vw,430px); max-height:none }
+  .coach-img-wrap::before { width:min(78vw,380px); top:50% }
+  .coach-img-wrap img {
+    inset:4px 0 0; height:calc(100% - 4px); object-position:center bottom;
+    transform:scale(1.055); transform-origin:center bottom;
+  }
+  .coach-img-wrap:hover img { transform:scale(1.055) }
+  .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 68%,var(--surface) 100%) }
+  .coach-text { padding:18px 20px 40px }
+  .coach-text > .s-label,
+  .coach-text > .coach-name { display:none }
   .coach-bio { font-size:14px; max-width:100% }
   .coach-trust { grid-template-columns:1fr 1fr; gap:8px; margin-top:24px }
   .trust-badge { padding:10px 12px }
@@ -1437,7 +1477,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-logo-chev { width:15px; height:15px }
   .nav-logo-menu-text { font-size:9.5px; letter-spacing:.16em }
   .coach-trust .tb-sub { font-size:10.5px; line-height:1.25 }
-  .hero h1 { font-size:clamp(50px,15.5vw,72px) }
+  .hero h1 { font-size:clamp(46px,14.8vw,60px) }
   .coach-trust { grid-template-columns:1fr }
   .svc-card { flex:0 0 84vw }
   .hyrox-pillars { grid-template-columns:1fr }
@@ -1839,8 +1879,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 <section class="hero" id="accueil">
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
-  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-d" loading="eager" fetchpriority="high"/>
-  <img src="assets/benjamin-hero.png" alt="" class="hero-photo-m" loading="eager" fetchpriority="high"/>
+  <picture class="hero-media" aria-hidden="true">
+    <source media="(max-width:768px)" srcset="assets/hero-bench-mobile.webp" type="image/webp"/>
+    <img src="assets/hero-bench-desktop.webp" alt="" width="2560" height="1440" loading="eager" fetchpriority="high" decoding="async"/>
+  </picture>
   <div class="hero-glr"></div>
   <div class="hero-gtb"></div>
   <div class="hero-content">
@@ -1866,9 +1908,13 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 <!-- ══ LE COACH ══ -->
 <section class="coach-section" id="coach">
+  <div class="coach-mobile-heading reveal">
+    <div class="s-label">Le coach</div>
+    <h2 class="coach-mobile-name">Benjamin.</h2>
+  </div>
   <div class="coach-inner">
     <div class="coach-img-wrap reveal">
-      <img src="assets/benjamin-coach.jpg" alt="Benjamin, coach sportif Paris" loading="lazy"/>
+      <img src="assets/coach-about-transparent.webp" alt="Benjamin, coach sportif à Paris" width="1200" height="1600" loading="lazy" decoding="async"/>
     </div>
     <div class="coach-text">
       <div class="s-label">Le coach</div>
@@ -3294,14 +3340,15 @@ function onScrollFrame() {
   scrollTicking = false;
   const y = window.scrollY;
   nav.classList.toggle('scrolled', y > 40);
-  /* Parallax léger sur les photos hero */
-  const py = y * 0.026;
-  document.querySelectorAll('.hero-photo-d').forEach(img => {
-    img.style.transform = `translateY(${py}px)`;
-  });
-  document.querySelectorAll('.hero-photo-m').forEach(img => {
-    img.style.transform = `translateX(-38%) translateY(${py}px)`;
-  });
+  /* Parallax très léger sur desktop uniquement ; image fixe sur mobile pour la fluidité */
+  const heroMedia = document.querySelector('.hero-media img');
+  const canMoveHero = window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroMedia && canMoveHero) {
+    const py = Math.min(y * 0.018,12);
+    heroMedia.style.transform = `scale(1.02) translate3d(0,${py}px,0)`;
+  } else if (heroMedia) {
+    heroMedia.style.removeProperty('transform');
+  }
   const pastHero = y > window.innerHeight * 0.75;
   /* Floating CTA "Parlons-en" : mobile only, apparaît après le hero */
   if (floatBtn) floatBtn.classList.toggle('show', pastHero);
