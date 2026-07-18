@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.5                                      ║
+║  BENJAMIN COACHING v7.6                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -459,6 +459,7 @@ button,input,select,textarea { font-family:inherit }
   margin-bottom:44px; flex-wrap:wrap;
 }
 .testi-nav-wrap { display:flex; align-items:center; gap:10px }
+.testi-header-actions { display:flex; align-items:center; gap:8px }
 .testi-counter { font-size:11px; color:var(--muted); letter-spacing:.08em }
 .testi-btn {
   width:40px; height:40px; display:flex; align-items:center; justify-content:center;
@@ -467,6 +468,9 @@ button,input,select,textarea { font-family:inherit }
 }
 .testi-btn:hover { border-color:var(--lime); color:var(--lime) }
 .testi-btn:disabled { opacity:.25; cursor:default; border-color:var(--border); pointer-events:none }
+.testi-autoplay-toggle .testi-play-icon { display:none }
+.testi-autoplay-toggle.is-paused .testi-pause-icon { display:none }
+.testi-autoplay-toggle.is-paused .testi-play-icon { display:block }
 .testi-viewport { overflow:hidden }
 .testi-track {
   display:flex; align-items:stretch; gap:16px;
@@ -540,6 +544,7 @@ button,input,select,textarea { font-family:inherit }
 .testi-marquee-card .testi-card { flex:1 }
 @media (prefers-reduced-motion:reduce) {
   .testi-marquee { scroll-behavior:auto }
+  .testi-autoplay-toggle { display:none!important }
 }
 
 /* ══════════════════════════════════════════
@@ -1382,7 +1387,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero-media img {
     object-position:left top;
     filter:contrast(1.03) brightness(1.08) saturate(.97);
-    transform:translate3d(0,-7%,0) scale(1.07);
+    transform:translate3d(0,-10%,0) scale(1.1);
     transform-origin:left top; will-change:auto;
   }
   .hero-glow { width:78%; height:50%; right:-27%; top:8%; opacity:.34 }
@@ -1995,24 +2000,30 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <div class="s-label">Résultats</div>
         <h2 class="s-h2">La preuve<br/><span class="lime">par les faits.</span></h2>
       </div>
-      <div class="testi-nav-wrap">
-        <span class="testi-counter" id="testiCounter"></span>
-        <div style="display:flex;gap:8px">
-          <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
-          </button>
-          <button class="testi-btn" id="testiNext" onclick="testiMove(1)" aria-label="Suivant">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
+      <div class="testi-header-actions">
+        <button class="testi-btn testi-autoplay-toggle" id="testiAutoplayToggle" type="button" aria-label="Mettre en pause le défilement des avis" aria-pressed="false">
+          <svg class="testi-pause-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 5v14M15 5v14"/></svg>
+          <svg class="testi-play-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
+        </button>
+        <div class="testi-nav-wrap">
+          <span class="testi-counter" id="testiCounter"></span>
+          <div style="display:flex;gap:8px">
+            <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+            </button>
+            <button class="testi-btn" id="testiNext" onclick="testiMove(1)" aria-label="Suivant">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="testi-viewport reveal" style="transition-delay:.1s">
+    <div class="testi-viewport reveal" style="transition-delay:.1s" aria-live="off">
       <div class="testi-track" id="testiTrack"></div>
     </div>
     <div class="testi-dots" id="testiDots"></div>
     <!-- Carrousel mobile — swipe manuel + autoscroll déclenché à l'arrivée dans la section -->
-    <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients" tabindex="0">
+    <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients" aria-live="off" tabindex="0">
       <div class="testi-marquee-track" id="testiMarqueeTrack"></div>
     </div>
   </div>
@@ -2921,12 +2932,16 @@ if (marqueeTrack) {
 const marqueeEl = document.getElementById('testiMarquee');
 const testimonialSection = document.getElementById('temoignages');
 const mobileTestimonialCards = marqueeTrack ? [...marqueeTrack.querySelectorAll('.testi-marquee-card')] : [];
+const testimonialAutoplayToggle = document.getElementById('testiAutoplayToggle');
+const testimonialsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TESTIMONIAL_AUTOPLAY_DELAY = 8000;
+const TESTIMONIAL_RESUME_DELAY = 2500; /* + 8 s avant l'avance suivante ≈ 10,5 s de lecture */
+let testimonialsManuallyPaused = false;
 let mobileTestimonialIndex = 0;
+let mobileTestimonialDirection = 1;
 let mobileTestimonialTimer = null;
 let mobileTestimonialResumeTimer = null;
 let mobileTestimonialsVisible = false;
-const MOBILE_TESTIMONIAL_DELAY = 4800;
-const MOBILE_TESTIMONIAL_RESUME_DELAY = 4200;
 
 function scrollToMobileTestimonial(index, behavior = 'smooth') {
   if (!marqueeEl || !mobileTestimonialCards.length) return;
@@ -2948,20 +2963,23 @@ function startMobileTestimonials() {
   if (
     mobileTestimonialTimer ||
     !mobileTestimonialsVisible ||
+    testimonialsManuallyPaused ||
     window.innerWidth > 768 ||
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    testimonialsReducedMotion ||
     mobileTestimonialCards.length < 2
   ) return;
   mobileTestimonialTimer = setInterval(() => {
-    scrollToMobileTestimonial(mobileTestimonialIndex + 1);
-  }, MOBILE_TESTIMONIAL_DELAY);
+    if (mobileTestimonialIndex >= mobileTestimonialCards.length - 1) mobileTestimonialDirection = -1;
+    if (mobileTestimonialIndex <= 0) mobileTestimonialDirection = 1;
+    scrollToMobileTestimonial(mobileTestimonialIndex + mobileTestimonialDirection);
+  }, TESTIMONIAL_AUTOPLAY_DELAY);
 }
 
 function resumeMobileTestimonialsSoon() {
   clearTimeout(mobileTestimonialResumeTimer);
   mobileTestimonialResumeTimer = setTimeout(() => {
     if (mobileTestimonialsVisible) startMobileTestimonials();
-  }, MOBILE_TESTIMONIAL_RESUME_DELAY);
+  }, TESTIMONIAL_RESUME_DELAY);
 }
 
 function syncMobileTestimonialIndex() {
@@ -2989,6 +3007,8 @@ if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
   marqueeEl.addEventListener('pointerdown', pauseForInteraction, { passive:true });
   marqueeEl.addEventListener('pointerup', resumeMobileTestimonialsSoon, { passive:true });
   marqueeEl.addEventListener('pointercancel', resumeMobileTestimonialsSoon, { passive:true });
+  marqueeEl.addEventListener('focusin', pauseForInteraction);
+  marqueeEl.addEventListener('focusout', resumeMobileTestimonialsSoon);
   marqueeEl.addEventListener('wheel', () => {
     pauseForInteraction();
     resumeMobileTestimonialsSoon();
@@ -3010,15 +3030,6 @@ if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
   }, { threshold:0.28 });
 
   mobileTestimonialObserver.observe(testimonialSection);
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      stopMobileTestimonials();
-    } else if (mobileTestimonialsVisible) {
-      syncMobileTestimonialIndex();
-      startMobileTestimonials();
-    }
-  }, { passive:true });
 }
 
 const dotsEl = document.getElementById('testiDots');
@@ -3050,6 +3061,117 @@ function goSlide(idx) {
 window.testiMove = dir => goSlide(slide + dir);
 window.goSlide   = goSlide;
 updateNav();
+
+/* TÉMOIGNAGES DESKTOP — avance douce, pause à l'interaction */
+const desktopTestimonialViewport = document.querySelector('.testi-viewport');
+let desktopTestimonialTimer = null;
+let desktopTestimonialResumeTimer = null;
+let desktopTestimonialsVisible = false;
+let desktopTestimonialDirection = 1;
+
+function stopDesktopTestimonials() {
+  clearInterval(desktopTestimonialTimer);
+  desktopTestimonialTimer = null;
+}
+
+function startDesktopTestimonials() {
+  if (
+    desktopTestimonialTimer ||
+    !desktopTestimonialsVisible ||
+    testimonialsManuallyPaused ||
+    testimonialsReducedMotion ||
+    window.innerWidth <= 768 ||
+    maxSlide < 1
+  ) return;
+  desktopTestimonialTimer = setInterval(() => {
+    if (slide >= maxSlide) desktopTestimonialDirection = -1;
+    if (slide <= 0) desktopTestimonialDirection = 1;
+    goSlide(slide + desktopTestimonialDirection);
+  }, TESTIMONIAL_AUTOPLAY_DELAY);
+}
+
+function pauseDesktopTestimonials() {
+  stopDesktopTestimonials();
+  clearTimeout(desktopTestimonialResumeTimer);
+}
+
+function resumeDesktopTestimonialsSoon() {
+  clearTimeout(desktopTestimonialResumeTimer);
+  desktopTestimonialResumeTimer = setTimeout(() => {
+    if (desktopTestimonialsVisible) startDesktopTestimonials();
+  }, TESTIMONIAL_RESUME_DELAY);
+}
+
+if (testimonialSection && desktopTestimonialViewport) {
+  [desktopTestimonialViewport, dotsEl, document.querySelector('.testi-nav-wrap')]
+    .filter(Boolean)
+    .forEach(el => {
+      el.addEventListener('pointerdown', pauseDesktopTestimonials, { passive:true });
+      el.addEventListener('pointerup', resumeDesktopTestimonialsSoon, { passive:true });
+      el.addEventListener('pointercancel', resumeDesktopTestimonialsSoon, { passive:true });
+      el.addEventListener('focusin', pauseDesktopTestimonials);
+      el.addEventListener('focusout', resumeDesktopTestimonialsSoon);
+    });
+  desktopTestimonialViewport.addEventListener('mouseenter', pauseDesktopTestimonials);
+  desktopTestimonialViewport.addEventListener('mouseleave', resumeDesktopTestimonialsSoon);
+
+  const desktopTestimonialObserver = new IntersectionObserver(entries => {
+    desktopTestimonialsVisible = entries[0].isIntersecting;
+    if (desktopTestimonialsVisible) startDesktopTestimonials();
+    else {
+      stopDesktopTestimonials();
+      clearTimeout(desktopTestimonialResumeTimer);
+    }
+  }, { threshold:0.28 });
+  desktopTestimonialObserver.observe(testimonialSection);
+}
+
+function updateTestimonialAutoplayToggle() {
+  if (!testimonialAutoplayToggle) return;
+  testimonialAutoplayToggle.classList.toggle('is-paused', testimonialsManuallyPaused);
+  testimonialAutoplayToggle.setAttribute('aria-pressed', testimonialsManuallyPaused ? 'true' : 'false');
+  testimonialAutoplayToggle.setAttribute(
+    'aria-label',
+    testimonialsManuallyPaused ? 'Relancer le défilement des avis' : 'Mettre en pause le défilement des avis'
+  );
+}
+
+if (testimonialAutoplayToggle) {
+  testimonialAutoplayToggle.addEventListener('click', () => {
+    testimonialsManuallyPaused = !testimonialsManuallyPaused;
+    clearTimeout(mobileTestimonialResumeTimer);
+    clearTimeout(desktopTestimonialResumeTimer);
+    stopMobileTestimonials();
+    stopDesktopTestimonials();
+    updateTestimonialAutoplayToggle();
+    if (!testimonialsManuallyPaused) {
+      if (window.innerWidth <= 768) startMobileTestimonials();
+      else startDesktopTestimonials();
+    }
+  });
+  updateTestimonialAutoplayToggle();
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopMobileTestimonials();
+    stopDesktopTestimonials();
+    return;
+  }
+  if (window.innerWidth <= 768) startMobileTestimonials();
+  else startDesktopTestimonials();
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) {
+    stopDesktopTestimonials();
+    syncMobileTestimonialIndex();
+    startMobileTestimonials();
+  } else {
+    stopMobileTestimonials();
+    startDesktopTestimonials();
+  }
+}, { passive:true });
 
 /* ─────────────────────────────────────────────────
    SERVICES — Spotlight auto-cyclique
