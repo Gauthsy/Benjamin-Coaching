@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.4                                      ║
+║  BENJAMIN COACHING v7.5                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -66,7 +66,11 @@
   --sp:      clamp(56px,7vw,96px);
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
-html { scroll-behavior:smooth }
+html {
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
 body {
   background:var(--bg); color:var(--fg);
   font-family:'Inter',sans-serif; font-size:15px; line-height:1.65;
@@ -425,6 +429,8 @@ button,input,select,textarea { font-family:inherit }
 }
 .coach-bio { font-size:14px; color:var(--muted2); line-height:1.82; max-width:390px }
 .coach-bio p + p { margin-top:13px }
+.coach-bio-lead { display:block; color:var(--fg); font-weight:700 }
+.coach-bio-story { display:block }
 .coach-trust { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:36px }
 .trust-badge {
   display:flex; align-items:center; gap:11px; padding:13px 15px;
@@ -1375,17 +1381,17 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero-media { background:#160607 }
   .hero-media img {
     object-position:left top;
-    filter:contrast(1.03) brightness(1.04) saturate(.97);
-    transform:translate3d(2.5%,-3.4%,0) scale(1.055);
+    filter:contrast(1.03) brightness(1.08) saturate(.97);
+    transform:translate3d(0,-7%,0) scale(1.07);
     transform-origin:left top; will-change:auto;
   }
   .hero-glow { width:78%; height:50%; right:-27%; top:8%; opacity:.34 }
   .hero-glr {
-    inset:32% 0 0;
+    inset:38% 0 0;
     background:linear-gradient(to right,rgba(10,10,11,.88) 0%,rgba(10,10,11,.6) 31%,rgba(10,10,11,.16) 69%,rgba(10,10,11,.03) 100%);
   }
   .hero-gtb {
-    background:linear-gradient(to bottom,rgba(10,10,11,.02) 0%,transparent 34%,rgba(10,10,11,.08) 44%,rgba(10,10,11,.52) 70%,rgba(10,10,11,.9) 86%,var(--bg) 100%);
+    background:linear-gradient(to bottom,rgba(10,10,11,.015) 0%,transparent 38%,rgba(10,10,11,.06) 47%,rgba(10,10,11,.48) 70%,rgba(10,10,11,.9) 86%,var(--bg) 100%);
   }
   .hero-content { padding:calc(66px + 24px) 20px 38px }
   .hero-badge {
@@ -1402,12 +1408,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Coach */
   .coach-mobile-heading {
     display:block; position:absolute; z-index:4;
-    top:clamp(30px,8vw,42px); left:20px; width:min(46vw,190px);
+    top:clamp(78px,20vw,96px); left:20px; width:min(45vw,185px);
     padding:0; background:none;
   }
   .coach-mobile-heading .s-label { margin-bottom:10px }
   .coach-mobile-name {
-    font-size:var(--mobile-display); line-height:.88;
+    font-size:clamp(38px,10.5vw,44px); line-height:.9;
     text-shadow:0 3px 22px rgba(0,0,0,.72);
   }
   .coach-section { background:var(--bg) }
@@ -1423,9 +1429,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   }
   .coach-img-wrap img {
     inset:4px 0 0; height:calc(100% - 4px); object-position:center bottom;
-    transform:scale(1.055); transform-origin:center bottom;
+    transform:translateX(2.8%) scale(1.055); transform-origin:center bottom;
   }
-  .coach-img-wrap:hover img { transform:scale(1.055) }
+  .coach-img-wrap:hover img { transform:translateX(2.8%) scale(1.055) }
   .coach-img-wrap::after { background:linear-gradient(to bottom,transparent 68%,var(--bg) 100%) }
   .coach-text { padding:18px 20px 40px; background:var(--bg) }
   .coach-text > .s-label,
@@ -1955,8 +1961,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="s-label">Le coach</div>
       <h2 class="coach-name reveal" style="transition-delay:.07s">Benjamin.</h2>
       <div class="coach-bio reveal" style="transition-delay:.14s">
-        <p>Coach sportif diplômé d'État basé à Paris.</p>
-        <p>Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</p>
+        <p><strong class="coach-bio-lead">Coach sportif diplômé d'État basé à Paris.</strong><span class="coach-bio-story">Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</span></p>
         <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
       </div>
       <div class="coach-trust reveal" style="transition-delay:.22s">
