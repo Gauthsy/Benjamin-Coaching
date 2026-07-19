@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v8.0                                      ║
+║  BEN FIT PARIS v9.0                                          ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
 ║  ├── hero-bench-desktop.webp  hero desktop                   ║
 ║  ├── hero-bench-mobile.webp   hero mobile                    ║
 ║  ├── coach-about-transparent.webp  portrait détouré          ║
-║  ├── og-benjamin-coaching.webp  vignette de partage          ║
-║  ├── benjamin-gym.jpg    photo salle / Hyrox                 ║
-║  ├── reel-1.webm / reel-1.mp4  + reel-1.jpg (poster)        ║
-║  ├── reel-2.webm / reel-2.mp4  + reel-2.jpg                 ║
-║  ├── reel-3.webm / reel-3.mp4  + reel-3.jpg                 ║
-║  └── reel-4.webm / reel-4.mp4  + reel-4.jpg                 ║
+║  ├── og-benfitparis.webp  vignette de partage                ║
+║  ├── preparation-hyrox-coach-sportif-paris.webp             ║
+║  ├── reel-1.mp4 + reel-1-poster.webp                        ║
+║  ├── reel-2.mp4 + reel-2-poster.webp                        ║
+║  ├── reel-3.mp4 + reel-3-poster.webp                        ║
+║  └── reel-4.mp4 + reel-4-poster.webp                        ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FORMSPREE  → endpoint xbdvabjk intégré                       ║
 ║  TÉMOIGNAGES → tableau TESTIMONIALS dans <script>            ║
@@ -23,32 +23,96 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Coach sportif Paris &amp; Online | HYROX &amp; Transformation | Benjamin Coaching</title>
-<meta name="description" content="Coach sportif diplômé à Paris. Coaching personnalisé, transformation physique, préparation HYROX, force et endurance, en salle ou à distance."/>
+<title>Coach sportif à Paris &amp; en ligne | HYROX | Ben Fit Paris</title>
+<meta name="description" content="Coach sportif diplômé à Paris et en ligne : transformation physique, remise en forme et préparation HYROX. Programme sur mesure avec Benjamin."/>
 <meta name="robots" content="index, follow"/>
-<meta property="og:title" content="Benjamin Coaching — Coach sportif à Paris &amp; Online"/>
+<meta name="author" content="Ben Fit Paris"/>
+<meta name="color-scheme" content="dark"/>
+<meta property="og:title" content="Ben Fit Paris — Coach sportif à Paris &amp; en ligne"/>
 <meta property="og:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
-<meta property="og:site_name" content="Benjamin Coaching"/>
+<meta property="og:site_name" content="Ben Fit Paris"/>
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="fr_FR"/>
-<meta property="og:image" content="/assets/og-benjamin-coaching.webp"/>
+<meta property="og:url" content="https://benfitparis.fr/"/>
+<meta property="og:image" content="https://benfitparis.fr/assets/og-benfitparis.webp"/>
+<meta property="og:image:secure_url" content="https://benfitparis.fr/assets/og-benfitparis.webp"/>
 <meta property="og:image:type" content="image/webp"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Benjamin accompagne une cliente pendant une séance de développé couché"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Benjamin Coaching — Coach sportif à Paris & Online"/>
+<meta name="twitter:title" content="Ben Fit Paris — Coach sportif à Paris &amp; en ligne"/>
 <meta name="twitter:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
-<meta name="twitter:image" content="/assets/og-benjamin-coaching.webp"/>
-<meta property="og:url" content="https://www.benjamincoaching.fr/"/>
-<link rel="canonical" href="https://www.benjamincoaching.fr/"/>
+<meta name="twitter:image" content="https://benfitparis.fr/assets/og-benfitparis.webp"/>
+<meta name="twitter:image:alt" content="Benjamin accompagne une cliente pendant une séance de développé couché"/>
+<link rel="canonical" href="https://benfitparis.fr/"/>
 <link rel="preload" as="image" href="assets/hero-bench-desktop.webp" type="image/webp" media="(min-width:769px)"/>
 <link rel="preload" as="image" href="assets/hero-bench-mobile.webp" type="image/webp" media="(max-width:768px)"/>
 <meta name="theme-color" content="#0A0A0B"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0B'/><text x='50%' y='73%' text-anchor='middle' font-size='22' font-family='Arial Black,sans-serif' font-weight='900' fill='%23C8FF00'>B</text></svg>"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://benfitparis.fr/#website",
+      "url": "https://benfitparis.fr/",
+      "name": "Ben Fit Paris",
+      "description": "Coaching sportif personnalisé à Paris et en ligne.",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://benfitparis.fr/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://benfitparis.fr/#organization",
+      "name": "Ben Fit Paris",
+      "url": "https://benfitparis.fr/",
+      "logo": "https://benfitparis.fr/icon-512.png",
+      "image": "https://benfitparis.fr/assets/og-benfitparis.webp",
+      "description": "Coaching sportif sur mesure à Paris et à distance.",
+      "founder": { "@id": "https://benfitparis.fr/#benjamin" },
+      "sameAs": ["https://www.instagram.com/ben_fitparis/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://benfitparis.fr/#benjamin",
+      "name": "Benjamin",
+      "jobTitle": "Coach sportif diplômé d'État",
+      "url": "https://benfitparis.fr/#coach",
+      "image": "https://benfitparis.fr/assets/coach-about-transparent.webp",
+      "worksFor": { "@id": "https://benfitparis.fr/#organization" },
+      "sameAs": ["https://www.instagram.com/ben_fitparis/"],
+      "knowsAbout": [
+        "Transformation physique",
+        "Musculation",
+        "Préparation HYROX",
+        "Course à pied",
+        "Préparation physique"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://benfitparis.fr/#coaching",
+      "name": "Coaching sportif personnalisé",
+      "provider": { "@id": "https://benfitparis.fr/#organization" },
+      "serviceType": "Coaching sportif en salle et à distance",
+      "areaServed": [
+        { "@type": "City", "name": "Paris" },
+        { "@type": "Country", "name": "France" }
+      ],
+      "url": "https://benfitparis.fr/#tarifs"
+    }
+  ]
+}
+</script>
 
 <style>
 /* ══════════════════════════════════════════
@@ -68,6 +132,7 @@
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
 html {
   scroll-behavior:smooth;
+  scroll-padding-top:82px;
   -webkit-text-size-adjust:100%;
   text-size-adjust:100%;
 }
@@ -79,6 +144,29 @@ body {
 a { text-decoration:none; color:inherit }
 img { display:block; max-width:100%; height:auto }
 button,input,select,textarea { font-family:inherit }
+section[id] { scroll-margin-top:82px }
+:where(a,button,input,select,textarea,summary):focus-visible {
+  outline:2px solid var(--lime);
+  outline-offset:4px;
+}
+.skip-link {
+  position:fixed; top:10px; left:10px; z-index:1000;
+  padding:10px 14px; background:var(--lime); color:#0A0A0B;
+  font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.12em;
+  transform:translateY(-160%); transition:transform .2s ease;
+}
+.skip-link:focus { transform:none }
+.sr-only {
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  padding:0 !important;
+  margin:-1px !important;
+  overflow:hidden !important;
+  clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important;
+  border:0 !important;
+}
 
 /* ══════════════════════════════════════════
    ANIMATIONS GLOBALES
@@ -458,19 +546,6 @@ button,input,select,textarea { font-family:inherit }
   display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
   margin-bottom:44px; flex-wrap:wrap;
 }
-.testi-nav-wrap { display:flex; align-items:center; gap:4px }
-.testi-header-actions { display:flex; align-items:center; gap:4px }
-.testi-btn {
-  width:30px; height:30px; display:flex; align-items:center; justify-content:center;
-  border:0; background:transparent; color:rgba(244,244,244,.58);
-  cursor:pointer; opacity:.78; transition:color .2s, opacity .2s, transform .2s;
-}
-.testi-btn:hover { color:var(--lime); opacity:1; transform:translateY(-1px) }
-.testi-btn:disabled { opacity:.2; cursor:default; pointer-events:none }
-.testi-autoplay-toggle { margin-right:2px }
-.testi-autoplay-toggle .testi-play-icon { display:none }
-.testi-autoplay-toggle.is-paused .testi-pause-icon { display:none }
-.testi-autoplay-toggle.is-paused .testi-play-icon { display:block }
 .testi-viewport { overflow:hidden }
 .testi-track {
   display:flex; align-items:stretch; gap:16px;
@@ -507,13 +582,6 @@ button,input,select,textarea { font-family:inherit }
 .testi-name { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.07em; transition:color .2s }
 .testi-name:hover { color:var(--lime) }
 .testi-role { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--lime); margin-top:2px }
-.testi-dots { display:flex; justify-content:center; gap:7px; margin-top:28px }
-.testi-dot {
-  width:5px; height:5px; border-radius:50%;
-  background:rgba(255,255,255,.18); cursor:pointer; border:none;
-  transition:background .25s, transform .25s;
-}
-.testi-dot.active { background:var(--lime); transform:scale(1.35) }
 /* ── Carrousel témoignages mobile — swipe natif + autoscroll piloté en JS ── */
 .testi-marquee {
   display:none; /* activé via @media 768px */
@@ -544,7 +612,6 @@ button,input,select,textarea { font-family:inherit }
 .testi-marquee-card .testi-card { flex:1 }
 @media (prefers-reduced-motion:reduce) {
   .testi-marquee { scroll-behavior:auto }
-  .testi-autoplay-toggle { display:none!important }
 }
 
 /* ══════════════════════════════════════════
@@ -714,7 +781,7 @@ button,input,select,textarea { font-family:inherit }
   line-height:1.3;
   text-transform:uppercase;
   letter-spacing:.12em;
-  color:rgba(244,244,244,.46);
+  color:rgba(244,244,244,.60);
 }
 .price-overview strong {
   display:block;
@@ -1083,7 +1150,7 @@ button,input,select,textarea { font-family:inherit }
 
 /* ══════════════════════════════════════════
    INSTAGRAM — après Hyrox
-   Vidéos MP4/WebM autoplay, muted, loop
+   Vidéos MP4 autoplay, muted, loop
    Clic → redirige vers le Reel Instagram
 ══════════════════════════════════════════ */
 .ig-section {
@@ -1107,7 +1174,6 @@ button,input,select,textarea { font-family:inherit }
   position:relative; aspect-ratio:9/12; overflow:hidden; background:var(--s2);
   display:block; /* c'est un <a> */
 }
-.ig-loop-clone { display:none }
 .ig-item video,
 .ig-item img {
   width:100%; height:100%; object-fit:cover; display:block;
@@ -1151,7 +1217,7 @@ button,input,select,textarea { font-family:inherit }
 .f-4grid + .f-grp { margin-top:16px }
 label {
   font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.14em;
-  color:rgba(244,244,244,.44);
+  color:rgba(244,244,244,.62);
 }
 label span { font-size:10px; color:var(--muted); text-transform:none; font-weight:400; letter-spacing:0 }
 input[type=text],input[type=email],input[type=tel],select,textarea {
@@ -1160,11 +1226,12 @@ input[type=text],input[type=email],input[type=tel],select,textarea {
   color:var(--fg); font-size:14px; border-radius:0; outline:none;
   transition:border-color .2s, background .2s; -webkit-appearance:none; appearance:none;
 }
-input::placeholder,textarea::placeholder { color:rgba(244,244,244,.22) }
+input::placeholder,textarea::placeholder { color:rgba(244,244,244,.50) }
 input:focus,select:focus,textarea:focus { border-color:var(--lime); background:rgba(200,255,0,.03) }
+input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid var(--lime); outline-offset:2px }
 select option { background:#1a1a1b }
 textarea { height:auto; min-height:108px; padding:10px 12px; resize:vertical }
-.f-note { margin-top:11px; font-size:10px; color:rgba(244,244,244,.28); line-height:1.55 }
+.f-note { margin-top:11px; font-size:10px; color:rgba(244,244,244,.62); line-height:1.55 }
 .btn-submit {
   display:flex; align-items:center; justify-content:center; gap:8px;
   height:48px; width:100%; margin-top:20px;
@@ -1204,10 +1271,14 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 .ft-links .ig-lnk { display:inline-flex; align-items:center; gap:6px; color:rgba(244,244,244,.68) }
 .ft-bot {
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding-top:22px;
-  font-size:11px; color:rgba(244,244,244,.26);
+  font-size:11px; color:rgba(244,244,244,.58);
 }
-.ft-bot a { color:rgba(244,244,244,.36); transition:color .2s }
-.ft-bot a:hover { color:var(--lime) }
+.ft-bot a,.ft-legal-link { color:rgba(244,244,244,.68); transition:color .2s }
+.ft-bot a:hover,.ft-legal-link:hover { color:var(--lime) }
+.ft-legal-link {
+  padding:0; border:0; background:none; cursor:pointer;
+  font-size:inherit; line-height:inherit;
+}
 
 /* ══════════════════════════════════════════
    FLOATING STACK — Groupe bas-droit
@@ -1262,6 +1333,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   transition:border-color .2s, color .2s;
 }
 .legal-close:hover { border-color:var(--lime); color:var(--lime) }
+.legal-close:focus-visible { border-color:var(--lime) }
 .legal-panel h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; text-transform:uppercase; margin-bottom:24px }
 .legal-panel h3 { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--lime); margin-top:22px; margin-bottom:9px }
 .legal-panel p,.legal-panel li { font-size:13px; color:var(--muted); line-height:1.78 }
@@ -1381,8 +1453,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .svc-card.active { border-color:rgba(200,255,0,.45) }
   .svc-progress { display:none } /* remplacé par scroll natif */
   /* Témoignages */
-  .testi-header-actions { display:none }
-  .testi-viewport,.testi-dots { display:none }
+  .testi-viewport { display:none }
   .testi-marquee { display:block }          /* marquee CSS infini — remplace le scroll horizontal */
   /* Hyrox — 3 chiffres alignés sur une seule ligne */
   .hyrox-stats { flex-wrap:nowrap; justify-content:space-between; gap:0; margin-top:36px; padding-top:20px; border-top:1px solid rgba(255,255,255,.10) }
@@ -1416,7 +1487,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .ig-item {
     flex:0 0 min(58vw,240px);
   }
-  .ig-loop-clone { display:block }
   /* Tarifs */
   .pricing-in { padding-left:20px; padding-right:20px }
   .pricing-head { grid-template-columns:1fr; gap:20px; margin-bottom:26px }
@@ -1458,7 +1528,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   }
   .ig-grid::-webkit-scrollbar { display:none }
   .ig-item { flex:0 0 min(38vw,240px) }
-  .ig-loop-clone { display:block }
 }
 
 @media (max-width:480px) {
@@ -1728,7 +1797,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     margin-top:4px;
     font-size:9px;
     line-height:1.2;
-    color:rgba(244,244,244,.44);
+    color:rgba(244,244,244,.62);
     white-space:normal;
   }
   .pm-body {
@@ -1752,7 +1821,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     font-weight:800;
     text-transform:uppercase;
     letter-spacing:.12em;
-    color:rgba(244,244,244,.42);
+    color:rgba(244,244,244,.60);
     line-height:1.2;
   }
   .pm-row strong {
@@ -1800,7 +1869,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     padding:11px 0 0;
     font-size:10.5px;
     line-height:1.55;
-    color:rgba(244,244,244,.42);
+    color:rgba(244,244,244,.62);
   }
   .pricing-mobile-more { margin-top:16px }
 }
@@ -1808,16 +1877,18 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
 
 <!-- ══ NAV ══ -->
-<nav class="nav" id="mainNav">
+<header class="site-header">
+<nav class="nav" id="mainNav" aria-label="Navigation principale">
   <button class="nav-logo" id="navLogoMenuBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="navLogoMenu">
-    <span class="nav-logo-word">BENJAMIN<span class="dot">.</span>COACHING</span>
+    <span class="nav-logo-word">BENFITPARIS<span class="dot">.</span>FR</span>
     <span class="nav-logo-menu-text">Menu</span>
     <svg class="nav-logo-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
   </button>
 
-  <div class="nav-menu" id="navLogoMenu" aria-hidden="true">
+  <div class="nav-menu" id="navLogoMenu" aria-hidden="true" inert>
     <span class="nav-menu-kicker">Menu</span>
     <a href="#accueil">Accueil</a>
     <a href="#coach">Le coach</a>
@@ -1836,10 +1907,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </a>
   </div>
 </nav>
+</header>
 
+<main id="main-content">
 
 <!-- ══ HERO ══ -->
-<section class="hero" id="accueil">
+<section class="hero" id="accueil" aria-labelledby="hero-title">
   <div class="hero-noise"></div>
   <div class="hero-glow"></div>
   <picture class="hero-media" aria-hidden="true">
@@ -1851,10 +1924,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="hero-content">
     <div class="hero-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-      <span class="hero-badge-full">Coaching personnalisé Paris · Online</span>
-      <span class="hero-badge-mobile">Paris · Online</span>
+      <span class="hero-badge-full">Coaching personnalisé Paris · En ligne</span>
+      <span class="hero-badge-mobile">Paris · En ligne</span>
     </div>
-    <h1>
+    <h1 id="hero-title">
       Éveille ton<br class="hero-mobile-break"/> corps,<br/>
       <span class="lime">éveille ton<br class="hero-mobile-break"/> potentiel.</span>
     </h1>
@@ -1871,20 +1944,21 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 
 <!-- ══ LE COACH ══ -->
-<section class="coach-section" id="coach">
+<section class="coach-section" id="coach" aria-labelledby="coach-title">
+  <h2 id="coach-title" class="sr-only">Benjamin, coach sportif diplômé à Paris</h2>
   <div class="coach-inner">
     <div class="coach-img-wrap reveal">
-      <div class="coach-mobile-heading reveal">
+      <div class="coach-mobile-heading reveal" aria-hidden="true">
         <div class="s-label">Le coach</div>
-        <h2 class="coach-mobile-name">Benjamin.</h2>
+        <div class="coach-mobile-name">Benjamin.</div>
       </div>
       <img src="assets/coach-about-transparent.webp" alt="Benjamin, coach sportif à Paris" width="1200" height="1600" loading="lazy" decoding="async"/>
     </div>
     <div class="coach-text">
       <div class="s-label">Le coach</div>
-      <h2 class="coach-name reveal" style="transition-delay:.07s">Benjamin.</h2>
+      <div class="coach-name reveal" aria-hidden="true" style="transition-delay:.07s">Benjamin.</div>
       <div class="coach-bio reveal" style="transition-delay:.14s">
-        <p><strong class="coach-bio-lead">Coach sportif diplômé d'État basé à Paris.</strong><span class="coach-bio-story">Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</span></p>
+        <p><strong class="coach-bio-lead">Coach sportif diplômé d'État basé à Paris.</strong> <span class="coach-bio-story">Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</span></p>
         <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
       </div>
       <div class="coach-trust reveal" style="transition-delay:.22s">
@@ -1898,7 +1972,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         </div>
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          <div><span class="tb-main">Online</span><span class="tb-sub">Partout en France</span></div>
+          <div><span class="tb-main">En ligne</span><span class="tb-sub">Partout en France</span></div>
         </div>
         <div class="trust-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1918,27 +1992,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <div class="s-label">Résultats</div>
         <h2 class="s-h2">La preuve<br/><span class="lime">par les faits.</span></h2>
       </div>
-      <div class="testi-header-actions">
-        <button class="testi-btn testi-autoplay-toggle" id="testiAutoplayToggle" type="button" aria-label="Mettre en pause le défilement des avis" aria-pressed="false">
-          <svg class="testi-pause-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 5v14M15 5v14"/></svg>
-          <svg class="testi-play-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
-        </button>
-        <div class="testi-nav-wrap">
-          <div style="display:flex;gap:4px">
-            <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
-            </button>
-            <button class="testi-btn" id="testiNext" onclick="testiMove(1)" aria-label="Suivant">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="testi-viewport reveal" style="transition-delay:.1s" aria-live="off">
       <div class="testi-track" id="testiTrack"></div>
     </div>
-    <div class="testi-dots" id="testiDots"></div>
     <!-- Carrousel mobile — swipe manuel + autoscroll déclenché à l'arrivée dans la section -->
     <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients" aria-live="off" tabindex="0">
       <div class="testi-marquee-track" id="testiMarqueeTrack"></div>
@@ -2055,26 +2112,26 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </div>
 
     <div class="pricing-switch reveal" role="tablist" aria-label="Choisir le type de coaching">
-      <button class="price-tab active" type="button" data-price-tab="presentiel" role="tab" aria-selected="true">
+      <button class="price-tab active" id="price-tab-presentiel" type="button" data-price-tab="presentiel" role="tab" aria-selected="true" aria-controls="price-panel-presentiel" tabindex="0">
         <span class="tab-label">En salle à Paris</span>
       </button>
-      <button class="price-tab" type="button" data-price-tab="online" role="tab" aria-selected="false">
+      <button class="price-tab" id="price-tab-online" type="button" data-price-tab="online" role="tab" aria-selected="false" aria-controls="price-panel-online" tabindex="-1">
         <span class="tab-label">À distance</span>
       </button>
     </div>
 
     <div class="pricing-panels reveal" style="transition-delay:.08s">
-      <div class="pricing-panel active" data-price-panel="presentiel" role="tabpanel">
+      <div class="pricing-panel active" id="price-panel-presentiel" data-price-panel="presentiel" role="tabpanel" aria-labelledby="price-tab-presentiel">
 
-        <div class="price-mobile-list" aria-label="Comparatif rapide des tarifs en salle à Paris">
+        <section class="price-mobile-list" aria-label="Comparatif rapide des tarifs en salle à Paris">
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">En salle à Paris</span>
                 <span class="pm-title">Renfo / perte de poids / prise de masse</span>
                 <span class="pm-entry"><strong>60 €</strong> · séance ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></div>
+              </span>
+              <span class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2090,12 +2147,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">En salle à Paris</span>
                 <span class="pm-title">Prépa Hyrox / 10 km / semi-marathon</span>
                 <span class="pm-entry"><strong>60 €</strong> · séance ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>Recommandé</span><strong>450 €</strong><small>/ 8 semaines · ≈56 €/sem.</small></div>
+              </span>
+              <span class="pm-pack"><span>Recommandé</span><strong>450 €</strong><small>/ 8 semaines · ≈56 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2111,12 +2168,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">En salle à Paris</span>
                 <span class="pm-title">Prépa physique sport spécifique</span>
                 <span class="pm-entry"><strong>70 €</strong> · séance ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>adapté au sport et au volume</small></div>
+              </span>
+              <span class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>adapté au sport et au volume</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2131,7 +2188,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </details>
 
           <p class="pm-note">Les packs complets présentiel incluent 3 séances avec le coach. Les packs 3 et 4 restent disponibles pour commencer plus progressivement.</p>
-        </div>
+        </section>
         <div class="price-cards">
           <article class="price-card">
             <div class="price-kicker">En salle à Paris</div>
@@ -2205,17 +2262,17 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         <p class="pricing-note">Les packs 8 semaines en présentiel incluent 3 séances avec Benjamin.</p>
       </div>
 
-      <div class="pricing-panel" data-price-panel="online" role="tabpanel">
+      <div class="pricing-panel" id="price-panel-online" data-price-panel="online" role="tabpanel" aria-labelledby="price-tab-online" hidden>
 
-        <div class="price-mobile-list" aria-label="Comparatif rapide des tarifs à distance">
+        <section class="price-mobile-list" aria-label="Comparatif rapide des tarifs à distance">
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">À distance</span>
                 <span class="pm-title">Renfo / perte de poids / prise de masse</span>
                 <span class="pm-entry"><strong>40 €</strong> · fiche ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>Recommandé</span><strong>250 €</strong><small>/ 8 semaines · ≈31 €/sem.</small></div>
+              </span>
+              <span class="pm-pack"><span>Recommandé</span><strong>250 €</strong><small>/ 8 semaines · ≈31 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2231,12 +2288,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">À distance</span>
                 <span class="pm-title">Prépa Hyrox / 10 km / semi-marathon</span>
                 <span class="pm-entry"><strong>50 €</strong> · fiche ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></div>
+              </span>
+              <span class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2252,12 +2309,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
           <details class="price-mobile-item">
             <summary>
-              <div class="pm-main">
+              <span class="pm-main">
                 <span class="pm-kicker">À distance</span>
                 <span class="pm-title">Prépa physique sport spécifique</span>
                 <span class="pm-entry"><strong>55 €</strong> · fiche ponctuelle</span>
-              </div>
-              <div class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>selon objectif et contraintes</small></div>
+              </span>
+              <span class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>selon objectif et contraintes</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
@@ -2271,8 +2328,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             </div>
           </details>
 
-          <p class="pm-note">En online, les offres à l’unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel.</p>
-        </div>
+          <p class="pm-note">À distance, les offres à l’unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel.</p>
+        </section>
         <div class="price-cards">
           <article class="price-card">
             <div class="price-kicker">À distance</div>
@@ -2343,7 +2400,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             <a href="#contact" class="price-link" data-contact-objective="Prépa physique sport spécifique">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
         </div>
-        <p class="pricing-note">En online, l'unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel avec le coach.</p>
+        <p class="pricing-note">À distance, l'unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel avec le coach.</p>
       </div>
     </div>
 
@@ -2355,7 +2412,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="pack-grid">
         <div class="pack-item"><strong>Bilan initial</strong><span>Objectif, niveau, passé sportif, contraintes et disponibilités.</span></div>
         <div class="pack-item"><strong>Programmation</strong><span>Programme personnalisé sur 8 semaines, adapté à ta progression.</span></div>
-        <div class="pack-item"><strong>Fiches & supports</strong><span>Consignes, exercices et supports pour gagner en autonomie.</span></div>
+        <div class="pack-item"><strong>Fiches &amp; supports</strong><span>Consignes, exercices et supports pour gagner en autonomie.</span></div>
         <div class="pack-item"><strong id="packFormatTitle">Séances incluses</strong><span id="packFormatText">3 séances avec le coach incluses dans les packs en présentiel.</span></div>
         <div class="pack-item"><strong>Tests physiques</strong><span>Selon l'objectif : test VMA, repères de course, stations Hyrox.</span></div>
         <div class="pack-item"><strong>Suivi</strong><span>Le suivi hebdomadaire s'ajoute en option selon le besoin.</span></div>
@@ -2434,7 +2491,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 <!-- ══ HYROX ══ -->
 <section class="hyrox" id="hyrox">
-  <img src="assets/benjamin-gym.jpg" alt="" class="hyrox-bg" loading="lazy"/>
+  <img src="assets/preparation-hyrox-coach-sportif-paris.webp" alt="" class="hyrox-bg" width="1080" height="1080" loading="lazy" decoding="async"/>
   <div class="hyrox-vignette"></div>
   <div class="hyrox-c">
     <div class="hyrox-label reveal">Prépa Hyrox</div>
@@ -2550,11 +2607,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 
 
-<!-- ══ INSTAGRAM — après Hyrox, vidéos MP4/WebM ══ -->
+<!-- ══ INSTAGRAM — après Hyrox, vidéos MP4 ══ -->
 <section class="ig-section" id="instagram">
   <div class="ig-inner">
     <div class="ig-header reveal">
-      <h3 class="ig-title">@ben_fitparis</h3>
+      <h2 class="ig-title">@ben_fitparis</h2>
       <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ig-follow">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
         Suivre
@@ -2563,58 +2620,49 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </div>
 
     <!--
-      VIDÉOS INSTAGRAM — Instructions :
-      ─────────────────────────────────
-      1. Exporter chaque Reel en MP4 (< 5 Mo recommandé, 720p max)
-      2. Convertir en WebM pour meilleure compression : ffmpeg -i reel-1.mp4 -c:v libvpx-vp9 -b:v 0 -crf 33 reel-1.webm
-      3. Placer dans assets/ : reel-1.webm, reel-1.mp4, reel-1.jpg (poster = 1ère frame)
-      4. Les liens href pointent vers le highlight Instagram demandé
-
-      Si la vidéo n'existe pas encore → l'image poster s'affiche en fallback.
+      VIDÉOS INSTAGRAM : MP4 H.264 + posters WebP.
+      Les quatre cartes sont réordonnées en JavaScript pour créer la boucle,
+      sans dupliquer les éléments dans le DOM.
     -->
-    <div class="ig-grid reveal" id="igGrid" style="transition-delay:.06s" aria-label="Vidéos Instagram — défilement automatique et manuel">
+    <section class="ig-grid reveal" id="igGrid" style="transition-delay:.06s" aria-label="Vidéos Instagram — défilement automatique et manuel">
 
       <!-- Reel 1 -->
-      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video muted loop playsinline preload="metadata" poster="assets/reel-1.jpg">
-          <source src="assets/reel-1.webm" type="video/webm"/>
+      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item" aria-label="Voir la première vidéo de Ben Fit Paris sur Instagram">
+        <video muted loop playsinline preload="none" poster="assets/reel-1-poster.webp" aria-hidden="true">
           <source src="assets/reel-1.mp4"  type="video/mp4"/>
         </video>
-        <div class="ig-overlay"></div>
-        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-overlay" aria-hidden="true"></div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
       </a>
 
       <!-- Reel 2 -->
-      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video muted loop playsinline preload="metadata" poster="assets/reel-2.jpg">
-          <source src="assets/reel-2.webm" type="video/webm"/>
+      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item" aria-label="Voir la deuxième vidéo de Ben Fit Paris sur Instagram">
+        <video muted loop playsinline preload="none" poster="assets/reel-2-poster.webp" aria-hidden="true">
           <source src="assets/reel-2.mp4"  type="video/mp4"/>
         </video>
-        <div class="ig-overlay"></div>
-        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-overlay" aria-hidden="true"></div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
       </a>
 
       <!-- Reel 3 -->
-      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video muted loop playsinline preload="metadata" poster="assets/reel-3.jpg">
-          <source src="assets/reel-3.webm" type="video/webm"/>
+      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item" aria-label="Voir la troisième vidéo de Ben Fit Paris sur Instagram">
+        <video muted loop playsinline preload="none" poster="assets/reel-3-poster.webp" aria-hidden="true">
           <source src="assets/reel-3.mp4"  type="video/mp4"/>
         </video>
-        <div class="ig-overlay"></div>
-        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-overlay" aria-hidden="true"></div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
       </a>
 
       <!-- Reel 4 -->
-      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
-        <video muted loop playsinline preload="metadata" poster="assets/reel-4.jpg">
-          <source src="assets/reel-4.webm" type="video/webm"/>
+      <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item" aria-label="Voir la quatrième vidéo de Ben Fit Paris sur Instagram">
+        <video muted loop playsinline preload="none" poster="assets/reel-4-poster.webp" aria-hidden="true">
           <source src="assets/reel-4.mp4"  type="video/mp4"/>
         </video>
-        <div class="ig-overlay"></div>
-        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        <div class="ig-overlay" aria-hidden="true"></div>
+        <svg class="ig-play-ic" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
       </a>
 
-    </div>
+    </section>
   </div>
 </section>
 
@@ -2637,9 +2685,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         method="POST">
         <input type="text" name="_gotcha" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <div class="f-4grid">
-          <div class="f-grp"><label for="fn">Prénom</label><input type="text" id="fn" name="prenom" maxlength="80" required placeholder="Ton prénom"/></div>
-          <div class="f-grp"><label for="em">Email</label><input type="email" id="em" name="email" maxlength="200" required placeholder="ton@email.com"/></div>
-          <div class="f-grp"><label for="ph">Téléphone <span>(optionnel)</span></label><input type="tel" id="ph" name="telephone" maxlength="40" placeholder="+33 6 00 00 00 00"/></div>
+          <div class="f-grp"><label for="fn">Prénom</label><input type="text" id="fn" name="prenom" maxlength="80" autocomplete="given-name" required placeholder="Ton prénom"/></div>
+          <div class="f-grp"><label for="em">Email</label><input type="email" id="em" name="email" maxlength="200" autocomplete="email" inputmode="email" required placeholder="ton@email.com"/></div>
+          <div class="f-grp"><label for="ph">Téléphone <span>(optionnel)</span></label><input type="tel" id="ph" name="telephone" maxlength="40" autocomplete="tel" inputmode="tel" placeholder="+33 6 00 00 00 00"/></div>
           <div class="f-grp">
             <label for="gl">Objectif</label>
             <select id="gl" name="objectif" required>
@@ -2656,22 +2704,23 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
         </div>
         <button type="submit" class="btn-submit" id="submitBtn">
           <span id="submitText">Envoyer ma demande</span>
-          <svg id="submitArrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+          <svg id="submitArrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
         </button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="f-note">En envoyant ce formulaire, tu acceptes d'être recontacté. Données non transmises à des tiers.</p>
+        <p class="f-note">En envoyant ce formulaire, tu acceptes d'être recontacté. Tes données servent uniquement à traiter ta demande.</p>
       </form>
     </div>
   </div>
 </section>
 
+</main>
 
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="ft-in">
     <div class="ft-top">
       <div>
-        <div class="ft-logo">BENJAMIN<span>.</span>COACHING</div>
+        <div class="ft-logo">BENFITPARIS<span>.</span>FR</div>
         <p class="ft-tagline">Coach sportif à Paris et en ligne. Transformation · Force · Hyrox.</p>
       </div>
       <div class="ft-links">
@@ -2685,10 +2734,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
     <div class="ft-bot">
-      <span>© 2026 Benjamin Coaching. Tous droits réservés.</span>
+      <span>© 2026 Ben Fit Paris. Tous droits réservés.</span>
       <div style="display:flex;gap:16px">
-        <a href="#" onclick="openLegal(event)">Mentions légales</a>
-        <a href="#" onclick="openLegal(event)">Confidentialité</a>
+        <button type="button" class="ft-legal-link" onclick="openLegal(event)">Mentions légales</button>
+        <button type="button" class="ft-legal-link" onclick="openLegal(event)">Confidentialité</button>
       </div>
     </div>
   </div>
@@ -2698,7 +2747,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 <!-- Floating group — bas-droit -->
 <div class="float-group" id="floatGroup">
   <!-- Back to top — desktop uniquement -->
-  <button class="float-top" id="floatTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut">
+  <button class="float-top" id="floatTop" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
   </button>
   <!-- CTA Parlons-en — mobile uniquement -->
@@ -2709,22 +2758,22 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 </div>
 
 <!-- Modal mentions légales -->
-<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle" aria-hidden="true" inert>
   <div class="legal-overlay" onclick="closeLegal()"></div>
-  <div class="legal-panel">
-    <button class="legal-close" onclick="closeLegal()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div class="legal-panel" tabindex="-1">
+    <button type="button" class="legal-close" onclick="closeLegal()" aria-label="Fermer les mentions légales"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <h2 id="legalTitle">Mentions légales &amp; Confidentialité</h2>
-    <p>Dernière mise à jour : Juin 2026</p>
+    <p>Dernière mise à jour : Juillet 2026</p>
     <h3>Éditeur</h3>
-    <p><strong>Benjamin [Nom]</strong> — Coach sportif indépendant · Paris</p>
+    <p><strong>Ben Fit Paris</strong> — Benjamin, coach sportif indépendant · Paris<br/>Contact : via le formulaire du site.</p>
     <h3>Carte professionnelle</h3>
     <p>Carte professionnelle d’éducateur sportif n°07523ED0040 — Préfecture de Paris — valable jusqu’au 22/01/2028.</p>
     <h3>Hébergement</h3>
     <p><strong>Vercel Inc.</strong> — San Francisco, CA · <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
     <h3>Propriété intellectuelle</h3>
-    <p>Tous les contenus sont la propriété de Benjamin Coaching. Reproduction interdite sans autorisation.</p>
+    <p>Tous les contenus sont la propriété de Ben Fit Paris. Reproduction interdite sans autorisation.</p>
     <h3>Données personnelles &amp; RGPD</h3>
-    <p>Données collectées via le formulaire (prénom, email, message) uniquement pour répondre aux demandes. Conservation : 12 mois max. Pour exercer tes droits, utilise le formulaire de contact du site.</p>
+    <p>Données collectées via le formulaire : prénom, email, téléphone facultatif, objectif et message. Elles sont utilisées uniquement pour répondre aux demandes et sont traitées techniquement par Formspree. Pour exercer tes droits ou demander leur suppression, utilise le formulaire de contact du site.</p>
     <h3>Cookies</h3>
     <p>Aucun cookie de traçage ou publicitaire.</p>
   </div>
@@ -2748,6 +2797,7 @@ function setLogoMenu(open) {
   navLogoMenu.classList.toggle('open', open);
   navLogoMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   navLogoMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  navLogoMenu.inert = !open;
   requestAnimationFrame(syncFloatingControls);
 }
 
@@ -2851,11 +2901,9 @@ if (marqueeTrack) {
 const marqueeEl = document.getElementById('testiMarquee');
 const testimonialSection = document.getElementById('temoignages');
 const mobileTestimonialCards = marqueeTrack ? [...marqueeTrack.querySelectorAll('.testi-marquee-card')] : [];
-const testimonialAutoplayToggle = document.getElementById('testiAutoplayToggle');
 const testimonialsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TESTIMONIAL_AUTOPLAY_DELAY = 8000;
 const TESTIMONIAL_RESUME_DELAY = 2500; /* + 8 s avant l'avance suivante ≈ 10,5 s de lecture */
-let testimonialsManuallyPaused = false;
 let mobileTestimonialIndex = 0;
 let mobileTestimonialDirection = 1;
 let mobileTestimonialTimer = null;
@@ -2882,7 +2930,6 @@ function startMobileTestimonials() {
   if (
     mobileTestimonialTimer ||
     !mobileTestimonialsVisible ||
-    testimonialsManuallyPaused ||
     window.innerWidth > 768 ||
     testimonialsReducedMotion ||
     mobileTestimonialCards.length < 2
@@ -2951,33 +2998,13 @@ if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
   mobileTestimonialObserver.observe(testimonialSection);
 }
 
-const dotsEl = document.getElementById('testiDots');
-function buildDots() {
-  if (!dotsEl) return;
-  dotsEl.innerHTML = Array.from({length: maxSlide+1}, (_,i) =>
-    `<button class="testi-dot${i===0?' active':''}" onclick="goSlide(${i})" aria-label="Slide ${i+1}"></button>`
-  ).join('');
-}
-buildDots();
-
-function updateNav() {
-  const prev = document.getElementById('testiPrev');
-  const next = document.getElementById('testiNext');
-  if (prev) prev.disabled = slide === 0;
-  if (next) next.disabled = slide >= maxSlide;
-  if (dotsEl) dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
-}
 function goSlide(idx) {
   slide = Math.max(0, Math.min(idx, maxSlide));
   if (track) {
     const w = track.querySelector('.testi-card-wrap');
     if (w) track.style.transform = `translateX(-${slide * (w.offsetWidth + 16)}px)`;
   }
-  updateNav();
 }
-window.testiMove = dir => goSlide(slide + dir);
-window.goSlide   = goSlide;
-updateNav();
 
 /* TÉMOIGNAGES DESKTOP — avance douce, pause à l'interaction */
 const desktopTestimonialViewport = document.querySelector('.testi-viewport');
@@ -2995,7 +3022,6 @@ function startDesktopTestimonials() {
   if (
     desktopTestimonialTimer ||
     !desktopTestimonialsVisible ||
-    testimonialsManuallyPaused ||
     testimonialsReducedMotion ||
     window.innerWidth <= 768 ||
     maxSlide < 1
@@ -3020,7 +3046,7 @@ function resumeDesktopTestimonialsSoon() {
 }
 
 if (testimonialSection && desktopTestimonialViewport) {
-  [desktopTestimonialViewport, dotsEl, document.querySelector('.testi-nav-wrap')]
+  [desktopTestimonialViewport]
     .filter(Boolean)
     .forEach(el => {
       el.addEventListener('pointerdown', pauseDesktopTestimonials, { passive:true });
@@ -3041,32 +3067,6 @@ if (testimonialSection && desktopTestimonialViewport) {
     }
   }, { threshold:0.28 });
   desktopTestimonialObserver.observe(testimonialSection);
-}
-
-function updateTestimonialAutoplayToggle() {
-  if (!testimonialAutoplayToggle) return;
-  testimonialAutoplayToggle.classList.toggle('is-paused', testimonialsManuallyPaused);
-  testimonialAutoplayToggle.setAttribute('aria-pressed', testimonialsManuallyPaused ? 'true' : 'false');
-  testimonialAutoplayToggle.setAttribute(
-    'aria-label',
-    testimonialsManuallyPaused ? 'Relancer le défilement des avis' : 'Mettre en pause le défilement des avis'
-  );
-}
-
-if (testimonialAutoplayToggle) {
-  testimonialAutoplayToggle.addEventListener('click', () => {
-    testimonialsManuallyPaused = !testimonialsManuallyPaused;
-    clearTimeout(mobileTestimonialResumeTimer);
-    clearTimeout(desktopTestimonialResumeTimer);
-    stopMobileTestimonials();
-    stopDesktopTestimonials();
-    updateTestimonialAutoplayToggle();
-    if (!testimonialsManuallyPaused) {
-      if (window.innerWidth <= 768) startMobileTestimonials();
-      else startDesktopTestimonials();
-    }
-  });
-  updateTestimonialAutoplayToggle();
 }
 
 document.addEventListener('visibilitychange', () => {
@@ -3309,12 +3309,28 @@ priceTabs.forEach(tab => {
       const active = t === tab;
       t.classList.toggle('active', active);
       t.setAttribute('aria-selected', active ? 'true' : 'false');
+      t.tabIndex = active ? 0 : -1;
     });
     pricePanels.forEach(panel => {
-      panel.classList.toggle('active', panel.dataset.pricePanel === target);
+      const active = panel.dataset.pricePanel === target;
+      panel.classList.toggle('active', active);
+      panel.hidden = !active;
     });
     setPackDetailsMode(target);
     resetPriceDetails();
+  });
+
+  tab.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const currentIndex = priceTabs.indexOf(tab);
+    let nextIndex = currentIndex;
+    if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + priceTabs.length) % priceTabs.length;
+    if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % priceTabs.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = priceTabs.length - 1;
+    priceTabs[nextIndex].focus();
+    priceTabs[nextIndex].click();
   });
 });
 
@@ -3550,20 +3566,7 @@ if (form) {
 ───────────────────────────────────────────────── */
 const igGrid = document.getElementById('igGrid');
 const instagramReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const igOriginalItems = igGrid ? [...igGrid.querySelectorAll('.ig-item')] : [];
-
-/* Un second jeu permet une continuité parfaite sans retour visuel au début. */
-if (igGrid && igOriginalItems.length && !instagramReducedMotion) {
-  igOriginalItems.forEach(item => {
-    const clone = item.cloneNode(true);
-    clone.classList.add('ig-loop-clone');
-    clone.setAttribute('aria-hidden', 'true');
-    clone.setAttribute('tabindex', '-1');
-    const video = clone.querySelector('video');
-    if (video) video.preload = 'none';
-    igGrid.appendChild(clone);
-  });
-}
+const igItems = igGrid ? [...igGrid.querySelectorAll('.ig-item')] : [];
 
 const igVideos = document.querySelectorAll('.ig-item video');
 if (igVideos.length) {
@@ -3581,26 +3584,35 @@ const INSTAGRAM_SCROLL_SPEED = 18; /* pixels par seconde */
 const INSTAGRAM_RESUME_DELAY = 420;
 let instagramAutoscrollFrame = null;
 let instagramLastFrame = 0;
+let instagramScrollCarry = 0;
 let instagramResumeTimer = null;
 let instagramCarouselVisible = false;
 let instagramPointerDown = false;
 
-function instagramLoopWidth() {
-  if (!igGrid || !igOriginalItems.length) return 0;
-  const firstClone = igGrid.querySelector('.ig-loop-clone');
-  if (!firstClone || firstClone.offsetParent === null) return 0;
-  return Math.max(0, firstClone.offsetLeft - igOriginalItems[0].offsetLeft);
+function instagramCardStep() {
+  if (!igGrid || !igGrid.firstElementChild) return 0;
+  const gridStyle = getComputedStyle(igGrid);
+  const gap = parseFloat(gridStyle.columnGap || gridStyle.gap) || 0;
+  return igGrid.firstElementChild.getBoundingClientRect().width + gap;
 }
 
 function instagramCanScroll() {
-  return igGrid && instagramLoopWidth() > 0 && igGrid.scrollWidth > igGrid.clientWidth + 4;
+  if (!igGrid || igItems.length < 2) return false;
+  return getComputedStyle(igGrid).display === 'flex' && igGrid.scrollWidth > igGrid.clientWidth + 4;
 }
 
-function normalizeInstagramLoop() {
+/* Replace les cartes déjà sorties à la fin : quatre éléments, aucun duplicata. */
+function normalizeInstagramCards() {
   if (!igGrid) return;
-  const loopWidth = instagramLoopWidth();
-  if (!loopWidth) return;
-  while (igGrid.scrollLeft >= loopWidth) igGrid.scrollLeft -= loopWidth;
+  let step = instagramCardStep();
+  let guard = 0;
+  while (step > 0 && igGrid.scrollLeft >= step && guard < igItems.length) {
+    const firstCard = igGrid.firstElementChild;
+    igGrid.appendChild(firstCard);
+    igGrid.scrollLeft -= step;
+    step = instagramCardStep();
+    guard += 1;
+  }
 }
 
 function stopInstagramAutoscroll() {
@@ -3621,8 +3633,13 @@ function instagramAutoscrollTick(now) {
   }
   const elapsed = Math.min(64, now - instagramLastFrame);
   instagramLastFrame = now;
-  igGrid.scrollLeft += INSTAGRAM_SCROLL_SPEED * elapsed / 1000;
-  normalizeInstagramLoop();
+  instagramScrollCarry += INSTAGRAM_SCROLL_SPEED * elapsed / 1000;
+  const pixelsToMove = Math.floor(instagramScrollCarry);
+  if (pixelsToMove > 0) {
+    igGrid.scrollLeft += pixelsToMove;
+    instagramScrollCarry -= pixelsToMove;
+    normalizeInstagramCards();
+  }
   instagramAutoscrollFrame = requestAnimationFrame(instagramAutoscrollTick);
 }
 
@@ -3642,7 +3659,7 @@ function resumeInstagramAutoscrollSoon() {
   clearTimeout(instagramResumeTimer);
   instagramResumeTimer = setTimeout(() => {
     if (instagramPointerDown) return;
-    normalizeInstagramLoop();
+    normalizeInstagramCards();
     startInstagramAutoscroll();
   }, INSTAGRAM_RESUME_DELAY);
 }
@@ -3652,11 +3669,15 @@ function beginInstagramInteraction() {
   clearTimeout(instagramResumeTimer);
   stopInstagramAutoscroll();
 
-  /* Ajoute de la marge à gauche sans modifier ce qui est affiché. */
-  const loopWidth = instagramLoopWidth();
-  const maxScroll = igGrid ? igGrid.scrollWidth - igGrid.clientWidth : 0;
-  if (igGrid && loopWidth && igGrid.scrollLeft + loopWidth <= maxScroll) {
-    igGrid.scrollLeft += loopWidth;
+  /* Crée une carte de marge à gauche sans changer l'image affichée. */
+  if (igGrid && !instagramReducedMotion) {
+    const step = instagramCardStep();
+    const maxScroll = igGrid.scrollWidth - igGrid.clientWidth;
+    if (step > 0 && igGrid.scrollLeft < step && igGrid.scrollLeft + step <= maxScroll) {
+      const lastCard = igGrid.lastElementChild;
+      igGrid.insertBefore(lastCard, igGrid.firstElementChild);
+      igGrid.scrollLeft += step;
+    }
   }
 }
 
@@ -3665,7 +3686,7 @@ function endInstagramInteraction() {
   resumeInstagramAutoscrollSoon();
 }
 
-if (igGrid && igOriginalItems.length) {
+if (igGrid && igItems.length) {
   igGrid.addEventListener('pointerdown', beginInstagramInteraction, { passive:true });
   window.addEventListener('pointerup', endInstagramInteraction, { passive:true });
   window.addEventListener('pointercancel', endInstagramInteraction, { passive:true });
@@ -3691,7 +3712,7 @@ if (igGrid && igOriginalItems.length) {
 
   window.addEventListener('resize', () => {
     stopInstagramAutoscroll();
-    normalizeInstagramLoop();
+    normalizeInstagramCards();
     startInstagramAutoscroll();
   }, { passive:true });
 
@@ -3704,9 +3725,59 @@ if (igGrid && igOriginalItems.length) {
 /* ─────────────────────────────────────────────────
    MENTIONS LÉGALES
 ───────────────────────────────────────────────── */
-window.openLegal  = e => { e.preventDefault(); document.getElementById('legalModal').classList.add('open'); document.body.style.overflow='hidden' };
-window.closeLegal = ()  => { document.getElementById('legalModal').classList.remove('open'); document.body.style.overflow='' };
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeLegal() });
+const legalModal = document.getElementById('legalModal');
+const legalPanel = legalModal?.querySelector('.legal-panel');
+const legalCloseButton = legalModal?.querySelector('.legal-close');
+let legalPreviousFocus = null;
+let legalPreviousOverflow = '';
+
+window.openLegal = event => {
+  event?.preventDefault();
+  if (!legalModal) return;
+  legalPreviousFocus = document.activeElement;
+  legalPreviousOverflow = document.body.style.overflow;
+  legalModal.inert = false;
+  legalModal.classList.add('open');
+  legalModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => legalCloseButton?.focus());
+};
+
+window.closeLegal = () => {
+  if (!legalModal?.classList.contains('open')) return;
+  legalModal.classList.remove('open');
+  legalModal.setAttribute('aria-hidden', 'true');
+  legalModal.inert = true;
+  document.body.style.overflow = legalPreviousOverflow;
+  if (legalPreviousFocus instanceof HTMLElement) legalPreviousFocus.focus();
+};
+
+document.addEventListener('keydown', event => {
+  if (!legalModal?.classList.contains('open')) return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeLegal();
+    return;
+  }
+  if (event.key !== 'Tab' || !legalPanel) return;
+  const focusable = [...legalPanel.querySelectorAll(
+    'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'
+  )].filter(element => !element.hasAttribute('hidden'));
+  if (!focusable.length) {
+    event.preventDefault();
+    legalPanel.focus();
+    return;
+  }
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
 </script>
 </body>
 </html>
