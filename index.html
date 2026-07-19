@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.7                                      ║
+║  BENJAMIN COACHING v8.0                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -458,16 +458,16 @@ button,input,select,textarea { font-family:inherit }
   display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
   margin-bottom:44px; flex-wrap:wrap;
 }
-.testi-nav-wrap { display:flex; align-items:center; gap:10px }
-.testi-header-actions { display:flex; align-items:center; gap:8px }
-.testi-counter { font-size:11px; color:var(--muted); letter-spacing:.08em }
+.testi-nav-wrap { display:flex; align-items:center; gap:4px }
+.testi-header-actions { display:flex; align-items:center; gap:4px }
 .testi-btn {
-  width:40px; height:40px; display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.16); background:transparent; color:var(--fg);
-  cursor:pointer; transition:border-color .2s, color .2s;
+  width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+  border:0; background:transparent; color:rgba(244,244,244,.58);
+  cursor:pointer; opacity:.78; transition:color .2s, opacity .2s, transform .2s;
 }
-.testi-btn:hover { border-color:var(--lime); color:var(--lime) }
-.testi-btn:disabled { opacity:.25; cursor:default; border-color:var(--border); pointer-events:none }
+.testi-btn:hover { color:var(--lime); opacity:1; transform:translateY(-1px) }
+.testi-btn:disabled { opacity:.2; cursor:default; pointer-events:none }
+.testi-autoplay-toggle { margin-right:2px }
 .testi-autoplay-toggle .testi-play-icon { display:none }
 .testi-autoplay-toggle.is-paused .testi-pause-icon { display:none }
 .testi-autoplay-toggle.is-paused .testi-play-icon { display:block }
@@ -1107,6 +1107,7 @@ button,input,select,textarea { font-family:inherit }
   position:relative; aspect-ratio:9/12; overflow:hidden; background:var(--s2);
   display:block; /* c'est un <a> */
 }
+.ig-loop-clone { display:none }
 .ig-item video,
 .ig-item img {
   width:100%; height:100%; object-fit:cover; display:block;
@@ -1326,7 +1327,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Coach */
   .coach-mobile-heading {
     display:block; position:absolute; z-index:4;
-    top:clamp(78px,20vw,96px); left:20px; width:min(45vw,185px);
+    top:clamp(64px,17vw,82px); left:20px; width:min(45vw,185px);
     padding:0; background:none;
   }
   .coach-mobile-heading .s-label { margin-bottom:10px }
@@ -1380,8 +1381,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .svc-card.active { border-color:rgba(200,255,0,.45) }
   .svc-progress { display:none } /* remplacé par scroll natif */
   /* Témoignages */
-  .testi-nav-wrap { display:flex }
-  .testi-nav-wrap > div { display:none }
+  .testi-header-actions { display:none }
   .testi-viewport,.testi-dots { display:none }
   .testi-marquee { display:block }          /* marquee CSS infini — remplace le scroll horizontal */
   /* Hyrox — 3 chiffres alignés sur une seule ligne */
@@ -1406,7 +1406,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     gap:6px;
     overflow-x:auto;
     overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory;
+    scroll-snap-type:none;
     scrollbar-width:none;
     -webkit-overflow-scrolling:touch;
     margin:0 -20px;
@@ -1415,8 +1415,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .ig-grid::-webkit-scrollbar { display:none }
   .ig-item {
     flex:0 0 min(58vw,240px);
-    scroll-snap-align:start;
   }
+  .ig-loop-clone { display:block }
   /* Tarifs */
   .pricing-in { padding-left:20px; padding-right:20px }
   .pricing-head { grid-template-columns:1fr; gap:20px; margin-bottom:26px }
@@ -1443,6 +1443,22 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .ft-bot { flex-direction:column; gap:7px }
   /* Legal */
   .legal-panel { padding:26px 18px 34px; max-height:90vh }
+}
+
+/* Smartphones récents en paysage : conserve le carrousel au-delà de 768 px */
+@media (orientation:landscape) and (max-width:932px) and (pointer:coarse) {
+  .ig-grid {
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:none;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .ig-grid::-webkit-scrollbar { display:none }
+  .ig-item { flex:0 0 min(38vw,240px) }
+  .ig-loop-clone { display:block }
 }
 
 @media (max-width:480px) {
@@ -1510,7 +1526,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     background:var(--bg);
     color:var(--fg);
     border-color:rgba(200,255,0,.48);
-    box-shadow:inset 0 2px 0 rgba(200,255,0,.8);
   }
   .price-tab:not(.active):hover { background:var(--bg) }
   .tab-label {
@@ -1759,6 +1774,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     background:rgba(200,255,0,.035);
   }
   .pm-row.featured span { max-width:140px }
+  .pm-row.featured .pm-duration { display:block; margin-top:2px; white-space:nowrap }
   .pm-row.featured strong {
     margin:0;
     color:var(--lime);
@@ -1845,7 +1861,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-lime">
-        Parler de mon objectif
+        Parlons-en
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <a href="#tarifs" class="btn-ghost">Voir les coachings</a>
@@ -1908,8 +1924,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <svg class="testi-play-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>
         </button>
         <div class="testi-nav-wrap">
-          <span class="testi-counter" id="testiCounter"></span>
-          <div style="display:flex;gap:8px">
+          <div style="display:flex;gap:4px">
             <button class="testi-btn" id="testiPrev" onclick="testiMove(-1)" disabled aria-label="Précédent">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
             </button>
@@ -1938,7 +1953,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="svc-hdr reveal">
       <div class="s-label">Pour qui ?</div>
       <h2 class="s-h2">Un coaching <span class="lime">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
-      <p>Hommes, femmes, débutants ou intermédiaires.<br/>Le programme s'adapte à ton point de départ et là où tu veux aller.</p>
+      <p>Chaque corps est différent.<br/>Le programme s'adapte à ta morphologie, ton niveau, tes contraintes physiques et ton objectif.</p>
     </div>
 
     <!-- data-type = clé pour l'animation CSS de l'icône -->
@@ -2066,7 +2081,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Séance</span><strong>60 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>160 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
               </div>
               <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
@@ -2087,7 +2102,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Séance</span><strong>60 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>160 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>450 €</strong></div>
+                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>450 €</strong></div>
               </div>
               <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
@@ -2207,7 +2222,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Fiche</span><strong>40 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>110 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>140 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>250 €</strong></div>
+                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>250 €</strong></div>
               </div>
               <p class="pm-value-note">Programmation personnalisée, fiches de séances et supports pour t’entraîner à distance avec un cadre clair.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
@@ -2228,7 +2243,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row"><span>Fiche</span><strong>50 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>130 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>170 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
               </div>
               <p class="pm-value-note">Préparation à distance orientée performance : programmation complète, fiches et vidéos explicatives pour les mouvements complexes.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
@@ -2557,7 +2572,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
       Si la vidéo n'existe pas encore → l'image poster s'affiche en fallback.
     -->
-    <div class="ig-grid reveal" style="transition-delay:.06s">
+    <div class="ig-grid reveal" id="igGrid" style="transition-delay:.06s" aria-label="Vidéos Instagram — défilement automatique et manuel">
 
       <!-- Reel 1 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item">
@@ -2837,7 +2852,6 @@ const marqueeEl = document.getElementById('testiMarquee');
 const testimonialSection = document.getElementById('temoignages');
 const mobileTestimonialCards = marqueeTrack ? [...marqueeTrack.querySelectorAll('.testi-marquee-card')] : [];
 const testimonialAutoplayToggle = document.getElementById('testiAutoplayToggle');
-const testimonialCounter = document.getElementById('testiCounter');
 const testimonialsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TESTIMONIAL_AUTOPLAY_DELAY = 8000;
 const TESTIMONIAL_RESUME_DELAY = 2500; /* + 8 s avant l'avance suivante ≈ 10,5 s de lecture */
@@ -2857,14 +2871,6 @@ function scrollToMobileTestimonial(index, behavior = 'smooth') {
     left: Math.max(0, cardLeft),
     behavior
   });
-  updateTestimonialCounter();
-}
-
-function updateTestimonialCounter() {
-  if (!testimonialCounter) return;
-  testimonialCounter.textContent = window.innerWidth <= 768
-    ? `${mobileTestimonialIndex + 1} / ${mobileTestimonialCards.length}`
-    : `${slide + 1} / ${maxSlide + 1}`;
 }
 
 function stopMobileTestimonials() {
@@ -2909,7 +2915,6 @@ function syncMobileTestimonialIndex() {
     }
   });
   mobileTestimonialIndex = nearestIndex;
-  updateTestimonialCounter();
 }
 
 if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
@@ -2960,7 +2965,6 @@ function updateNav() {
   const next = document.getElementById('testiNext');
   if (prev) prev.disabled = slide === 0;
   if (next) next.disabled = slide >= maxSlide;
-  updateTestimonialCounter();
   if (dotsEl) dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
 }
 function goSlide(idx) {
@@ -3084,7 +3088,6 @@ window.addEventListener('resize', () => {
     stopMobileTestimonials();
     startDesktopTestimonials();
   }
-  updateTestimonialCounter();
 }, { passive:true });
 
 /* ─────────────────────────────────────────────────
@@ -3543,22 +3546,159 @@ if (form) {
 
 
 /* ─────────────────────────────────────────────────
-   INSTAGRAM — lecture uniquement quand visible
+   INSTAGRAM — lecture visible + boucle continue mobile
 ───────────────────────────────────────────────── */
+const igGrid = document.getElementById('igGrid');
+const instagramReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const igOriginalItems = igGrid ? [...igGrid.querySelectorAll('.ig-item')] : [];
+
+/* Un second jeu permet une continuité parfaite sans retour visuel au début. */
+if (igGrid && igOriginalItems.length && !instagramReducedMotion) {
+  igOriginalItems.forEach(item => {
+    const clone = item.cloneNode(true);
+    clone.classList.add('ig-loop-clone');
+    clone.setAttribute('aria-hidden', 'true');
+    clone.setAttribute('tabindex', '-1');
+    const video = clone.querySelector('video');
+    if (video) video.preload = 'none';
+    igGrid.appendChild(clone);
+  });
+}
+
 const igVideos = document.querySelectorAll('.ig-item video');
 if (igVideos.length) {
   const igObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const video = entry.target;
-      if (entry.isIntersecting) {
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
     });
-  }, { threshold: 0.35 });
-
+  }, { threshold:.35 });
   igVideos.forEach(video => igObserver.observe(video));
+}
+
+const INSTAGRAM_SCROLL_SPEED = 18; /* pixels par seconde */
+const INSTAGRAM_RESUME_DELAY = 420;
+let instagramAutoscrollFrame = null;
+let instagramLastFrame = 0;
+let instagramResumeTimer = null;
+let instagramCarouselVisible = false;
+let instagramPointerDown = false;
+
+function instagramLoopWidth() {
+  if (!igGrid || !igOriginalItems.length) return 0;
+  const firstClone = igGrid.querySelector('.ig-loop-clone');
+  if (!firstClone || firstClone.offsetParent === null) return 0;
+  return Math.max(0, firstClone.offsetLeft - igOriginalItems[0].offsetLeft);
+}
+
+function instagramCanScroll() {
+  return igGrid && instagramLoopWidth() > 0 && igGrid.scrollWidth > igGrid.clientWidth + 4;
+}
+
+function normalizeInstagramLoop() {
+  if (!igGrid) return;
+  const loopWidth = instagramLoopWidth();
+  if (!loopWidth) return;
+  while (igGrid.scrollLeft >= loopWidth) igGrid.scrollLeft -= loopWidth;
+}
+
+function stopInstagramAutoscroll() {
+  if (instagramAutoscrollFrame) cancelAnimationFrame(instagramAutoscrollFrame);
+  instagramAutoscrollFrame = null;
+  instagramLastFrame = 0;
+}
+
+function instagramAutoscrollTick(now) {
+  if (
+    !instagramCarouselVisible ||
+    instagramPointerDown ||
+    instagramReducedMotion ||
+    !instagramCanScroll()
+  ) {
+    stopInstagramAutoscroll();
+    return;
+  }
+  const elapsed = Math.min(64, now - instagramLastFrame);
+  instagramLastFrame = now;
+  igGrid.scrollLeft += INSTAGRAM_SCROLL_SPEED * elapsed / 1000;
+  normalizeInstagramLoop();
+  instagramAutoscrollFrame = requestAnimationFrame(instagramAutoscrollTick);
+}
+
+function startInstagramAutoscroll() {
+  if (
+    instagramAutoscrollFrame ||
+    !instagramCarouselVisible ||
+    instagramPointerDown ||
+    instagramReducedMotion ||
+    !instagramCanScroll()
+  ) return;
+  instagramLastFrame = performance.now();
+  instagramAutoscrollFrame = requestAnimationFrame(instagramAutoscrollTick);
+}
+
+function resumeInstagramAutoscrollSoon() {
+  clearTimeout(instagramResumeTimer);
+  instagramResumeTimer = setTimeout(() => {
+    if (instagramPointerDown) return;
+    normalizeInstagramLoop();
+    startInstagramAutoscroll();
+  }, INSTAGRAM_RESUME_DELAY);
+}
+
+function beginInstagramInteraction() {
+  instagramPointerDown = true;
+  clearTimeout(instagramResumeTimer);
+  stopInstagramAutoscroll();
+
+  /* Ajoute de la marge à gauche sans modifier ce qui est affiché. */
+  const loopWidth = instagramLoopWidth();
+  const maxScroll = igGrid ? igGrid.scrollWidth - igGrid.clientWidth : 0;
+  if (igGrid && loopWidth && igGrid.scrollLeft + loopWidth <= maxScroll) {
+    igGrid.scrollLeft += loopWidth;
+  }
+}
+
+function endInstagramInteraction() {
+  instagramPointerDown = false;
+  resumeInstagramAutoscrollSoon();
+}
+
+if (igGrid && igOriginalItems.length) {
+  igGrid.addEventListener('pointerdown', beginInstagramInteraction, { passive:true });
+  window.addEventListener('pointerup', endInstagramInteraction, { passive:true });
+  window.addEventListener('pointercancel', endInstagramInteraction, { passive:true });
+  igGrid.addEventListener('wheel', () => {
+    stopInstagramAutoscroll();
+    resumeInstagramAutoscrollSoon();
+  }, { passive:true });
+  igGrid.addEventListener('focusin', stopInstagramAutoscroll);
+  igGrid.addEventListener('focusout', resumeInstagramAutoscrollSoon);
+  igGrid.addEventListener('scroll', () => {
+    if (!instagramAutoscrollFrame) resumeInstagramAutoscrollSoon();
+  }, { passive:true });
+
+  const instagramCarouselObserver = new IntersectionObserver(entries => {
+    instagramCarouselVisible = entries[0].isIntersecting;
+    if (instagramCarouselVisible) startInstagramAutoscroll();
+    else {
+      stopInstagramAutoscroll();
+      clearTimeout(instagramResumeTimer);
+    }
+  }, { threshold:.28 });
+  instagramCarouselObserver.observe(igGrid);
+
+  window.addEventListener('resize', () => {
+    stopInstagramAutoscroll();
+    normalizeInstagramLoop();
+    startInstagramAutoscroll();
+  }, { passive:true });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopInstagramAutoscroll();
+    else startInstagramAutoscroll();
+  });
 }
 
 /* ─────────────────────────────────────────────────
