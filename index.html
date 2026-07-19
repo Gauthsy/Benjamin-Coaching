@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════╗
-║  BENJAMIN COACHING v7.6                                      ║
+║  BENJAMIN COACHING v7.7                                      ║
 ║  Mobile-First · Animated Services · Video Reels · Deploy     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  FICHIERS assets/ :                                          ║
@@ -605,78 +605,8 @@ button,input,select,textarea { font-family:inherit }
 }
 .svc-pip.active { background:var(--lime) }
 
-/* ══════════════════════════════════════════
-   FORMATS / COACHINGS
-══════════════════════════════════════════ */
-.formats { background:var(--bg); border-top:1px solid var(--border); padding:var(--sp) 0 }
-.fmt-in { max-width:1280px; margin:0 auto; padding:0 40px }
-.fmt-hdr { max-width:680px; margin-bottom:44px }
-.fmt-hdr p { margin-top:14px; font-size:14px; color:var(--muted); line-height:1.72 }
-.fmt-grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-  align-items:stretch;
-}
-.fmt-card {
-  display:flex;
-  flex-direction:column;
-  min-height:100%;
-  border:1px solid rgba(255,255,255,.09);
-  background:var(--surface);
-  padding:30px;
-  transition:border-color .3s, transform .2s;
-}
-.fmt-card:hover { border-color:rgba(200,255,0,.4); transform:translateY(-2px) }
-.fmt-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px }
-.fmt-num { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--lime) }
-.fmt-arr {
-  width:34px; height:34px; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.14); color:rgba(244,244,244,.6);
-  transition:border-color .25s, color .25s;
-}
-.fmt-card:hover .fmt-arr { border-color:var(--lime); color:var(--lime) }
-.fmt-title {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(22px,2.4vw,34px); text-transform:uppercase; margin-top:18px;
-}
-.fmt-sub { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--muted); margin-top:4px }
-.fmt-desc { margin-top:14px; font-size:13px; color:var(--muted); line-height:1.7 }
-.fmt-price {
-  display:inline-flex;
-  align-items:baseline;
-  gap:6px;
-  margin-top:14px;
-  padding:8px 11px;
-  width:max-content;
-  max-width:100%;
-  border:1px solid rgba(200,255,0,.20);
-  background:rgba(200,255,0,.045);
-  color:rgba(244,244,244,.72);
-  font-size:11px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-}
-.fmt-price strong {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:24px;
-  line-height:1;
-  color:var(--lime);
-  letter-spacing:.02em;
-}
-.fmt-list {
-  list-style:none;
-  margin-top:16px;
-  margin-bottom:18px;
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-.fmt-list li { display:flex; align-items:center; gap:9px; font-size:13px; color:rgba(244,244,244,.8) }
-.fmt-list li::before { content:''; display:inline-block; width:12px; height:1px; background:var(--lime); flex-shrink:0 }
-.fmt-link {
+/* CTA contextuels des cartes de tarifs */
+.price-link {
   display:inline-flex;
   align-items:center;
   gap:7px;
@@ -689,24 +619,7 @@ button,input,select,textarea { font-family:inherit }
   color:var(--lime);
   transition:gap .2s;
 }
-.fmt-link:hover { gap:12px }
-/* Accordion mobile */
-.fmt-acc { display:none }
-.acc-item { border-bottom:1px solid rgba(255,255,255,.07) }
-.acc-item:last-child { border-bottom:none }
-.acc-btn {
-  width:100%; display:flex; align-items:center; justify-content:space-between;
-  padding:17px 20px; background:none; border:none; cursor:pointer; color:var(--fg); gap:14px; text-align:left;
-}
-.acc-btn[data-open="true"] { background:rgba(200,255,0,.03) }
-.acc-left { display:flex; align-items:flex-start; gap:11px }
-.acc-num { font-family:'Bebas Neue',sans-serif; font-size:24px; line-height:1; color:var(--lime) }
-.acc-title { font-family:'Bebas Neue',sans-serif; font-size:20px; line-height:1.05; text-transform:uppercase }
-.acc-sub { font-size:9.5px; font-weight:600; text-transform:uppercase; letter-spacing:.17em; color:var(--muted); margin-top:5px; line-height:1.35 }
-.acc-chev { flex-shrink:0; transition:transform .3s ease }
-.acc-btn[data-open="true"] .acc-chev { transform:rotate(180deg) }
-.acc-body { display:none; padding:0 20px 20px }
-.acc-body.open { display:block }
+.price-link:hover { gap:12px }
 
 
 
@@ -752,7 +665,6 @@ button,input,select,textarea { font-family:inherit }
 .price-tab.active { background:var(--lime); color:#0A0A0B }
 .price-tab:not(.active):hover { color:var(--fg); background:rgba(255,255,255,.04) }
 .tab-label { display:inline }
-.tab-from,.tab-pack,.tab-hint { display:none }
 .pricing-panel { display:none }
 .pricing-panel.active { display:block }
 .price-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px }
@@ -1300,10 +1212,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
    FLOATING STACK — Groupe bas-droit
    .float-group : conteneur vertical
    .float-cta   : "Parlons-en" (mobile only)
-   .float-top   : back-to-top (desktop + mobile)
+   .float-top   : back-to-top (desktop uniquement)
 ══════════════════════════════════════════ */
 .float-group {
-  position:fixed; bottom:20px; right:16px; z-index:150;
+  position:fixed; bottom:calc(16px + env(safe-area-inset-bottom,0px)); right:16px; z-index:150;
   display:flex; flex-direction:column; align-items:flex-end; gap:8px;
   /* invisible par défaut — chaque enfant gère sa propre visibilité */
   pointer-events:none;
@@ -1382,6 +1294,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-cta { display:none } /* mobile → floating button uniquement */
   /* Floating */
   .float-cta { display:inline-flex }
+  .float-top { display:none }
   /* Hero */
   .hero-media { background:#160607 }
   .hero-media img {
@@ -1467,7 +1380,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .svc-card.active { border-color:rgba(200,255,0,.45) }
   .svc-progress { display:none } /* remplacé par scroll natif */
   /* Témoignages */
-  .testi-nav-wrap { display:none }
+  .testi-nav-wrap { display:flex }
+  .testi-nav-wrap > div { display:none }
   .testi-viewport,.testi-dots { display:none }
   .testi-marquee { display:block }          /* marquee CSS infini — remplace le scroll horizontal */
   /* Hyrox — 3 chiffres alignés sur une seule ligne */
@@ -1486,8 +1400,23 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hyrox-panel h4 { font-size:28px }
   .hyrox-panel p { font-size:13px; line-height:1.72 }
   .hyrox-proof { grid-template-columns:1fr; gap:10px; margin-top:14px }
-  /* Instagram mobile — colonnes déjà définies @1100px, on réduit juste le gap */
-  .ig-grid { gap:4px }
+  /* Instagram mobile — une rangée compacte, scroll horizontal natif */
+  .ig-grid {
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    margin:0 -20px;
+    padding:0 20px 10px;
+  }
+  .ig-grid::-webkit-scrollbar { display:none }
+  .ig-item {
+    flex:0 0 min(58vw,240px);
+    scroll-snap-align:start;
+  }
   /* Tarifs */
   .pricing-in { padding-left:20px; padding-right:20px }
   .pricing-head { grid-template-columns:1fr; gap:20px; margin-bottom:26px }
@@ -1507,7 +1436,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   /* Contact */
   .ct-in { grid-template-columns:1fr; gap:36px }
   .f-4grid { grid-template-columns:1fr }
-  .contact { padding-bottom:calc(var(--sp) + 64px) }
+  .contact { padding-bottom:var(--sp) }
   /* Footer */
   .ft-in { padding:32px 20px }
   .ft-top { flex-direction:column; gap:22px }
@@ -1523,10 +1452,17 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-logo-menu-text { font-size:9.5px; letter-spacing:.16em }
   .coach-trust .tb-sub { font-size:10.5px; line-height:1.25 }
   .hero h1 { max-width:88vw }
-  .coach-trust { grid-template-columns:1fr }
+  .coach-trust { grid-template-columns:1fr 1fr }
+  .coach-trust .trust-badge { min-width:0; align-items:flex-start }
+  .tb-diplomas { white-space:normal }
+  .tb-diplomas span { display:block }
+  .tb-diplomas span + span::before { content:none }
   .svc-card { flex:0 0 84vw }
+}
+
+@media (max-width:360px) {
+  .coach-trust,
   .hyrox-pillars { grid-template-columns:1fr }
-  .hyrox-proof-meta { font-size:28px }
 }
 
 
@@ -1586,36 +1522,6 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     color:rgba(244,244,244,.52);
   }
   .price-tab.active .tab-label { color:var(--lime) }
-  .tab-from,.tab-pack,.tab-hint { display:block }
-  .tab-from {
-    font-size:11px;
-    font-weight:600;
-    color:rgba(244,244,244,.62);
-    line-height:1.2;
-  }
-  .tab-from strong {
-    display:block;
-    margin-top:2px;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:34px;
-    line-height:.95;
-    color:var(--fg);
-    font-weight:400;
-  }
-  .tab-pack {
-    font-size:11px;
-    color:rgba(244,244,244,.62);
-    line-height:1.35;
-  }
-  .tab-hint {
-    margin-top:4px;
-    font-size:9px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.14em;
-    color:var(--lime);
-    line-height:1.35;
-  }
   /* NB : .price-cards (cartes desktop) est masqué sur mobile par la règle
      ".pricing-panel .price-cards{display:none}" du bloc "TARIFS V4" plus bas
      (remplacé par .price-mobile-list). Les anciennes règles mobiles qui
@@ -1711,15 +1617,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
    Desktop conserve les cartes existantes.
 ══════════════════════════════════════════ */
 .price-mobile-list { display:none }
-.tab-week { display:block; margin-top:2px; font-size:9px; color:rgba(244,244,244,.46); line-height:1.25 }
 
 @media (max-width:768px) {
   .pricing-head .s-h2 { max-width:360px }
   .pricing-switch { margin-bottom:14px }
   .price-tab { padding:13px 12px }
-  .tab-from strong { font-size:30px }
-  .tab-pack { font-size:10.5px; color:rgba(244,244,244,.68) }
-  .tab-week { color:rgba(244,244,244,.42) }
 
   /* Remplace les grandes cartes par une liste comparative compacte */
   .pricing-panel .price-cards,
@@ -1943,7 +1845,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-lime">
-        Réserver un appel
+        Parler de mon objectif
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
       <a href="#tarifs" class="btn-ghost">Voir les coachings</a>
@@ -2167,7 +2069,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
               </div>
               <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec le coach.</p>
-              <a href="#contact" class="pm-cta">Demander ce coaching →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
             </div>
           </details>
 
@@ -2188,7 +2090,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>450 €</strong></div>
               </div>
               <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec le coach.</p>
-              <a href="#contact" class="pm-cta">Lancer ma prépa →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
             </div>
           </details>
 
@@ -2209,7 +2111,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
               </div>
               <p class="pm-value-note">Le contenu dépend du sport, du niveau, des contraintes physiques et du calendrier.</p>
-              <a href="#contact" class="pm-cta">Construire mon devis →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Prépa physique sport spécifique">Construire mon devis →</a>
             </div>
           </details>
 
@@ -2236,7 +2138,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Transformation">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
@@ -2259,7 +2161,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>450 €</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Hyrox">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
@@ -2282,7 +2184,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Prépa physique sport spécifique">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
         </div>
         <p class="pricing-note">Les packs 8 semaines en présentiel incluent 3 séances avec Benjamin.</p>
@@ -2308,7 +2210,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>250 €</strong></div>
               </div>
               <p class="pm-value-note">Programmation personnalisée, fiches de séances et supports pour t’entraîner à distance avec un cadre clair.</p>
-              <a href="#contact" class="pm-cta">Demander ce coaching →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
             </div>
           </details>
 
@@ -2329,7 +2231,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
               </div>
               <p class="pm-value-note">Préparation à distance orientée performance : programmation complète, fiches et vidéos explicatives pour les mouvements complexes.</p>
-              <a href="#contact" class="pm-cta">Lancer ma prépa →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
             </div>
           </details>
 
@@ -2350,7 +2252,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="pm-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
               </div>
               <p class="pm-value-note">Programmation construite selon le sport pratiqué, le niveau actuel et les objectifs.</p>
-              <a href="#contact" class="pm-cta">Construire mon devis →</a>
+              <a href="#contact" class="pm-cta" data-contact-objective="Prépa physique sport spécifique">Construire mon devis →</a>
             </div>
           </details>
 
@@ -2377,7 +2279,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>250 €</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Transformation">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
@@ -2400,7 +2302,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Hyrox">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
@@ -2423,7 +2325,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
               </div>
             </div>
-            <a href="#contact" class="fmt-link price-link">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a href="#contact" class="price-link" data-contact-objective="Prépa physique sport spécifique">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
         </div>
         <p class="pricing-note">En online, l'unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel avec le coach.</p>
@@ -2542,7 +2444,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
     <div class="reveal" style="transition-delay:.5s;margin-top:44px">
-      <a href="#contact" class="btn-lime">
+      <a href="#contact" class="btn-lime" data-contact-objective="Hyrox">
         Lancer ma prépa
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -2728,7 +2630,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
             <select id="gl" name="objectif" required>
               <option value="" disabled selected>Choisir…</option>
               <option>Transformation</option><option>Force</option>
-              <option>Hyrox</option><option>Remise en forme</option><option>Autre</option>
+              <option>Hyrox</option><option>Course à pied</option>
+              <option>Prépa physique sport spécifique</option><option>Remise en forme</option><option>Autre</option>
             </select>
           </div>
         </div>
@@ -2779,7 +2682,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 <!-- Floating group — bas-droit -->
 <div class="float-group" id="floatGroup">
-  <!-- Back to top — desktop + mobile -->
+  <!-- Back to top — desktop uniquement -->
   <button class="float-top" id="floatTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
   </button>
@@ -2830,6 +2733,7 @@ function setLogoMenu(open) {
   navLogoMenu.classList.toggle('open', open);
   navLogoMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   navLogoMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  requestAnimationFrame(syncFloatingControls);
 }
 
 if (navLogoMenuBtn && navLogoMenu) {
@@ -2933,6 +2837,7 @@ const marqueeEl = document.getElementById('testiMarquee');
 const testimonialSection = document.getElementById('temoignages');
 const mobileTestimonialCards = marqueeTrack ? [...marqueeTrack.querySelectorAll('.testi-marquee-card')] : [];
 const testimonialAutoplayToggle = document.getElementById('testiAutoplayToggle');
+const testimonialCounter = document.getElementById('testiCounter');
 const testimonialsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const TESTIMONIAL_AUTOPLAY_DELAY = 8000;
 const TESTIMONIAL_RESUME_DELAY = 2500; /* + 8 s avant l'avance suivante ≈ 10,5 s de lecture */
@@ -2952,6 +2857,14 @@ function scrollToMobileTestimonial(index, behavior = 'smooth') {
     left: Math.max(0, cardLeft),
     behavior
   });
+  updateTestimonialCounter();
+}
+
+function updateTestimonialCounter() {
+  if (!testimonialCounter) return;
+  testimonialCounter.textContent = window.innerWidth <= 768
+    ? `${mobileTestimonialIndex + 1} / ${mobileTestimonialCards.length}`
+    : `${slide + 1} / ${maxSlide + 1}`;
 }
 
 function stopMobileTestimonials() {
@@ -2996,6 +2909,7 @@ function syncMobileTestimonialIndex() {
     }
   });
   mobileTestimonialIndex = nearestIndex;
+  updateTestimonialCounter();
 }
 
 if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
@@ -3044,10 +2958,9 @@ buildDots();
 function updateNav() {
   const prev = document.getElementById('testiPrev');
   const next = document.getElementById('testiNext');
-  const ctr  = document.getElementById('testiCounter');
   if (prev) prev.disabled = slide === 0;
   if (next) next.disabled = slide >= maxSlide;
-  if (ctr)  ctr.textContent = `${slide+1} / ${maxSlide+1}`;
+  updateTestimonialCounter();
   if (dotsEl) dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
 }
 function goSlide(idx) {
@@ -3171,6 +3084,7 @@ window.addEventListener('resize', () => {
     stopMobileTestimonials();
     startDesktopTestimonials();
   }
+  updateTestimonialCounter();
 }, { passive:true });
 
 /* ─────────────────────────────────────────────────
@@ -3414,6 +3328,17 @@ priceDetailBtns.forEach(btn => {
   });
 });
 
+/* Présélectionner l'objectif quand le visiteur vient d'une offre précise. */
+const contactObjectiveSelect = document.getElementById('gl');
+document.querySelectorAll('[data-contact-objective]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (!contactObjectiveSelect) return;
+    const objective = link.dataset.contactObjective;
+    const matchingOption = [...contactObjectiveSelect.options].some(option => option.value === objective);
+    if (matchingOption) contactObjectiveSelect.value = objective;
+  });
+});
+
 
 /* ─────────────────────────────────────────────────
    HYROX — Piliers interactifs
@@ -3495,6 +3420,28 @@ document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 const nav      = document.getElementById('mainNav');
 const floatBtn = document.getElementById('floatCta');
 const floatTop = document.getElementById('floatTop');
+const contactSectionForFloat = document.getElementById('contact');
+const footerForFloat = document.querySelector('footer');
+const contactFormForFloat = document.getElementById('contactForm');
+
+function syncFloatingControls() {
+  const y = window.scrollY;
+  const pastHero = y > window.innerHeight * 0.75;
+  const contactRect = contactSectionForFloat?.getBoundingClientRect();
+  const footerRect = footerForFloat?.getBoundingClientRect();
+  const reachingContact = Boolean(contactRect && contactRect.top < window.innerHeight * 0.86);
+  const reachingFooter = Boolean(footerRect && footerRect.top < window.innerHeight);
+  const formFocused = Boolean(contactFormForFloat?.contains(document.activeElement));
+  const menuOpen = Boolean(navLogoMenu?.classList.contains('open'));
+
+  if (floatBtn) {
+    floatBtn.classList.toggle(
+      'show',
+      pastHero && !reachingContact && !reachingFooter && !formFocused && !menuOpen
+    );
+  }
+  if (floatTop) floatTop.classList.toggle('show', pastHero && window.innerWidth > 768);
+}
 
 /* rAF-throttlé : évite de recalculer le style à chaque event de scroll (perf) */
 let scrollTicking = false;
@@ -3511,11 +3458,7 @@ function onScrollFrame() {
   } else if (heroMedia) {
     heroMedia.style.removeProperty('transform');
   }
-  const pastHero = y > window.innerHeight * 0.75;
-  /* Floating CTA "Parlons-en" : mobile only, apparaît après le hero */
-  if (floatBtn) floatBtn.classList.toggle('show', pastHero);
-  /* Back-to-top : desktop + mobile, apparaît après le hero */
-  if (floatTop) floatTop.classList.toggle('show', pastHero);
+  syncFloatingControls();
 }
 window.addEventListener('scroll', () => {
   if (!scrollTicking) {
@@ -3523,6 +3466,10 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(onScrollFrame);
   }
 }, { passive: true });
+window.addEventListener('resize', syncFloatingControls, { passive:true });
+contactFormForFloat?.addEventListener('focusin', syncFloatingControls);
+contactFormForFloat?.addEventListener('focusout', () => requestAnimationFrame(syncFloatingControls));
+onScrollFrame();
 
 /* ─────────────────────────────────────────────────
    FORMSPREE AJAX
