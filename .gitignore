@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+
+# Local Vercel metadata
+.vercel/
+
+# Logs / temporary files
+*.log
+*.tmp

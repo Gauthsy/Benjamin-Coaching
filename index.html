@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-<!--
-╔══════════════════════════════════════════════════════════════╗
-║  BEN FIT PARIS v9.0                                          ║
-║  Mobile-First · Animated Services · Video Reels · Deploy     ║
-╠══════════════════════════════════════════════════════════════╣
-║  FICHIERS assets/ :                                          ║
-║  ├── hero-bench-desktop.webp  hero desktop                   ║
-║  ├── hero-bench-mobile.webp   hero mobile                    ║
-║  ├── coach-about-transparent.webp  portrait détouré          ║
-║  ├── og-benfitparis.webp  vignette de partage                ║
-║  ├── preparation-hyrox-coach-sportif-paris.webp             ║
-║  ├── reel-1.mp4 + reel-1-poster.webp                        ║
-║  ├── reel-2.mp4 + reel-2-poster.webp                        ║
-║  ├── reel-3.mp4 + reel-3-poster.webp                        ║
-║  └── reel-4.mp4 + reel-4-poster.webp                        ║
-╠══════════════════════════════════════════════════════════════╣
-║  FORMSPREE  → endpoint xbdvabjk intégré                       ║
-║  TÉMOIGNAGES → tableau TESTIMONIALS dans <script>            ║
-╚══════════════════════════════════════════════════════════════╝
--->
+<!-- Ben Fit Paris · site vitrine production -->
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Coach sportif à Paris &amp; en ligne | HYROX | Ben Fit Paris</title>
-<meta name="description" content="Coach sportif diplômé à Paris et en ligne : transformation physique, remise en forme et préparation HYROX. Programme sur mesure avec Benjamin."/>
+<meta name="description" content="Coach sportif diplômé à Paris et en ligne : transformation physique, remise en forme et préparation HYROX. Programme sur mesure adapté à ton objectif."/>
 <meta name="robots" content="index, follow"/>
 <meta name="author" content="Ben Fit Paris"/>
 <meta name="color-scheme" content="dark"/>
-<meta property="og:title" content="Ben Fit Paris — Coach sportif à Paris &amp; en ligne"/>
+<meta property="og:title" content="Ben Fit Paris · Coach sportif à Paris &amp; en ligne"/>
 <meta property="og:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
 <meta property="og:site_name" content="Ben Fit Paris"/>
 <meta property="og:type" content="website"/>
@@ -41,21 +22,21 @@
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Benjamin accompagne une cliente pendant une séance de développé couché"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Ben Fit Paris — Coach sportif à Paris &amp; en ligne"/>
+<meta name="twitter:title" content="Ben Fit Paris · Coach sportif à Paris &amp; en ligne"/>
 <meta name="twitter:description" content="Coaching sportif personnalisé à Paris et en ligne. Transformation physique, force, endurance et préparation HYROX."/>
 <meta name="twitter:image" content="https://benfitparis.fr/assets/og-benfitparis.webp"/>
 <meta name="twitter:image:alt" content="Benjamin accompagne une cliente pendant une séance de développé couché"/>
 <link rel="canonical" href="https://benfitparis.fr/"/>
 <link rel="preload" as="image" href="assets/hero-bench-desktop.webp" type="image/webp" media="(min-width:769px)"/>
 <link rel="preload" as="image" href="assets/hero-bench-mobile.webp" type="image/webp" media="(max-width:768px)"/>
-<meta name="theme-color" content="#0A0A0B"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any"/>
-<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#050B16"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico?v=20" sizes="any"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20"/>
+<link rel="manifest" href="/site.webmanifest?v=20"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 
 <script type="application/ld+json">
 {
@@ -119,15 +100,26 @@
    VARIABLES & RESET
 ══════════════════════════════════════════ */
 :root {
-  --bg:      #0A0A0B;
-  --surface: #111113;
-  --s2:      #161618;
-  --border:  rgba(255,255,255,.08);
-  --lime:    #C8FF00;
-  --fg:      #F4F4F4;
-  --muted:   rgba(244,244,244,.50);
-  --muted2:  rgba(244,244,244,.72);
-  --sp:      clamp(56px,7vw,96px);
+  --bg:#050B16;
+  --surface:#071426;
+  --s2:#0B1C37;
+  --panel:#0C2041;
+  --panel-2:#11284F;
+  --border:rgba(144,167,255,.16);
+  --accent:#3156FF;
+  --accent-soft:#A9B9FF;
+  --accent-pale:#D2DAFF;
+  --fg:#F6F8FF;
+  --muted:rgba(229,236,255,.67);
+  --muted2:rgba(239,243,255,.84);
+  --sp:clamp(56px,7vw,96px);
+  --price-light:#DEE7FF;
+  --price-light-2:#CAD8FF;
+  --price-ink:#07152D;
+  --price-muted:#506080;
+  --price-line:rgba(32,58,128,.16);
+  --price-feature:#173B96;
+  --price-feature-2:#214BBC;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
 html {
@@ -137,21 +129,29 @@ html {
   text-size-adjust:100%;
 }
 body {
-  background:var(--bg); color:var(--fg);
-  font-family:'Inter',sans-serif; font-size:15px; line-height:1.65;
-  overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  background:
+    radial-gradient(circle at 86% 8%,rgba(49,86,255,.15),transparent 24%),
+    radial-gradient(circle at 12% 0%,rgba(126,148,255,.10),transparent 26%),
+    linear-gradient(180deg,#050913 0%,#081225 45%,#07101F 100%);
+  color:var(--fg);
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 a { text-decoration:none; color:inherit }
 img { display:block; max-width:100%; height:auto }
 button,input,select,textarea { font-family:inherit }
 section[id] { scroll-margin-top:82px }
 :where(a,button,input,select,textarea,summary):focus-visible {
-  outline:2px solid var(--lime);
+  outline:2px solid var(--accent);
   outline-offset:4px;
 }
 .skip-link {
   position:fixed; top:10px; left:10px; z-index:1000;
-  padding:10px 14px; background:var(--lime); color:#0A0A0B;
+  padding:10px 14px; background:var(--accent); color:#fff;
   font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.12em;
   transform:translateY(-160%); transition:transform .2s ease;
 }
@@ -180,13 +180,6 @@ section[id] { scroll-margin-top:82px }
 @keyframes fadeUp    { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
 @keyframes glowPulse { 0%,100%{opacity:.2} 50%{opacity:.32} }
 @keyframes shimmer   { from{background-position:200% center} to{background-position:-200% center} }
-@keyframes hyroxDrift {
-  0%  { transform:scale(1)    translate(0,0) }
-  33% { transform:scale(1.04) translate(-1%,-.5%) }
-  66% { transform:scale(1.03) translate(.8%,.4%) }
-  100%{ transform:scale(1)    translate(0,0) }
-}
-
 /* ── Icon animations (services spotlight) ── */
 /* déclenchées via .active sur la carte parente */
 
@@ -255,11 +248,11 @@ section[id] { scroll-margin-top:82px }
   font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.22em;
   color:rgba(244,244,244,.6); transition:color .2s;
 }
-.nav-link:hover { color:var(--lime) }
+.nav-link:hover { color:var(--accent) }
 .nav-cta {
   display:inline-flex; align-items:center; gap:7px;
   height:34px; padding:0 16px;
-  background:var(--lime); color:#0A0A0B;
+  background:var(--accent); color:#fff;
   font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.18em;
   transition:opacity .2s;
 }
@@ -267,19 +260,19 @@ section[id] { scroll-margin-top:82px }
 .nav-logo {
   background:none; border:0; color:var(--fg); cursor:pointer;
   display:inline-flex; align-items:center; gap:7px;
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:20px;
   line-height:1;
   letter-spacing:0;
 }
-.nav-logo:focus-visible { outline:1px solid var(--lime); outline-offset:6px }
+.nav-logo:focus-visible { outline:1px solid var(--accent); outline-offset:6px }
 .nav-logo-word {
   display:inline-block;
   letter-spacing:.095em;
   white-space:nowrap;
 }
 .nav-logo .dot {
-  color:var(--lime);
+  color:var(--accent);
   margin:0 .08em;
 }
 .nav-logo-chev {
@@ -292,12 +285,12 @@ section[id] { scroll-margin-top:82px }
   transition:transform .24s ease, color .2s ease, opacity .2s ease;
 }
 .nav-logo:hover .nav-logo-chev {
-  color:var(--lime);
+  color:var(--accent);
   opacity:1;
 }
 .nav-logo[aria-expanded="true"] .nav-logo-chev {
   transform:rotate(180deg);
-  color:var(--lime);
+  color:var(--accent);
   opacity:1;
 }
 .nav-logo-menu-text {
@@ -314,7 +307,7 @@ section[id] { scroll-margin-top:82px }
 }
 .nav-logo:hover .nav-logo-menu-text,
 .nav-logo[aria-expanded="true"] .nav-logo-menu-text {
-  color:var(--lime);
+  color:var(--accent);
 }
 .nav-menu {
   position:absolute;
@@ -343,7 +336,7 @@ section[id] { scroll-margin-top:82px }
   font-weight:800;
   text-transform:uppercase;
   letter-spacing:.22em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .nav-menu a {
   display:flex;
@@ -360,13 +353,13 @@ section[id] { scroll-margin-top:82px }
   transition:color .2s, background .2s, padding-left .2s;
 }
 .nav-menu a:hover {
-  color:var(--lime);
-  background:rgba(200,255,0,.04);
+  color:var(--accent);
+  background:rgba(49,86,255,.04);
   padding-left:14px;
 }
 .nav-menu a::after {
   content:'→';
-  color:rgba(200,255,0,.55);
+  color:rgba(49,86,255,.55);
 }
 
  /* ══════════════════════════════════════════
@@ -393,7 +386,7 @@ section[id] { scroll-margin-top:82px }
 .hero-glow {
   position:absolute; z-index:-2; right:-2%; top:2%;
   width:54%; height:84%; border-radius:50%;
-  background:radial-gradient(circle at center,rgba(200,255,0,.2),transparent 66%);
+  background:radial-gradient(circle at center,rgba(49,86,255,.2),transparent 66%);
   filter:blur(90px); pointer-events:none;
   animation:glowPulse 7s ease-in-out infinite;
 }
@@ -417,16 +410,20 @@ section[id] { scroll-margin-top:82px }
   color:rgba(244,244,244,.7); margin-bottom:20px;
   animation:fadeUp .65s .08s both;
 }
-.hero-badge svg { color:var(--lime) }
+.hero-badge svg { color:var(--accent) }
 .hero-badge-mobile { display:none }
 .hero-mobile-break { display:none }
 .hero h1 {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(62px,13vw,130px); line-height:.86; text-transform:uppercase; max-width:760px;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
+  font-size:clamp(60px,11.2vw,118px); line-height:.88; text-transform:uppercase; max-width:920px; letter-spacing:-.015em;
   text-shadow:0 4px 28px rgba(0,0,0,.34);
   animation:fadeUp .65s .18s both;
 }
-.hero h1 .lime { color:var(--lime) }
+.hero h1 .accent { color:var(--accent) }
+@media (min-width:769px) {
+  .hero h1 { white-space:nowrap }
+  .hero-badge { position:relative; top:-10px }
+}
 .hero-sub {
   margin-top:22px; max-width:430px; font-size:15px;
   color:rgba(244,244,244,.74); line-height:1.65;
@@ -438,16 +435,16 @@ section[id] { scroll-margin-top:82px }
 /* ══════════════════════════════════════════
    BUTTONS
 ══════════════════════════════════════════ */
-.btn-lime {
+.btn-accent {
   display:inline-flex; align-items:center; gap:8px;
   height:48px; padding:0 26px;
-  background:var(--lime); color:#0A0A0B;
+  background:var(--accent); color:#fff;
   font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;
   border:none; cursor:pointer; white-space:nowrap;
   transition:opacity .2s, transform .15s;
 }
-.btn-lime:hover { opacity:.88; transform:translateY(-1px) }
-.btn-lime:active { transform:none }
+.btn-accent:hover { opacity:.88; transform:translateY(-1px) }
+.btn-accent:active { transform:none }
 .btn-ghost {
   display:inline-flex; align-items:center; gap:8px;
   height:48px; padding:0 26px;
@@ -464,14 +461,14 @@ section[id] { scroll-margin-top:82px }
 .s-label {
   display:flex; align-items:center; gap:10px;
   font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.26em;
-  color:var(--lime); margin-bottom:14px;
+  color:var(--accent); margin-bottom:14px;
 }
-.s-label::before { content:''; display:block; width:22px; height:1px; background:var(--lime) }
+.s-label::before { content:''; display:block; width:22px; height:1px; background:var(--accent) }
 .s-h2 {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(34px,4.8vw,62px); line-height:.95; text-transform:uppercase;
 }
-.s-h2 .lime { color:var(--lime) }
+.s-h2 .accent { color:var(--accent) }
 
 /* ══════════════════════════════════════════
    LE COACH
@@ -479,7 +476,7 @@ section[id] { scroll-margin-top:82px }
 .coach-section { background:var(--surface); border-bottom:1px solid var(--border); overflow:hidden }
 .coach-mobile-heading { display:none }
 .coach-mobile-name {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(52px,16vw,66px); line-height:.86;
   text-transform:uppercase; letter-spacing:.005em;
 }
@@ -487,15 +484,15 @@ section[id] { scroll-margin-top:82px }
 .coach-img-wrap {
   position:relative; isolation:isolate; overflow:hidden; min-height:620px;
   background:
-    linear-gradient(145deg,rgba(200,255,0,.055),transparent 44%),
+    linear-gradient(145deg,rgba(49,86,255,.055),transparent 44%),
     linear-gradient(to bottom,#141416,var(--surface));
 }
 .coach-img-wrap::before {
   content:''; position:absolute; z-index:-1; left:50%; top:49%;
   width:min(76%,460px); aspect-ratio:1; transform:translate(-50%,-50%);
-  border:1px solid rgba(200,255,0,.12); border-radius:50%;
-  background:radial-gradient(circle,rgba(200,255,0,.075) 0%,rgba(200,255,0,.025) 48%,transparent 70%);
-  box-shadow:0 0 90px rgba(200,255,0,.055);
+  border:1px solid rgba(49,86,255,.12); border-radius:50%;
+  background:radial-gradient(circle,rgba(49,86,255,.075) 0%,rgba(49,86,255,.025) 48%,transparent 70%);
+  box-shadow:0 0 90px rgba(49,86,255,.055);
 }
 .coach-img-wrap img {
   position:absolute; z-index:1; inset:18px 0 0; width:100%; height:calc(100% - 18px);
@@ -512,7 +509,7 @@ section[id] { scroll-margin-top:82px }
 }
 .coach-text { padding:72px 54px 72px 38px; display:flex; flex-direction:column; justify-content:center }
 .coach-name {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(48px,5vw,76px); line-height:.9; text-transform:uppercase; margin-bottom:24px;
 }
 .coach-bio { font-size:14px; color:var(--muted2); line-height:1.82; max-width:390px }
@@ -522,12 +519,12 @@ section[id] { scroll-margin-top:82px }
 .coach-trust { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:36px }
 .trust-badge {
   display:flex; align-items:center; gap:11px; padding:13px 15px;
-  border:1px solid rgba(200,255,0,.14); background:rgba(200,255,0,.03);
+  border:1px solid rgba(49,86,255,.14); background:rgba(49,86,255,.03);
   transition:background .25s, border-color .25s;
 }
-.trust-badge:hover { background:rgba(200,255,0,.06); border-color:rgba(200,255,0,.28) }
-.trust-badge svg { color:var(--lime); flex-shrink:0 }
-.tb-main { display:block; font-size:13px; font-weight:600; color:var(--lime); line-height:1.2 }
+.trust-badge:hover { background:rgba(49,86,255,.06); border-color:rgba(49,86,255,.28) }
+.trust-badge svg { color:var(--accent); flex-shrink:0 }
+.tb-main { display:block; font-size:13px; font-weight:600; color:var(--accent); line-height:1.2 }
 .tb-sub  {
   display:block;
   font-size:11px;
@@ -560,13 +557,13 @@ section[id] { scroll-margin-top:82px }
 }
 .testi-card::after {
   content:''; position:absolute; top:0; left:0; height:2px;
-  width:36px; background:var(--lime); transition:width .4s ease; pointer-events:none;
+  width:36px; background:var(--accent); transition:width .4s ease; pointer-events:none;
 }
-.testi-card:hover { border-color:rgba(200,255,0,.22); transform:translateY(-2px) }
+.testi-card:hover { border-color:rgba(49,86,255,.22); transform:translateY(-2px) }
 .testi-card:hover::after { width:100% }
 .testi-open-quote {
-  font-family:'Bebas Neue',sans-serif; font-size:38px; line-height:.8;
-  color:var(--lime); opacity:.42; margin-bottom:10px;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:38px; line-height:.8;
+  color:var(--accent); opacity:.42; margin-bottom:10px;
 }
 .testi-text { flex:1; font-size:14px; color:rgba(244,244,244,.85); line-height:1.82 }
 .testi-footer {
@@ -575,13 +572,13 @@ section[id] { scroll-margin-top:82px }
 }
 .testi-avatar {
   width:34px; height:34px; border-radius:50%; flex-shrink:0;
-  background:rgba(200,255,0,.06); border:1px solid rgba(200,255,0,.2);
+  background:rgba(49,86,255,.06); border:1px solid rgba(49,86,255,.2);
   display:flex; align-items:center; justify-content:center;
-  font-family:'Bebas Neue',sans-serif; font-size:15px; color:var(--lime); letter-spacing:.04em;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:15px; color:var(--accent); letter-spacing:.04em;
 }
-.testi-name { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.07em; transition:color .2s }
-.testi-name:hover { color:var(--lime) }
-.testi-role { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--lime); margin-top:2px }
+.testi-name { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; letter-spacing:.07em; transition:color .2s }
+.testi-name:hover { color:var(--accent) }
+.testi-role { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:var(--accent); margin-top:2px }
 /* ── Carrousel témoignages mobile — swipe natif + autoscroll piloté en JS ── */
 .testi-marquee {
   display:none; /* activé via @media 768px */
@@ -641,8 +638,8 @@ section[id] { scroll-margin-top:82px }
 }
 /* État actif — mise en lumière progressive */
 .svc-card.active {
-  background:#0c0f05; /* très légère teinte lime */
-  box-shadow:inset 0 2px 0 0 rgba(200,255,0,.65); /* bordure lime en haut */
+  background:#0D1120; /* très légère teinte bleue liée à l’accent */
+  box-shadow:inset 0 2px 0 0 rgba(49,86,255,.65); /* bordure accent en haut */
   filter:brightness(1.08);
   z-index:1;
 }
@@ -658,8 +655,8 @@ section[id] { scroll-margin-top:82px }
 /* Hover desktop : prend le focus immédiatement */
 .svc-card:hover { cursor:pointer }
 
-.svc-icon { color:var(--lime); transition:color .2s }
-.svc-title { font-family:'Bebas Neue',sans-serif; font-size:22px; text-transform:uppercase; letter-spacing:.03em }
+.svc-icon { color:var(--accent); transition:color .2s }
+.svc-title { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:22px; text-transform:uppercase; letter-spacing:.03em }
 .svc-desc { font-size:13px; color:var(--muted); line-height:1.7 }
 
 /* Indicateur de progression sous la grille */
@@ -670,7 +667,7 @@ section[id] { scroll-margin-top:82px }
   height:2px; flex:1; max-width:40px; border-radius:9999px;
   background:rgba(255,255,255,.12); transition:background .3s;
 }
-.svc-pip.active { background:var(--lime) }
+.svc-pip.active { background:var(--accent) }
 
 /* CTA contextuels des cartes de tarifs */
 .price-link {
@@ -683,7 +680,7 @@ section[id] { scroll-margin-top:82px }
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.2em;
-  color:var(--lime);
+  color:var(--accent);
   transition:gap .2s;
 }
 .price-link:hover { gap:12px }
@@ -729,7 +726,7 @@ section[id] { scroll-margin-top:82px }
   letter-spacing:.2em;
   transition:background .2s,color .2s,border-color .2s,box-shadow .2s;
 }
-.price-tab.active { background:var(--lime); color:#0A0A0B }
+.price-tab.active { background:var(--accent); color:#fff }
 .price-tab:not(.active):hover { color:var(--fg); background:rgba(255,255,255,.04) }
 .tab-label { display:inline }
 .pricing-panel { display:none }
@@ -751,12 +748,12 @@ section[id] { scroll-margin-top:82px }
   position:absolute;
   top:0; left:0;
   width:44px; height:2px;
-  background:var(--lime);
+  background:var(--accent);
   opacity:.85;
 }
-.price-card:hover { border-color:rgba(200,255,0,.32); transform:translateY(-2px) }
-.price-kicker { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--lime) }
-.price-title { margin-top:10px; font-family:'Bebas Neue',sans-serif; font-size:28px; line-height:1; text-transform:uppercase }
+.price-card:hover { border-color:rgba(49,86,255,.32); transform:translateY(-2px) }
+.price-kicker { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--accent) }
+.price-title { margin-top:10px; font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:28px; line-height:1; text-transform:uppercase }
 .price-desc { margin-top:10px; font-size:12px; color:var(--muted); line-height:1.65 }
 .price-overview {
   display:grid;
@@ -771,8 +768,8 @@ section[id] { scroll-margin-top:82px }
   background:rgba(255,255,255,.02);
 }
 .price-overview > div:last-child {
-  border-color:rgba(200,255,0,.24);
-  background:rgba(200,255,0,.045);
+  border-color:rgba(49,86,255,.24);
+  background:rgba(49,86,255,.045);
 }
 .price-overview span {
   display:block;
@@ -786,14 +783,13 @@ section[id] { scroll-margin-top:82px }
 .price-overview strong {
   display:block;
   margin-top:6px;
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:500;
   font-size:28px;
   line-height:1;
-  font-weight:400;
   color:var(--fg);
   white-space:nowrap;
 }
-.price-overview > div:last-child strong { color:var(--lime) }
+.price-overview > div:last-child strong { color:var(--accent) }
 .price-details-toggle {
   width:100%;
   display:flex;
@@ -828,14 +824,14 @@ section[id] { scroll-margin-top:82px }
   border-bottom:1px solid rgba(255,255,255,.065);
 }
 .price-row span { font-size:12px; color:rgba(244,244,244,.68); line-height:1.35 }
-.price-row strong { font-family:'Bebas Neue',sans-serif; font-size:24px; line-height:1; color:var(--fg); white-space:nowrap; font-weight:400 }
+.price-row strong { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:500; font-size:24px; line-height:1; color:var(--fg); white-space:nowrap }
 .price-row.featured {
   margin-top:4px;
   padding:13px 12px;
-  border:1px solid rgba(200,255,0,.2);
-  background:rgba(200,255,0,.045);
+  border:1px solid rgba(49,86,255,.2);
+  background:rgba(49,86,255,.045);
 }
-.price-row.featured strong { color:var(--lime); font-size:30px }
+.price-row.featured strong { color:var(--accent); font-size:30px }
 .price-link { margin-top:auto; padding-top:22px }
 .pricing-note {
   margin-top:14px;
@@ -857,7 +853,7 @@ section[id] { scroll-margin-top:82px }
 }
 .pack-copy h3,
 .options-title h3 {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:32px;
   line-height:1;
   text-transform:uppercase;
@@ -873,7 +869,7 @@ section[id] { scroll-margin-top:82px }
 .options-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px }
 .option-card { border:1px solid rgba(255,255,255,.09); background:var(--bg); padding:20px }
 .option-card h4 { font-size:13px; font-weight:700; color:var(--fg); margin-bottom:8px }
-.option-price { font-family:'Bebas Neue',sans-serif; font-size:32px; line-height:1; color:var(--lime) }
+.option-price { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:32px; line-height:1; color:var(--accent) }
 .option-price small { font-family:'Inter',sans-serif; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.12em }
 .option-card p { margin-top:10px; font-size:12px; color:var(--muted); line-height:1.6 }
 .pricing-mobile-more { display:none }
@@ -883,8 +879,8 @@ section[id] { scroll-margin-top:82px }
   align-items:center;
   gap:18px;
   padding:16px 18px;
-  border:1px solid rgba(200,255,0,.16);
-  background:rgba(200,255,0,.035);
+  border:1px solid rgba(49,86,255,.16);
+  background:rgba(49,86,255,.035);
 }
 .pricing-referral-note span {
   flex-shrink:0;
@@ -892,7 +888,7 @@ section[id] { scroll-margin-top:82px }
   font-weight:800;
   text-transform:uppercase;
   letter-spacing:.18em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .pricing-referral-note p { font-size:12px; color:rgba(244,244,244,.66); line-height:1.55 }
 .pricing-referral-note strong { color:var(--fg) }
@@ -940,17 +936,17 @@ section[id] { scroll-margin-top:82px }
 .hyrox-label {
   display:inline-flex; align-items:center; gap:10px; margin-bottom:14px;
   font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.28em;
-  background:linear-gradient(90deg,var(--lime),#fff 50%,var(--lime));
+  background:linear-gradient(90deg,var(--accent),#fff 50%,var(--accent));
   background-size:200% auto;
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
   animation:shimmer 3.5s linear infinite;
 }
-.hyrox-label::before { content:''; display:block; width:22px; height:1px; background:var(--lime); flex-shrink:0 }
+.hyrox-label::before { content:''; display:block; width:22px; height:1px; background:var(--accent); flex-shrink:0 }
 .hyrox-c h2 {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(46px,8vw,116px); line-height:.88; text-transform:uppercase; max-width:800px;
 }
-.hyrox-c h2 .lime { color:var(--lime) }
+.hyrox-c h2 .accent { color:var(--accent) }
 .hyrox-desc { margin-top:18px; max-width:420px; font-size:15px; color:rgba(244,244,244,.8); line-height:1.65 }
 
 /* Stats Hyrox — séquence lisible en 3 temps */
@@ -962,9 +958,9 @@ section[id] { scroll-margin-top:82px }
 .hyrox-stat.active .stat-n { transform:translateY(-2px) scale(1.04) }
 .hyrox-stat.active .stat-l { color:rgba(244,244,244,.86) }
 .stat-n {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(44px,6vw,70px); line-height:1;
-  background:linear-gradient(90deg,var(--lime) 40%,#e8ff70 60%,var(--lime));
+  background:linear-gradient(90deg,var(--accent) 40%,var(--accent-soft) 60%,var(--accent));
   background-size:200% auto;
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
   animation:shimmer 4s linear infinite;
@@ -1009,7 +1005,7 @@ section[id] { scroll-margin-top:82px }
   line-height:1.72;
 }
 .hyrox-method-title {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(30px,4vw,52px);
   line-height:.96;
   text-transform:uppercase;
@@ -1029,11 +1025,11 @@ section[id] { scroll-margin-top:82px }
   cursor:pointer;
   transition:border-color .25s, background .25s, transform .18s;
 }
-.hyrox-pillar:hover { border-color:rgba(200,255,0,.34); transform:translateY(-1px) }
+.hyrox-pillar:hover { border-color:rgba(49,86,255,.34); transform:translateY(-1px) }
 .hyrox-pillar.active {
-  background:rgba(200,255,0,.06);
-  border-color:rgba(200,255,0,.42);
-  box-shadow:inset 0 2px 0 rgba(200,255,0,.8);
+  background:rgba(49,86,255,.06);
+  border-color:rgba(49,86,255,.42);
+  box-shadow:inset 0 2px 0 rgba(49,86,255,.8);
 }
 .hyrox-pillar small {
   display:block;
@@ -1041,12 +1037,12 @@ section[id] { scroll-margin-top:82px }
   font-weight:800;
   text-transform:uppercase;
   letter-spacing:.2em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .hyrox-pillar strong {
   display:block;
   margin-top:8px;
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:22px;
   line-height:1;
   text-transform:uppercase;
@@ -1074,10 +1070,10 @@ section[id] { scroll-margin-top:82px }
   font-weight:800;
   text-transform:uppercase;
   letter-spacing:.22em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .hyrox-panel h4 {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:36px;
   line-height:.95;
   text-transform:uppercase;
@@ -1104,7 +1100,7 @@ section[id] { scroll-margin-top:82px }
   width:14px;
   height:1px;
   margin-top:10px;
-  background:var(--lime);
+  background:var(--accent);
   flex-shrink:0;
 }
 .hyrox-proof {
@@ -1123,7 +1119,7 @@ section[id] { scroll-margin-top:82px }
   font-weight:800;
   text-transform:uppercase;
   letter-spacing:.2em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .hyrox-proof-card p {
   margin-top:8px;
@@ -1140,7 +1136,7 @@ section[id] { scroll-margin-top:82px }
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:.18em;
-  color:var(--lime);
+  color:var(--accent);
 }
 .hyrox-proof-link:hover { opacity:.78 }
 @media (max-width:1100px) {
@@ -1162,10 +1158,10 @@ section[id] { scroll-margin-top:82px }
 .ig-header {
   display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:24px;
 }
-.ig-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,2.5vw,32px); text-transform:uppercase }
+.ig-title { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:clamp(22px,2.5vw,32px); text-transform:uppercase }
 .ig-follow {
   display:inline-flex; align-items:center; gap:7px;
-  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--lime);
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.2em; color:var(--accent);
   transition:opacity .2s;
 }
 .ig-follow:hover { opacity:.7 }
@@ -1188,7 +1184,15 @@ section[id] { scroll-margin-top:82px }
   position:absolute; top:10px; right:10px;
   color:rgba(244,244,244,.65); transition:color .2s; pointer-events:none;
 }
-.ig-item:hover .ig-play-ic { color:var(--lime) }
+.ig-item:hover .ig-play-ic { color:var(--accent) }
+
+/* Desktop only: a restrained alternating offset gives the four Reels more rhythm. */
+@media (min-width:933px) {
+  .ig-grid { padding-bottom:24px }
+  .ig-item { transition:transform .32s ease,border-color .3s,box-shadow .3s }
+  .ig-item:nth-child(1),
+  .ig-item:nth-child(3) { transform:translateY(20px) }
+}
 
 /* ══════════════════════════════════════════
    CONTACT
@@ -1199,10 +1203,10 @@ section[id] { scroll-margin-top:82px }
   display:grid; grid-template-columns:1fr 1.2fr; gap:60px;
 }
 .ct-l h2 {
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
   font-size:clamp(34px,4.2vw,60px); line-height:.95; text-transform:uppercase;
 }
-.ct-l h2 .lime { color:var(--lime) }
+.ct-l h2 .accent { color:var(--accent) }
 .ct-intro { margin-top:14px; font-size:15px; color:var(--muted); line-height:1.72; max-width:340px }
 .ct-ig {
   display:inline-flex; align-items:center; gap:10px; margin-top:28px;
@@ -1210,7 +1214,7 @@ section[id] { scroll-margin-top:82px }
   font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.18em;
   transition:border-color .2s, color .2s;
 }
-.ct-ig:hover { border-color:var(--lime); color:var(--lime) }
+.ct-ig:hover { border-color:var(--accent); color:var(--accent) }
 .ct-form { background:var(--bg); border:1px solid rgba(255,255,255,.08); padding:30px }
 .f-4grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:end }
 .f-grp { display:flex; flex-direction:column; gap:6px }
@@ -1227,15 +1231,15 @@ input[type=text],input[type=email],input[type=tel],select,textarea {
   transition:border-color .2s, background .2s; -webkit-appearance:none; appearance:none;
 }
 input::placeholder,textarea::placeholder { color:rgba(244,244,244,.50) }
-input:focus,select:focus,textarea:focus { border-color:var(--lime); background:rgba(200,255,0,.03) }
-input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid var(--lime); outline-offset:2px }
+input:focus,select:focus,textarea:focus { border-color:var(--accent); background:rgba(49,86,255,.03) }
+input:focus-visible,select:focus-visible,textarea:focus-visible { outline:2px solid var(--accent); outline-offset:2px }
 select option { background:#1a1a1b }
 textarea { height:auto; min-height:108px; padding:10px 12px; resize:vertical }
 .f-note { margin-top:11px; font-size:10px; color:rgba(244,244,244,.62); line-height:1.55 }
 .btn-submit {
   display:flex; align-items:center; justify-content:center; gap:8px;
   height:48px; width:100%; margin-top:20px;
-  background:var(--lime); color:#0A0A0B;
+  background:var(--accent); color:#fff;
   font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.2em;
   border:none; cursor:pointer; transition:opacity .2s, transform .15s;
 }
@@ -1247,7 +1251,7 @@ textarea { height:auto; min-height:108px; padding:10px 12px; resize:vertical }
   font-size:12px; line-height:1.45;
   color:rgba(244,244,244,.48);
 }
-.form-status.success { color:var(--lime) }
+.form-status.success { color:var(--accent) }
 .form-status.error { color:#ff6b6b }
 
 /* ══════════════════════════════════════════
@@ -1259,22 +1263,22 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   display:flex; align-items:flex-start; justify-content:space-between; gap:28px; flex-wrap:wrap;
   padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.06);
 }
-.ft-logo { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.14em }
-.ft-logo span { color:var(--lime) }
+.ft-logo { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:22px; letter-spacing:.14em }
+.ft-logo span { color:var(--accent) }
 .ft-tagline { margin-top:8px; font-size:12px; color:var(--muted); max-width:260px; line-height:1.6 }
 .ft-links {
   display:flex; flex-wrap:wrap; gap:8px 26px;
   font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--muted);
 }
 .ft-links a { transition:color .2s }
-.ft-links a:hover { color:var(--lime) }
+.ft-links a:hover { color:var(--accent) }
 .ft-links .ig-lnk { display:inline-flex; align-items:center; gap:6px; color:rgba(244,244,244,.68) }
 .ft-bot {
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding-top:22px;
   font-size:11px; color:rgba(244,244,244,.58);
 }
 .ft-bot a,.ft-legal-link { color:rgba(244,244,244,.68); transition:color .2s }
-.ft-bot a:hover,.ft-legal-link:hover { color:var(--lime) }
+.ft-bot a:hover,.ft-legal-link:hover { color:var(--accent) }
 .ft-legal-link {
   padding:0; border:0; background:none; cursor:pointer;
   font-size:inherit; line-height:inherit;
@@ -1284,7 +1288,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
    FLOATING STACK — Groupe bas-droit
    .float-group : conteneur vertical
    .float-cta   : "Parlons-en" (mobile only)
-   .float-top   : back-to-top (desktop uniquement)
+   .float-top   : back-to-top (desktop + fin de page mobile)
 ══════════════════════════════════════════ */
 .float-group {
   position:fixed; bottom:calc(16px + env(safe-area-inset-bottom,0px)); right:16px; z-index:150;
@@ -1295,9 +1299,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 .float-cta {
   display:none; /* mobile uniquement — activé via @media */
   align-items:center; gap:8px; height:46px; padding:0 20px;
-  background:var(--lime); color:#0A0A0B;
+  background:var(--accent); color:#fff;
   font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
-  box-shadow:0 4px 22px rgba(200,255,0,.28), 0 2px 8px rgba(0,0,0,.45);
+  box-shadow:0 4px 22px rgba(49,86,255,.28), 0 2px 8px rgba(0,0,0,.45);
   opacity:0; transform:translateY(10px); pointer-events:none;
   transition:opacity .35s ease, transform .35s ease;
 }
@@ -1312,7 +1316,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   transition:opacity .35s ease, transform .35s ease, border-color .2s, color .2s;
   cursor:pointer; flex-shrink:0;
 }
-.float-top:hover { border-color:var(--lime); color:var(--lime) }
+.float-top:hover { border-color:var(--accent); color:var(--accent) }
 .float-top.show { opacity:1; transform:none; pointer-events:auto }
 
 /* ══════════════════════════════════════════
@@ -1332,13 +1336,13 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   background:none; border:1px solid rgba(255,255,255,.1); color:var(--fg); cursor:pointer;
   transition:border-color .2s, color .2s;
 }
-.legal-close:hover { border-color:var(--lime); color:var(--lime) }
-.legal-close:focus-visible { border-color:var(--lime) }
-.legal-panel h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; text-transform:uppercase; margin-bottom:24px }
-.legal-panel h3 { font-family:'Bebas Neue',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--lime); margin-top:22px; margin-bottom:9px }
+.legal-close:hover { border-color:var(--accent); color:var(--accent) }
+.legal-close:focus-visible { border-color:var(--accent) }
+.legal-panel h2 { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:26px; text-transform:uppercase; margin-bottom:24px }
+.legal-panel h3 { font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); margin-top:22px; margin-bottom:9px }
 .legal-panel p,.legal-panel li { font-size:13px; color:var(--muted); line-height:1.78 }
 .legal-panel ul { padding-left:16px; margin-top:6px }
-.legal-panel a { color:var(--lime) }
+.legal-panel a { color:var(--accent) }
 
 /* ══════════════════════════════════════════
    RESPONSIVE
@@ -1367,7 +1371,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .nav-cta { display:none } /* mobile → floating button uniquement */
   /* Floating */
   .float-cta { display:inline-flex }
-  .float-top { display:none }
+  .float-top { display:flex; width:44px; height:44px }
   /* Hero */
   .hero-media { background:#160607 }
   .hero-media img {
@@ -1395,7 +1399,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .hero h1 { font-size:var(--mobile-display); line-height:.88; max-width:min(82vw,620px) }
   .hero-sub { margin-top:17px; font-size:14px; line-height:1.55; max-width:min(88%,430px) }
   .hero-ctas { margin-top:22px; gap:9px }
-  .btn-lime,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
+  .btn-accent,.btn-ghost { height:44px; padding:0 20px; font-size:11px }
   /* Coach */
   .coach-mobile-heading {
     display:block; position:absolute; z-index:4;
@@ -1415,8 +1419,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   }
   .coach-img-wrap::before {
     width:min(78vw,380px); top:50%;
-    background:radial-gradient(circle,rgba(200,255,0,.045) 0%,rgba(200,255,0,.015) 48%,transparent 70%);
-    box-shadow:0 0 76px rgba(200,255,0,.035);
+    background:radial-gradient(circle,rgba(49,86,255,.045) 0%,rgba(49,86,255,.015) 48%,transparent 70%);
+    box-shadow:0 0 76px rgba(49,86,255,.035);
   }
   .coach-img-wrap img {
     inset:4px 0 0; height:calc(100% - 4px); object-position:center bottom;
@@ -1450,7 +1454,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     box-shadow:none;
   }
   /* Active visible même sur mobile — background/shadow hérités du desktop (.svc-card.active) */
-  .svc-card.active { border-color:rgba(200,255,0,.45) }
+  .svc-card.active { border-color:rgba(49,86,255,.45) }
   .svc-progress { display:none } /* remplacé par scroll natif */
   /* Témoignages */
   .testi-viewport { display:none }
@@ -1546,8 +1550,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 }
 
 @media (max-width:360px) {
-  .coach-trust,
-  .hyrox-pillars { grid-template-columns:1fr }
+  .coach-trust { grid-template-columns:1fr }
 }
 
 
@@ -1594,7 +1597,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .price-tab.active {
     background:var(--bg);
     color:var(--fg);
-    border-color:rgba(200,255,0,.48);
+    border-color:rgba(49,86,255,.48);
   }
   .price-tab:not(.active):hover { background:var(--bg) }
   .tab-label {
@@ -1605,12 +1608,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     letter-spacing:.14em;
     color:rgba(244,244,244,.52);
   }
-  .price-tab.active .tab-label { color:var(--lime) }
-  /* NB : .price-cards (cartes desktop) est masqué sur mobile par la règle
-     ".pricing-panel .price-cards{display:none}" du bloc "TARIFS V4" plus bas
-     (remplacé par .price-mobile-list). Les anciennes règles mobiles qui
-     stylaient .price-card/.price-overview/.price-details-toggle ont donc
-     été retirées ici : elles ne s'appliquaient plus jamais. */
+  .price-tab.active .tab-label { color:var(--accent) }
+  /* Sous 768 px, le comparatif mobile remplace les cartes tarifaires desktop. */
   .pack-value,
   .options-block { display:none }
   .pricing-mobile-more {
@@ -1625,7 +1624,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     list-style:none;
     cursor:pointer;
     padding:15px 0;
-    font-family:'Bebas Neue',sans-serif;
+    font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
     font-size:20px;
     line-height:1;
     text-transform:uppercase;
@@ -1639,7 +1638,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .mobile-more-card summary::-webkit-details-marker { display:none }
   .mobile-more-card summary::after {
     content:'+';
-    color:var(--lime);
+    color:var(--accent);
     font-family:'Inter',sans-serif;
     font-size:18px;
     font-weight:600;
@@ -1668,7 +1667,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     top:.82em;
     width:9px;
     height:1px;
-    background:var(--lime);
+    background:var(--accent);
   }
   .mobile-option {
     display:flex;
@@ -1679,7 +1678,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   }
   .mobile-option span { color:rgba(244,244,244,.68) }
   .mobile-option strong {
-    color:var(--lime);
+    color:var(--accent);
     font-weight:700;
     text-align:right;
     white-space:nowrap;
@@ -1697,7 +1696,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 
 /* ══════════════════════════════════════════
-   TARIFS V4 — mobile comparatif compact
+   TARIFS MOBILE — comparatif compact
    Desktop conserve les cartes existantes.
 ══════════════════════════════════════════ */
 .price-mobile-list { display:none }
@@ -1720,7 +1719,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     background:var(--bg);
     overflow:hidden;
   }
-  .price-mobile-item[open] { border-color:rgba(200,255,0,.28) }
+  .price-mobile-item[open] { border-color:rgba(49,86,255,.28) }
   .price-mobile-item summary {
     list-style:none;
     cursor:pointer;
@@ -1735,12 +1734,14 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .price-mobile-item summary::after {
     content:'+';
     position:absolute;
-    right:10px;
-    top:8px;
-    color:var(--lime);
-    font-size:16px;
+    right:11px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--accent);
+    font-size:18px;
     font-weight:700;
     line-height:1;
+    z-index:2;
   }
   .price-mobile-item[open] summary::after { content:'–' }
   .pm-main { min-width:0; padding-right:8px }
@@ -1750,12 +1751,12 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     font-weight:800;
     text-transform:uppercase;
     letter-spacing:.18em;
-    color:var(--lime);
+    color:var(--accent);
     margin-bottom:6px;
   }
   .pm-title {
     display:block;
-    font-family:'Bebas Neue',sans-serif;
+    font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:600;
     font-size:19px;
     line-height:1.02;
     text-transform:uppercase;
@@ -1785,11 +1786,10 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .pm-pack strong {
     display:block;
     margin-top:4px;
-    font-family:'Bebas Neue',sans-serif;
+    font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:500;
     font-size:25px;
     line-height:.95;
-    color:var(--lime);
-    font-weight:400;
+    color:var(--accent);
     white-space:nowrap;
   }
   .pm-pack small {
@@ -1827,10 +1827,9 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .pm-row strong {
     display:block;
     margin-top:5px;
-    font-family:'Bebas Neue',sans-serif;
+    font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-weight:500;
     font-size:23px;
     line-height:1;
-    font-weight:400;
     color:var(--fg);
   }
   .pm-row.featured {
@@ -1839,14 +1838,14 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     justify-content:space-between;
     gap:10px;
     align-items:center;
-    border-color:rgba(200,255,0,.22);
-    background:rgba(200,255,0,.035);
+    border-color:rgba(49,86,255,.22);
+    background:rgba(49,86,255,.035);
   }
   .pm-row.featured span { max-width:140px }
   .pm-row.featured .pm-duration { display:block; margin-top:2px; white-space:nowrap }
   .pm-row.featured strong {
     margin:0;
-    color:var(--lime);
+    color:var(--accent);
     white-space:nowrap;
   }
   .pm-value-note {
@@ -1862,7 +1861,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     font-weight:800;
     text-transform:uppercase;
     letter-spacing:.16em;
-    color:var(--lime);
+    color:var(--accent);
   }
   .pm-note {
     margin-top:4px;
@@ -1874,6 +1873,1222 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   .pricing-mobile-more { margin-top:16px }
 }
 
+
+
+
+
+/* ══════════════════════════════════════════
+   BLUE THEME — visual system
+══════════════════════════════════════════ */
+
+/* Navigation + menu — restored compact dropdown */
+.nav { background:rgba(6,12,24,.78); border-bottom:1px solid rgba(144,167,255,.12); box-shadow:0 14px 34px rgba(0,0,0,.22) }
+.nav.scrolled { background:rgba(5,11,22,.94) }
+.nav-logo-menu-text { position:relative; top:2px }
+.nav-menu { position:absolute; top:calc(100% + 8px); left:40px; width:278px; padding:10px; background:rgba(8,14,27,.97); border:1px solid rgba(169,185,255,.14); border-radius:18px; box-shadow:0 18px 50px rgba(0,0,0,.46); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px) }
+.legal-panel { background:rgba(8,18,37,.94); border:1px solid rgba(144,167,255,.17); border-radius:28px; box-shadow:0 24px 60px rgba(0,0,0,.34); backdrop-filter:blur(24px) saturate(135%); -webkit-backdrop-filter:blur(24px) saturate(135%) }
+.nav-menu-kicker { padding:8px 10px 10px; color:var(--accent-soft) }
+.nav-menu a { padding:11px 10px; color:rgba(246,248,255,.76); border-top:1px solid rgba(255,255,255,.06) }
+.nav-menu a:hover { padding-left:14px; color:#fff; background:rgba(49,86,255,.06) }
+.nav-menu a::after { color:var(--accent-pale); opacity:.92; font-size:15px; font-weight:500 }
+.nav-link:hover,.nav-logo:hover .nav-logo-menu-text,.nav-logo[aria-expanded="true"] .nav-logo-menu-text,.nav-logo:hover .nav-logo-chev,.nav-logo[aria-expanded="true"] .nav-logo-chev { color:var(--accent-soft) }
+
+/* Hero */
+.hero-glow {
+  width:56%;
+  background:radial-gradient(circle at center,rgba(49,86,255,.24),transparent 66%);
+}
+.hero-glr {
+  background:linear-gradient(to right,rgba(5,11,22,.98) 0%,rgba(5,11,22,.93) 26%,rgba(5,11,22,.54) 58%,rgba(5,11,22,.14) 80%);
+}
+.hero-gtb {
+  background:linear-gradient(to bottom,rgba(5,11,22,.20) 0%,transparent 42%,rgba(5,11,22,.38) 72%,var(--bg) 100%);
+}
+.hero-badge {
+  background:rgba(10,22,42,.54);
+  border:1px solid rgba(144,167,255,.20);
+  border-radius:999px;
+}
+
+/* Buttons */
+.btn-accent,
+.nav-cta,
+.btn-submit {
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),#3B61FF);
+  color:#fff;
+  box-shadow:0 18px 34px rgba(25,54,160,.27);
+}
+.btn-ghost,
+.ct-ig,
+.float-top {
+  border-radius:999px;
+  background:rgba(10,22,42,.44);
+  border-color:rgba(144,167,255,.20);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+/* Labels + titles */
+.s-label,
+.hyrox-label,
+.hyrox-panel-note { gap:0 }
+.s-label::before,
+.hyrox-label::before,
+.hyrox-panel-note::before { display:none }
+.s-label,
+.hyrox-label,
+.hyrox-panel-step,
+.hyrox-proof-kicker,
+.hyrox-pillar small,
+.testi-role,
+.price-kicker,
+.nav-menu-kicker { color:var(--accent-soft) }
+.s-h2,
+.coach-name,
+.hyrox-method-title,
+.hyrox-panel h4,
+.price-title,
+.pack-copy h3,
+.options-title h3,
+.ct-l h2,
+.svc-title,
+.testi-name,
+.hyrox-pillar strong {
+  text-transform:none;
+  letter-spacing:-.025em;
+}
+.s-h2 { line-height:1 }
+.hero h1,
+.s-h2,
+.coach-name,
+.hyrox-c h2,
+.hyrox-method-title,
+.ct-l h2,
+.hyrox-panel h4 { letter-spacing:-.028em }
+.hero h1 .accent,
+.s-h2 .accent,
+.ct-l h2 .accent,
+.ft-logo span,
+.nav-logo .dot,
+.hero-badge svg,
+.trust-badge svg,
+.svc-icon,
+.ig-follow,
+.hyrox-c h2 .accent,
+.price-link,
+.hyrox-proof-link,
+.float-top,
+.form-status.success { color:var(--accent-soft) }
+
+/* Section surfaces */
+.coach-section,
+.testi-section,
+.services,
+.pricing,
+.ig-section,
+.contact,
+footer {
+  background:transparent;
+  border-top-color:transparent;
+  border-bottom-color:transparent;
+}
+.coach-inner {
+  overflow:hidden;
+  border:1px solid rgba(144,167,255,.15);
+  border-radius:36px;
+  background:linear-gradient(180deg,rgba(10,24,47,.86),rgba(7,20,38,.96));
+  box-shadow:0 26px 70px rgba(0,0,0,.24);
+}
+.coach-img-wrap {
+  background:linear-gradient(180deg,rgba(16,37,72,.82),rgba(8,20,38,.96));
+}
+.coach-img-wrap::before {
+  border-color:rgba(144,167,255,.15);
+  background:radial-gradient(circle,rgba(49,86,255,.14) 0%,rgba(49,86,255,.04) 48%,transparent 70%);
+  box-shadow:0 0 120px rgba(49,86,255,.11);
+}
+.coach-img-wrap::after {
+  background:
+    linear-gradient(to right,transparent 58%,rgba(7,20,38,.94) 100%),
+    linear-gradient(to top,rgba(7,20,38,.96) 0%,transparent 19%);
+}
+.coach-text { background:linear-gradient(180deg,rgba(8,18,35,.92),rgba(7,20,38,.98)) }
+.coach-img-wrap img { transition:none }
+.coach-img-wrap:hover img { transform:none }
+
+/* Coach credentials — compact badges, no icon tiles */
+.coach-trust { gap:10px }
+.trust-badge { min-width:0; min-height:82px; display:flex; align-items:center; gap:11px; padding:12px 14px; border:1px solid rgba(144,167,255,.15); border-radius:18px; background:rgba(49,86,255,.035); box-shadow:none }
+.trust-badge:hover { border-color:rgba(169,185,255,.25); background:rgba(49,86,255,.055) }
+.trust-badge svg { width:18px; height:18px; padding:0; border:0; border-radius:0; background:none; color:var(--accent-soft); flex:0 0 auto }
+.tb-main { color:var(--accent-pale); font-size:13px; line-height:1.2 }
+.trust-badge:nth-child(2) .tb-main { font-size:13px; line-height:1.2 }
+.tb-sub { color:rgba(231,236,255,.68); overflow-wrap:anywhere; word-break:normal }
+.tb-diplomas { white-space:normal !important }
+.tb-diplomas span { display:block !important }
+.tb-diplomas span + span::before { content:none !important }
+
+/* Shared glass cards */
+.testi-card,
+.svc-card,
+.price-card,
+.pack-copy,
+.pack-item,
+.option-card,
+.pricing-referral-note,
+.hyrox-pillar,
+.hyrox-panel,
+.hyrox-proof-card,
+.ig-item,
+.ct-form,
+.price-mobile-item,
+.mobile-more-card {
+  border:1px solid rgba(144,167,255,.15);
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(13,30,58,.76),rgba(8,20,38,.93));
+  box-shadow:0 18px 52px rgba(0,0,0,.16);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.testi-card:hover,
+.svc-card:hover,
+.price-card:hover,
+.option-card:hover,
+.hyrox-pillar:hover,
+.ig-item:hover {
+  border-color:rgba(169,185,255,.28);
+  box-shadow:0 20px 56px rgba(0,0,0,.22);
+}
+.testi-card::after,
+.price-card::before { height:3px; border-radius:999px }
+.svc-grid,
+.price-cards,
+.pack-grid,
+.options-grid,
+.ig-grid { gap:14px; background:none }
+
+/* Services: icon and title share the first row; lower cards without losing content */
+.svc-card {
+  min-height:198px;
+  padding:24px;
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr);
+  grid-template-rows:auto 1fr;
+  column-gap:14px;
+  row-gap:14px;
+  align-content:start;
+}
+.svc-icon {
+  grid-column:1;
+  grid-row:1;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:var(--accent-soft);
+}
+.svc-title {
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  min-width:0;
+  font-size:24px;
+  line-height:1;
+}
+.svc-desc {
+  grid-column:1 / -1;
+  grid-row:2;
+  margin:0;
+  color:rgba(231,236,255,.66);
+}
+.svc-card.active {
+  background:linear-gradient(180deg,rgba(49,86,255,.22),rgba(11,27,52,.96));
+  box-shadow:inset 0 0 0 1px rgba(169,185,255,.12),0 22px 52px rgba(0,0,0,.20);
+}
+
+/* Pricing desktop */
+.pricing-switch {
+  padding:6px;
+  border-radius:999px;
+  background:rgba(10,22,42,.64);
+  border:1px solid rgba(144,167,255,.15);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.price-tab { border-radius:999px }
+.price-tab.active {
+  background:linear-gradient(180deg,rgba(49,86,255,.20),rgba(49,86,255,.10));
+  color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(169,185,255,.14);
+}
+.price-overview > div,
+.pack-item {
+  border-radius:22px;
+  border:1px solid rgba(144,167,255,.09);
+  background:rgba(255,255,255,.025);
+}
+.price-overview > div:last-child strong,
+.option-price,
+.price-row.featured strong { color:var(--accent-pale) }
+.price-row,
+.option-card { background:linear-gradient(180deg,rgba(14,31,59,.74),rgba(8,20,38,.91)) }
+.pack-value { grid-template-columns:minmax(250px,.68fr) minmax(0,1.32fr); gap:28px; align-items:start }
+.pack-copy { padding:8px 10px 8px 0; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none }
+.pack-copy h3 { font-size:30px; line-height:1.02 }
+.pack-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0; overflow:hidden; border:1px solid rgba(144,167,255,.14); border-radius:24px; background:linear-gradient(180deg,rgba(12,28,55,.72),rgba(7,19,37,.90)) }
+.pack-item { padding:16px 18px; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none }
+.pack-item:nth-child(odd) { border-right:1px solid rgba(169,185,255,.10) }
+.pack-item:nth-child(n+3) { border-top:1px solid rgba(169,185,255,.10) }
+
+/* Hyrox */
+.hyrox-vignette {
+  background:
+    linear-gradient(to bottom,var(--bg),rgba(5,11,22,.26),var(--bg)),
+    linear-gradient(to right,rgba(5,11,22,.96) 0%,rgba(5,11,22,.34) 62%,rgba(5,11,22,.78) 100%);
+}
+.hyrox-label,
+.stat-n {
+  animation:none;
+  background:none;
+  -webkit-text-fill-color:currentColor;
+}
+.hyrox-c h2 {
+  line-height:.94;
+  text-transform:none;
+}
+.hyrox-c h2 .accent {
+  display:inline-block;
+  margin-top:.06em;
+}
+.hyrox-method-title,
+.hyrox-panel h4 { text-transform:none }
+.hyrox-stats {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  margin-top:42px;
+  max-width:760px;
+  padding:0;
+  border:1px solid rgba(144,167,255,.16);
+  border-radius:28px;
+  overflow:hidden;
+  background:rgba(10,22,42,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 20px 52px rgba(0,0,0,.22);
+}
+.hyrox-stat {
+  min-height:122px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.hyrox-stat:last-child { border-right:0 }
+.hyrox-stat.active {
+  background:linear-gradient(180deg,#3A5EFF,#2E4FE5);
+}
+.hyrox-stat .stat-n {
+  color:var(--fg);
+  font-size:clamp(40px,5.2vw,58px);
+}
+.hyrox-stat .stat-l { color:rgba(235,240,255,.58) }
+.hyrox-stat.active .stat-n,
+.hyrox-stat.active .stat-l { color:#fff }
+.hyrox-stat.active .stat-n { transform:none }
+.hyrox-method {
+  margin-top:54px;
+  border-radius:36px;
+  border:1px solid rgba(144,167,255,.15);
+  background:linear-gradient(180deg,rgba(9,25,52,.96),rgba(6,17,36,.98));
+  box-shadow:0 26px 72px rgba(0,0,0,.22);
+}
+.hyrox-pillar { padding:18px 16px }
+.hyrox-pillar.active {
+  background:linear-gradient(180deg,#3A5EFF,#2E4FE5);
+  border-color:rgba(169,185,255,.35);
+  box-shadow:none;
+}
+.hyrox-pillar.active small,
+.hyrox-pillar.active strong { color:#fff }
+.hyrox-panel,
+.hyrox-proof-card {
+  border-radius:26px;
+  background:linear-gradient(180deg,rgba(31,45,72,.78),rgba(18,30,52,.90));
+}
+
+/* Hyrox method layout is defined in the consolidated refinement block below. */
+
+/* Instagram / Contact */
+.ig-item { border-radius:30px }
+.ct-social-actions {
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.ct-social-actions .ct-ig { margin-top:0 }
+.ct-ig {
+  color:var(--fg);
+  border-color:rgba(169,185,255,.20);
+}
+.ct-ig:hover {
+  border-color:rgba(169,185,255,.42);
+  color:#fff;
+}
+.ct-ig-dm {
+  background:linear-gradient(135deg,rgba(49,86,255,.92),rgba(59,97,255,.82));
+  border-color:rgba(169,185,255,.32);
+  color:#fff;
+  box-shadow:0 14px 30px rgba(25,54,160,.22);
+}
+.ct-ig-dm:hover { background:linear-gradient(135deg,#3A5EFF,#3156FF) }
+.ct-form { padding:32px }
+input[type=text],input[type=email],input[type=tel],select,textarea {
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(144,167,255,.15);
+}
+input:focus,select:focus,textarea:focus { background:rgba(49,86,255,.08) }
+
+/* Floating CTA: more frost, still transparent */
+.float-cta {
+  border:1px solid rgba(190,202,255,.28);
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(15,31,61,.64),rgba(31,55,111,.54));
+  color:#fff;
+  box-shadow:0 12px 36px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(26px) saturate(155%);
+  -webkit-backdrop-filter:blur(26px) saturate(155%);
+}
+.float-cta svg { color:var(--accent-pale) }
+.float-top {
+  border:1px solid rgba(190,202,255,.24);
+  background:rgba(8,18,37,.68);
+  color:var(--accent-pale);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+
+/* Testimonials desktop navigation */
+.testi-viewport { position:relative; padding:0 58px; overflow:visible }
+.testi-window { overflow:hidden }
+.testi-nav { position:absolute; top:50%; z-index:5; width:36px; height:36px; display:grid; place-items:center; padding:0; border:1px solid rgba(169,185,255,.18); border-radius:50%; background:rgba(5,13,27,.78); color:var(--accent-pale); box-shadow:0 8px 24px rgba(0,0,0,.24); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); cursor:pointer; opacity:.68; transform:translateY(-50%); transition:opacity .2s,border-color .2s,background .2s }
+.testi-nav:hover { opacity:1; border-color:rgba(169,185,255,.34); background:rgba(10,23,47,.92) }
+.testi-nav:disabled { opacity:.18; cursor:default }
+.testi-nav-prev { left:6px }
+.testi-nav-next { right:6px }
+
+/* Footer: aligned brand, tagline and navigation */
+footer .ft-top { display:grid; grid-template-columns:minmax(380px,1fr) minmax(420px,auto); align-items:center; gap:48px; padding:30px 36px; border:1px solid rgba(144,167,255,.15); border-radius:32px; background:linear-gradient(180deg,rgba(10,22,42,.70),rgba(7,20,38,.92)) }
+.ft-logo { font-size:24px; letter-spacing:.12em }
+.ft-tagline { max-width:540px; margin-top:8px; color:rgba(231,236,255,.66) }
+.ft-links { display:grid; grid-template-columns:repeat(2,max-content); justify-content:end; align-items:center; gap:14px 36px; color:rgba(231,236,255,.68) }
+.ft-links > * { min-height:24px; display:inline-flex; align-items:center }
+.ft-links a:hover { color:#fff }
+.ft-bot { padding-top:18px }
+.ft-legal { display:flex; gap:16px }
+
+@media (max-width:768px) {
+  :root { --sp:50px }
+  textarea { resize:none }
+
+  /* Restore the earlier contained dropdown geometry */
+  .nav-menu { left:20px; right:20px; width:auto; top:calc(100% + 6px); padding:10px }
+  .nav-menu-kicker { padding:8px 10px 10px }
+  .nav-menu a { padding:12px 10px }
+  .nav-menu a::after { margin-left:auto; color:var(--accent-pale) }
+
+  /* Smooth image-to-content transition; no hard horizontal seam */
+  .hero-media { background:var(--bg) }
+  .hero-glr {
+    inset:0;
+    background:
+      linear-gradient(to bottom,rgba(5,11,22,0) 0%,rgba(5,11,22,.02) 24%,rgba(5,11,22,.18) 37%,rgba(5,11,22,.56) 50%,rgba(5,11,22,.88) 64%,rgba(5,11,22,.97) 78%,rgba(5,11,22,.99) 100%),
+      linear-gradient(to right,rgba(5,11,22,.50) 0%,rgba(5,11,22,.20) 50%,rgba(5,11,22,.05) 100%);
+  }
+  .hero-gtb {
+    background:linear-gradient(to bottom,rgba(5,11,22,0) 0%,rgba(5,11,22,0) 36%,rgba(5,11,22,.14) 48%,rgba(5,11,22,.46) 63%,rgba(5,11,22,.84) 80%,var(--bg) 100%);
+  }
+  .hero-badge { background:rgba(8,19,38,.60) }
+
+  /* Restore compact 2x2 credential badges */
+  .coach-trust { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px }
+  .trust-badge { min-height:78px; gap:9px; padding:10px 11px; border-radius:18px }
+  .trust-badge svg { width:18px; height:18px; padding:0 }
+  .tb-main { font-size:12.5px }
+  .trust-badge:nth-child(2) .tb-main { font-size:12.5px }
+  .tb-sub { font-size:10.5px; line-height:1.3 }
+
+  .testi-nav { display:none }
+
+  /* More compact service cards */
+  .svc-card {
+    flex:0 0 82vw;
+    min-height:190px;
+    padding:22px;
+    grid-template-columns:28px minmax(0,1fr);
+    column-gap:12px;
+    row-gap:12px;
+  }
+  .svc-icon { width:28px; height:28px; border-radius:0; background:none; border:0 }
+  .svc-title { font-size:23px }
+  .svc-desc { font-size:12.5px; line-height:1.62 }
+
+  /* Pricing: reserve bright blue for accents, use white/pale blue for information */
+  .pricing-switch {
+    width:100%;
+    padding:6px;
+    gap:6px;
+    margin-bottom:16px;
+    border:1px solid rgba(169,185,255,.16);
+    background:rgba(8,19,38,.70);
+  }
+  .price-tab {
+    padding:13px 10px;
+    border:0;
+    background:transparent;
+  }
+  .price-tab.active {
+    background:linear-gradient(180deg,rgba(49,86,255,.18),rgba(49,86,255,.08));
+    box-shadow:inset 0 0 0 1px rgba(113,139,255,.70);
+  }
+  .tab-label { color:rgba(231,236,255,.60) }
+  .price-tab.active .tab-label { color:var(--accent-pale) }
+
+  .price-mobile-list { gap:11px }
+  .price-mobile-item {
+    overflow:hidden;
+    border-radius:26px;
+    background:linear-gradient(180deg,rgba(12,29,57,.90),rgba(7,20,39,.97));
+  }
+  .price-mobile-item[open] { border-color:rgba(169,185,255,.27) }
+  .price-mobile-item summary {
+    min-width:0;
+    padding:17px 42px 17px 17px;
+    grid-template-columns:minmax(0,1.12fr) minmax(100px,.88fr);
+    gap:10px;
+    align-items:center;
+  }
+  .price-mobile-item summary::after {
+    right:15px;
+    top:50%;
+    width:22px;
+    height:22px;
+    display:grid;
+    place-items:center;
+    transform:translateY(-50%);
+    color:var(--accent-pale);
+    font-size:17px;
+  }
+  .price-mobile-item[open] summary::after { content:'×' }
+  .pm-main { padding-right:0 }
+  .pm-kicker { color:var(--accent-soft); margin-bottom:7px }
+  .pm-title {
+    color:var(--fg);
+    font-size:19px;
+    line-height:1.04;
+  }
+  .pm-entry { color:rgba(231,236,255,.64) }
+  .pm-entry strong { color:#fff }
+  .pm-pack { padding-right:0 }
+  .pm-pack span { color:rgba(214,222,250,.56) }
+  .pm-pack strong {
+    color:#fff;
+    font-weight:600;
+    text-shadow:0 0 22px rgba(169,185,255,.10);
+  }
+  .pm-pack small { color:rgba(231,236,255,.66) }
+  .pm-body {
+    padding:0 14px 15px;
+    border-top:1px solid rgba(169,185,255,.10);
+    background:rgba(3,11,24,.26);
+  }
+  .pm-row {
+    border-radius:15px;
+    border-color:rgba(169,185,255,.10);
+    background:rgba(255,255,255,.025);
+  }
+  .pm-row span { color:rgba(231,236,255,.66) }
+  .pm-row strong { color:#fff }
+  .pm-row.featured {
+    border-color:rgba(169,185,255,.22);
+    background:rgba(49,86,255,.12);
+  }
+  .pm-row.featured strong { color:var(--accent-pale) }
+  .pm-value-note { color:rgba(231,236,255,.66) }
+  .pm-cta { color:var(--accent-pale) }
+
+  /* Lower pricing accordions: centered + sign cannot escape the card */
+  .pricing-mobile-more {
+    margin-top:22px;
+    border-top:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .mobile-more-card {
+    overflow:hidden;
+    border-bottom:0;
+    border-radius:24px;
+  }
+  .mobile-more-card summary {
+    position:relative;
+    min-height:68px;
+    padding:18px 52px 18px 20px;
+    align-items:center;
+    color:var(--fg);
+    font-size:21px;
+    line-height:1.05;
+    letter-spacing:-.01em;
+  }
+  .mobile-more-card summary::after {
+    position:absolute;
+    right:18px;
+    top:50%;
+    width:24px;
+    height:24px;
+    display:grid;
+    place-items:center;
+    transform:translateY(-50%);
+    color:var(--accent-pale);
+    font-size:17px;
+    line-height:1;
+  }
+  .mobile-more-card[open] summary::after { content:'×' }
+  .mobile-more-body {
+    padding:0 20px 20px;
+    color:rgba(231,236,255,.70);
+  }
+  .mobile-option {
+    align-items:flex-start;
+    padding:11px 0;
+    gap:14px;
+  }
+  .mobile-option span { min-width:0; color:rgba(231,236,255,.70) }
+  .mobile-option strong {
+    flex:0 0 auto;
+    max-width:48%;
+    white-space:normal;
+    color:var(--accent-pale);
+  }
+
+  /* Animated Hyrox stats: active tile fills the card from top to bottom */
+  .hyrox-stats {
+    margin-top:30px;
+    padding:0;
+    border-top:0;
+    align-items:stretch;
+    border-radius:24px;
+  }
+  .hyrox-stat {
+    min-height:118px;
+    padding:16px 8px;
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+  }
+  .hyrox-stat .stat-n { font-size:clamp(28px,8vw,42px) }
+  .hyrox-stat .stat-l { font-size:8.5px; line-height:1.35 }
+  .hyrox-c h2 {
+    line-height:.95;
+    letter-spacing:-.02em;
+  }
+  .hyrox-c h2 .accent { margin-top:.08em }
+
+  /* Contact actions are visibly paired */
+  .ct-social-actions {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:9px;
+    margin-top:24px;
+  }
+  .ct-social-actions .ct-ig {
+    min-width:0;
+    justify-content:center;
+    padding:11px 10px;
+    font-size:10.5px;
+    letter-spacing:.11em;
+    white-space:nowrap;
+  }
+  .ct-form { padding:22px }
+
+  /* Floating contact keeps the translucent look but gains contrast */
+  .float-cta {
+    min-height:48px;
+    padding:0 19px;
+    background:linear-gradient(135deg,rgba(13,29,57,.69),rgba(38,64,126,.60));
+    border-color:rgba(203,212,255,.30);
+    color:#fff;
+    box-shadow:0 14px 38px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.09);
+    backdrop-filter:blur(28px) saturate(165%);
+    -webkit-backdrop-filter:blur(28px) saturate(165%);
+  }
+
+  /* Footer */
+  footer .ft-top {
+    display:block;
+    padding:24px;
+    border-radius:26px;
+  }
+  .ft-logo { font-size:23px }
+  .ft-tagline { margin-top:10px; max-width:none }
+  .ft-links {
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    justify-content:stretch;
+    gap:0 20px;
+  }
+  .ft-links > * {
+    min-width:0;
+    padding:11px 0;
+    border-top:1px solid rgba(169,185,255,.10);
+  }
+  .ft-bot {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    padding-top:16px;
+  }
+  .ft-legal { flex-wrap:wrap; gap:10px 16px }
+
+  .coach-inner,
+  .testi-card,
+  .price-card,
+  .pack-copy,
+  .pack-item,
+  .option-card,
+  .pricing-referral-note,
+  .hyrox-method,
+  .hyrox-pillar,
+  .hyrox-panel,
+  .hyrox-proof-card,
+  .ig-item,
+  .ct-form,
+  .legal-panel { border-radius:24px }
+}
+
+@media (max-width:390px) {
+  .nav { padding-left:16px; padding-right:16px }
+  .nav.scrolled { padding-left:16px; padding-right:16px }
+  .nav-menu { left:16px; right:16px }
+  .nav-logo { font-size:17px }
+  .nav-logo-menu-text { font-size:9px }
+  .ct-social-actions .ct-ig { padding-left:8px; padding-right:8px; font-size:9.5px }
+  .price-mobile-item summary {
+    grid-template-columns:minmax(0,1fr) 96px;
+    padding-left:14px;
+    padding-right:38px;
+  }
+  .pm-title { font-size:18px }
+  .pm-pack strong { font-size:23px }
+}
+
+
+/* ══════════════════════════════════════════
+   PRICING, HYROX METHOD, FOOTER & MOBILE ACCORDIONS
+══════════════════════════════════════════ */
+.nowrap { white-space:nowrap }
+
+/* Pricing cards: light-blue islands; no decorative blue notch on their border */
+.price-cards { align-items:start }
+.price-card {
+  height:auto;
+  background:linear-gradient(155deg,var(--price-light) 0%,var(--price-light-2) 100%);
+  border-color:rgba(122,148,225,.62);
+  color:var(--price-ink);
+  box-shadow:0 18px 48px rgba(0,0,0,.20);
+}
+.price-card::before,.price-mobile-item::before { display:none !important; content:none !important }
+.price-card:hover { border-color:rgba(92,121,218,.84); box-shadow:0 24px 58px rgba(0,0,0,.25) }
+.price-kicker { color:#2949CB }
+.price-card-head {
+  min-height:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.price-pack-recommended {
+  position:relative;
+  display:flex !important;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding:18px 15px 27px !important;
+  overflow:hidden;
+}
+.price-pack-recommended .price-pack-label {
+  display:block;
+  white-space:nowrap;
+  font-size:7.8px;
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:.075em;
+  color:rgba(225,233,255,.62) !important;
+}
+.price-pack-recommended .price-pack-label .nowrap {
+  display:block;
+  margin-top:2px;
+  font-size:11.2px;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:.075em;
+  color:rgba(249,251,255,.92) !important;
+}
+.price-pack-recommended > strong { margin-top:8px; font-size:34px; line-height:.94 }
+.price-overview .price-recommended-badge {
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#163A83;
+  border:0;
+  border-radius:0 0 17px 17px;
+  color:rgba(232,238,255,.62) !important;
+  font-size:5.9px !important;
+  font-weight:700;
+  line-height:1;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  white-space:nowrap;
+}
+.price-title { color:var(--price-ink); min-height:72px; display:flex; align-items:flex-start }
+.price-desc { color:var(--price-muted); min-height:60px }
+.price-overview { margin-top:18px }
+.price-overview > div {
+  min-height:110px;
+  box-sizing:border-box;
+  background:rgba(255,255,255,.28);
+  border-color:var(--price-line);
+}
+.price-overview > div:last-child {
+  background:linear-gradient(145deg,var(--price-feature),var(--price-feature-2));
+  border-color:rgba(16,48,134,.72);
+  box-shadow:0 12px 26px rgba(20,50,130,.20);
+}
+.price-overview span { color:rgba(7,21,45,.60); letter-spacing:.09em }
+.price-overview strong { color:var(--price-ink) }
+.price-overview > div:last-child span { color:rgba(230,236,255,.78); font-size:8px; line-height:1.18; letter-spacing:.075em }
+.price-overview > div:last-child strong { color:#fff }
+.price-details-toggle { color:rgba(7,21,45,.66); border-bottom-color:rgba(32,58,128,.15) }
+.price-details-toggle:hover { color:#1736A5 }
+.price-row { background:transparent; border-bottom-color:rgba(32,58,128,.14) }
+.price-row span { color:rgba(7,21,45,.68) }
+.price-row strong { color:var(--price-ink) }
+.price-row.featured { border-color:rgba(23,59,150,.34); background:rgba(23,59,150,.10) }
+.price-row.featured strong { color:#173B96 }
+.price-link { color:#1739B8 }
+.price-link:hover { color:#071F80 }
+.pricing-note { color:rgba(220,228,255,.52) }
+
+/* Open pricing cards should grow individually; closed neighbours keep their compact height. */
+.price-cards { align-items:start; grid-auto-rows:min-content }
+.price-card { min-height:0; align-self:start }
+
+/* Two clear reading blocks below pricing */
+.pack-value,
+.options-block {
+  border:1px solid rgba(144,167,255,.16);
+  border-radius:32px;
+  background:linear-gradient(180deg,rgba(10,27,54,.90),rgba(6,18,36,.97));
+  box-shadow:0 20px 58px rgba(0,0,0,.18);
+}
+.pack-value { margin-top:34px; padding:28px; grid-template-columns:minmax(250px,.68fr) minmax(0,1.32fr); gap:30px; align-items:start }
+.pack-copy { padding:0; border:0; background:transparent }
+.pack-copy h3 { color:var(--fg); margin:0 }
+.pack-copy p { color:rgba(231,236,255,.68) }
+.pack-grid { border:0; border-radius:0; background:transparent; overflow:visible; gap:0 }
+.pack-item { min-height:92px; padding:14px 18px; border:0; border-radius:0; background:transparent; box-shadow:none }
+.pack-item:nth-child(odd) { border-right:1px solid rgba(169,185,255,.10) }
+.pack-item:nth-child(n+3) { border-top:1px solid rgba(169,185,255,.10) }
+.pack-item strong { color:var(--fg) }
+.pack-item span { color:rgba(231,236,255,.65) }
+.options-block { margin-top:18px; padding:28px }
+.options-title { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:baseline; gap:26px; margin-bottom:18px }
+.options-title h3 { margin:0; white-space:nowrap }
+.options-title p { margin:0; max-width:none; color:rgba(231,236,255,.65) }
+.options-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; border-top:1px solid rgba(169,185,255,.10) }
+.option-card { min-width:0; padding:20px 22px 8px; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none }
+.option-card + .option-card { border-left:1px solid rgba(169,185,255,.10) }
+.option-card h4 { color:var(--fg) }
+.option-card p { color:rgba(231,236,255,.65) }
+.option-price { color:var(--accent-pale) }
+@media (min-width:1180px) { .options-title p { white-space:nowrap; font-size:12.5px } }
+
+/* Hyrox method: Team card truly occupies the left column, no dead lower-left area */
+.hyrox-bg { animation:none !important; transition:none !important; transform:none !important }
+.hyrox-method-top {
+  display:grid;
+  grid-template-columns:minmax(290px,.72fr) minmax(0,1.28fr);
+  grid-template-rows:auto 1fr;
+  grid-template-areas:"copy interactive" "proof interactive";
+  gap:18px 32px;
+  align-items:stretch;
+}
+.hyrox-method-copy { grid-area:copy }
+.hyrox-interactive {
+  grid-area:interactive;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto 304px;
+  gap:14px;
+  min-width:0;
+}
+.hyrox-pillars { grid-row:1; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px }
+.hyrox-pillar {
+  height:86px;
+  min-height:86px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:16px 18px;
+}
+.hyrox-pillar small {
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.14em;
+  color:rgba(174,190,255,.82);
+}
+.hyrox-pillar strong {
+  margin-top:9px;
+  font-size:23px;
+  font-weight:500;
+  line-height:.98;
+  letter-spacing:-.02em;
+}
+.hyrox-pillar.active small { color:rgba(255,255,255,.82) }
+.hyrox-pillar.active strong { color:#fff; font-weight:600 }
+.hyrox-pillar-panels { grid-column:1; grid-row:2; margin-top:0; min-height:0; height:304px }
+.hyrox-panel { height:100%; min-height:0; padding:22px; overflow:hidden }
+.hyrox-proof { grid-area:proof; max-width:none; height:auto; margin:0; align-self:end }
+.hyrox-proof-card {
+  min-height:205px;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  background:linear-gradient(155deg,rgba(28,56,123,.94),rgba(15,35,77,.97));
+  border-color:rgba(112,139,255,.32);
+  box-shadow:0 18px 44px rgba(8,20,55,.22);
+}
+.hyrox-proof-card p { color:rgba(239,243,255,.78) }
+.hyrox-proof-kicker { color:#B8C6FF }
+.hyrox-proof-link { margin-top:auto; padding-top:16px; color:#fff; font-weight:800 }
+.hyrox-proof-link svg { width:16px; height:16px; color:#fff; stroke-width:3.25 }
+
+/* Compact footer: tagline + navigation share one desktop line */
+.ft-in { padding:30px 40px 28px }
+footer .ft-top {
+  display:block;
+  padding:22px 30px;
+  border:1px solid rgba(144,167,255,.15);
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(10,22,42,.70),rgba(7,20,38,.92));
+}
+.ft-logo { font-size:22px; letter-spacing:.12em }
+.ft-meta-row { margin-top:9px; display:flex; align-items:center; justify-content:space-between; gap:30px }
+.ft-tagline { max-width:none; margin:0; color:rgba(231,236,255,.64); white-space:nowrap }
+.ft-links { display:flex; flex-wrap:nowrap; align-items:center; justify-content:flex-end; gap:25px; color:rgba(231,236,255,.68) }
+.ft-links > * { min-height:0; display:inline-flex; align-items:center; white-space:nowrap }
+.ft-links a:hover { color:#fff }
+.ft-bot { padding-top:14px; justify-content:flex-start; align-items:center; gap:18px; flex-wrap:wrap }
+.ft-legal { display:flex; gap:16px }
+@media (max-width:1050px) {
+  .ft-meta-row { align-items:flex-start }
+  .ft-tagline { white-space:normal; max-width:440px }
+  .ft-links { flex-wrap:wrap; gap:10px 20px }
+}
+
+
+@media (min-width:769px) {
+  /* Softer visual hand-off from the hero into the coach section. */
+  .coach-section {
+    background:linear-gradient(180deg,#050B16 0%,rgba(6,16,33,.98) 16%,rgba(9,27,61,.72) 58%,rgba(7,16,31,.22) 100%);
+  }
+
+  /* Slightly narrower Hyrox stats with calmer internal alignment. */
+  .hyrox-stats { max-width:690px }
+  .hyrox-stat { padding-left:28px; padding-right:22px; align-items:flex-start; text-align:left }
+
+  /* The recommended price tile behaves as a second disclosure control. */
+  .price-card .price-overview > div:last-child { cursor:pointer }
+  .price-card .price-overview > div:last-child:focus-visible {
+    outline:2px solid rgba(7,21,45,.82);
+    outline-offset:3px;
+  }
+}
+
+/* Keep the active Hyrox detail exactly as wide as the two category tiles above it. */
+.hyrox-interactive { grid-template-columns:minmax(0,1fr) }
+.hyrox-pillar-panels { grid-column:1 }
+
+/* Mobile accordion copy is intentionally separate from desktop blocks */
+.pricing-mobile-more { display:none }
+
+@media (max-width:768px) {
+  /* Hyrox method remains contained and readable */
+  .hyrox-method { overflow:hidden }
+  .hyrox-method-top {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto auto;
+    grid-template-areas:"copy" "interactive" "proof";
+    gap:18px;
+  }
+  .hyrox-method-copy,.hyrox-interactive,.hyrox-pillars,.hyrox-pillar-panels,.hyrox-panel,.hyrox-proof { width:100%; max-width:100%; min-width:0 }
+  .hyrox-interactive { display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto; gap:12px }
+  .hyrox-pillars { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px }
+  .hyrox-pillar { width:100%; height:auto; min-height:78px; padding:13px 14px }
+  .hyrox-pillar small { font-size:9px; letter-spacing:.12em }
+  .hyrox-pillar strong { margin-top:7px; font-size:18px; font-weight:500; line-height:1 }
+  .hyrox-pillar.active strong { font-weight:600 }
+  .hyrox-pillar-panels { grid-column:1; height:auto; min-height:0; margin-top:0 }
+  .hyrox-panel { height:auto; min-height:0; overflow:visible }
+  .hyrox-proof { height:auto; margin:0 }
+  .hyrox-proof-card { min-height:0; height:auto; padding:19px }
+
+  /* Compact animated HYROX stats on mobile */
+  .hyrox-stats { margin-top:26px; min-height:0; border-radius:22px }
+  .hyrox-stat { min-height:90px; padding:10px 6px }
+  .hyrox-stat .stat-n { font-size:clamp(27px,8vw,36px) }
+  .hyrox-stat .stat-l { margin-top:3px; font-size:7.5px; line-height:1.25; letter-spacing:.11em }
+
+  /* Light price cards; recommended tile is a deep athletic blue */
+  .price-mobile-item {
+    background:linear-gradient(155deg,var(--price-light) 0%,var(--price-light-2) 100%);
+    border-color:rgba(122,148,225,.58);
+    color:var(--price-ink);
+    box-shadow:0 12px 34px rgba(0,0,0,.18);
+  }
+  .price-mobile-item[open] { border-color:rgba(75,108,213,.72) }
+  .price-mobile-item summary::before { display:none !important; content:none !important }
+  .price-mobile-item summary::after { color:#2448CF }
+  .pm-kicker-row {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:5px 7px;
+    margin-bottom:6px;
+  }
+  .pm-kicker-row .pm-kicker { margin-bottom:0 }
+  .pm-pack-recommended {
+    position:relative;
+    display:flex !important;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding:18px 12px 24px;
+    overflow:hidden;
+  }
+  .pm-pack-recommended .pm-pack-label {
+    display:block;
+    white-space:nowrap;
+    font-size:8px;
+    font-weight:700;
+    line-height:1.06;
+    letter-spacing:.065em;
+    color:rgba(225,233,255,.62) !important;
+  }
+  .pm-pack-recommended .pm-pack-label .nowrap {
+    display:block;
+    margin-top:2px;
+    font-size:11.4px;
+    font-weight:800;
+    line-height:1;
+    letter-spacing:.07em;
+    color:rgba(249,251,255,.94) !important;
+  }
+  .pm-pack-recommended > strong { margin-top:8px; font-size:32px; line-height:.92 }
+  .pm-pack-recommended > small { margin-top:4px; font-size:8.6px; line-height:1.1 }
+  .pm-recommended-badge {
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:18px;
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    background:#163A83;
+    border:0;
+    border-radius:0 0 17px 17px;
+    color:rgba(232,238,255,.60) !important;
+    font-size:5.7px !important;
+    font-weight:700;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    white-space:nowrap;
+  }
+  .pm-kicker { color:#3156D9 }
+  .pm-title,.pm-entry strong { color:var(--price-ink) }
+  .pm-entry { color:rgba(7,21,45,.58) }
+  .pm-pack {
+    margin-right:1px;
+    height:126px;
+    min-height:126px;
+    box-sizing:border-box;
+    padding:12px 12px;
+    border:1px solid rgba(16,48,134,.26);
+    border-radius:18px;
+    background:linear-gradient(145deg,var(--price-feature),var(--price-feature-2));
+    text-align:left;
+  }
+  .pm-pack .pm-pack-label { color:rgba(230,236,255,.78); line-height:1.17; font-size:7.6px; letter-spacing:.075em }
+  .pm-pack strong { margin-top:7px; color:#fff; font-weight:600 }
+  .pm-pack small { color:rgba(235,240,255,.76) }
+  .price-mobile-item summary {
+    min-height:158px;
+    grid-template-columns:minmax(0,1fr) 124px;
+    gap:10px;
+    padding:14px 38px 14px 15px;
+  }
+  .pm-main { padding-right:0 }
+  .pm-title { font-size:18.5px; line-height:1.03 }
+  .pm-pack {
+    width:124px;
+    min-height:116px;
+    box-sizing:border-box;
+    align-self:center;
+  }
+  .pm-pack .pm-pack-label { font-size:7.2px; line-height:1.16 }
+  .pm-pack strong { font-size:28px; line-height:.96 }
+  .pm-pack small { margin-top:5px; font-size:8px; line-height:1.18 }
+  .pm-pack-recommended .pm-pack-label { font-size:8px; line-height:1.06; letter-spacing:.065em }
+  .pm-pack-recommended .pm-pack-label .nowrap { font-size:11.4px; line-height:1; letter-spacing:.07em }
+  .pm-pack-recommended > strong { margin-top:8px; font-size:32px; line-height:.92 }
+  .pm-pack-recommended > small { margin-top:4px; font-size:8.6px; line-height:1.1 }
+  .pm-body { background:rgba(255,255,255,.18); border-top-color:rgba(32,58,128,.14) }
+  .pm-row { background:rgba(255,255,255,.22); border-color:rgba(32,58,128,.13) }
+  .pm-row span { color:rgba(7,21,45,.64) }
+  .pm-row strong { color:var(--price-ink) }
+  .pm-row.featured { background:rgba(23,59,150,.11); border-color:rgba(23,59,150,.26) }
+  .pm-row.featured strong { color:#173B96 }
+  .pm-value-note { color:rgba(7,21,45,.62) }
+  .pm-cta { color:#1739B8 }
+  .pm-note { color:rgba(222,231,255,.58) }
+
+  /* Restore the three requested mobile accordions */
+  .pack-value,.options-block,.pricing-referral-note { display:none }
+  .pricing-mobile-more {
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .mobile-more-card {
+    overflow:hidden;
+    border:1px solid rgba(144,167,255,.16);
+    border-radius:24px;
+    background:linear-gradient(180deg,rgba(10,27,54,.92),rgba(6,18,36,.98));
+    box-shadow:0 12px 32px rgba(0,0,0,.14);
+  }
+  .mobile-more-card summary {
+    position:relative;
+    min-height:64px;
+    padding:17px 50px 17px 18px;
+    display:flex;
+    align-items:center;
+    list-style:none;
+    cursor:pointer;
+    font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+    font-size:21px;
+    font-weight:600;
+    line-height:1.05;
+    color:var(--fg);
+  }
+  .mobile-more-card summary::-webkit-details-marker { display:none }
+  .mobile-more-card summary::after {
+    content:'+';
+    position:absolute;
+    right:17px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--accent-pale);
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    font-weight:500;
+  }
+  .mobile-more-card[open] summary::after { content:'×' }
+  .mobile-more-body { padding:0 18px 18px; border-top:1px solid rgba(169,185,255,.09); color:rgba(231,236,255,.70) }
+  .mobile-more-intro { padding:13px 0 4px; font-size:11.5px; line-height:1.55; color:rgba(231,236,255,.64) }
+  .mobile-pack-list { margin-top:6px }
+  .mobile-pack-row { padding:11px 0; border-top:1px solid rgba(169,185,255,.08) }
+  .mobile-pack-row strong { display:block; font-size:11.5px; color:var(--fg) }
+  .mobile-pack-row span { display:block; margin-top:3px; font-size:10.5px; line-height:1.45; color:rgba(231,236,255,.62) }
+  .mobile-option { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:13px 0; border-bottom:1px solid rgba(169,185,255,.08) }
+  .mobile-option:last-child { border-bottom:0 }
+  .mobile-option > span { min-width:0 }
+  .mobile-option > span > strong { display:block; max-width:none; font-size:11.5px; line-height:1.3; text-align:left; white-space:normal; color:var(--fg) }
+  .mobile-option > span > small { display:block; margin-top:3px; font-size:10px; line-height:1.4; text-align:left; color:rgba(231,236,255,.56) }
+  .mobile-option b { align-self:center; color:var(--accent-pale); font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif; font-size:20px; font-weight:600; white-space:nowrap }
+  .mobile-option b small { font-family:'Inter',sans-serif; font-size:7.5px; letter-spacing:.08em; text-transform:uppercase }
+  .mobile-referral-body { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:start; gap:9px; padding-top:15px }
+  .mobile-referral-body strong { color:var(--accent-pale); white-space:nowrap; font-size:15px; line-height:1.45 }
+  .mobile-referral-body p { margin:0; font-size:10px; line-height:1.45; color:rgba(231,236,255,.65) }
+
+  /* Footer remains secondary on mobile */
+  .ft-in { padding:20px 20px 18px }
+  footer .ft-top { padding:14px 15px; border-radius:20px }
+  .ft-logo { font-size:17px; letter-spacing:.09em }
+  .ft-meta-row { display:block; margin-top:7px }
+  .ft-tagline { margin:0; max-width:none; white-space:normal; font-size:10.5px; line-height:1.45; color:rgba(231,236,255,.54) }
+  .ft-links { margin-top:9px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 12px; font-size:8.5px; letter-spacing:.10em; color:rgba(231,236,255,.48) }
+  .ft-links > * { min-height:0; padding:6px 0; border-top:1px solid rgba(169,185,255,.07); white-space:normal }
+  .ft-links svg { width:11px; height:11px }
+  .ft-bot { padding-top:9px; flex-direction:row; align-items:center; justify-content:flex-start; gap:8px 10px; flex-wrap:wrap; font-size:8.4px; line-height:1.25; color:rgba(231,236,255,.46) }
+  .ft-legal { gap:8px; flex-wrap:nowrap }
+  .ft-legal-link { font-size:8.4px; white-space:nowrap }
+}
+@media (max-width:360px) {
+  .hyrox-pillars { grid-template-columns:repeat(2,minmax(0,1fr)) }
+  .hyrox-pillar { min-height:74px; padding:11px 10px }
+  .hyrox-pillar strong { font-size:17px }
+}
+
+
+
+
+
+/* Final mobile price-tile optical alignment */
+@media (max-width:768px) {
+  .pm-pack-recommended {
+    padding-top:23px;
+    padding-bottom:24px;
+  }
+  .pm-pack-recommended .pm-pack-label {
+    transform:translateY(1px);
+  }
+  .pm-pack-recommended > strong {
+    margin-top:10px;
+  }
+  .pm-pack-recommended > small {
+    margin-top:5px;
+  }
+  .pm-pack-quote > strong {
+    font-size:27px;
+    line-height:.94;
+    letter-spacing:-.025em;
+  }
+  .price-mobile-item summary {
+    grid-template-columns:minmax(0,1fr) 122px;
+    padding-right:42px;
+  }
+  .pm-pack {
+    width:122px;
+  }
+  .price-mobile-item summary::after {
+    right:6px;
+  }
+}
 </style>
 <!-- Vercel Web Analytics -->
 <script>
@@ -1933,16 +3148,16 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="hero-content">
     <div class="hero-badge">
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-      <span class="hero-badge-full">Coaching personnalisé Paris · En ligne</span>
-      <span class="hero-badge-mobile">Paris · En ligne</span>
+      <span class="hero-badge-full">Coaching personnalisé à Paris &amp; en ligne</span>
+      <span class="hero-badge-mobile">Paris &amp; en ligne</span>
     </div>
     <h1 id="hero-title">
       Éveille ton<br class="hero-mobile-break"/> corps,<br/>
-      <span class="lime">éveille ton<br class="hero-mobile-break"/> potentiel.</span>
+      <span class="accent">éveille ton<br class="hero-mobile-break"/> potentiel.</span>
     </h1>
     <p class="hero-sub">Un accompagnement structuré et sur mesure pour transformer ton corps, développer tes capacités physiques ou préparer une compétition.</p>
     <div class="hero-ctas">
-      <a href="#contact" class="btn-lime">
+      <a href="#contact" class="btn-accent">
         Parlons-en
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -1967,8 +3182,8 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       <div class="s-label">Le coach</div>
       <div class="coach-name reveal" aria-hidden="true" style="transition-delay:.07s">Benjamin.</div>
       <div class="coach-bio reveal" style="transition-delay:.14s">
-        <p><strong class="coach-bio-lead">Coach sportif diplômé d'État basé à Paris.</strong> <span class="coach-bio-story">Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</span></p>
-        <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
+        <p><strong class="coach-bio-lead">Coach sportif diplômé d'État basé à Paris.</strong> <span class="coach-bio-story">Passionné de sport depuis tout petit, j'ai choisi d'en faire mon métier il y a plus de 4 ans. J'accompagne des profils très différents : transformation physique, amélioration du bien-être et de la santé, préparation à une compétition, principalement en HYROX, du débutant au confirmé.</span></p>
+        <p>Mon objectif est simple : t'aider à progresser durablement avec une méthode adaptée à ton niveau, ton emploi du temps et tes objectifs.</p>
       </div>
       <div class="coach-trust reveal" style="transition-delay:.22s">
         <div class="trust-badge">
@@ -1999,11 +3214,19 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="testi-header reveal">
       <div>
         <div class="s-label">Résultats</div>
-        <h2 class="s-h2">La preuve<br/><span class="lime">par les faits.</span></h2>
+        <h2 class="s-h2">La preuve<br/><span class="accent">par les faits.</span></h2>
       </div>
     </div>
     <div class="testi-viewport reveal" style="transition-delay:.1s" aria-live="off">
-      <div class="testi-track" id="testiTrack"></div>
+      <button class="testi-nav testi-nav-prev" id="testiPrev" type="button" aria-label="Avis précédents">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="testi-window">
+        <div class="testi-track" id="testiTrack"></div>
+      </div>
+      <button class="testi-nav testi-nav-next" id="testiNext" type="button" aria-label="Avis suivants">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
     </div>
     <!-- Carrousel mobile — swipe manuel + autoscroll déclenché à l'arrivée dans la section -->
     <div class="testi-marquee" id="testiMarquee" aria-label="Avis clients" aria-live="off" tabindex="0">
@@ -2018,7 +3241,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="svc-in">
     <div class="svc-hdr reveal">
       <div class="s-label">Pour qui ?</div>
-      <h2 class="s-h2">Un coaching <span class="lime">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
+      <h2 class="s-h2">Un coaching <span class="accent">sur mesure</span>,<br/>pour des objectifs concrets.</h2>
       <p>Chaque corps est différent.<br/>Le programme s'adapte à ta morphologie, ton niveau, tes contraintes physiques et ton objectif.</p>
     </div>
 
@@ -2072,7 +3295,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           </svg>
         </div>
         <div class="svc-title">Hyrox</div>
-        <p class="svc-desc">Préparation spécifique aux 8 stations, développement de tes capacités physiques et mentales pour la compétition, à travers une programmation faite sur mesure en fonction de ton planning.</p>
+        <p class="svc-desc">Préparation aux 8 stations, développement physique et mental, avec une programmation sur mesure adaptée à ton planning.</p>
       </div>
 
       <div class="svc-card" data-type="reprise">
@@ -2115,10 +3338,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="pricing-head reveal">
       <div>
         <div class="s-label">Coachings &amp; tarifs</div>
-        <h2 class="s-h2">Choisis l'accompagnement<br/><span class="lime">qui te correspond.</span></h2>
-        <p>En salle à Paris ou à distance, choisis un cadre adapté à ton objectif, ton niveau et ton rythme.</p>
+        <h2 class="s-h2">Choisis l'accompagnement<br/><span class="accent">qui te correspond.</span></h2>
+        <p>En salle à Paris ou à distance,<br/>choisis un cadre adapté à ton objectif, ton niveau et ton rythme.</p>
       </div>
     </div>
+
 
     <div class="pricing-switch reveal" role="tablist" aria-label="Choisir le type de coaching">
       <button class="price-tab active" id="price-tab-presentiel" type="button" data-price-tab="presentiel" role="tab" aria-selected="true" aria-controls="price-panel-presentiel" tabindex="0">
@@ -2136,20 +3360,20 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">En salle à Paris</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">En salle à Paris</span></span>
                 <span class="pm-title">Renfo / perte de poids / prise de masse</span>
                 <span class="pm-entry"><strong>60 €</strong> · séance ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></span>
+              <span class="pm-pack pm-pack-recommended"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong><small>≈44 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Séance</span><strong>60 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>160 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
               </div>
-              <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec le coach.</p>
+              <p class="pm-value-note">Pensé pour construire une progression : bilan, programmation personnalisée, supports et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
             </div>
           </details>
@@ -2157,20 +3381,20 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">En salle à Paris</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">En salle à Paris</span></span>
                 <span class="pm-title">Prépa Hyrox / 10 km / semi-marathon</span>
                 <span class="pm-entry"><strong>60 €</strong> · séance ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>Recommandé</span><strong>450 €</strong><small>/ 8 semaines · ≈56 €/sem.</small></span>
+              <span class="pm-pack pm-pack-recommended"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>450 €</strong><small>≈56 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Séance</span><strong>60 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>160 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>200 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>450 €</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>450 €</strong></div>
               </div>
-              <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec le coach.</p>
+              <p class="pm-value-note">Pour préparer une échéance : programmation complète, test VMA, fiches explicatives et 3 séances avec le coach.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
             </div>
           </details>
@@ -2178,34 +3402,33 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">En salle à Paris</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">En salle à Paris</span></span>
                 <span class="pm-title">Prépa physique sport spécifique</span>
                 <span class="pm-entry"><strong>70 €</strong> · séance ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>adapté au sport et au volume</small></span>
+              <span class="pm-pack pm-pack-recommended pm-pack-quote"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong><small>adapté au sport et au volume</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Séance</span><strong>70 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>200 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>240 €</strong></div>
-                <div class="pm-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>Sur devis</strong></div>
               </div>
               <p class="pm-value-note">Le contenu dépend du sport, du niveau, des contraintes physiques et du calendrier.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Prépa physique sport spécifique">Construire mon devis →</a>
             </div>
           </details>
-
-          <p class="pm-note">Les packs complets présentiel incluent 3 séances avec le coach. Les packs 3 et 4 restent disponibles pour commencer plus progressivement.</p>
+          <p class="pm-note">Le Pack Programme 8 semaines en présentiel comprend 3 séances avec le coach. Les packs 3 et 4 restent disponibles pour commencer plus progressivement.</p>
         </section>
         <div class="price-cards">
           <article class="price-card">
-            <div class="price-kicker">En salle à Paris</div>
+            <div class="price-card-head"><div class="price-kicker">En salle à Paris</div></div>
             <h3 class="price-title">Renfo / perte de poids / prise de masse</h3>
             <p class="price-desc">Pour transformer ton physique, reprendre une base solide ou progresser en musculation.</p>
             <div class="price-overview">
               <div><span>Séance ponctuelle</span><strong>60 €</strong></div>
-              <div><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2216,19 +3439,19 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Séance à l'unité</span><strong>60 €</strong></div>
                 <div class="price-row"><span>Pack 3 séances</span><strong>160 €</strong></div>
                 <div class="price-row"><span>Pack 4 séances</span><strong>200 €</strong></div>
-                <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Transformation">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
-            <div class="price-kicker">En salle à Paris</div>
+            <div class="price-card-head"><div class="price-kicker">En salle à Paris</div></div>
             <h3 class="price-title">Prépa Hyrox / 10 km / semi-marathon</h3>
             <p class="price-desc">Pour préparer une échéance avec un travail structuré sur l'endurance, la force et le pacing.</p>
             <div class="price-overview">
               <div><span>Séance ponctuelle</span><strong>60 €</strong></div>
-              <div><span>Recommandé · 8 semaines</span><strong>450 €</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>450 €</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2239,19 +3462,19 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Séance à l'unité</span><strong>60 €</strong></div>
                 <div class="price-row"><span>Pack 3 séances</span><strong>160 €</strong></div>
                 <div class="price-row"><span>Pack 4 séances</span><strong>200 €</strong></div>
-                <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>450 €</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>450 €</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Hyrox">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
-            <div class="price-kicker">En salle à Paris</div>
+            <div class="price-card-head"><div class="price-kicker">En salle à Paris</div></div>
             <h3 class="price-title">Prépa physique sport spécifique</h3>
             <p class="price-desc">Pour adapter la préparation à ton sport, ton niveau, tes contraintes et ton calendrier.</p>
             <div class="price-overview">
               <div><span>Séance ponctuelle</span><strong>70 €</strong></div>
-              <div><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2262,13 +3485,13 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Séance à l'unité</span><strong>70 €</strong></div>
                 <div class="price-row"><span>Pack 3 séances</span><strong>200 €</strong></div>
                 <div class="price-row"><span>Pack 4 séances</span><strong>240 €</strong></div>
-                <div class="price-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Prépa physique sport spécifique">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
         </div>
-        <p class="pricing-note">Les packs 8 semaines en présentiel incluent 3 séances avec Benjamin.</p>
+        <p class="pricing-note">Le Pack Programme 8 semaines en présentiel comprend 3 séances avec le coach.</p>
       </div>
 
       <div class="pricing-panel" id="price-panel-online" data-price-panel="online" role="tabpanel" aria-labelledby="price-tab-online" hidden>
@@ -2277,18 +3500,18 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">À distance</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">À distance</span></span>
                 <span class="pm-title">Renfo / perte de poids / prise de masse</span>
                 <span class="pm-entry"><strong>40 €</strong> · fiche ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>Recommandé</span><strong>250 €</strong><small>/ 8 semaines · ≈31 €/sem.</small></span>
+              <span class="pm-pack pm-pack-recommended"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>250 €</strong><small>≈31 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Fiche</span><strong>40 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>110 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>140 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>250 €</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>250 €</strong></div>
               </div>
               <p class="pm-value-note">Programmation personnalisée, fiches de séances et supports pour t’entraîner à distance avec un cadre clair.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Transformation">Demander ce coaching →</a>
@@ -2298,20 +3521,20 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">À distance</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">À distance</span></span>
                 <span class="pm-title">Prépa Hyrox / 10 km / semi-marathon</span>
                 <span class="pm-entry"><strong>50 €</strong> · fiche ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>Recommandé</span><strong>350 €</strong><small>/ 8 semaines · ≈44 €/sem.</small></span>
+              <span class="pm-pack pm-pack-recommended"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong><small>≈44 €/sem.</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Fiche</span><strong>50 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>130 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>170 €</strong></div>
-                <div class="pm-row featured"><span>Recommandé ·<span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>350 €</strong></div>
               </div>
-              <p class="pm-value-note">Préparation à distance orientée performance : programmation complète, fiches et vidéos explicatives pour les mouvements complexes.</p>
+              <p class="pm-value-note">Préparation à distance orientée performance : programmation complète, fiches et vidéos explicatives pour les mouvements complexes.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Hyrox">Lancer ma prépa →</a>
             </div>
           </details>
@@ -2319,34 +3542,33 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <details class="price-mobile-item">
             <summary>
               <span class="pm-main">
-                <span class="pm-kicker">À distance</span>
+                <span class="pm-kicker-row"><span class="pm-kicker">À distance</span></span>
                 <span class="pm-title">Prépa physique sport spécifique</span>
                 <span class="pm-entry"><strong>55 €</strong> · fiche ponctuelle</span>
               </span>
-              <span class="pm-pack"><span>8 semaines</span><strong>Sur devis</strong><small>selon objectif et contraintes</small></span>
+              <span class="pm-pack pm-pack-recommended pm-pack-quote"><span class="pm-recommended-badge">Recommandé</span><span class="pm-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong><small>selon objectif et contraintes</small></span>
             </summary>
             <div class="pm-body">
               <div class="pm-grid">
                 <div class="pm-row"><span>Fiche</span><strong>55 €</strong></div>
                 <div class="pm-row"><span>Pack 3</span><strong>150 €</strong></div>
                 <div class="pm-row"><span>Pack 4</span><strong>190 €</strong></div>
-                <div class="pm-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+                <div class="pm-row featured"><span>Pack Programme <span class="pm-duration">8 semaines</span></span><strong>Sur devis</strong></div>
               </div>
               <p class="pm-value-note">Programmation construite selon le sport pratiqué, le niveau actuel et les objectifs.</p>
               <a href="#contact" class="pm-cta" data-contact-objective="Prépa physique sport spécifique">Construire mon devis →</a>
             </div>
           </details>
-
           <p class="pm-note">À distance, les offres à l’unité et les packs 3/4 correspondent à des fiches de séance, pas à des séances en présentiel.</p>
         </section>
         <div class="price-cards">
           <article class="price-card">
-            <div class="price-kicker">À distance</div>
+            <div class="price-card-head"><div class="price-kicker">À distance</div></div>
             <h3 class="price-title">Renfo / perte de poids / prise de masse</h3>
             <p class="price-desc">Des fiches et une programmation pour t'entraîner à distance avec un cadre clair.</p>
             <div class="price-overview">
               <div><span>Fiche ponctuelle</span><strong>40 €</strong></div>
-              <div><span>Recommandé · 8 semaines</span><strong>250 €</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>250 €</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2357,19 +3579,19 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Fiche à l'unité</span><strong>40 €</strong></div>
                 <div class="price-row"><span>Pack 3 fiches</span><strong>110 €</strong></div>
                 <div class="price-row"><span>Pack 4 fiches</span><strong>140 €</strong></div>
-                <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>250 €</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>250 €</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Transformation">Demander ce coaching <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
-            <div class="price-kicker">À distance</div>
+            <div class="price-card-head"><div class="price-kicker">À distance</div></div>
             <h3 class="price-title">Prépa Hyrox / 10 km / semi-marathon</h3>
             <p class="price-desc">Une préparation à distance orientée performance, progressivité et autonomie.</p>
             <div class="price-overview">
               <div><span>Fiche ponctuelle</span><strong>50 €</strong></div>
-              <div><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2380,19 +3602,19 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Fiche à l'unité</span><strong>50 €</strong></div>
                 <div class="price-row"><span>Pack 3 fiches</span><strong>130 €</strong></div>
                 <div class="price-row"><span>Pack 4 fiches</span><strong>170 €</strong></div>
-                <div class="price-row featured"><span>Recommandé · 8 semaines</span><strong>350 €</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>350 €</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Hyrox">Lancer ma prépa <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           </article>
 
           <article class="price-card">
-            <div class="price-kicker">À distance</div>
+            <div class="price-card-head"><div class="price-kicker">À distance</div></div>
             <h3 class="price-title">Prépa physique sport spécifique</h3>
             <p class="price-desc">Une programmation construite autour du sport pratiqué et de tes objectifs.</p>
             <div class="price-overview">
               <div><span>Fiche ponctuelle</span><strong>55 €</strong></div>
-              <div><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+              <div class="price-pack-recommended"><span class="price-recommended-badge">Recommandé</span><span class="price-pack-label">Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong></div>
             </div>
             <button class="price-details-toggle" type="button" aria-expanded="false">
               <span>Voir les détails</span>
@@ -2403,7 +3625,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
                 <div class="price-row"><span>Fiche à l'unité</span><strong>55 €</strong></div>
                 <div class="price-row"><span>Pack 3 fiches</span><strong>150 €</strong></div>
                 <div class="price-row"><span>Pack 4 fiches</span><strong>190 €</strong></div>
-                <div class="price-row featured"><span>Accompagnement 8 semaines</span><strong>Sur devis</strong></div>
+                <div class="price-row featured"><span>Pack Programme<br/><span class="nowrap">8 semaines</span></span><strong>Sur devis</strong></div>
               </div>
             </div>
             <a href="#contact" class="price-link" data-contact-objective="Prépa physique sport spécifique">Construire mon devis <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
@@ -2413,17 +3635,49 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
 
+    <div class="pricing-mobile-more reveal" aria-label="Informations complémentaires sur le pack 8 semaines">
+      <details class="mobile-more-card">
+        <summary><span>Ce que couvre le pack <span class="nowrap">8 semaines</span> :</span></summary>
+        <div class="mobile-more-body">
+          <p class="mobile-more-intro">Le Pack Programme 8 semaines n'est pas une séance isolée : c'est une progression complète autour d'un objectif, avec une programmation pensée pour ton niveau, ton rythme et tes contraintes.</p>
+          <div class="mobile-pack-list">
+            <div class="mobile-pack-row"><strong>Bilan initial</strong><span>Objectif, niveau, passé sportif, contraintes et disponibilités.</span></div>
+            <div class="mobile-pack-row"><strong>Programmation</strong><span>Programme personnalisé sur 8 semaines, adapté à ta progression.</span></div>
+            <div class="mobile-pack-row"><strong>Fiches &amp; supports</strong><span>Consignes, exercices et supports pour gagner en autonomie.</span></div>
+            <div class="mobile-pack-row"><strong id="mobilePackFormatTitle">Séances incluses</strong><span id="mobilePackFormatText">3 séances avec le coach incluses dans le programme en présentiel.</span></div>
+            <div class="mobile-pack-row" id="mobilePackTestsRow"><strong>Tests physiques</strong><span>Selon l'objectif : test VMA, repères de course, stations Hyrox.</span></div>
+            <div class="mobile-pack-row"><strong>Suivi</strong><span>Le suivi hebdomadaire s'ajoute en option selon le besoin.</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="mobile-more-card">
+        <summary>Options de suivi</summary>
+        <div class="mobile-more-body">
+          <p class="mobile-more-intro">À ajouter au Pack Programme 8 semaines si tu veux plus de points de contact, d'ajustements ou de cadre entre les séances.</p>
+          <div class="mobile-option"><span><strong>Suivi visio hebdomadaire</strong><small>1 visio de 30 minutes par semaine.</small></span><b>120 € <small>/ 8 semaines</small></b></div>
+          <div class="mobile-option"><span><strong>Suivi WhatsApp ou Instagram 7j/7</strong><small>Accompagnement régulier pendant le programme.</small></span><b>200 € <small>/ 8 semaines</small></b></div>
+          <div class="mobile-option"><span><strong>Repères alimentaires généraux</strong><small>Conseils simples autour de l'objectif sportif.</small></span><b>80 € <small>/ 8 semaines</small></b></div>
+        </div>
+      </details>
+
+      <details class="mobile-more-card">
+        <summary>Offre parrainage</summary>
+        <div class="mobile-more-body mobile-referral-body"><strong>-20 %</strong><p>sur ton prochain Pack Programme 8 semaines si tu parraines une nouvelle personne.</p></div>
+      </details>
+    </div>
+
     <div class="pack-value reveal" style="transition-delay:.12s">
       <div class="pack-copy">
-        <h3>Ce que couvre le pack 8 semaines.</h3>
-        <p>Le pack 8 semaines n'est pas une séance isolée : c'est une progression complète autour d'un objectif, avec une programmation pensée pour ton niveau, ton rythme et tes contraintes.</p>
+        <h3>Ce que couvre le pack <span class="nowrap">8 semaines</span> :</h3>
+        <p>Le Pack Programme 8 semaines n'est pas une séance isolée : c'est une progression complète autour d'un objectif, avec une programmation pensée pour ton niveau, ton rythme et tes contraintes.</p>
       </div>
       <div class="pack-grid">
         <div class="pack-item"><strong>Bilan initial</strong><span>Objectif, niveau, passé sportif, contraintes et disponibilités.</span></div>
         <div class="pack-item"><strong>Programmation</strong><span>Programme personnalisé sur 8 semaines, adapté à ta progression.</span></div>
         <div class="pack-item"><strong>Fiches &amp; supports</strong><span>Consignes, exercices et supports pour gagner en autonomie.</span></div>
-        <div class="pack-item"><strong id="packFormatTitle">Séances incluses</strong><span id="packFormatText">3 séances avec le coach incluses dans les packs en présentiel.</span></div>
-        <div class="pack-item"><strong>Tests physiques</strong><span>Selon l'objectif : test VMA, repères de course, stations Hyrox.</span></div>
+        <div class="pack-item"><strong id="packFormatTitle">Séances incluses</strong><span id="packFormatText">3 séances avec le coach incluses dans le programme en présentiel.</span></div>
+        <div class="pack-item" id="packTestsRow"><strong>Tests physiques</strong><span>Selon l'objectif : test VMA, repères de course, stations Hyrox.</span></div>
         <div class="pack-item"><strong>Suivi</strong><span>Le suivi hebdomadaire s'ajoute en option selon le besoin.</span></div>
       </div>
     </div>
@@ -2431,7 +3685,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     <div class="options-block reveal" style="transition-delay:.16s">
       <div class="options-title">
         <h3>Options de suivi</h3>
-        <p>À ajouter aux packs 8 semaines si tu veux plus de points de contact, d'ajustements ou de cadre entre les séances.</p>
+        <p>À ajouter au Pack Programme 8 semaines si tu veux plus de points de contact, d'ajustements ou de cadre entre les séances.</p>
       </div>
       <div class="options-grid">
         <article class="option-card">
@@ -2452,48 +3706,17 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
 
-    <div class="pricing-mobile-more reveal" style="transition-delay:.12s">
-      <details class="mobile-more-card">
-        <summary>Que comprend le pack 8 semaines ?</summary>
-        <div class="mobile-more-body">
-          <ul>
-            <li>Bilan initial et objectif.</li>
-            <li>Programmation personnalisée sur 8 semaines.</li>
-            <li>Fiches et supports explicatifs.</li>
-            <li id="mobilePackFormatLine">3 séances avec le coach pour les packs en présentiel.</li>
-            <li>Tests physiques selon l'objectif.</li>
-            <li>Suivi hebdomadaire disponible en option.</li>
-          </ul>
-        </div>
-      </details>
-      <details class="mobile-more-card">
-        <summary>Options de suivi</summary>
-        <div class="mobile-more-body">
-          <div class="mobile-option"><span>Visio hebdomadaire</span><strong>120 € / 8 semaines</strong></div>
-          <div class="mobile-option"><span>WhatsApp ou Instagram 7j/7</span><strong>200 € / 8 semaines</strong></div>
-          <div class="mobile-option"><span>Repères alimentaires généraux</span><strong>80 € / 8 semaines</strong></div>
-          <p>Les repères alimentaires restent des conseils généraux. Ils ne remplacent pas un suivi médical ou diététique.</p>
-        </div>
-      </details>
-      <details class="mobile-more-card">
-        <summary>Offre parrainage</summary>
-        <div class="mobile-more-body">
-          <p><strong>-20 %</strong> sur ton prochain pack 8 semaines si tu parraines une nouvelle personne.</p>
-        </div>
-      </details>
-    </div>
-
     <div class="pricing-referral-note reveal" style="transition-delay:.18s">
       <span>Offre parrainage</span>
-      <p><strong>-20 %</strong> sur ton prochain pack 8 semaines si tu parraines une nouvelle personne.</p>
+      <p><strong>-20 %</strong> sur ton prochain Pack Programme 8 semaines si tu parraines une nouvelle personne.</p>
     </div>
 
     <div class="pricing-cta reveal" style="transition-delay:.2s">
-      <a href="#contact" class="btn-lime">
+      <a href="#contact" class="btn-accent">
         Parler de mon objectif
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
-      <p>Tu ne sais pas quoi choisir ? Explique ton objectif dans le formulaire : Benjamin te dira quel format est le plus logique.</p>
+      <p>Tu ne sais pas quoi choisir ? Explique ton objectif dans le formulaire :<br/>Je te dirai quel format est le plus logique.</p>
     </div>
   </div>
 </section>
@@ -2505,7 +3728,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="hyrox-c">
     <div class="hyrox-label reveal">Prépa Hyrox</div>
     <h2 class="reveal" style="transition-delay:.08s">
-      Prépa Hyrox.<br/><span class="lime">Construis ton moteur.</span>
+      Prépa Hyrox.<br/><span class="accent">Construis ton moteur.</span>
     </h2>
     <p class="hyrox-desc reveal" style="transition-delay:.16s">
       Une préparation structurée pour courir fort sous fatigue, mieux gérer les transitions et construire les qualités qui comptent vraiment le jour J.
@@ -2525,7 +3748,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
       </div>
     </div>
     <div class="reveal" style="transition-delay:.5s;margin-top:44px">
-      <a href="#contact" class="btn-lime" data-contact-objective="Hyrox">
+      <a href="#contact" class="btn-accent" data-contact-objective="Hyrox">
         Lancer ma prépa
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -2539,74 +3762,24 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
           <p>Un travail structuré pour développer le bon moteur, renforcer les qualités utiles aux stations et apprendre à tenir l'effort sous fatigue.</p>
         </div>
 
-        <div>
+        <div class="hyrox-proof">
+          <div class="hyrox-proof-card"><span class="hyrox-proof-kicker">La team Hyrox</span><p>Des athlètes accompagnés sur des objectifs Hyrox à Paris, Lyon, Bordeaux ou Barcelone, avec une programmation adaptée au niveau, au calendrier et aux contraintes de chacun.</p><a href="https://www.instagram.com/stories/highlights/18091668283850423/" target="_blank" rel="noopener noreferrer" class="hyrox-proof-link">Suivre la team sur Instagram<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.25"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+        </div>
+
+        <div class="hyrox-interactive">
           <div class="hyrox-pillars" id="hyroxPillars" role="tablist" aria-label="Les piliers d'une bonne préparation Hyrox">
-            <button class="hyrox-pillar active" type="button" data-hyrox-pillar="0" role="tab" aria-selected="true">
-              <small>01</small>
-              <strong>Endurance fondamentale</strong>
-            </button>
-            <button class="hyrox-pillar" type="button" data-hyrox-pillar="1" role="tab" aria-selected="false">
-              <small>02</small>
-              <strong>Travail au seuil</strong>
-            </button>
-            <button class="hyrox-pillar" type="button" data-hyrox-pillar="2" role="tab" aria-selected="false">
-              <small>03</small>
-              <strong>Renforcement spécifique</strong>
-            </button>
-            <button class="hyrox-pillar" type="button" data-hyrox-pillar="3" role="tab" aria-selected="false">
-              <small>04</small>
-              <strong>Mise en situation</strong>
-            </button>
+            <button class="hyrox-pillar active" type="button" data-hyrox-pillar="0" role="tab" aria-selected="true"><small>01</small><strong>Endurance fondamentale</strong></button>
+            <button class="hyrox-pillar" type="button" data-hyrox-pillar="1" role="tab" aria-selected="false"><small>02</small><strong>Travail au seuil</strong></button>
+            <button class="hyrox-pillar" type="button" data-hyrox-pillar="2" role="tab" aria-selected="false"><small>03</small><strong>Renforcement spécifique</strong></button>
+            <button class="hyrox-pillar" type="button" data-hyrox-pillar="3" role="tab" aria-selected="false"><small>04</small><strong>Mise en situation</strong></button>
           </div>
 
           <div class="hyrox-pillar-panels">
-            <div class="hyrox-panel active" data-hyrox-panel="0" role="tabpanel">
-              <div class="hyrox-panel-head">
-                <span class="hyrox-panel-step">01 · Base aérobie</span>
-                <h4>Endurance fondamentale</h4>
-              </div>
-              <p>Construire une base solide avec des sorties maîtrisées pour mieux récupérer, encaisser le volume et garder de la fraîcheur sur l'ensemble de la préparation.</p>
-              <div class="hyrox-panel-note">Objectif : optimiser l'utilisation de l'oxygène et poser des bases durables avant de monter en intensité.</div>
-            </div>
-
-            <div class="hyrox-panel" data-hyrox-panel="1" role="tabpanel" hidden>
-              <div class="hyrox-panel-head">
-                <span class="hyrox-panel-step">02 · Intensité ciblée</span>
-                <h4>Travail au seuil</h4>
-              </div>
-              <p>Développer ta capacité à soutenir une intensité élevée grâce à des séances de VMA, de fractionné et de travail au seuil adaptées à ton niveau.</p>
-              <div class="hyrox-panel-note">Objectif : mieux tenir l'effort, repousser le point de rupture et rester performant sans exploser.</div>
-            </div>
-
-            <div class="hyrox-panel" data-hyrox-panel="2" role="tabpanel" hidden>
-              <div class="hyrox-panel-head">
-                <span class="hyrox-panel-step">03 · Force utile</span>
-                <h4>Renforcement spécifique</h4>
-              </div>
-              <p>Renforcer les qualités qui comptent vraiment sur les stations : jambes, gainage, grip, poussée, tirage et résistance musculaire.</p>
-              <div class="hyrox-panel-note">Objectif : rendre ton corps plus solide, plus économe et plus fiable au fil de la course.</div>
-            </div>
-
-            <div class="hyrox-panel" data-hyrox-panel="3" role="tabpanel" hidden>
-              <div class="hyrox-panel-head">
-                <span class="hyrox-panel-step">04 · Jour J</span>
-                <h4>Mise en situation</h4>
-              </div>
-              <p>Apprendre à enchaîner course et stations, gérer les transitions, le pacing et l'effort sous fatigue pour être plus serein le jour de la compétition.</p>
-              <div class="hyrox-panel-note">Objectif : transformer ta préparation en automatismes utiles quand la fatigue commence à monter.</div>
-            </div>
+            <div class="hyrox-panel active" data-hyrox-panel="0" role="tabpanel"><div class="hyrox-panel-head"><span class="hyrox-panel-step">01 · Base aérobie</span><h4>Endurance fondamentale</h4></div><p>Construire une base solide avec des sorties maîtrisées pour mieux récupérer, encaisser le volume et garder de la fraîcheur sur l'ensemble de la préparation.</p><div class="hyrox-panel-note">Objectif : optimiser l'utilisation de l'oxygène et poser des bases durables avant de monter en intensité.</div></div>
+            <div class="hyrox-panel" data-hyrox-panel="1" role="tabpanel" hidden><div class="hyrox-panel-head"><span class="hyrox-panel-step">02 · Intensité ciblée</span><h4>Travail au seuil</h4></div><p>Développer ta capacité à soutenir une intensité élevée grâce à des séances de VMA, de fractionné et de travail au seuil adaptées à ton niveau.</p><div class="hyrox-panel-note">Objectif : mieux tenir l'effort, repousser le point de rupture et rester performant sans exploser.</div></div>
+            <div class="hyrox-panel" data-hyrox-panel="2" role="tabpanel" hidden><div class="hyrox-panel-head"><span class="hyrox-panel-step">03 · Force utile</span><h4>Renforcement spécifique</h4></div><p>Renforcer les qualités qui comptent vraiment sur les stations : jambes, gainage, grip, poussée, tirage et résistance musculaire.</p><div class="hyrox-panel-note">Objectif : rendre ton corps plus solide, plus économe et plus fiable au fil de la course.</div></div>
+            <div class="hyrox-panel" data-hyrox-panel="3" role="tabpanel" hidden><div class="hyrox-panel-head"><span class="hyrox-panel-step">04 · Jour J</span><h4>Mise en situation</h4></div><p>Apprendre à enchaîner course et stations, gérer les transitions, le pacing et l'effort sous fatigue pour être plus serein le jour de la compétition.</p><div class="hyrox-panel-note">Objectif : transformer ta préparation en automatismes utiles quand la fatigue commence à monter.</div></div>
           </div>
-        </div>
-      </div>
-
-      <div class="hyrox-proof">
-        <div class="hyrox-proof-card">
-          <span class="hyrox-proof-kicker">La team Hyrox</span>
-          <p>Des athlètes accompagnés sur des objectifs Hyrox à Paris, Lyon, Bordeaux ou Barcelone, avec une programmation adaptée au niveau, au calendrier et aux contraintes de chacun.</p>
-          <a href="https://www.instagram.com/stories/highlights/18091668283850423/" target="_blank" rel="noopener noreferrer" class="hyrox-proof-link">
-            Suivre la team sur Instagram
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
         </div>
       </div>
     </div>
@@ -2629,11 +3802,11 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
     </div>
 
     <!--
-      VIDÉOS INSTAGRAM : MP4 H.264 + posters WebP.
+      VIDÉOS INSTAGRAM : MP4 H.264 + posters WebP.
       Les quatre cartes sont réordonnées en JavaScript pour créer la boucle,
       sans dupliquer les éléments dans le DOM.
     -->
-    <section class="ig-grid reveal" id="igGrid" style="transition-delay:.06s" aria-label="Vidéos Instagram — défilement automatique et manuel">
+    <section class="ig-grid reveal" id="igGrid" style="transition-delay:.06s" aria-label="Vidéos Instagram · défilement automatique et manuel">
 
       <!-- Reel 1 -->
       <a href="https://www.instagram.com/stories/highlights/18316792771099812/" target="_blank" rel="noopener noreferrer" class="ig-item" aria-label="Voir la première vidéo de Ben Fit Paris sur Instagram">
@@ -2681,12 +3854,18 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="ct-in">
     <div class="ct-l reveal">
       <div class="s-label">Contact</div>
-      <h2>Parlons de<br/>ton <span class="lime">objectif.</span></h2>
+      <h2>Parlons de<br/>ton <span class="accent">objectif.</span></h2>
       <p class="ct-intro">Un message court, une réponse rapide. On définit ensemble l'accompagnement le plus adapté à ta situation.</p>
-      <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ct-ig">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-        @ben_fitparis
-      </a>
+      <div class="ct-social-actions" aria-label="Contacter le coach sur Instagram">
+        <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ct-ig">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          @ben_fitparis
+        </a>
+        <a href="https://ig.me/m/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ct-ig ct-ig-dm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+          MP Instagram
+        </a>
+      </div>
     </div>
     <div class="reveal" style="transition-delay:.1s">
       <form class="ct-form" id="contactForm"
@@ -2728,23 +3907,23 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 <footer>
   <div class="ft-in">
     <div class="ft-top">
-      <div>
-        <div class="ft-logo">BENFITPARIS<span>.</span>FR</div>
-        <p class="ft-tagline">Coach sportif à Paris et en ligne. Transformation · Force · Hyrox.</p>
-      </div>
-      <div class="ft-links">
-        <span>Paris</span>
-        <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ig-lnk">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          Instagram
-        </a>
-        <a href="#tarifs">Coachings &amp; tarifs</a>
-        <a href="#contact">Contact</a>
+      <div class="ft-logo">BENFITPARIS<span>.</span>FR</div>
+      <div class="ft-meta-row">
+        <p class="ft-tagline">Coach sportif diplômé à Paris et en ligne. Transformation · Force · Hyrox.</p>
+        <div class="ft-links">
+          <span>Paris</span>
+          <a href="https://www.instagram.com/ben_fitparis" target="_blank" rel="noopener noreferrer" class="ig-lnk">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="#tarifs">Coachings &amp; tarifs</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </div>
     <div class="ft-bot">
       <span>© 2026 Ben Fit Paris. Tous droits réservés.</span>
-      <div style="display:flex;gap:16px">
+      <div class="ft-legal">
         <button type="button" class="ft-legal-link" onclick="openLegal(event)">Mentions légales</button>
         <button type="button" class="ft-legal-link" onclick="openLegal(event)">Confidentialité</button>
       </div>
@@ -2755,7 +3934,7 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
 
 <!-- Floating group — bas-droit -->
 <div class="float-group" id="floatGroup">
-  <!-- Back to top — desktop uniquement -->
+  <!-- Back to top — desktop, et fin de page sur mobile -->
   <button class="float-top" id="floatTop" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Remonter en haut">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
   </button>
@@ -2772,17 +3951,17 @@ footer { background:var(--surface); border-top:1px solid rgba(255,255,255,.07) }
   <div class="legal-panel" tabindex="-1">
     <button type="button" class="legal-close" onclick="closeLegal()" aria-label="Fermer les mentions légales"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <h2 id="legalTitle">Mentions légales &amp; Confidentialité</h2>
-    <p>Dernière mise à jour : Juillet 2026</p>
+    <p>Dernière mise à jour : Juillet 2026</p>
     <h3>Éditeur</h3>
-    <p><strong>Ben Fit Paris</strong> — Benjamin, coach sportif indépendant · Paris<br/>Contact : via le formulaire du site.</p>
+    <p><strong>Ben Fit Paris</strong> · Benjamin, coach sportif indépendant · Paris<br/>Contact : via le formulaire du site.</p>
     <h3>Carte professionnelle</h3>
-    <p>Carte professionnelle d’éducateur sportif n°07523ED0040 — Préfecture de Paris — valable jusqu’au 22/01/2028.</p>
+    <p>Carte professionnelle d’éducateur sportif n°07523ED0040 · Préfecture de Paris · valable jusqu’au 22/01/2028.</p>
     <h3>Hébergement</h3>
-    <p><strong>Vercel Inc.</strong> — San Francisco, CA · <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
+    <p><strong>Vercel Inc.</strong> · San Francisco, CA · <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></p>
     <h3>Propriété intellectuelle</h3>
     <p>Tous les contenus sont la propriété de Ben Fit Paris. Reproduction interdite sans autorisation.</p>
     <h3>Données personnelles &amp; RGPD</h3>
-    <p>Données collectées via le formulaire : prénom, email, téléphone facultatif, objectif et message. Elles sont utilisées uniquement pour répondre aux demandes et sont traitées techniquement par Formspree. Pour exercer tes droits ou demander leur suppression, utilise le formulaire de contact du site.</p>
+    <p>Données collectées via le formulaire : prénom, email, téléphone facultatif, objectif et message. Elles sont utilisées uniquement pour répondre aux demandes et sont traitées techniquement par Formspree. Pour exercer tes droits ou demander leur suppression, utilise le formulaire de contact du site.</p>
     <h3>Cookies</h3>
     <p>Aucun cookie de traçage ou publicitaire.</p>
   </div>
@@ -2850,12 +4029,17 @@ const TESTIMONIALS = [
   {
     name: "Fanny",
     role: "Transformation",
-    text: "Tu as vraiment changé mon quotidien : mon physique, mon mental, mon mode de vie et ma discipline. Merci pour ton écoute, ton adaptation permanente, ta bienveillance et cette première année d'accompagnement 🚀❤️"
+    text: "Tu as vraiment changé mon quotidien : mon physique, mon mental, mon mode de vie et ma discipline. Merci pour ton écoute, ton adaptation permanente, ta bienveillance et cette première année d'accompagnement 🚀❤️"
+  },
+  {
+    name: "Gauthier",
+    role: "Transformation",
+    text: "Excellent coach ! Pro, sympa et très investi. Son suivi me fait vraiment progresser en force et en masse malgré une contrainte physique, avec des exercices adaptés. On se sent à l'aise et ça se voit qu'il est passionné par son métier ! 💪"
   },
   {
     name: "Enza",
     role: "Transformation",
-    text: "Tu prends toujours le temps pour chacun : conseiller, corriger, motiver. Grâce à toi, j'ai énormément progressé physiquement et mentalement, toujours dans la bonne humeur, avec énergie, patience et professionnalisme 🥹"
+    text: "Tu prends toujours le temps pour chacun : conseiller, corriger, motiver. Grâce à toi, j'ai énormément progressé physiquement et mentalement, toujours dans la bonne humeur, avec énergie, patience et professionnalisme 🥹"
   },
   {
     name: "Laura",
@@ -2889,6 +4073,8 @@ let   slide    = 0;
 const maxSlide = Math.max(0, ordered.length - VISIBLE);
 
 const track = document.getElementById('testiTrack');
+const testiPrev = document.getElementById('testiPrev');
+const testiNext = document.getElementById('testiNext');
 if (track) {
   track.innerHTML = ordered.map(t => `<div class="testi-card-wrap">${buildCard(t)}</div>`).join('');
   track.querySelectorAll('.testi-card-wrap').forEach(el => {
@@ -3007,13 +4193,27 @@ if (marqueeEl && testimonialSection && mobileTestimonialCards.length) {
   mobileTestimonialObserver.observe(testimonialSection);
 }
 
+function updateTestimonialNav() {
+  const disabled = maxSlide < 1;
+  if (testiPrev) testiPrev.disabled = disabled;
+  if (testiNext) testiNext.disabled = disabled;
+}
+
 function goSlide(idx) {
-  slide = Math.max(0, Math.min(idx, maxSlide));
+  if (maxSlide < 1) slide = 0;
+  else if (idx < 0) slide = maxSlide;
+  else if (idx > maxSlide) slide = 0;
+  else slide = idx;
   if (track) {
     const w = track.querySelector('.testi-card-wrap');
     if (w) track.style.transform = `translateX(-${slide * (w.offsetWidth + 16)}px)`;
   }
+  updateTestimonialNav();
 }
+
+if (testiPrev) { testiPrev.addEventListener('click', () => { pauseDesktopTestimonials(); goSlide(slide - 1); resumeDesktopTestimonialsSoon(); }); }
+if (testiNext) { testiNext.addEventListener('click', () => { pauseDesktopTestimonials(); goSlide(slide + 1); resumeDesktopTestimonialsSoon(); }); }
+updateTestimonialNav();
 
 /* TÉMOIGNAGES DESKTOP — avance douce, pause à l'interaction */
 const desktopTestimonialViewport = document.querySelector('.testi-viewport');
@@ -3195,7 +4395,7 @@ if (svcGrid) svcObs.observe(svcGrid);
 
 /* ─────────────────────────────────────────────────
    HYROX — Compteurs animés en boucle séquentielle
-   1) 8 stations → 2) 8 km → 3) 12+ semaines → boucle
+   1) 8 stations → 2) 8 km → 3) 100 % adapté à ton niveau → boucle
 ───────────────────────────────────────────────── */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -3286,29 +4486,41 @@ const priceDetailBtns = [...document.querySelectorAll('.price-details-toggle')];
 function setPackDetailsMode(mode) {
   const packFormatTitle = document.getElementById('packFormatTitle');
   const packFormatText = document.getElementById('packFormatText');
-  const mobilePackFormatLine = document.getElementById('mobilePackFormatLine');
+  const mobilePackFormatTitle = document.getElementById('mobilePackFormatTitle');
+  const mobilePackFormatText = document.getElementById('mobilePackFormatText');
+  const packTestsRow = document.getElementById('packTestsRow');
+  const mobilePackTestsRow = document.getElementById('mobilePackTestsRow');
 
-  if (mode === 'online') {
+  const isOnline = mode === 'online';
+  if (packTestsRow) packTestsRow.hidden = isOnline;
+  if (mobilePackTestsRow) mobilePackTestsRow.hidden = isOnline;
+
+  if (isOnline) {
     if (packFormatTitle) packFormatTitle.textContent = 'Vidéos explicatives';
     if (packFormatText) packFormatText.textContent = 'Vidéos explicatives pour les mouvements complexes, en complément des fiches et supports.';
-    if (mobilePackFormatLine) mobilePackFormatLine.textContent = 'Vidéos explicatives pour les mouvements complexes.';
+    if (mobilePackFormatTitle) mobilePackFormatTitle.textContent = 'Vidéos explicatives';
+    if (mobilePackFormatText) mobilePackFormatText.textContent = 'Vidéos explicatives pour les mouvements complexes, en complément des fiches et supports.';
   } else {
     if (packFormatTitle) packFormatTitle.textContent = 'Séances incluses';
-    if (packFormatText) packFormatText.textContent = '3 séances avec le coach incluses dans les packs en présentiel.';
-    if (mobilePackFormatLine) mobilePackFormatLine.textContent = '3 séances avec le coach pour les packs en présentiel.';
+    if (packFormatText) packFormatText.textContent = '3 séances avec le coach incluses dans le programme en présentiel.';
+    if (mobilePackFormatTitle) mobilePackFormatTitle.textContent = 'Séances incluses';
+    if (mobilePackFormatText) mobilePackFormatText.textContent = '3 séances avec le coach incluses dans le programme en présentiel.';
   }
 }
 
+function setPriceCardExpanded(card, expanded) {
+  if (!card) return;
+  card.classList.toggle('expanded', expanded);
+  const btn = card.querySelector('.price-details-toggle');
+  const highlightedPrice = card.querySelector('.price-overview > div:last-child');
+  btn?.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  highlightedPrice?.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  const label = btn?.querySelector('span');
+  if (label) label.textContent = expanded ? 'Masquer les détails' : 'Voir les détails';
+}
+
 function resetPriceDetails() {
-  document.querySelectorAll('.price-card.expanded').forEach(card => {
-    card.classList.remove('expanded');
-    const btn = card.querySelector('.price-details-toggle');
-    if (btn) {
-      btn.setAttribute('aria-expanded', 'false');
-      const label = btn.querySelector('span');
-      if (label) label.textContent = 'Voir les détails';
-    }
-  });
+  document.querySelectorAll('.price-card.expanded').forEach(card => setPriceCardExpanded(card, false));
 }
 
 priceTabs.forEach(tab => {
@@ -3349,10 +4561,25 @@ priceDetailBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     const card = btn.closest('.price-card');
     if (!card) return;
-    const expanded = card.classList.toggle('expanded');
-    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    const label = btn.querySelector('span');
-    if (label) label.textContent = expanded ? 'Masquer les détails' : 'Voir les détails';
+    setPriceCardExpanded(card, !card.classList.contains('expanded'));
+  });
+});
+
+/* Desktop: the highlighted 8-week price tile is also a disclosure control. */
+document.querySelectorAll('.price-card .price-overview > div:last-child').forEach(tile => {
+  const card = tile.closest('.price-card');
+  const toggle = card?.querySelector('.price-details-toggle');
+  if (!toggle) return;
+  tile.setAttribute('role', 'button');
+  tile.setAttribute('tabindex', '0');
+  tile.setAttribute('aria-label', 'Afficher ou masquer les détails de cette offre sans fermer les autres offres');
+  tile.setAttribute('aria-expanded', card?.classList.contains('expanded') ? 'true' : 'false');
+  const activate = () => toggle.click();
+  tile.addEventListener('click', activate);
+  tile.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    activate();
   });
 });
 
@@ -3454,21 +4681,26 @@ const contactFormForFloat = document.getElementById('contactForm');
 
 function syncFloatingControls() {
   const y = window.scrollY;
-  const pastHero = y > window.innerHeight * 0.75;
+  const viewportH = window.innerHeight;
+  const pageH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+  const pastHero = y > viewportH * 0.75;
+  const isMobile = window.innerWidth <= 768;
   const contactRect = contactSectionForFloat?.getBoundingClientRect();
   const footerRect = footerForFloat?.getBoundingClientRect();
-  const reachingContact = Boolean(contactRect && contactRect.top < window.innerHeight * 0.86);
-  const reachingFooter = Boolean(footerRect && footerRect.top < window.innerHeight);
+  const reachingContact = Boolean(contactRect && contactRect.top < viewportH * 0.86);
+  const reachingFooter = Boolean(footerRect && footerRect.top < viewportH);
+  const nearPageEnd = y + viewportH > pageH * 0.78;
   const formFocused = Boolean(contactFormForFloat?.contains(document.activeElement));
   const menuOpen = Boolean(navLogoMenu?.classList.contains('open'));
 
-  if (floatBtn) {
-    floatBtn.classList.toggle(
-      'show',
-      pastHero && !reachingContact && !reachingFooter && !formFocused && !menuOpen
-    );
+  const showMobileTop = isMobile && pastHero && nearPageEnd && !formFocused && !menuOpen;
+  const showMobileContact = isMobile && pastHero && !nearPageEnd && !reachingContact && !reachingFooter && !formFocused && !menuOpen;
+
+  if (floatBtn) floatBtn.classList.toggle('show', showMobileContact);
+  if (floatTop) {
+    const showDesktopTop = !isMobile && pastHero;
+    floatTop.classList.toggle('show', showDesktopTop || showMobileTop);
   }
-  if (floatTop) floatTop.classList.toggle('show', pastHero && window.innerWidth > 768);
 }
 
 /* rAF-throttlé : évite de recalculer le style à chaque event de scroll (perf) */
@@ -3552,14 +4784,14 @@ if (form) {
 
       form.reset();
       txt.textContent = 'Message envoyé ✓';
-      setFormStatus('Merci, ta demande a bien été envoyée. Benjamin te répondra rapidement.', 'success');
+      setFormStatus('Merci, ta demande a bien été envoyée. Je te répondrai rapidement.', 'success');
 
       setTimeout(() => {
         resetSubmitButton();
         setFormStatus('', '');
       }, 5000);
     } catch {
-      txt.textContent = 'Erreur — réessaie';
+      txt.textContent = 'Erreur, réessaie';
       setFormStatus('Une erreur est survenue. Réessaie dans quelques instants.', 'error');
 
       setTimeout(() => {
